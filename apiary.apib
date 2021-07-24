@@ -182,7 +182,7 @@ This method allows to search for a Person (MPI) knowing person's document number
 
 # Group Internal. IL DB
 
-### Get Declaration requests List [GET /declaration_requests{?tax_id,employee_id,legal_entity_id,status,page,page_size}]
+### Get Declaration requests List - DEPRECATED [GET /declaration_requests{?tax_id,employee_id,legal_entity_id,status,page,page_size}]
 
 Methods returns list of declaration requests by combination of patient_id, doctor_id, msp_id.
 
@@ -2805,7 +2805,7 @@ This endpoint returns all declaration requests that were created through V2 and 
     + Attributes (`Response_Collection_V2`)
         + data (array[`Declaration_Request_Short`])
 
-### Get Declaration Request by ID [GET /api/declaration_requests/{id}]
+### Get Declaration Request by ID - DEPRECATED [GET /api/declaration_requests/{id}]
 
 This endpoint shows the declaration requests which are created by V2 and V3. Due to the fact that structure of declaration request V2 is different from the structure of decl request V3 , so not all fields of decl request v3 can be displayed.
 Block `person` has optional `id`.
@@ -2860,7 +2860,7 @@ Block `person` has optional `id`.
                 + number: `+38093*****85` (string, required)
             + documents (array[`media_content`], optional)
 
-### Create Declaration Request - Will be Deprecated[POST /api/v2/declaration_requests]
+### Create Declaration Request - DEPRECATED [POST /api/v2/declaration_requests]
 
 This method is used to create Declaration Request (as part of Declaration creation process). Fields descriptions are listed in request Example view.
 
@@ -2914,7 +2914,7 @@ After sign new declaration all previously created pending (status one of the fol
             + type: unverified (string, required)
             + message: `Unverified phone number` (string, required)
 
-### Create Declaration Request V2 [POST /api/v2/declaration_requests]
+### Create Declaration Request V2 - DEPRECATED [POST /api/v2/declaration_requests]
 
 This method is used to create Declaration Request (as part of Declaration creation process) via new api. New version changes person search and adds new fields to request.
 
@@ -2969,7 +2969,7 @@ If declaration_request without field `person.id`, a new person is created. But i
 
 
 
-### Approve Declaration Request [PATCH /api/declaration_requests/{id}/actions/approve]
+### Approve Declaration Request - DEPRECATED [PATCH /api/declaration_requests/{id}/actions/approve]
 
 Use this method to approve previously created Declaration Request.
 
@@ -3021,7 +3021,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + type: request_malformed (string, required)
             + message: `This doctor has X declarations and could not sign more` (string, required)
 
-### Reject Declaration Request [PATCH /api/declaration_requests/{id}/actions/reject]
+### Reject Declaration Request - DEPRECATED[PATCH /api/declaration_requests/{id}/actions/reject]
 
 Use this method to reject previously created Declaration Request.
 
@@ -3050,7 +3050,7 @@ Use this method to reject previously created Declaration Request.
             + content: `Declaration content` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
 
-### Resend Authorization OTP on Declaration Request [POST /api/declaration_requests/{id}/actions/resend_otp]
+### Resend Authorization OTP on Declaration Request - DEPRECATED [POST /api/declaration_requests/{id}/actions/resend_otp]
 
 Use this method to resend sms on previously created Declaration Request.
 
@@ -3067,7 +3067,7 @@ Use this method to resend sms on previously created Declaration Request.
     + Attributes (Response__Process_OK)
         + data (OTP)
 
-### Sign Declaration Request [PATCH /api/declaration_requests/{id}/actions/sign]
+### Sign Declaration Request - DEPRECATED [PATCH /api/declaration_requests/{id}/actions/sign]
 
 This method is used to sign Declaration Request. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in `signed_content` property.
 All signature fields will be validated (including signer certificate authority).
@@ -3577,7 +3577,7 @@ Employee deactivation:
 
 ## Employee Requests [/api/employee_requests]
 
-### Create Employee Request [POST]
+### Create Employee Request - DEPRECATED[POST]
 
 Employee_Request consist of the three mandatory parts:
 * Person info
@@ -4104,7 +4104,7 @@ This method is used when you need to re-send SMS to a person or third person
 
 ## Legal Entities [/api/legal_entities]
 
-### Get Legal Entities [GET /api/legal_entities{?edrpou,legal_entity_id,settlement_id,type,owner_property,status,nhs_verified,page,page_size}]
+### Get Legal Entities - DEPRECATED [GET /api/legal_entities{?edrpou,legal_entity_id,settlement_id,type,owner_property,status,nhs_verified,page,page_size}]
 
 Use this method to get list of legal entities filtering by parameters.
 List consists of legal entities with parameter `is_active = true`.
@@ -4143,7 +4143,7 @@ List consists of legal entities with parameter `is_active = true`.
                     - CLOSED
                 + `nhs_verified`: false (boolean, required)
 
-### Get Legal Entity by ID [GET /api/legal_entities/{id}]
+### Get Legal Entity by ID - DEPRECATED [GET /api/legal_entities/{id}]
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -4236,7 +4236,7 @@ List consists of legal entities with parameter `is_active = true`.
                 + `client_id`: `client_id` (string, required)
                 + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
 
-### Create/Update Legal Entity [PUT]
+### Create/Update Legal Entity - DEPRECATED [PUT]
 
 Use this method to register a new Legal Entity or update existing one.
 
@@ -6379,7 +6379,7 @@ This method is used to abtain list of events with filters.
 
 ## Dummy for legal entity [/dummy/legal_entities]
 
-### Create/Update Legal Entity [PUT]
+### Create/Update Legal Entity - DEPRECATED [PUT]
 
 + Request (application/json)
 
@@ -6529,7 +6529,7 @@ This method is used to abtain list of events with filters.
 
 ## Dummy for declaration request [/dummy/declaration_requests]
 
-### Sign declaration request [PATCH /dummy/declaration_requests/{id}/actions/sign]
+### Sign declaration request - DEPRECATED [PATCH /dummy/declaration_requests/{id}/actions/sign]
 
 
 + Parameters
