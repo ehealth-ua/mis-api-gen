@@ -20,7 +20,7 @@ Project development is fully transparent, you can find it's source code on GitHu
 
 <!-- * [Reference Implementation of Hospital Information System UI](https://github.com/edenlabllc/prm.web) -->
 
-This API design in based on [Nebo #15 API Design Manifest](https://docs.apimanifest.apiary.io/).
+This API design in based on [Nebo #15 API Design Manifest](http://docs.apimanifest.apiary.io/).
 
 ## Docs Structure
 
@@ -33,7 +33,7 @@ We apply cursor based pagination..
 
 ## Autentification
 
-We use three-legged oAuth authentication, RFC..
+We use three-legged oAuth authentication, RFC.
 -->
 
 ## Context Switching for end-users
@@ -44,14 +44,10 @@ Thus you will make sure that end-user understand from which context entities are
 
 If our API returns only one work context, you are free to hide context picker.
 
-## Contribution Guidelines
-
-TODO.
-
 ## Submitting Issues
 
 To submit issues you should use [Issue Tracking Repo](https://github.com/edenlabllc/ehealth.api), issues in all other repositories are used to plan backlog and non-related issued will be closed.
-
+<!--
 # Group Internal. Master Patients Index
 
 ## Persons [/persons]
@@ -885,8 +881,8 @@ This method returns employee details by id
 This service should be used for approve/reject employee request.
 
 Available employee status transitions:
-NEW --> REJECTED (action=reject)
-NEW --> APPROVED (action=approve)
+NEW -> REJECTED (action=reject)
+NEW -> APPROVED (action=approve)
 
 Method logic described on [confluence page](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583401574/Approve+Reject+Employee+Request)
 
@@ -2265,7 +2261,7 @@ Thie WS designed to check existence of user with input tax_id
         + error (Response__Error, fixed-type)
             + type: `conflict`
             + message: `User with this tax_id already exists` (string)
-
+-->
 # Group Deprecated methods
 
 ## Declaration Requests [/api/declaration_requests]
@@ -2903,9 +2899,8 @@ Only legal entity owner can request new client secret for his own legal entity
 the below table reflects actual API endpoints for all the ehealth environments
 Env     | Host
 --------|-----
+DEV     | https://api.dev.edenlab.com.ua
 DEMO    | https://api.demo.edenlab.com.ua
-PREPROD | https://api-preprod.ehealth.gov.ua
-PROD    | https://api.ehealth.gov.ua
 
 ##oAuth [/api/oauth]
 
