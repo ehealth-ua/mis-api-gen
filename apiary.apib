@@ -7365,6 +7365,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 ## Private. Medication Request [/api/admin/medication_requests]
 ### Private. Get Medication request by ID [GET /api/admin/medication_requests/{id}]
 
+**Scopes required:** `medication_request_admin:details`, `medication_request_admin:read`
+
 + Parameters
     + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - `Medication Request identifier OR request_number`
 
@@ -7382,6 +7384,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 ### Private. Get Medication requests [GET /api/admin/medication_requests{?legal_entity_id,employee_id,person_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,page,page_size}]
 
+**Scopes required:** `medication_request_admin:read`
 
 + Parameters
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - legal entity identifier.
@@ -7416,6 +7419,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 ### Private. Get Medication Dispenses List [GET /api/admin/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
+**Scopes required:** `medication_dispense_admin:read`
+
 + Parameters
     + id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication dispense ID
     + medication_request_id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication request ID
@@ -7442,6 +7447,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
                 + include `Medication_Dispense_Response_Private`
 
 ### Private. Get Medication Dispense by ID [GET /api/admin/medication_dispenses/{id}]
+
+**Scopes required:** `medication_dispense_admin:read`
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
