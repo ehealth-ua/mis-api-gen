@@ -7028,6 +7028,15 @@ This web service returns a catalog of all active forbidden groups in eHealth.
             + (object)
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Forbidden group identifier
                 + name: `Some name` (string) - Forbidden group name
+                + `forbidden_group_codes` (array)
+                    + (object)
+                        + id: `f016a994-4826-48ae-be65-8d459a75f021` (string, required) - Forbidden group code identifier
+                        + is_active: `true` (boolean, required)
+                + `forbidden_group_services` (array)
+                    + (object)
+                        + id: `b8bc70e1-783c-4b25-a90e-0da9217d84d9` (string, required) - Forbidden group service identifier
+                        + is_active: `true` (boolean, required)
+
 
 # Group Private. Contracts
 
