@@ -6124,6 +6124,32 @@ Use this method to obtain full information of Medication request an `id`.
     + Attributes (Response_OK)
         + data (object)
             + include `Medication_Dispense_Response`
+            
+
+### Get monitoring Justifications [GET /api/cabinet/justifications]
+Use this method to get information about justification for monitoring patient's personal and medical data by NHS employees (not medical employees as doctors)
+
++ Parameters
+    + status: active (enum, optional) - Status
+      - active
+      - terminated
+    + `expires_from`: `2017-09-01` (string, optional) - date when justification expires
+    + `expires_to`: `2022-10-01` (string, optional) - date when justification expires
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array)
+            + (object)
+                + include `Justification_Response`
 
 # Group Public. Contracts
 
@@ -8656,10 +8682,6 @@ Only legal entity owner can request new client secret for his own legal entity
 + alias: `husband` (string, optional)
 + ended_at: `2020-01-10 18:23:34.217335` (string, optional) - ISO Datetime.
 
-
-
-
-
 ### `cabinet_person_response`
 + include `Person`
 + unzr: `19900101-00099` (string, optional)
@@ -8688,6 +8710,24 @@ Only legal entity owner can request new client secret for his own legal entity
             + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
             + alias: `wife` (string, optional)
 
+### `Justification_Response`
++ id: `b94893f5-b66b-4431-b023-d5b5c037caef` (string, required) - identifier of justification in the system
++ expires_at: `2021-11-10T18:23:34.217Z` (string, required) - date and time when justification expires, ISO Datetime.
++ consumer(object, required)
+    + client_id: `b94893f5-b66b-4431-b023-d5b5c037cae1` (string, required) - identifier of the client which consumed patient's data
+    + client_name: `Національна служба здоров'я України` (string, required) - client's name
++ reason: `Просмотр медичних даних пацієнта Олександрова Олександра Володимировича 12.12.2012 р.н згідно судового рішення №АБ-23234234-434` (string, required) - reason why patient's data has been monitored by consumer
++ `reason_type`(Codeable_Concept,required)
+    + coding (array, fixed-type)
+        + (Coding)
+            + system: `eHealth/justification_reason_types` (string, required)
+            + code: `default` (string, required)
+    + text: `Інше` (string, optional)
++ status: `active` (enum, required) - justification status
+    - active
+    - terminated
++ inserted_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime.
++ updated_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime.
 
 ## `Merge_Candidates`
 ### `Merge_Candidate`
