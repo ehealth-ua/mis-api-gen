@@ -114,6 +114,13 @@ Method returns only **requested** parameters and those from the search, birth pl
         + data (array)
             + (`Person_Short`)
                 + unzr: `19910819-00011` (string, optional) - the record number in the demographic register
+                + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
+                    - VERIFIED
+                    - NOT_VERIFIED
+                    - IN_REVIEW
+                    - VERIFICATION_NEEDED
+                + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
+                + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
 
 + Response 403 (application/json)
     + Attributes (Response_Error)
@@ -8973,6 +8980,13 @@ Only legal entity owner can request new client secret for his own legal entity
 + person(`Person_Short`)
     + `emergency_contact` (`Emergency_Contact`, required)
     + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
+    + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
+        - VERIFIED
+        - NOT_VERIFIED
+        - IN_REVIEW
+        - VERIFICATION_NEEDED
+    + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
+    + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
 + employee (`Employee_Declaration_Short`)
 + division (`Division_Short`)
 + `legal_entity` (MSP_Details)
@@ -9190,6 +9204,13 @@ status: `APPROVED` (string, required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone 
++ `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
+    - VERIFIED
+    - NOT_VERIFIED
+    - IN_REVIEW
+    - VERIFICATION_NEEDED
++ verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
++ deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
   
 ## Party
 ### `Party_Short`
