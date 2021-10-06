@@ -11031,7 +11031,7 @@ status: `APPROVED` (string, required)
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `medication_id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required) - `Medication (type INNM_DOSAGE) identifier`
 + `medication_qty`: 10 (number, required) - Medication quantity isuued by the doctor
-+ `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, optional) - `Medical program Identifier`
++ `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - `Medical program Identifier`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11050,7 +11050,7 @@ status: `APPROVED` (string, required)
                 + coding (array, fixed-type)
                     + (Coding)
                         + code: `activity` (string)
-+ `context`(Reference, optional, fixed-type)
++ `context`(Reference, required, fixed-type)
     + identifier (Identifier)
         + type (Codeable_Concept, required)
             + coding (array, fixed-type, required)
@@ -11111,7 +11111,7 @@ status: `APPROVED` (string, required)
 + `employee` (Employee_Minimal, required)
 + `person` (`Person_Medication_Request`)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
-+ `medical_program` (`Medical_Program_Response`, optional)
++ `medical_program` (`Medical_Program_Response`, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11130,7 +11130,7 @@ status: `APPROVED` (string, required)
                 + coding (array, fixed-type)
                     + (Coding)
                         + code: `activity` (string)
-+ `context`(Reference, optional, fixed-type)
++ `context`(Reference, required, fixed-type)
     + identifier (Identifier)
         + type (Codeable_Concept, required)
             + coding (array, fixed-type, required)
@@ -11168,7 +11168,7 @@ status: `APPROVED` (string, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `status`: `NEW` (string, required) - Medication Request status. Find available **statuses** on State Charts wiki page
-+ `medical_program` (`medical_programs_list`, optional)
++ `medical_program` (`medical_programs_list`, required)
 
 ### `Qualify_Medication_request_Request_List_program_post_data`
 + `id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string,required) - `Medical program Identifier`
@@ -11311,7 +11311,7 @@ status: `APPROVED` (string, required)
 + `employee` (Employee_Minimal, required)
 + `person` (`Person_Medication_Request`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
-+ `medical_program` (`Medical_Program_Response`, optional)
++ `medical_program` (`Medical_Program_Response`, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11330,7 +11330,7 @@ status: `APPROVED` (string, required)
                 + coding (array, fixed-type)
                     + (Coding)
                         + code: `activity` (string)
-+ `context`(Reference, optional, fixed-type)
++ `context`(Reference, required, fixed-type)
     + identifier (Identifier)
         + type (Codeable_Concept)
             + coding (array, fixed-type)
@@ -11364,7 +11364,7 @@ status: `APPROVED` (string, required)
 + `employee` (Employee_Minimal, required)
 + `person` (`Person_Medication_Request_Private`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
-+ `medical_program` (`Medical_Program_Response`, optional)
++ `medical_program` (`Medical_Program_Response`, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11383,7 +11383,7 @@ status: `APPROVED` (string, required)
                 + coding (array, fixed-type)
                     + (Coding)
                         + code: `activity` (string)
-+ `context`(Reference, optional, fixed-type)
++ `context`(Reference, required, fixed-type)
     + identifier (Identifier)
         + type (Codeable_Concept)
             + coding (array, fixed-type)
@@ -11430,7 +11430,7 @@ status: `APPROVED` (string, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `status`: `ACTIVE` (string, required) - Medication Request status. Find available **statuses** on State Charts wiki page
-+ `medical_program` (`Medical_Program_Response`, optional)
++ `medical_program` (`Medical_Program_Response`, required)
 + `reject_reason_code`: (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
     - NO_REQUEST_NEEDED
     - NO_SMS
@@ -11477,7 +11477,7 @@ status: `APPROVED` (string, required)
 + `request_number` : `0000-243P-1X53-EH38` (string) - Public medication request human readable number
 + `started_at`: `2017-08-17` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `status`: `REJECTED` (enum[string], required) - Medication Request status. Find available **statuses** on State Charts wiki page
-+ `medical_program` (`Medical_Program_Response`, optional)
++ `medical_program` (`Medical_Program_Response`, required)
 + `reject_reason`: (string, optional, nullable) - Medication request reject reason
 
 ## `Medication Dispense`
