@@ -114,14 +114,7 @@ Method returns only **requested** parameters and those from the search, birth pl
         + data (array)
             + (`Person_Short`)
                 + unzr: `19910819-00011` (string, optional) - the record number in the demographic register
-                + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
-                    - VERIFIED
-                    - NOT_VERIFIED
-                    - IN_REVIEW
-                    - VERIFICATION_NEEDED
-                + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
-                + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
-
+                
 + Response 403 (application/json)
     + Attributes (Response_Error)
         + meta (Response__Meta, fixed-type)
@@ -3395,6 +3388,13 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
     + Attributes (Response__Process_OK)
         + data (array)
             + object(`Person_Short`)
+                + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
+                    - VERIFIED
+                    - NOT_VERIFIED
+                    - IN_REVIEW
+                    - VERIFICATION_NEEDED
+                + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
+                + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
                 + merged_persons (array, required)
                     + object ()
                         + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
