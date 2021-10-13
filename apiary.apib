@@ -7046,7 +7046,7 @@ This method allows to deactivate division that provide a medical program within 
 There are public methods presented to work with a forbidden groups data. 
 
 ### Get Forbidden group list [GET /api/forbidden_groups]
-This web service returns a catalog of all active forbidden groups with active codes and active services in eHealth.
+This web service returns a catalog of all active forbidden groups in eHealth.
 
 + Parameters
     + `name`: `Some name` (string, optional) - Forbidden group name
@@ -7060,16 +7060,7 @@ This web service returns a catalog of all active forbidden groups with active co
         + data (array)
             + (object)
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Forbidden group identifier
-                + name: `Some name` (string) - Forbidden group name
-                + `forbidden_group_codes` (array)
-                    + (object)
-                        + id: `f016a994-4826-48ae-be65-8d459a75f021` (string, required) - Forbidden group code identifier
-                        + code: `G30.9` (string, required)
-                        + system: `eHealth/ICD10_AM/condition_codes` (string, required)
-                + `forbidden_group_services` (array)
-                    + (object)
-                        + id: `b8bc70e1-783c-4b25-a90e-0da9217d84d9` (string, required) - Forbidden group service identifier
-                        + service_id: `b2e4464e-609e-480c-a32c-6db4fbb04cf1` (string, required)
+                + name: `Some name` (string, required) - Forbidden group name
 
 ### Get Forbidden group details [GET /api/forbidden_groups/{id}]
 This web service returns forbidden group details filtered by ID with active codes and active services in eHealth.
