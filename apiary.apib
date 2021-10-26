@@ -3388,13 +3388,6 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
     + Attributes (Response__Process_OK)
         + data (array)
             + object(`Person_Short`)
-                + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
-                    - VERIFIED
-                    - NOT_VERIFIED
-                    - IN_REVIEW
-                    - VERIFICATION_NEEDED
-                + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
-                + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
                 + merged_persons (array, required)
                     + object ()
                         + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
@@ -3731,6 +3724,37 @@ This method is used when you need to re-send SMS to a person or third person
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + data (OTP)
+
+
+### Get Person verification [GET  /api/persons/{id}/verification]
+This method returns current person's verification status and another information about it.
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+    
++ Response 200 (application/json)
+    + Attributes (Response__Process_OK)
+        + data (object)
+            + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                - VERIFIED
+                - NOT_VERIFIED
+                - IN_REVIEW
+                - VERIFICATION_NEEDED
+            + `verification_reason`: `MANUAL` (enum, required) - how current verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+                - MANUAL
+                - AUTO
+                - INITIAL
+            + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
+
 
 ## Legal Entities [/api/legal_entities]
 
@@ -8999,13 +9023,6 @@ Only legal entity owner can request new client secret for his own legal entity
 + person(`Person_Short`)
     + `emergency_contact` (`Emergency_Contact`, required)
     + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
-    + `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
-        - VERIFIED
-        - NOT_VERIFIED
-        - IN_REVIEW
-        - VERIFICATION_NEEDED
-    + verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
-    + deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
 + employee (`Employee_Declaration_Short`)
 + division (`Division_Short`)
 + `legal_entity` (MSP_Details)
@@ -9223,13 +9240,7 @@ status: `APPROVED` (string, required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone 
-+ `verification_status`: `NOT_VERIFIED` (enum, optional, nullable) - status of person verification set by NHS
-    - VERIFIED
-    - NOT_VERIFIED
-    - IN_REVIEW
-    - VERIFICATION_NEEDED
-+ verification_comment: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description
-+ deactivates_at: `2022-02-28` (string, optional) - the date when person will be automatically deactivated because of not verified status
+
   
 ## Party
 ### `Party_Short`
