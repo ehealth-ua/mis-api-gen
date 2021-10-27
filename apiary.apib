@@ -7069,7 +7069,7 @@ This method allows to deactivate division that provide a medical program within 
 ## Group Public. Forbidden groups
 There are public methods presented to work with a forbidden groups data. 
 
-### Get Forbidden group list [GET /api/forbidden_groups]
+### Get Forbidden group list [GET /api/forbidden_groups?name=text&page=2&page_size=50]
 This web service returns a catalog of all active forbidden groups in eHealth.
 
 + Parameters
@@ -7101,6 +7101,7 @@ This web service returns forbidden group details filtered by ID with active code
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Forbidden group identifier
                 + name: `Some name` (string, requiered) - Forbidden group name
                 + creation_reason: `Some text` (string, requiered) - Forbidden group creation reason
+                + deactivation_reason: `Some text` (string) - Forbidden group deactivation reason
                 + `forbidden_group_codes` (array)
                     + (object)
                         + id: `f016a994-4826-48ae-be65-8d459a75f021` (string, required) - Forbidden group code identifier
@@ -9408,7 +9409,7 @@ status: `APPROVED` (string, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
-+ doctor (DoctorNew, optional) - `Field's name depends of employee type name`
++ doctor (DoctorNew, optional) - `Field's name depends of employee type name. Doctor -> doctor, Specialist -> specialist`
 
 ### `Employee_Update`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
