@@ -277,7 +277,7 @@ Response will contain only records that you have access to.
     + employee_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - MPI ID of a doctor.
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - MSP ID.
     + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - MSP ID.
-    + status: active (text, optional) - Search only for active or disabled declarations.
+    + status: active (string, optional) - Search only for active or disabled declarations.
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -3039,7 +3039,7 @@ Use this method to resend sms on previously created Declaration Request V3.
 
 ## Declarations [/api/declarations]
 
-### Get Declarations List [GET /api/declarations{?employee_id,legal_entity_id,status,declaration_number,page,page_size}]
+### Get Declarations List [GET /api/declarations{?employee_id,legal_entity_id,status,declaration_number,person_verification_status,page,page_size}]
 
 Use this method to obrain list of Declarations for an `empolee_id` and legal_entity_id. If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor is interested in current UI section.
 
@@ -3054,6 +3054,7 @@ Method returns shortened details, to obtain full information - get Declaration D
     + status: active (string, optional)
         + Default: active
     + reason: offline (string, optional) - filter declaration by reason
+    + person_verification_status: not_verified (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -8627,6 +8628,14 @@ Only legal entity owner can request new client secret for his own legal entity
 + last_name: Іванов (string, required)
 + second_name: Миколайович (string, optional)
 
+### `Person_Minimal_Declaration_List`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ first_name: Петро (string, required)
++ last_name: Іванов (string, required)
++ second_name: Миколайович (string, optional)
++ birth_date: 1991-08-19 (string, required)
++ person_verification_status: not_verified (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
+
 ### `Person_Minimal_Declaration_Request`
 + first_name: Петро (string, optional)
 + last_name: Іванов (string, optional)
@@ -8653,6 +8662,23 @@ Only legal entity owner can request new client secret for his own legal entity
 + phones (array[Phone], optional)
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
+
+### `Person_Short_Declaration`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ first_name: Петро (string, required)
++ last_name: Іванов (string, required)
++ second_name: Миколайович (string, optional)
++ birth_date: `1991-08-19` (string, required) - ISO Datetime.
++ gender (enum, required)
+    - FEMALE
+    - MALE
++ tax_id: 3126509816 (string, optional)
++ phones (array[Phone], optional)
++ birth_settlement: Вінниця (string, required)
++ birth_country: Україна (string, required) - країна народження
++ person_verification_status: not_verified (string, optional)
++ `emergency_contact` (Emergency_Contact, required)
++ `confidant_person` (array[Confidant_Person], optional) - Should be set if this Person is disabled, underage, etc
 
 ### `Person_Medication_Request`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -9021,9 +9047,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + start_date: `2017-03-02` (string, required)
 + end_date: `2017-03-02` (string, required)
 + signed_at: `2017-03-02T00:00:00.000Z` (string, required)
-+ person(`Person_Short`)
-    + `emergency_contact` (`Emergency_Contact`, required)
-    + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
++ person(`Person_Short_Declaration`)
 + employee (`Employee_Declaration_Short`)
 + division (`Division_Short`)
 + `legal_entity` (MSP_Details)
@@ -10418,9 +10442,8 @@ status: `APPROVED` (string, required)
     - closed
     - terminated
 + reason: `manual_employee` (string, optional)
-+ reason_description: `Згідно постанови 1 від 10.01.2017` (string, optional)
-+ person (`Person_Minimal`, required)
-    + `birth_date`: `1991-08-19` (string, required)
++ reason_description: `Згідно постанови 1 від 10.01.20171111` (string, optional)
++ person (`Person_Minimal_Declaration_List`, required)
 + `legal_entity` (`Legal_Entity_For_Declaration_Short`, required)
 + `declaration_request_id`: `74a6fae6-4207-4e03-a136-f2e70c6b0c02` (string, required)
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
