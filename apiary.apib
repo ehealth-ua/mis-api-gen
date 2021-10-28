@@ -9433,7 +9433,7 @@ status: `APPROVED` (string, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
-+ doctor (DoctorNew, optional) - `Field's name depends of employee type name. Doctor -> doctor, Specialist -> specialist`
++ doctor (DoctorNew, optional) - `Field's name depends of employee type name: Doctor -> doctor, Specialist -> specialist, Assistant -> assistant, Pharmacist -> pharmacist. Otherwise, this field is absent`
 
 ### `Employee_Update`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
