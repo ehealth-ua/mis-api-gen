@@ -3054,7 +3054,7 @@ Method returns shortened details, to obtain full information - get Declaration D
     + status: active (string, optional)
         + Default: active
     + reason: offline (string, optional) - filter declaration by reason
-    + person_verification_status: not_verified (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
+    + person_verification_status: NOT_VERIFIED (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -8634,7 +8634,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + last_name: Іванов (string, required)
 + second_name: Миколайович (string, optional)
 + birth_date: 1991-08-19 (string, required)
-+ person_verification_status: not_verified (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
++ person_verification_status: NOT_VERIFIED (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
 
 ### `Person_Minimal_Declaration_Request`
 + first_name: Петро (string, optional)
@@ -8676,7 +8676,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + phones (array[Phone], optional)
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
-+ person_verification_status: not_verified (string, optional)
++ person_verification_status: NOT_VERIFIED (string, optional)
 + `emergency_contact` (Emergency_Contact, required)
 + `confidant_person` (array[Confidant_Person], optional) - Should be set if this Person is disabled, underage, etc
 
