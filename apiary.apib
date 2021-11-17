@@ -3240,6 +3240,26 @@ Employee deactivation:
             + division (Division_Short)
                 + `legal_entity` (`Legal_Entity_Short`)
 
+### Reorganize Employee [PATCH /api/employees/{id}/actions/reorganize]
+
+This method is used to reogranize employee of legal entity with 'SEPARATING' reorganization process.
+Only employees with type DOCTOR can be reorganized.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+    + Headers
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + data (Employee_Response_Reorganized)
+            + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+            + division (Division_Short)
+            + `legal_entity` (`Legal_Entity_Short`) 
+
 ## Employee Requests [/api/employee_requests]
 
 ### Create Employee Request v2 [POST /api/v2/employee_requests]
@@ -9500,6 +9520,18 @@ status: `APPROVED` (string, required)
 + division_id: `4cffa825-8b5b-4cba-9a38-fb57733e14b2` (string, optional) - division identifier
 + `legal_entity_id`: `be3a154c-3e07-496d-9680-f22c443f5d0c` (string, required) - legal entity identifier
 + doctor (DoctorNew)
+
+### `Employee_Response_Reorganized`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
++ position: P8 (string, required) - `Dictionary POSITION`
++ start_date: `2017-03-02T10:45:16.000Z` (string, required)
++ end_date: `2018-03-02T10:45:16.000Z` (string, optional)
++ status: APPROVED (enum, required)
++ `is_active`: `true` (boolean, required)
++ `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
++ `reorganized`: `true` (boolean, required)
++ party (`Party_Response_old`)
++ doctor (DoctorNew, optional) - `Field's name depends of employee type name`
 
 ## `Legal_Entities`
 
