@@ -3286,6 +3286,42 @@ Method can be used by successor legal entity owner to obtain reorganized employe
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (array[`Employee_Short_Reorganized`])
+        
+
+### Create Employees Relation [POST /api/employees/relation]
+
+This method is used to create relations between reorganized employee and successor employee by successor legal entity owner.
+
+Only employees with the same party can be related. 
+
+As the result of employees relation:
+
+1. Employees relation record is created
+
+2. Reorganized employee declarations are updated based on successor employee speciality.
+
++ Request (application/json)
+
+    + Headers
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+    + Attributes (object)
+        + include `Employees_Relation`
+
++ Response 201 (application/json)
+    + Attributes (Response__Process_OK)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (Employees_Related)
+
++ Response 422 (application/json)
+    + Attributes (Response_Error)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: unverified (string, required)
+            + message: `Employee not found` (string, required)
 
 ## Employee Requests [/api/employee_requests]
 
@@ -9577,6 +9613,22 @@ status: `APPROVED` (string, required)
 + division (`Division_Short`)
 + `legal_entity` (`Legal_Entity_Short`)
 + doctor (DoctorNew_Short)
+
+### `Employees_Relation`
++ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - successor employee identifier
++ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` (string, required) - reorganized employee identifier
+
+### `Employees_Related`
++ id: `61859dab-5d30-4018-b989-715cfd476eeb` - employees relation identifier
++ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` - successor employee identifier
++ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` - reorganized employee identifier
++ merged_from_legal_entity (object, required)
+    + id: `a3a6b84e-7ec4-4f43-b03e-951b5ba626ef` (string, required) - reorganized legal entity identifier
+    + name: Клініка Ноунейм (string, required) - full official name of legal entity
+    + edrpou: 5432345432 (string, required) -  Unified Register of Businesses and Organizations
++ is_active: true (boolean, required) - whether relationship between employees is active
++ inserted_at: `2021-10-30 10:45` (string, required) - timestamp
++ inserted_by: `38e73216-6229-4a01-b340-35444382c847` (string, required) - user id
 
 ## `Legal_Entities`
 
