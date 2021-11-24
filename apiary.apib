@@ -5011,6 +5011,25 @@ As the result of employees relation:
             + code: 201 (number)
         + data (Employees_Related)
 
+### fe [GET /api/employees_relation{?merged_from_id,merged_to_id,page,page_size}]
+
+Use this end-point to obtain all Employees Relations of the current legal entity.
+
++ Parameters
+    + `merged_from_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional) - filter relations by reorganized employee id
+    + `merged_to_id`: `b08fbe1e-3d30-4208-a08b-cd77325021aa` (string, optional) - filter relations by successor employee id
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+    + Headers
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`Employees_Related`])
+
 # Group Public. Medical Programs
 
 ## Medical Program [/api/medical_program]
