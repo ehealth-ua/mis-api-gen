@@ -5011,7 +5011,7 @@ As the result of employees relation:
             + code: 201 (number)
         + data (Employees_Related)
 
-### fe [GET /api/employees_relation{?merged_from_id,merged_to_id,page,page_size}]
+### Get Employees Relations List [GET /api/employees_relation{?merged_from_id,merged_to_id,page,page_size}]
 
 Use this end-point to obtain all Employees Relations of the current legal entity.
 
@@ -9634,14 +9634,14 @@ status: `APPROVED` (string, required)
 
 ### `Employees_Related`
 + id: `61859dab-5d30-4018-b989-715cfd476eeb` - employees relation identifier
-+ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` - merged to employee identifier
-+ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` - merged from employee identifier
++ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` - successor employee identifier
++ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` - reorganized employee identifier
 + merged_to_legal_entity (object, required)
-    + id: `bf07cb0f-1545-42b3-bc44-3cce1428e016` (string, required) - merged_to legal entity identifier
+    + id: `bf07cb0f-1545-42b3-bc44-3cce1428e016` (string, required) - successor legal entity identifier
     + name: Клініка Оздоровлення (string, required) - full official name of legal entity
     + edrpou: 74537354 (string, required) -  Unified Register of Businesses and Organizations
 + merged_from_legal_entity (object, required)
-    + id: `a3a6b84e-7ec4-4f43-b03e-951b5ba626ef` (string, required) - merged_from legal entity identifier
+    + id: `a3a6b84e-7ec4-4f43-b03e-951b5ba626ef` (string, required) - reorganized legal entity identifier
     + name: Клініка Ноунейм (string, required) - full official name of legal entity
     + edrpou: 54323454 (string, required) -  Unified Register of Businesses and Organizations
 + is_active: true (boolean, required) - whether relationship between legal entities is active
