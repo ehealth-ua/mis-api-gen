@@ -3206,7 +3206,7 @@ Response structure differs depending on employee type:
         + data (Employee_Response)
             + division (Division_Short)
             + `legal_entity` (`Legal_Entity_Short`)
-                + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
+                + `legal_form`: 140 (string, required) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
                 + `owner_property_type`: STATE (string, required) - `Dictionary OWNER_PROPERTY_TYPE`
                 + `mis_verified`: VERIFIED, NOT_VERIFIED (enum, required)
 
@@ -9879,7 +9879,7 @@ status: `APPROVED` (string, required)
 + name: Клініка Ноунейм (string, required) - full official name of legal entity also the name to show on public sources [as map, portal etc]
 + short_name: Ноунейм (string, optional) - short name of legal entity
 + public_name: Ноунейм (string, optional)
-+ `legal_form`: 140 (string, optional) - `Dictionary LEGAL_FORM`
++ `legal_form`: 140 (string, optional) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
 + edrpou: 54323454 (string, required) -  Unified Register of Businesses and Organizations
 + kveds (array, required)
     + (object)
