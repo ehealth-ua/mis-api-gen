@@ -3185,7 +3185,7 @@ Response structure differs depending on employee type:
 * Employee info
 * User Info
 
-**For DOCTOR, SPECIALIST, ASSISTANT or PHARMACIST:**
+**For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST or MED_ADMIN:**
 
 * Person info
 * Employee info
@@ -3297,6 +3297,9 @@ Employee_Request consist of the three mandatory parts:
 * Employee info
 * User Info
 
+**MED_ADMIN:**
+* MED_ADMIN employee could have zero or one record with `speciality_officio=true` value
+
 **For DOCTOR or PHARMACIST:**
 * Doctor ot Pharmacist info
 
@@ -3315,7 +3318,6 @@ For changes to take effect employee must confirm the changes.
 Method receives signed message (pkcs7) including signed content, digital signature and signer public key.
 All signature fields will be validated (including signer certificate authority).
 Signed content MUST consists of JSON object with the `employee_request` block of [data](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/employee-requests/create-employee-request):
-
 
 + Request (application/json)
 
@@ -9529,7 +9531,7 @@ status: `APPROVED` (string, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
-+ doctor (DoctorNew, optional) - `Field's name depends of employee type name: Doctor -> doctor, Specialist -> specialist, Assistant -> assistant, Pharmacist -> pharmacist. Otherwise, this field is absent`
++ doctor (DoctorNew, optional) - `Field's name depends of employee type name: Doctor -> doctor, Specialist -> specialist, Assistant -> assistant, Pharmacist -> pharmacist, MED_ADMIN -> med_admin. Otherwise, this field is absent`
 
 ### `Employee_Update`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
@@ -10526,7 +10528,7 @@ status: `APPROVED` (string, required)
 
 ### Speciality
 + speciality: THERAPIST (string, required) - `Dictionary SPECIALITY_TYPE`
-+ speciality_officio: true (boolean, required) - speciality by position, one and only one should be true
++ speciality_officio: true (boolean, required) - основна спеціалазація, лише одна має бути true
 + level: FIRST (string, required) - `Dictionary SPECIALITY_LEVEL`
 + `qualification_type`: AWARDING (string, required) - `Dictionary SPEC_QUALIFICATION_TYPE`
 + attestation_name: Академія Богомольця (string, required) - орган що видав
