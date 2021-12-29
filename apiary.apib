@@ -11701,6 +11701,8 @@ status: `APPROVED` (string, required)
 + `dispense_details` (array, fixed, required)
     + (object)
         + include `Medication_Dispense_Detail_Request`
++ `payment_id`: 1239804 (string, optional) - receipt number for the paid medications. Sould not be submitted if medical program requires digital sign
++ `payment_amount`: 50 (number, optional) - receipt amount which was paid by patient (UAH). Sould not be submitted if medical program requires digital sign, and should be if not requires.
 
 ### `Medication_Dispense_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Dispense Response Identifier
