@@ -2772,6 +2772,8 @@ This method is used to create Declaration Request (as part of Declaration creati
 
 This method method allows you to create a declaration only for an existing person.
 
+To create declaration request based on active declaration in reorganized legal entity, `parent_declaration_id` must be passed in request.
+
 + Request (application/json)
 
     + Headers
@@ -2782,6 +2784,7 @@ This method method allows you to create a declaration only for an existing perso
     + Attributes (object)
         + include `Declaration_Request_Online`
         + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
+        + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration in reorganized legal entity
 
 + Response 201 (application/json)
     + Attributes (Response__Process_OK)
@@ -2796,6 +2799,7 @@ This method method allows you to create a declaration only for an existing perso
             + `division_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
+            + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -2805,6 +2809,7 @@ This method method allows you to create a declaration only for an existing perso
                 + type: `OTP` (enum, required)
                     - OTP
                     - OFFLINE
+                    - NA
                 + number: `+38093*****74` (string, required)
             + documents (array[`media_content`], optional)
 
@@ -2857,6 +2862,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + `division_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
+            + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -2896,6 +2902,7 @@ Use this method to reject previously created Declaration Request.
             + `division_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
+            + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -2963,6 +2970,7 @@ This endpoint returns declaration requests that were created through V2 and V3. 
             + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - MSP ID.
             + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
+            + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration  
             + status: SIGNED (enum, required)
                 - NEW
                 - APPROVED
@@ -9098,6 +9106,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + division_id : `4c9c9c6e-5230-444d-8b65-7678da1c1ab3` (string, required) - unique id of dividion
 + `legal_entity_id` : `56b8bcd7-78b8-4ff7-8a60-a48e54a6ef57` (string, required) unique id of LE
 + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
++ parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration  
 
 ### `Declaration_short`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
