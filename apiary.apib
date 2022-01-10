@@ -5631,6 +5631,29 @@ Only Medication dispenses linked to medication request id will be shown. If you 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (array[Medication_Dispense_Response])
+        
+        
+### Get Medication Request Printout Form [GET /api/medication_requests/{id}/printout_form]
+
+***Scope  medication_request:read***
+
+This method is designed to get printout form (content) by medication request id.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response__Process_OK)
+        + data (object)
+            + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
+            + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
+
 
 ## Medication Dispense [/api/medication_dispenses]
 
