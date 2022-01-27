@@ -5674,6 +5674,8 @@ Medication Dispense - Indicates that a medication product has been dispensed for
 This method is used to dispense medications to patient
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
 
+Fields `payment_amount` and `payment_id` should be submitted if medical program has setting with parameter `skip_medication_dispense_sign` = true. In this case process of medication dispense will be performed on create (w/o using digital sign)
+
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
 + Parameters
