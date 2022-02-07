@@ -5654,6 +5654,28 @@ This method is designed to get printout form (content) by medication request id.
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
 
+### Search for Medication requests [GET /api/medication_requests{?requisition,status,page,page_size}]
+
+This service must be used to discover medication requests by requisition number. If nothing found by requisition number - it will return empty list
+
+**Scopes required:** `medication_request:read`
+
++ Parameters
+    + requisition: `AX654-654T` (string, required) - A shared identifier common to all medication requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier
+    + status: active (string, optional) - The status of the medication request. Default: active
+    + page: 2 (number, optional) - Page number
+    + page_size: 50 (number,optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer mF_9.B5f-4.1JqM
+            api-key: aFBLVTZ6Z2dON1V
+
++ Response 200 (application/json)
+   + Attributes (`Response_Collection_V2`)
+        + data (array[`Medication_request_Public_Response`])
 
 ## Medication Dispense [/api/medication_dispenses]
 
