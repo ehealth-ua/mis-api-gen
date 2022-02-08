@@ -5225,97 +5225,6 @@ The method contains is_primary parameter, which indicates whether the ingredient
 
 After Medication request Request is signed it will be automatically moved to [Medication requests]().
 
-> **Important:** (Specific only for "Доступні ліки")
-> You can't create new Medication Request for medication in case there is another Medication Request with the same medication in this period (between started_at and ended_at)
-
-> **Important:** Dispense of Medications under this Medication Request is possible in period between dispense_valid_from and dispense_valid_to
-
-### Get Medication Request Requests [GET /api/medication_request_requests{?employee_id,person_id,status,intent,care_plan_id,encounter_id,page,page_size}]
-
-Use this method to obtain list of Medication request Requests an `employee_id`. If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor is interested in current UI section.
-
-Also we suggest use `employee_id` and `legal_entity_id` to make sure that end-user understands context of actions that he or she will perform.
-
-Method returns shortened details, to obtain full information - Get Medication request Request it by it's ID.
-
-+ Parameters
-    + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
-    + `person_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - person_id of a patient.
-    + `status`: `NEW` (enum, optional). Default `NEW`
-        - NEW
-        - SIGNED
-        - EXPIRED
-        - REJECTED
-    + intent: order (string, optional) - Medication request request intent
-    + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
-    + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
-    + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-+ Response 200 (application/json)
-    + Attributes (Response_OK)
-        + meta (Response__Meta)
-        + data (object)
-            + include `Medication_request_Request_Public_Response`
-
-### Get Medication Request Requests in care plan context [GET /api/care_plans/{care_plan_id}/medication_request_requests{?employee_id,person_id,status,intent,encounter_id,page,page_size}]
-
-The method returns a list of medication request requests in the context of a care plan. 
-User must have an approval on the care plan from url.
-
-Method returns shortened details, to obtain full information - Get Medication request Request it by it's ID.
-
-+ Parameters
-    + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
-    + `person_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - person_id of a patient.
-    + `status`: `NEW` (enum, optional). Default `NEW`
-        - NEW
-        - SIGNED
-        - EXPIRED
-        - REJECTED
-    + intent: order (string, optional) - Medication request request intent
-    + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
-    + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-+ Response 200 (application/json)
-    + Attributes (Response_OK)
-        + meta (Response__Meta)
-        + data (object)
-            + include `Medication_request_Request_Public_Response`
-
-### Get Medication Request Request by ID [GET /api/medication_request_requests/{id}]
-
-Use this method to obtain full information of Medication request Request an `id`.
-
-+ Parameters
-    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-+ Response 200 (application/json)
-    + Attributes (Response_OK)
-        + meta (Response__Meta)
-        + data (object)
-            + include `Medication_request_Request_Public_Response`
-
-
 ### PreQualify Medication Request Request [POST /api/medication_request_requests/prequalify]
 
 This method is used to pre-qualify data Medication request Request (possibility to give reimbursement for medication according the programs) before creating Medication request Request. Fields descriptions are listed in request Example view.
@@ -5380,6 +5289,89 @@ This method is used to create Medication request Request (as a part of Medicatio
             + type: unverified (string, required)
             + message: `Only active employee with type DOCTOR can create medication request!` (string, required)
 
+### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,person_id,episode_id,care_plan_id,encounter_id,status,intent,page,page_size}]
+
+Use this method to obtain list of Medication request Requests. Method returns shortened details, to obtain full information - [**Get medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) by it's ID.
+
++ Parameters
+    + `legal_entity_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - Unique legal entity identifier.
+    + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - Unique doctor identifier.
+    + `person_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Unique person identifier.
+    + `episode_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Unique episode identifier, look into episode in encounter.
+    + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - Unique care plan identifier.
+    + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - Unique encounter identifier.
+    + `status`: `NEW` (enum, optional) - Status of medication request request. Default `NEW`
+        - NEW
+        - SIGNED
+        - EXPIRED
+        - REJECTED
+    + intent: order (string, optional) - Medication request request intent
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Request_Public_Response`
+
+### Get Medication Request Requests in care plan context [GET /api/care_plans/{care_plan_id}/medication_request_requests{?employee_id,person_id,status,intent,encounter_id,page,page_size}]
+
+The method returns a list of medication request requests in the context of a care plan. 
+User must have an approval on the care plan from url.
+
+Method returns shortened details, to obtain full information - Get Medication request request it by it's ID.
+
++ Parameters
+    + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
+    + `person_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - person_id of a patient.
+    + `status`: `NEW` (enum, optional). Default `NEW`
+        - NEW
+        - SIGNED
+        - EXPIRED
+        - REJECTED
+    + intent: order (string, optional) - Medication request request intent
+    + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Request_Public_Response`
+
+### Get medication request requests details [GET /api/persons/{person_id}/medication_request_requests/{id}]
+
+Use this method to obtain full information of Medication request request by it's ID.
+
++ Parameters
+    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Request_Public_Response`
+
 ### Sign Medication Request Request [PATCH /api/medication_request_requests/{id}/actions/sign]
 
 This method is used to sign Medication request Request. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in `signed_content` property.
@@ -5432,6 +5424,59 @@ Use this method to reject previously created Medication request Request.
     + Attributes (Response__Process_OK)
         + meta (Response__Meta)
         + data (`Medication_request_Request_Public_Response`)
+
+### Get Medication Request Requests - Should be deprecated [GET /api/medication_request_requests{?employee_id,person_id,status,intent,care_plan_id,encounter_id,page,page_size}]
+
+Use this method to obtain list of Medication request Requests an `employee_id`. If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor is interested in current UI section.
+
+Also we suggest use `employee_id` and `legal_entity_id` to make sure that end-user understands context of actions that he or she will perform.
+
+Method returns shortened details, to obtain full information - Get Medication request Request it by it's ID.
+
++ Parameters
+    + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
+    + `person_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - person_id of a patient.
+    + `status`: `NEW` (enum, optional). Default `NEW`
+        - NEW
+        - SIGNED
+        - EXPIRED
+        - REJECTED
+    + intent: order (string, optional) - Medication request request intent
+    + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
+    + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Request_Public_Response`
+
+### Get Medication Request Request by ID - Should be deprecated [GET /api/medication_request_requests/{id}]
+
+Use this method to obtain full information of Medication request Request an `id`.
+
++ Parameters
+    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Request_Public_Response`
 
 ## Medication Request [/api/medication_requests]
 ### Qualify Medication Request by ID [POST /api/medication_requests/{id}/actions/qualify]
