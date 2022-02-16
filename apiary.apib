@@ -5040,6 +5040,56 @@ Use this end-point to obtain all Employees Relations of the current legal entity
     + Attributes (`Response_Collection_V2`)
         + data (array[`Employees_Related`])
 
+## Licenses [/api/licenses]
+
+### Get licenses [GET /api/licenses{?id,license_number,legal_entity_id,type,is_primary,page,page_size}]
+
+Use this end-point to obtain all Licenses of the legal entity specified by the `legal_entity_id`.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional)
+    + license_number: `fd12344344` (string, optional)
+    + legal_entity_id: `d8b5f374-0f3c-46e6-baf1-21d97b4c9ff5` (string, optional)
+    + type: MSP (string, optional) - Dictionary LICENSE_TYPE
+    + is_primary: true (boolean, optional) - primary or additional license flag
+    + `page`: 2 (number) - Page number.
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Response 200 (application/json)
+    + Attributes (Response_Collection_V2)
+        + data (array[`crud_licenses_get`])
+
+### Create additional license [POST /api/licenses]
+
+This method must be used to create additional licenses for legal entity (`is_primary=false`) in the system.
+
+Primary license must be added with `Create/Update Legal Entity V2` method.
+
++ Request (application/json)
+    + Attributes (`crud_licenses_post`)
+    + is_primary: false (boolean, required)
+
++ Response 201 (application/json)
+    + Attributes (Response_OK)
+        + data (`crud_licenses_get`)
+
+### Update additional license [PATCH /api/licenses/{id}]
+
+This method must be used to update additional license (`is_primary=false`) for legal entity in the system.
+
+Primary license must be updated with `Create/Update Legal Entity V2` method.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+    + Attributes (`crud_licenses_post`)
+    + is_primary: false (boolean, required)
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + data (`crud_licenses_get`)
+
 # Group Public. Medical Programs
 
 ## Medical Program [/api/medical_program]
@@ -12817,3 +12867,24 @@ status: `APPROVED` (string, required)
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
+
+## `Licenses`
+### `License`
++ type: MSP (enum, required) - License type `Dictionary LICENSE_TYPE`
++ license_number: fd123443 (string, optional)
++ issued_by: Кваліфікацйна комісія (string, required)
++ issued_date: `2022-02-28` (string, required)
++ expiry_date: `2026-02-28` (string, optional)
++ active_from_date: `2022-02-28` (string, required)
++ what_licensed: реалізація наркотичних засобів (string, optional)
++ order_no: ВА43234 (string, optional)
+
+### `crud_licenses_get`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
++ include `License`
++ legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required)    
++ is_primary: true (boolean, required)
+
+### `crud_licenses_post`
++ include `License`
++ is_primary: false (boolean, required)
