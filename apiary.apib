@@ -5059,7 +5059,7 @@ Use this end-point to obtain all Licenses of the legal entity specified by the `
     + Attributes (Response_Collection_V2)
         + data (array[`crud_licenses_get`])
 
-### Create additional license [POST /api/licenses]
+### Create license [POST /api/licenses]
 
 This method must be used to create additional licenses for legal entity (`is_primary=false`) in the system.
 
@@ -5073,7 +5073,7 @@ Primary license must be added with `Create/Update Legal Entity V2` method.
     + Attributes (Response_OK)
         + data (`crud_licenses_get`)
 
-### Update additional license [PATCH /api/licenses/{id}]
+### Update license [PATCH /api/licenses/{id}]
 
 This method must be used to update additional license (`is_primary=false`) for legal entity in the system.
 
