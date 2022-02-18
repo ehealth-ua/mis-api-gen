@@ -5847,6 +5847,9 @@ Use this method to obtain full information of Medication request an `id`.
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Public_Response`
+            + `medication_info` (object, required)
+                + include `Innm_Dosage_for_Medication_request_Responce`
+                + `medication_remaining_qty`: 10 (number, optional) - medication quantity allowed to dispense
 
 ## Medication Dispense [/api/medication_dispenses]
 
