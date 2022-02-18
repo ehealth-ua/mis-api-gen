@@ -11696,7 +11696,13 @@ status: `APPROVED` (string, required)
     + `INPATIENT` (string, required)
     + `OUTPATIENT` (string, required)
 + `medication_request_max_period_day`: 90 (number, optional) - maximum period length (in days) allowed for the Medication request with the medical program
-
++ `skip_medication_request_employee_declaration_verify`: true (boolean, required) - allows to skip verification if employee has declaration with patient to create medication request
++ `skip_medication_request_legal_entity_declaration_verify`: true (boolean, required) - allows to skip verification if employee in legal entity that has declaration with patient to create medication request
++ `multi_medication_dispense_allowed`: true (boolean, required) - check if medication request can be dispensed partially
++ `skip_medication_dispense_sign`: true (boolean, required) - check if process medication dispense should be invoked using digital sign
++ `medication_request_notification_disabled`: true (boolean, required) - check if patient should not be notified via SMS on operations with medication request (create/reject/resend)
++ `skip_contract_provision_verify`: true (boolean, required) - check if validations of Contract and Medical Program Provisions should be invoked for the medical program
++ `medication_dispense_period_day`: 90 (number, optional) - medication dispense period (in days)
 
 ### `medical_programs_list`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
