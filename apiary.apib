@@ -3248,54 +3248,6 @@ Employee deactivation:
             + division (Division_Short)
                 + `legal_entity` (`Legal_Entity_Short`)
 
-### Reorganize Employee [PATCH /api/employees/{id}/actions/reorganize]
-
-This method is used to reogranize employee of legal entity with 'SEPARATING' reorganization process.
-Only employees with type DOCTOR can be reorganized.
-
-+ Parameters
-    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-
-+ Request (application/json)
-    + Headers
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            API-key: uXhEczJ56adsfh3Ri9SUkc4en
-            
-+ Response 200 (application/json)
-    + Attributes (Response_OK)
-        + data (Employee_Response_Reorganized)
-            + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-            + division (Division_Short)
-            + `legal_entity` (`Legal_Entity_Short`) 
-
-### Get Reorganized Employees List [GET /api/employees/reorganized{?legal_entity_id,no_tax_id,tax_id,party_id,division_id,employee_type,page,page_size}]
-
-Use this end-point to obtain all Reorganized Employees of the legal entity specified by the `legal_entity_id`.
-
-Method returns shortened details (for DOCTOR - additional returns specialities information).
-
-Method can be used by successor legal entity owner to obtain reorganized employees of reorganized legal entity (in case of available legal entities relation).
-
-+ Parameters
-    + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, mandatory) - filter employees by reorganized legal_entity id
-    + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
-    + tax_id: 3015492561 (string, optional)
-    + party_id: 3015492561 (string, optional)
-    + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
-    + employee_type: DOCTOR (string, optional)
-    + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
-
-+ Request (application/json)
-
-    + Headers
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-+ Response 200 (application/json)
-    + Attributes (`Response_Collection_V2`)
-        + data (array[`Employee_Short_Reorganized`])
-        
-
 ## Employee Requests [/api/employee_requests]
 
 ### Create Employee Request v2 [POST /api/v2/employee_requests]
@@ -4989,56 +4941,6 @@ Method returns merge request details by it's ID. Depending on merge request stat
         + urgent (object, required)
             + `authentication_method_current` (array[`Authentication_Method`], required) - `Current authentication method of the master person`
             + documents (array[`media_content`], optional) - `Documents of the master person`
-
-## Employees Relation [/api/employees_relation]
-
-### Create Employees Relation [POST /api/employees_relation]
-
-This method is used to create relations between reorganized employee and successor employee by successor legal entity owner.
-
-Employees relation can be created by successor of legal entity in 'ACCESSION', 'MERGING', 'DIVIDING', 'SEPARATING' reorganization process.
-
-Only employees with the same party can be related. 
-
-As the result of employees relation:
-
-1. Employees relation record is created
-
-2. Declarations of reorganized employee are updated based on successor employee speciality.
-
-+ Request (application/json)
-
-    + Headers
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-
-    + Attributes (object)
-        + include `Employees_Relation`
-
-+ Response 201 (application/json)
-    + Attributes (Response__Process_OK)
-        + meta (Response__Meta)
-            + code: 201 (number)
-        + data (Employees_Related)
-
-### Get Employees Relations List [GET /api/employees_relation{?merged_from_id,merged_to_id,page,page_size}]
-
-Use this end-point to obtain all Employees Relations of the current legal entity.
-
-+ Parameters
-    + `merged_from_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional) - filter relations by reorganized employee id
-    + `merged_to_id`: `b08fbe1e-3d30-4208-a08b-cd77325021aa` (string, optional) - filter relations by successor employee id
-    + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
-
-+ Request (application/json)
-    + Headers
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-
-+ Response 200 (application/json)
-    + Attributes (`Response_Collection_V2`)
-        + data (array[`Employees_Related`])
 
 ## Licenses [/api/licenses]
 
@@ -9829,56 +9731,6 @@ status: `APPROVED` (string, required)
 + division_id: `4cffa825-8b5b-4cba-9a38-fb57733e14b2` (string, optional) - division identifier
 + `legal_entity_id`: `be3a154c-3e07-496d-9680-f22c443f5d0c` (string, required) - legal entity identifier
 + doctor (DoctorNew)
-
-### `Employee_Response_Reorganized`
-+ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-+ position: P8 (string, required) - `Dictionary POSITION`
-+ start_date: `2017-03-02T10:45:16.000Z` (string, required)
-+ end_date: `2018-03-02T10:45:16.000Z` (string, optional)
-+ status: APPROVED (enum, required)
-+ `is_active`: `true` (boolean, required)
-+ `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
-+ `reorganized`: `true` (boolean, required)
-+ party (`Party_Response_old`)
-+ doctor (DoctorNew, optional) - `Field's name depends of employee type name`
-
-### `Employee_Short_Reorganized`
-+ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-+ position: P1 (string, required) - `Dictionary: POSITION`
-+ `employee_type`: DOCTOR (string) - `Dictionary: EMPLOYEE_TYPE`
-+ status: APPROVED, DISMISSED (enum, required) - Employee status
-+ reorganized: true (boolean, required) - Reorganization flag
-+ start_date: `2017-03-02T10:45:16.000Z` (string, required)
-+ end_date: `2018-03-02T10:45:16.000Z` (string, optional)
-+ party (object)
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-    + no_tax_id: true (boolean, optional) - true if employee doesn't have tax_id and false otherwise
-    + include `Party_Short`
-    + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
-    + declaration_count: `0` (number) - TO BE DEPRECATED, always zero! current number of declaration with a doctor.
-+ division (`Division_Short`)
-+ `legal_entity` (`Legal_Entity_Short`)
-+ doctor (DoctorNew_Short)
-
-### `Employees_Relation`
-+ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - successor employee identifier
-+ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` (string, required) - reorganized employee identifier
-
-### `Employees_Related`
-+ id: `61859dab-5d30-4018-b989-715cfd476eeb` - employees relation identifier
-+ merged_to_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` - successor employee identifier
-+ merged_from_id: `7da71cbc-085d-4558-9e62-f9c3d05a9d85` - reorganized employee identifier
-+ merged_to_legal_entity (object, required)
-    + id: `bf07cb0f-1545-42b3-bc44-3cce1428e016` (string, required) - successor legal entity identifier
-    + name: Клініка Оздоровлення (string, required) - full official name of legal entity
-    + edrpou: 74537354 (string, required) -  Unified Register of Businesses and Organizations
-+ merged_from_legal_entity (object, required)
-    + id: `a3a6b84e-7ec4-4f43-b03e-951b5ba626ef` (string, required) - reorganized legal entity identifier
-    + name: Клініка Ноунейм (string, required) - full official name of legal entity
-    + edrpou: 54323454 (string, required) -  Unified Register of Businesses and Organizations
-+ is_active: true (boolean, required) - whether relationship between legal entities is active
-+ inserted_at: `2021-10-30 10:45` (string, required) - timestamp
-+ inserted_by: `38e73216-6229-4a01-b340-35444382c847` (string, required) - user id
 
 ## `Legal_Entities`
 
