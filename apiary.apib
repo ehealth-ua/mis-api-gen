@@ -4940,18 +4940,17 @@ Method returns merge request details by it's ID. Depending on merge request stat
             + status: APPROVED (string, required) - `status of the approved merge request`
         + urgent (object, required)
             + `authentication_method_current` (array[`Authentication_Method`], required) - `Current authentication method of the master person`
-            + documents (array[`media_content`], optional) - `Documents of the master person`
+            + documents (array[`media_content`], optional) - `Documents of the master person
 
 ## Licenses [/api/licenses]
 
-### Get licenses [GET /api/licenses{?id,license_number,legal_entity_id,type,is_primary,page,page_size}]
+### Get licenses [GET /api/licenses{?id,license_number,type,is_primary,page,page_size}]
 
-Use this end-point to obtain all Licenses of the legal entity specified by the `legal_entity_id`.
+Use this end-point to obtain all Licenses of the legal entity.
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional)
     + license_number: `fd12344344` (string, optional)
-    + legal_entity_id: `d8b5f374-0f3c-46e6-baf1-21d97b4c9ff5` (string, optional)
     + type: MSP (string, optional) - Dictionary LICENSE_TYPE
     + is_primary: true (boolean, optional) - primary or additional license flag
     + `page`: 2 (number) - Page number.
