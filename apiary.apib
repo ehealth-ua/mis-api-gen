@@ -5239,7 +5239,7 @@ This method is used to create Medication request Request (as a part of Medicatio
             + type: unverified (string, required)
             + message: `Only active employee with type DOCTOR can create medication request!` (string, required)
 
-### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,episode_id,care_plan_id,encounter_id,status,intent,page,page_size}]
+### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,episode_id,care_plan_id,activity_id,encounter_id,status,intent,page,page_size}]
 
 Use this method to obtain list of Medication request Requests. 
 Method returns shortened details, to obtain full information - [**Get medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) by it's ID.
@@ -5250,6 +5250,7 @@ Method returns shortened details, to obtain full information - [**Get medication
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - Unique doctor identifier.
     + `episode_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Unique episode identifier, look into episode in encounter.
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - Unique care plan identifier.
+    + `activity_id`: `d1e07d06-d063-4d19-b9ae-88fc1c7a8682` (string, optional) - Unique activity identifier.
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - Unique encounter identifier.
     + `status`: `NEW` (enum, optional) - Status of medication request request. Default `NEW`
         - NEW
