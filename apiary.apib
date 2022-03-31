@@ -5245,6 +5245,7 @@ Use this method to obtain list of Medication request Requests.
 Method returns shortened details, to obtain full information - [**Get medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) by it's ID.
 
 + Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
     + `legal_entity_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - Unique legal entity identifier.
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - Unique doctor identifier.
     + `episode_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Unique episode identifier, look into episode in encounter.
@@ -5308,7 +5309,8 @@ Method returns shortened details, to obtain full information - Get Medication re
 Use this method to obtain full information of Medication request request by it's ID.
 
 + Parameters
-    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
+    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id.
 
 + Request (application/json)
 
@@ -5467,6 +5469,7 @@ Use this method to obtain list of Medication request Requests.
 Method returns shortened details, to obtain full information - [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) by it's ID.
 
 + Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - legal entity identifier.
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.+ `status`: `ACTIVE` (enum, optional). Default `ACTIVE`
         - ACTIVE
@@ -5533,7 +5536,8 @@ Method returns shortened details, to obtain full information - get Medication re
 Use this method to obtain full information of Medication request by it's ID.
 
 + Parameters
-    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - `Medication Request identifier OR request_number`
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
+    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - `Medication Request identifier OR request_number`.
 
 + Request (application/json)
 
@@ -5608,15 +5612,17 @@ Use this method to resend SMS to person with medication request number & verific
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response`)
 
-### Get Medication Dispenses list by Medication Request ID [GET /api/medication_requests/{id}/dispenses{?status}]
+### Get Medication Dispenses list by Medication Request ID [GET /api/persons/{person_id}/medication_requests/{id}/dispenses{?status}]
 
 Use this method to obtain list of Medication Dispenses by doctor with medication request ID.
 
 Only Medication dispenses linked to medication request id will be shown. If you want to reduce amount of data that is going trough your application, use `status` filter and show only dispenses that Doctor is interested in.
 
 + Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
     + status: PROCESSED (string, optional) - Status
+    
 
 + Request (application/json)
 
@@ -5646,14 +5652,15 @@ Only Medication dispenses linked to medication request id will be shown. If you 
                 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
         
         
-### Get Medication Request Printout Form [GET /api/medication_requests/{id}/printout_form]
+### Get Medication Request Printout Form [GET /api/persons/{person_id}/medication_requests/{id}/printout_form]
 
 ***Scope  medication_request:details***
 
 This method is designed to get printout form (content) by medication request id.
 
 + Parameters
-    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier.
 
 + Request (application/json)
 
