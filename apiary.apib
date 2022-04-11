@@ -5886,7 +5886,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
         + data (object)
             + include `Medication_Dispense_Response`
 
-### Get Medication Dispenses List [GET /api/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
+### Get Medication dispenses by search params [GET /api/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
 + Parameters
     + id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication dispense ID
@@ -5913,7 +5913,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
             + (object)
                 + include `Medication_Dispense_Response`
 
-### Get Medication Dispense by ID [GET /api/medication_dispenses/{id}]
+### Get Medication dispense details [GET /api/medication_dispenses/{id}]
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
@@ -5929,7 +5929,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
         + data (object)
             + include `Medication_Dispense_Response`
 
-### Get Medication Dispense details [GET /api/persons/{person_id}/medication_dispenses/{id}]
+### Get Short Medication dispense details [GET /api/persons/{person_id}/medication_dispenses/{id}]
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
