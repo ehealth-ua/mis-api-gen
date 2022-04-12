@@ -5590,7 +5590,7 @@ Look at [**Dummy Reject Medication Request**](https://uaehealthapi.docs.apiary.i
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + meta (Response__Meta)
-        + data (`Medication_request_Public_Response`)
+        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
             + `rejected_at`: `2017-04-20T19:14:13Z` (string, required, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
             + `rejected_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required, nullable) - Rejected user identifier
             + `reject_reason`: `Помилка призначення. Несумісні препарати.` (string, optional, nullable) - Medication request reject reason
@@ -10916,6 +10916,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed`: true (boolean, required) - posibility to create medication request with program
 + `medication_request_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, required) - `Dictionary MEDICAL_PROGRAM_TYPE`
++ `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
@@ -11612,6 +11613,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed`: true (boolean, required) - posibility to create medication request with program
 + `medication_request_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, required) - `Dictionary MEDICAL_PROGRAM_TYPE`
++ `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
