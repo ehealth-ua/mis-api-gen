@@ -7325,6 +7325,7 @@ This method allows to get a list of medical programs already provided by the div
     + `medical_program_id`: `04d5ea65-d6e7-44f8-9eef-f0d3c1121d2b` (string, optional) - Medical program identifier
     + `division_id`: `6d07bdb0-59c0-4b54-8a90-bada3e232877` (string, optional) - Division identifier
     + `is_active`: true (boolean, optional) - Medical program provision status
+    + `msp_legal_entity_id`: `15d5ea65-d6e7-44f8-9eef-f0d3c1121d3a` (string, optional) - MSP legal entity identifier
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 500. Default: 50
 
@@ -12926,7 +12927,9 @@ status: `APPROVED` (string, required)
 
 ## Medical program provision
 ### `Medical_program_provision_request`
-+ `contract_number`: `0000-PAP5-M000` (string, required)
+- One of
+    + `contract_number`: `0000-PAP5-M000` (string, optional)
+    + `msp_legal_entity_id`: `15d5ea65-d6e7-44f8-9eef-f0d3c1121d3a` (string, optional)
 + `medical_program_id`: `04d5ea65-d6e7-44f8-9eef-f0d3c1121d2b` (string, required)
 + divisions (array[string], required)
     + `15caea3f-cac3-483c-a3da-5875eba96430`
@@ -12934,7 +12937,8 @@ status: `APPROVED` (string, required)
 
 ### `Medical_program_provision_response`
 + id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - identifier of the Medical program provision
-+ `contract_number`: `0000-PAP5-M000` (string, required) - сontract number according to which Medical program provision has been created
++ `contract_number`: `0000-PAP5-M000` (string, optional) - сontract number according to which Medical program provision has been created
++ `msp_legal_entity_id`: `15d5ea65-d6e7-44f8-9eef-f0d3c1121d3a` (string, optional) - msp legal entity according to which Medical program provision has been created
 + `medical_program_id`: `04d5ea65-d6e7-44f8-9eef-f0d3c1121d2b` (string, required) - medical program that is provided
 + `division_id`: `15caea3f-cac3-483c-a3da-5875eba96430` (string, required) - division that provide a medical program
 + `is_active`: true (boolean, required) - status of the Medical program provision
