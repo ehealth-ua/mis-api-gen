@@ -816,7 +816,7 @@ Method searches divisions by parameters and returnes division details
     + id: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, optional) - division ID
     + employee_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - employee ID
     + type: CLINIC (enum, optional) - `Dictionary DIVISION_TYPE`
-    + name: Відділення1 (string, optional) - the mane of division
+    + name: Відділення1 (string, optional) - the name of division
     + area:`Волинська` (string, optional) - the name of region where division is located
     + region: `Луцький` (string, optional) - the name of district where division is located
     + settlement: `Луцьк` (string, optional) - the name of settlement where division is located
@@ -947,6 +947,32 @@ This service returns parties.declaration_count from report DB for get employees 
 
                 + `declaration_count`: 1234 (number, required) - declaration_count for a certain party id in report DB
                 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - id of a party
+
+
+## Medical program provision [/report/medical_program_provision]
+
+### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,employee_id,type,name,area,region,settlement,legal_entity_edrpou,legal_entity_id,legal_entity_name,healthcare_service_speciality_type,healthcare_service_providing_condition,north,east,south,west,updated_at_from,updated_at_to}]
+Method searches Medical program provision by parameters and returnes it's details
+
++ Parameters
+    + id: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, optional) - provision ID
+    + `contract_number`: `0000-23H1-A412-4B32` (string, optional) - number of reimbursement contract
+    + `medical_program_id`: `a175f148-7f93-4fc2-b2ec-2d81b19a9b8a` (string, optional) - Medical program ID
+    + `medical_program_name`: `Доступні ліки` (string, optional) - the name of medical program
+    + `division_id`: `c275f148-7f93-4fc2-b2ec-2d81b19a9b8c` (string, optional) - ID of the division that provides a program
+    + `division_name`: `Аптека доброго здоров'я` (string, optional) - the name of pharmacy division
+    + `is_active`: true (boolean, optional) - Medical program provision status
+    + `msp_legal_entity_id`: `d375f148-7f93-4fc2-b2ec-2d81b19a9b9d` (string, optional) - ID of the MSP legal entity which medications are provided
+    + `msp_legal_entity_name`: `Клініка HealthyMed` (string, optional) - name of the MSP legal entity which medications are provided
+    + `msp_legal_entity_edrpou`: `43253972` (string, optional) - EDRPOU of the MSP legal entity which medications are provided
+    + page: 2 (number, optional)
+    + page_size: 50 (number, optional)
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[EntriesMedicalProgramProvisionMap], optional)
 
 # Group Internal. Media Content Storage
 
@@ -10577,10 +10603,10 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`LegalEntityMap`, required)
 
 ### LegalEntityMap
-+ name: Клініка Ноунейм (string, required)
++ name:  Заклад Ноунейм (string, required)
 + short_name: Ноунейм (string, optional)
 + public_name: Ноунейм (string, optional)
-+ type: MSP (string, required)
++ type: PRIMARY_CARE (string, required)
 + `owner_property_type`: STATE (string, required) - `Dictionary OWNER_PROPERTY_TYPE`
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
 + edrpou: 5432345432 (string, required)
@@ -10632,6 +10658,76 @@ status: `APPROVED` (string, required)
 ### Location
 + latitude: 30.1233 (number, required)
 + longitude: 50.32423 (number, required)
+
+### EntriesMedicalProgramProvisionMap
++ id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - identifier of the Medical program provision
++ contract(object, optional) - сontract according to which Medical program provision has been created
+    + id: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, required) - contract ID
+    + `contract_type`: `REIMBURSEMENT` (string, required)
+    + `start_date`: `2017-04-20` (string, required) - contract start date
+    + `end_date`: `2017-04-20` (string, required) - contract end date
+    + `contractor_legal_entity`(object, required)
+        + include (`contract_legal_entity_details`)
+    + `contractor_owner` (object, required)
+        + include (`Person_Minimal_Contract`)
+    + status: `VERIFIED` (string, required) - contract status
+    + contract_number: `0000-9EAX-XT7X-3115` (string, optional) - human readable number of contract request.
+    + is_suspended: false (boolean, required) - whether the contract is active or temporary suspended
++ `msp_legal_entity`(object, optional) - MSP legal entity for which Medical program provision has been created
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+    + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
+    + type: PRIMARY_CARE, OUTPATIENT, EMERGENCY (enum, required) - type of MSP legal entity
+    + residence_address (Address, optional, required) - address where the legal entity is physically located
+    + phones (array[Phone], required)
+    + email: email@example.com (string, required) - email to contact person in charge from legal entity
+    + website: `www.msp.com.ua` (string, optional) - legal entity website
+    + status: ACTIVE (enum, required)
+        - ACTIVE
+        - CLOSED
+        - SUSPENDED
++ medical_program(object, required) - medical program that is provided
+    + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
+    + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
+    + `medical_program_settings`: (`Medical_program_settings`, required) - some conditions for using program
+    + `medical_program_settings_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request with some settings
+    + `is_active`: `true` (boolean, required) - Is medical program active or not. True - Active; False - Inactive
+    + `medication_dispense_allowed`: true (boolean, required) - posibility to create medication dispense with program
+    + `medication_dispense_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication dispense
+    + `medication_request_allowed`: true (boolean, required) - posibility to create medication request with program
+    + `medication_request_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request
+    + `type`: `MEDICATION` (string, required) - `Dictionary MEDICAL_PROGRAM_TYPE`
+    + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
++ division(object, required) - division that provide a medical program
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+    + name: `Aдоніс` (string, required)
+    + type: DRUGSTORE, DRUGSTORE_POINT (enum, required)
+    + addresses (Address, optional)
+    + contacts (ContactInfo, optional)
+    + coordinates (Location, optional)
+    + legal_entity(object, required) - PHARMACY legal entity
+        + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+        + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
+        + type: PRIMARY_CARE, OUTPATIENT, EMERGENCY (enum, required) - type of MSP legal entity
+        + residence_address (Address, optional, required) - address where the legal entity is physically located
+        + phones (array[Phone], required)
+        + email: email@example.com (string, required) - email to contact person in charge from legal entity
+        + website: `www.msp.com.ua` (string, optional) - legal entity website
+        + status: ACTIVE (enum, required)
+            - ACTIVE
+            - CLOSED
+            - SUSPENDED
+    + status: ACTIVE (enum, required) - division status
+        - ACTIVE
+        - INACTIVE
+    + dls_id: `2872985` (string, optional)
+    + dls_verified: true (boolean, optional)
++ `is_active`: true (boolean, required) - status of the Medical program provision
++ `deactivate_reason`: (string, required, nullable) - the reason of deactivated status
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
+
 
 ## DoctorsNew
 ### DoctorNew
