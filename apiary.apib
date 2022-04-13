@@ -951,11 +951,11 @@ This service returns parties.declaration_count from report DB for get employees 
 
 ## Medical program provision [/report/medical_program_provision]
 
-### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,employee_id,type,name,area,region,settlement,legal_entity_edrpou,legal_entity_id,legal_entity_name,healthcare_service_speciality_type,healthcare_service_providing_condition,north,east,south,west,updated_at_from,updated_at_to}]
+### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,contract_number,medical_program_id,medical_program_name,division_id,division_name,is_active,msp_legal_entity_id,msp_legal_entity_name,msp_legal_entity_edrpou,page,page_size}]
 Method searches Medical program provision by parameters and returnes it's details
 
 + Parameters
-    + id: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, optional) - provision ID
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - provision ID
     + `contract_number`: `0000-23H1-A412-4B32` (string, optional) - number of reimbursement contract
     + `medical_program_id`: `a175f148-7f93-4fc2-b2ec-2d81b19a9b8a` (string, optional) - Medical program ID
     + `medical_program_name`: `Доступні ліки` (string, optional) - the name of medical program
