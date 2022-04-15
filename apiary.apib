@@ -951,20 +951,16 @@ This service returns parties.declaration_count from report DB for get employees 
 
 ## Medical program provision [/report/medical_program_provision]
 
-### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,contract_number,medical_program_id,medical_program_name,division_id,division_name,is_active,msp_legal_entity_id,msp_legal_entity_name,msp_legal_entity_edrpou,page,page_size}]
+### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,medical_program_id,medical_program_name,division_id,division_name,is_active,page,page_size}]
 Method searches Medical program provision by parameters and returnes it's details
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - provision ID
-    + `contract_number`: `0000-23H1-A412-4B32` (string, optional) - number of reimbursement contract
     + `medical_program_id`: `a175f148-7f93-4fc2-b2ec-2d81b19a9b8a` (string, optional) - Medical program ID
     + `medical_program_name`: `Доступні ліки` (string, optional) - the name of medical program
     + `division_id`: `c275f148-7f93-4fc2-b2ec-2d81b19a9b8c` (string, optional) - ID of the division that provides a program
     + `division_name`: `Аптека доброго здоров'я` (string, optional) - the name of pharmacy division
     + `is_active`: true (boolean, optional) - Medical program provision status
-    + `msp_legal_entity_id`: `d375f148-7f93-4fc2-b2ec-2d81b19a9b9d` (string, optional) - ID of the MSP legal entity which medications are provided
-    + `msp_legal_entity_name`: `Клініка HealthyMed` (string, optional) - name of the MSP legal entity which medications are provided
-    + `msp_legal_entity_edrpou`: `43253972` (string, optional) - EDRPOU of the MSP legal entity which medications are provided
     + page: 2 (number, optional)
     + page_size: 50 (number, optional)
 
