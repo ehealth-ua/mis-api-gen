@@ -10661,30 +10661,6 @@ status: `APPROVED` (string, required)
 
 ### EntriesMedicalProgramProvisionMap
 + id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - identifier of the Medical program provision
-+ contract(object, optional) - сontract according to which Medical program provision has been created
-    + id: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, required) - contract ID
-    + `contract_type`: `REIMBURSEMENT` (string, required)
-    + `start_date`: `2017-04-20` (string, required) - contract start date
-    + `end_date`: `2017-04-20` (string, required) - contract end date
-    + `contractor_legal_entity`(object, required)
-        + include (`contract_legal_entity_details`)
-    + `contractor_owner` (object, required)
-        + include (`Person_Minimal_Contract`)
-    + status: `VERIFIED` (string, required) - contract status
-    + contract_number: `0000-9EAX-XT7X-3115` (string, optional) - human readable number of contract request.
-    + is_suspended: false (boolean, required) - whether the contract is active or temporary suspended
-+ `msp_legal_entity`(object, optional) - MSP legal entity for which Medical program provision has been created
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-    + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
-    + type: PRIMARY_CARE, OUTPATIENT, EMERGENCY (enum, required) - type of MSP legal entity
-    + residence_address (Address, optional, required) - address where the legal entity is physically located
-    + phones (array[Phone], required)
-    + email: email@example.com (string, required) - email to contact person in charge from legal entity
-    + website: `www.msp.com.ua` (string, optional) - legal entity website
-    + status: ACTIVE (enum, required)
-        - ACTIVE
-        - CLOSED
-        - SUSPENDED
 + medical_program(object, required) - medical program that is provided
     + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
     + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
