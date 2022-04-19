@@ -5778,7 +5778,7 @@ Use this method to obtain full information of Medication request an `id`.
                 + `medication_remaining_qty`: 10 (number, optional) - medication quantity allowed to dispense
                 
 
-### Block medication request [PATCH /api/medication_requests/{id}/action/block]
+### Block Medication Request [PATCH /api/medication_requests/{id}/action/block]
 
 Use this method to block Medication request for dispense. In order to block medication request `block_reason (optional)` and `block_reason_code (required)` should be added in request.
 
@@ -5806,7 +5806,7 @@ Use this method to block Medication request for dispense. In order to block medi
             + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
             + unblock_reason: null (string, required) - Unblock reason description
 
-### Unblock medication request [PATCH /api/medication_requests/{id}/action/unblock]
+### Unblock Medication Request [PATCH /api/medication_requests/{id}/action/unblock]
 
 Use this method to unblock previously blocked Medication request for dispense. In order to block medication request `unblock_reason (required)` should be added in request.
 
