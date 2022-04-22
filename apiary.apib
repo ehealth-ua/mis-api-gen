@@ -5081,7 +5081,7 @@ This web service returns a catalog of services that could be submitted in eHealt
 
 ## Drugs [/apidrugs]
 
-### Get drugs list v2 [GET /api/v2/drugs{?innm_id,innm_name,innm_sctid,innm_dosage_form,innm_dosage_id,innm_dosage_name,medication_code_atc,medical_program_id,page,page_size}]
+### Get drugs list v2 [GET /api/v2/drugs{?innm_id,innm_name,innm_sctid,innm_dosage_form,innm_dosage_id,innm_dosage_name,medication_code_atc,medical_program_id,mr_blank_type,dosage_form_is_dosed,page,page_size}]
 
 This endpoint returns list of drugs. Each drug contains all allowed package forms and related innm.
 The method contains is_primary parameter, which indicates whether the ingredient is the primary in the drug.
@@ -5099,6 +5099,8 @@ The method contains is_primary parameter, which indicates whether the ingredient
     + `innm_dosage_name`: `Інсулін деглюдек 200мл шприц-ручка` (string, optional) - Innm_dosage name.
     + `medication_code_atc`: `С01BD01` (string, optional) - Medication code ATC.
     + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.
+    + `mr_blank_type`: `F-1` (string, optional) - parameter of Likarska form, specifying of paper form for issuing of Medication request, example F-1 or F-3.
+    + `dosage_form_is_dosed`: TRUE (boolean, optional) - parameter of Likarska form, specifying of type of Likarska form - dosed, like `pills`, or not dosed, like `salve`.    
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -11069,11 +11071,15 @@ status: `APPROVED` (string, required)
 ### `Drug_v2_Response`
 + `id`: `ae9bf68e-3c98-4027-9211-535f7dad7a87` (string, required)
 + `name`: `Аміодарон 200мг таблетки` (string, required)
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_FORM_TYPES`
++ `dosage_form_is_dosed`: TRUE (boolean, required) - `Without dictionary. True - Dosed, False - Not dosed`
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
++ `max_request_dosage`: 0 (number, required) - Max request dosage, mainly used for F-3 type Medications
 + `ingredients`: (array[`Ingredient_v2`], required)
 + `packages` (array [`Medication_package`], required)
++ `form_pharm`: (array[`Medication_form_pharm`], required)
 
 ### `Ingredient_v2`
 + `id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required)
@@ -11088,6 +11094,10 @@ status: `APPROVED` (string, required)
 + `package_qty`: 30 (number, required)
 + `package_min_qty`: 10 (number, required)
 + `program_medications` (array [`Drugs_program_medication`], required)
+
+### `Medication_form_pharm`
++ form_pharm: `Таблетка рожева, таблетка з рискою та позначкою nfc зі зворотного боку` (string, optional) - Pharmaceutical form of container
+
 
 ### `Drugs_program_medication`
 + id: `e477a845-972b-47a1-8ca3-1c71e4fd00c2` (string, required) - Program medication id
