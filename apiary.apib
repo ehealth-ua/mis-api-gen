@@ -11072,7 +11072,7 @@ status: `APPROVED` (string, required)
 + `id`: `ae9bf68e-3c98-4027-9211-535f7dad7a87` (string, required)
 + `name`: `Аміодарон 200мг таблетки` (string, required)
 + `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_FORM_TYPES`
-+ `dosage_form_is_dosed`: TRUE (boolean, required) - `Without dictionary. True - Dosed, False - Not dosed`
++ `dosage_form_is_dosed`: FALSE (boolean, required) - `Without dictionary. True - Dosed, False - Not dosed`
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
@@ -11246,7 +11246,8 @@ status: `APPROVED` (string, required)
 + `medication_id` : `4a63b858-c138-4921-9341-ae9e384bcbd6` (string, required) - `Identifier medication with type **INNM_DOSAGE**`
 + `medication_name`: `Аміодарон 200мг таблетки` (string, required) - `Name of medication with type **INNM_DOSAGE**`
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
-+ `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object
++ `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object (to be excluded)
++ `ingredients`: (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
 + `medication_qty`: 10 (number, required) - Medication quantity issued by the doctor
 
 ### `Manufacturer`
