@@ -5812,9 +5812,6 @@ For pharmacists please use [**Block Medication Request by Pharmacist**](https://
 
 Use this method to unblock previously blocked Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
 
-This method can't be used by employees with type 'PHARMACIST'.
-For pharmacists please use [**Unblock Medication Request by Pharmacist**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/unblock-medication-request-by-pharmacist).
-
 **Scopes required:** `medication_request:unblock`
 
 + Parameters
@@ -5857,33 +5854,6 @@ For employees with other types please use [**Block Medication Request**](https:/
     + Attributes (object)
        + block_reason: `перевищено норми відпуску` (string, required) - Block reason
        + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
-
-+ Response 200 (application/json)
-    + Attributes (Response_OK)
-        + meta (Response__Meta)
-        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
-
-### Unblock Medication Request by Pharmacist [PATCH /api/medication_requests/{id}/actions/unblock]
-
-Use this method to unblock previously blocked Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
-
-This method must be used only by employees with type 'PHARMACIST'.
-For employees with other types please use [**Unblock Medication Request**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/unblock-medication-request).
-
-**Scopes required:** `medication_request:unblock`
-
-+ Parameters
-    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-    
-    + Attributes (object)
-       + block_reason: `помилки відсутні` (string, required) - Unblock reason
-       + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
