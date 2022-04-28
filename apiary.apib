@@ -9087,6 +9087,10 @@ Only legal entity owner can request new client secret for his own legal entity
 + short_name: Петро І. І. (string, required)
 + age: 35 (number, required) - full years between medication request date and birth date
 
+### `Person_Medication_Request_for_Pharmacist`
++ short_name: Петро І. І. (string, required)
++ age: 35 (number, required) - full years between medication request date and birth date
+
 ### `Person_Medication_Request_Sign`
 + age: 35 (number, required) - full years between medication request date and birth date
 + first_name: Петро (string, required)
@@ -11934,7 +11938,7 @@ status: `APPROVED` (string, required)
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `dispense_valid_from`: `2017-08-17` (string, required) - Start date of dispense period, which is determined by the external system. Format *DATE '2017-09-07'*
 + `dispense_valid_to`: `2017-09-16` (string, required) - End date of dispense period, which is determined by the external system. Greater or equal to **dispense_valid_from**. Format *DATE '2017-10-07'*
-+ `person` (`Person_Medication_Request_Private`, required)
++ `person` (`Person_Medication_Request_for_Pharmacist`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
