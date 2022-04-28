@@ -5780,9 +5780,68 @@ Use this method to obtain full information of Medication request an `id`.
                 + `medication_remaining_qty`: 10 (number, optional) - medication quantity allowed to dispense
                 
 
-### Block Medication Request [PATCH /api/medication_requests/{id}/action/block]
+### Block Medication Request [PATCH /api/persons/{person_id}/medication_requests/{id}/actions/block]
 
 Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
+
+This method can't be used by employees with type 'PHARMACIST'.
+For pharmacists please use [**Block Medication Request by Pharmacist**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request-by-pharmacist).
+
+**Scopes required:** `medication_request:block`
+
++ Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required)
+    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + block_reason: `перевищено норми відпуску` (string, required) - Block reason
+       + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
+
+### Unblock Medication Request [PATCH /api/persons/{person_id}/medication_requests/{id}/actions/unblock]
+
+Use this method to unblock previously blocked Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
+
+This method can't be used by employees with type 'PHARMACIST'.
+For pharmacists please use [**Unblock Medication Request by Pharmacist**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/unblock-medication-request-by-pharmacist).
+
+**Scopes required:** `medication_request:unblock`
+
++ Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required)
+    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+    
+    + Attributes (object)
+       + block_reason: `помилки відсутні` (string, required) - Unblock reason
+       + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
+
+### Block Medication Request by Pharmacist [PATCH /api/medication_requests/{id}/actions/block]
+
+Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
+
+This method must be used only by employees with type 'PHARMACIST'.
+For employees with other types please use [**Block Medication Request**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request).
 
 **Scopes required:** `medication_request:block`
 
@@ -5802,14 +5861,14 @@ Use this method to block Medication request for dispense. In order to block medi
 + Response 200 (application/json)
     + Attributes (Response_OK)
         + meta (Response__Meta)
-        + data (`Medication_request_Public_Response_without_block_data`)
-            + is_blocked: true (boolean, required) - Whether medication request is blocked or not
-            + block_reason: `перевищено норми відпуску` (string, optional) - Block reason description
-            + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
-### Unblock Medication Request [PATCH /api/medication_requests/{id}/action/unblock]
+### Unblock Medication Request by Pharmacist [PATCH /api/medication_requests/{id}/actions/unblock]
 
 Use this method to unblock previously blocked Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
+
+This method must be used only by employees with type 'PHARMACIST'.
+For employees with other types please use [**Unblock Medication Request**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/unblock-medication-request).
 
 **Scopes required:** `medication_request:unblock`
 
@@ -5829,10 +5888,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
 + Response 200 (application/json)
     + Attributes (Response_OK)
         + meta (Response__Meta)
-        + data (`Medication_request_Public_Response_without_block_data`)
-            + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-            + block_reason: `помилки відсутні` (string, required) - Unblock reason
-            + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+        + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
 ## Medication Dispense [/api/medication_dispenses]
 
