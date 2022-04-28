@@ -7821,7 +7821,6 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Response 200 (application/json)
    + Attributes (`Response_Collection_V2`)
         + data (array[`Medication_request_Private_Response`])
-        
 
 ### Private. Block Medication Request [PATCH /api/admin/medication_requests/{id}/actions/block]
 
@@ -7839,6 +7838,28 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (object)
        + block_reason: `перевищено норми відпуску` (string, required) - Block reason
        + block_reason_code: `DEFAULT` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + meta (Response__Meta)
+        + data (`Medication_request_Private_Response_with_Medical_Program_min`)
+
+### Private. Unblock Medication Request [PATCH /api/admin/medication_requests/{id}/actions/unblock]
+
+**Scopes required:** `medication_request_admin:unblock`
+
++ Parameters
+    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + block_reason: `помилки відсутні` (string, required) - Unblock reason
+       + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
