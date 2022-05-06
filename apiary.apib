@@ -1418,7 +1418,7 @@ Medical program can't be deactivate if there is at least one participant in the 
         + error
             + message: `Forbidden to deactivate medical program. Medical program has active participants` (string, required)
 
-### Get medical programs list [GET /api/medical_programs{?id,name,is_active,page,page_size}]
+### Get medical programs list [GET /api/medical_programs{?id,name,is_active,mr_blank_type,page,page_size}]
 Method returns list of medical programs filtering by parameters. By default method returns only active medical programs `is_active=true`
 
 **Scopes required:** `medical_program:read`
@@ -1427,6 +1427,7 @@ Method returns list of medical programs filtering by parameters. By default meth
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Medical program identifier
     + `name`: `Доступні ліки` (string, optional) - Name of the Medical program
     + `is_active`: `true` (boolean, optional) - Is medical program active or not. Default: true
+    + `mr_blank_type`: `F-1` (string, optional) - Type of blank required by Program for prescription of Medications
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -4972,7 +4973,7 @@ Primary license must be updated with `Create/Update Legal Entity V2` method.
 
 ## Medical Program [/api/medical_program]
 
-### Get medical programs list [GET /api/medical_programs{?id,name,is_active,page,page_size}]
+### Get medical programs list [GET /api/medical_programs{?id,name,is_active,mr_blank_type,page,page_size}]
 Method returns list of medical programs filtering by parameters. By default method returns only active medical programs `is_active=true`
 
 **Scopes required:** `medical_program:read`
@@ -4981,6 +4982,7 @@ Method returns list of medical programs filtering by parameters. By default meth
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Medical program identifier
     + `name`: `Доступні ліки` (string, optional) - Name of the Medical program
     + `is_active`: `true` (boolean, optional) - Is medical program active or not. Default: true
+    + `mr_blank_type`: `F-1` (string, optional) - Type of blank required by Program for prescription of Medications
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -11778,6 +11780,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, required) - `Dictionary MEDICAL_PROGRAM_TYPE`
 + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
