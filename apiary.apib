@@ -11146,12 +11146,12 @@ status: `APPROVED` (string, required)
 ### `Drug_v2_Response`
 + `id`: `ae9bf68e-3c98-4027-9211-535f7dad7a87` (string, required)
 + `name`: `Аміодарон 200мг таблетки` (string, required)
-+ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_FORM_TYPES`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + `dosage_form_is_dosed`: FALSE (boolean, required) - `Without dictionary. True - Dosed, False - Not dosed`
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
-+ `max_request_dosage`: 0 (number, required) - Max request dosage, mainly used for F-3 type Medications
++ `max_request_dosage`: 0 (number, required) - Max request dosage, mainly used for F-3 type Medications and in some cases for F-1 type Medications, as contain small amount of narcotic/psychotropic substance.
 + `ingredients`: (array[`Ingredient_v2`], required)
 + `packages` (array [`Medication_package`], required)
 + `form_pharm`: (array[`Medication_form_pharm`], required)
