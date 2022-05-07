@@ -11151,10 +11151,8 @@ status: `APPROVED` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
-+ `max_request_dosage`: null (number, required) - Max request dosage, mainly used for F-3 type Medications and in some cases for F-1 type Medications, as contain small amount of narcotic/psychotropic substance.
 + `ingredients`: (array[`Ingredient_v2`], required)
-+ `packages` (array [`Medication_package`], required)
-+ `form_pharm`: (array[`Medication_form_pharm`], required)
++ `packages` (array [`Medication_package_DrugsV2`], required)
 
 ### `Ingredient_v2`
 + `id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required)
@@ -11170,9 +11168,12 @@ status: `APPROVED` (string, required)
 + `package_min_qty`: 10 (number, required)
 + `program_medications` (array [`Drugs_program_medication`], required)
 
-### `Medication_form_pharm`
-+ form_pharm: `Таблетка рожева, таблетка з рискою та позначкою nfc зі зворотного боку` (string, optional) - Pharmaceutical form of container
-
+### `Medication_package_DrugsV2`
++ `container_dosage` (`Dosage_container`, required)
++ `package_qty`: 30 (number, required)
++ `package_min_qty`: 10 (number, required)
++ `max_request_dosage`: null (number, required) - Max request dosage, mainly used for F-3 type Medications and in some cases for F-1 type Medications, as contain small amount of narcotic/psychotropic substance.
++ `program_medications` (array [`Drugs_program_medication`], required)
 
 ### `Drugs_program_medication`
 + id: `e477a845-972b-47a1-8ca3-1c71e4fd00c2` (string, required) - Program medication id
