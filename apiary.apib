@@ -4373,9 +4373,7 @@ There are following age groups right now:
 
 ### Create healthcare service [POST]
 
-The following attributes added to specification for future use. Do not submit this fields in request
-* category
-* type
+The following attribute added to specification for future use. Do not submit this field in request
 * coverage_area
 
 + Request (application/json)
@@ -4387,12 +4385,19 @@ The following attributes added to specification for future use. Do not submit th
 
     + Attributes (object)
         + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Division identifier
-        + `speciality_type`: `FAMILY_DOCTOR` (string, required) - `Dictionary SPECIALITY_TYPE`
-        + `providing_condition`: OUTPATIENT (string, required) - `Dictionary PROVIDING_CONDITION`
-        + category (array, optional) - Not implemented yet. Reserved for future use
-            - `0742d949-1492-4864-9494-60fd7102abfd` (string)
-        + type (array, optional) - Not implemented yet. Reserved for future use
-            - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
+        + `speciality_type`: `FAMILY_DOCTOR` (string, optional) - `Dictionary SPECIALITY_TYPE`
+        + `providing_condition`: OUTPATIENT (string, optional) - `Dictionary PROVIDING_CONDITION`
+        + license_id: `cdcf456b-e235-4850-9f00-27cc3453d346` (string, optional) - License identifier
+        + category (Codeable_Concept, required)
+            + coding (array, fixed-type)
+                + (Coding)
+                    + system: `HEALTHCARE_SERVICE_CATEGORIES` (string)
+                    + code: `MSP` (string)
+        + type (Codeable_Concept, optional)
+            + coding (array, fixed-type)
+                + (Coding)
+                    + system: `HEALTHCARE_SERVICE_PHARMACY_DRUGS_TYPES` (string)
+                    + code: `SALE` (string)
         + comment: `Новий сервіс` (string, optional)
         + coverage_area (array, optional) - Not implemented yet. Reserved for future use
             - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
@@ -4427,10 +4432,6 @@ All other attributes are immutable
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
     + Attributes (object)
-        + category (array, optional) - Not implemented yet. Reserved for future use
-            - `0742d949-1492-4864-9494-60fd7102abfd` (string)
-        + type (array, optional) - Not implemented yet. Reserved for future use
-            - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
         + comment: `Заведено помилково` (string, optional)
         + coverage_area (array, optional) - Not implemented yet. Reserved for future use
             - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
@@ -4440,12 +4441,13 @@ All other attributes are immutable
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
 
-### Get healthcare services [GET /api/healthcare_services/{?division_id,speciality_type,providing_condition,status,page,page_size}]
+### Get healthcare services [GET /api/healthcare_services/{?division_id,speciality_type,providing_condition,category,status,page,page_size}]
 
 + Parameters
     + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Division identifier
     + `speciality_type`: `FAMILY_DOCTOR` (string, optional) - `Dictionary SPECIALITY_TYPE`
     + `providing_condition`: OUTPATIENT (string, optional) - `Dictionary PROVIDING_CONDITION`
+    + `category`: MSP (string, optional) - `Dictionary HEALTHCARE_SERVICE_CATEGORIES`
     + status: ACTIVE (string, optional) - Entity status
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
@@ -13089,12 +13091,19 @@ status: `APPROVED` (string, required)
 ### `Healthcare_service_base`
 + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Division identifier
 + `legal_entity_id`: `483af06f-d4c6-4c9e-8d9b-680b5ef7270d` (string, required) - Legal entity identifier
-+ `speciality_type`: `FAMILY_DOCTOR` (string, required) - `Dictionary SPECIALITY_TYPE`
-+ `providing_condition`: OUTPATIENT (string, required) - `Dictionary PROVIDING_CONDITION`
-+ category (array, optional)
-    - `0742d949-1492-4864-9494-60fd7102abfd` (string)
-+ type (array, optional)
-    - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
++ license_id: `cdcf456b-e235-4850-9f00-27cc3453d346` (string, optional) - License identifier
++ `speciality_type`: `FAMILY_DOCTOR` (string, optional) - `Dictionary SPECIALITY_TYPE`
++ `providing_condition`: OUTPATIENT (string, optional) - `Dictionary PROVIDING_CONDITION`
++ category (Codeable_Concept, required)
+    + coding (array, fixed-type)
+        + (Coding)
+            + system: `HEALTHCARE_SERVICE_CATEGORIES` (string)
+            + code: `MSP` (string)
++ type (Codeable_Concept, optional)
+    + coding (array, fixed-type)
+        + (Coding)
+            + system: `HEALTHCARE_SERVICE_PHARMACY_DRUGS_TYPES` (string)
+            + code: `SALE` (string)
 + status: ACTIVE (string, required)
     - ACTIVE
     - INACTIVE
@@ -13103,6 +13112,7 @@ status: `APPROVED` (string, required)
     - `2c0110a9-0bea-4b16-af8e-6e2e149a5bfc` (string)
 + `available_time` (array[`Available_time`], optional)
 + `not_available` (array[`Restricted_period`], optional)
++ `licensed_healthcare_service` (`Licensed_healthcare_service`, optional)
 
 ### `Healthcare_service_response`
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required)
@@ -13152,6 +13162,12 @@ status: `APPROVED` (string, required)
 + settings (object) - User settings
 + inserted_at: `2017-05-05T14:09:59.232112` (string, required)
 + updated_at: `2017-05-05T14:09:59.232112` (string, required)
+
+### `Licensed_healthcare_service`
++ status: ACTIVE (string, optional)
+    - ACTIVE
+    - INACTIVE
++ `updated_at`: `2022-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.  
 
 ## `Equipment`
 ### `Equipment_base`
