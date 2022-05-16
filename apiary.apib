@@ -6068,31 +6068,41 @@ Event types
 - StateChangeEvent
 
 List of events that are stored to EventDB:
-- employee request status changed
-- employee status changed
-- declaration status changed
-- medication request status changed
-- medication dispense status changed
-- contract_request status change
+- approval status change
+- care plan status change
+- care plan activity status change
 - contract status change
-- person status change
 - contract's is_suspended change
-- service request status change
+- contract_request status change
+- division dls_verified status change
+- declaration status changed
+- employee status changed
+- employee request status changed
+- medication dispense status changed
+- medication request status changed
 - legal entity status change
+- person status change
+- person verification status change
 - preperson status change
+- service request status change
+- service request program processing status change
 
 Entity_type variants:
-- Declaration
-- MedicationDispense
-- EmployeeRequest
-- MedicationRequest
-- Employee
-- ContractRequest
+- Approval
+- CarePlan
+- CarePlan Activity
 - Contract
-- Person
-- ServiceRequest
+- ContractRequest
+- Declaration
+- Division
+- Employee
+- EmployeeRequest
+- MedicationDispense
+- MedicationRequest
 - LegalEntity
+- Person
 - Preperson
+- ServiceRequest
 
 In the EventDB events are kept during one month or till 10K. The duration and amount of events are parametrized.
 
