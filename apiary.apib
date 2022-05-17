@@ -6112,6 +6112,26 @@ In the EventDB events are kept during one month or till 10K. The duration and am
 
 This method is used to obtain events by id.
 
+Field `properties.status` may has a different name depending on the `entity_type`. 
+
+Entity_type|Possible field names
+----------|-----------
+Approval|`status`
+CarePlan|`status`
+CarePlan Activity|`detail.status`
+Contract|`is_suspended`, `status`
+ContractRequest|`status`
+Declaration|`status`
+Division|`dls_verified`
+Employee|`status`
+EmployeeRequest|`status`
+MedicationDispense|`status`
+MedicationRequest|`status`
+LegalEntity|`status`
+Person|`verification_status`, `status`
+Preperson|`status`
+ServiceRequest|`program_processing_status`, `status`
+
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
 
@@ -6128,6 +6148,26 @@ This method is used to obtain events by id.
 ### Get events list [GET /api/events/{?date,event_type,entity_type,attribute_name,new_value,page,page_size}]
 
 This method is used to abtain list of events with filters.
+
+Field `properties.status` may has a different name depending on the `entity_type`. 
+
+Entity_type|Possible field names
+----------|-----------
+Approval|`status`
+CarePlan|`status`
+CarePlan Activity|`detail.status`
+Contract|`is_suspended`, `status`
+ContractRequest|`status`
+Declaration|`status`
+Division|`dls_verified`
+Employee|`status`
+EmployeeRequest|`status`
+MedicationDispense|`status`
+MedicationRequest|`status`
+LegalEntity|`status`
+Person|`verification_status`, `status`
+Preperson|`status`
+ServiceRequest|`program_processing_status`, `status`
 
 + Parameters
     + date: `2017-12-06T15:00:00` (datetime, optional) - evets created between datetime and now.
@@ -12586,7 +12626,7 @@ status: `APPROVED` (string, required)
 + entity_type: `MedicationDispense` (string, required) - the name of entity that was changed
 + entity_id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - uuid of changed object
 + properties (object, required)
-    + status (object, required)
+    + status (object, required) - may has a different name depending on the `entity_type` (`program_processing_status`, `detail.status`, `is_suspended`, `dls_verified`, `verification_status`)
         + include (`Event_properties`, required)
     + employee_id (object, optional)
         + new_value: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string)
