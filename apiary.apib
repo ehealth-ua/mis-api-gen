@@ -11234,6 +11234,9 @@ status: `APPROVED` (string, required)
 + registry_number: `REG-1111` (string, optional) - Registry number
 
 ## Complex FHIR Types
+### `Extension`
++ `url`: `container-dosage-numerator` (string, required) - Name of extension
+
 ### `Reference`
 + identifier (Identifier)
 
@@ -11363,6 +11366,14 @@ status: `APPROVED` (string, required)
 + `denumerator_unit`: PILL (string, required) - `Dictionary MEDICATION_UNIT`
 + `denumerator_value`: 1 (number, required)
 
+### `Extension_dosage_container_numerator`
++ `url`: `dosage-container-numerator` (string, required) - Name of extension. It presents a dosage of primary package required by Doctor.
++ `valueQuantity`
+    + `system`: `medication_unit` (string, required)
+    + `code`: `pc` (string, required)
+    + `unit` : `шт` (string, required)
+    + `value` : 12 (number, required)
+
 ### `Innm_Dosage_for_Medication_request`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
@@ -11377,6 +11388,9 @@ status: `APPROVED` (string, required)
 + `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object (to be excluded)
 + `ingredients`: (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
 + `medication_qty`: 10 (number, required) - Medication quantity issued by the doctor
++ `extension` (array, optional)
+    + (object)
+        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
 ### `Manufacturer`
 + `name` : `ПАТ "Київський вітамінний завод"` (string, required)
@@ -11630,6 +11644,9 @@ status: `APPROVED` (string, required)
                     + code: `encounter` (string, required)
 + `dosage_instruction` (array, optional, fixed-type)
     + (Dosage_Instruction)
++ extension (array, optional)
+    + (object)
+        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
 ### `Medication_request_Request_Qualify_post_data`
 + `person_id`: `585044f5-1272-4bca-8d41-8440eefe7d26` (string, required) - Person identifier
@@ -11666,7 +11683,9 @@ status: `APPROVED` (string, required)
                     + code: `encounter` (string, required)
 + `dosage_instruction` (array, optional, fixed-type)
     + (Dosage_Instruction)
-
++ extension (array, optional)
+    + (object)
+        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
 ### `Medication_request_Request_Public_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request request identifier
