@@ -6112,25 +6112,25 @@ In the EventDB events are kept during one month or till 10K. The duration and am
 
 This method is used to obtain events by id.
 
-Field `properties.status` may has a different name depending on the `entity_type`. 
+Object `properties` may has a different fields depending on the `entity_type`. 
 
-Entity_type|Possible field names
+Entity_type|Possible fields
 ----------|-----------
 Approval|`status`
 CarePlan|`status`
 CarePlan Activity|`detail.status`
-Contract|`is_suspended`, `status`
+Contract|`is_suspended` or `status`
 ContractRequest|`status`
 Declaration|`status`
 Division|`dls_verified`
 Employee|`status`
-EmployeeRequest|`status`
+EmployeeRequest|`status` and `employee_id`
 MedicationDispense|`status`
 MedicationRequest|`status`
 LegalEntity|`status`
-Person|`verification_status`, `status`
+Person|`verification_status` or `status`
 Preperson|`status`
-ServiceRequest|`program_processing_status`, `status`
+ServiceRequest|`program_processing_status` or `status`
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
@@ -6149,25 +6149,25 @@ ServiceRequest|`program_processing_status`, `status`
 
 This method is used to abtain list of events with filters.
 
-Field `properties.status` may has a different name depending on the `entity_type`. 
+Object `properties` may has a different fields depending on the `entity_type`. 
 
-Entity_type|Possible field names
+Entity_type|Possible fields
 ----------|-----------
 Approval|`status`
 CarePlan|`status`
 CarePlan Activity|`detail.status`
-Contract|`is_suspended`, `status`
+Contract|`is_suspended` or `status`
 ContractRequest|`status`
 Declaration|`status`
 Division|`dls_verified`
 Employee|`status`
-EmployeeRequest|`status`
+EmployeeRequest|`status` and `employee_id`
 MedicationDispense|`status`
 MedicationRequest|`status`
 LegalEntity|`status`
-Person|`verification_status`, `status`
+Person|`verification_status` or `status`
 Preperson|`status`
-ServiceRequest|`program_processing_status`, `status`
+ServiceRequest|`program_processing_status` or `status`
 
 + Parameters
     + date: `2017-12-06T15:00:00` (datetime, optional) - evets created between datetime and now.
@@ -12645,9 +12645,9 @@ status: `APPROVED` (string, required)
 + entity_type: `MedicationDispense` (string, required) - the name of entity that was changed
 + entity_id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - uuid of changed object
 + properties (object, required)
-    + status (object, required) - may has a different name depending on the `entity_type` (`program_processing_status`, `detail.status`, `is_suspended`, `dls_verified`, `verification_status`)
+    + status (object, optional) - may has a different name depending on the `entity_type` (`program_processing_status`, `detail.status`, `is_suspended`, `dls_verified`, `verification_status`)
         + include (`Event_properties`, required)
-    + employee_id (object, optional)
+    + `employee_id` (object, optional) - field is required if parameter `entity_type = EmployeeRequest`
         + new_value: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string)
 + event_time: `2017-04-20T19:14:13Z` (string, required) - time, when the entity was changed
 + changed_by: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - uuid of the person who changed the entity
