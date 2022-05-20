@@ -7525,11 +7525,12 @@ This web service returns forbidden group details filtered by ID with active code
 ## Group Public. Rule engine sets
 There are public methods presented to work with a rule engine sets data. 
 
-### Get Rule engine set list [GET /api/rule_engine_sets{?name,system,value,page,page_size}]
+### Get Rule engine set list [GET /api/rule_engine_sets{?name,is_active,system,value,page,page_size}]
 This web service returns a catalog of all active rule engine sets in eHealth.
 
 + Parameters
     + `name`: `Some name` (string, optional) - Rule engine set name
+    + `is_active`: true (boolean, optional) - Rule engine set status
     + `system`: `eHealth/clinical_impression_patient_categories` (string, optional) - Code of rule engine set from dictionary `eHealth/rule_engine_dictionaries`
     + `value`: `insulin_1` (string, optional) - Value of rule engine set from dictionary specified in system
     + `page`: 2 (number, optional) - Page number
