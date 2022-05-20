@@ -7522,7 +7522,52 @@ This web service returns forbidden group details filtered by ID with active code
                         + service_group_id: `d838dbea-0ca0-4295-bf46-819dc069b8d4` (string)
                         + creation_reason: `Some text` (string, required) - Forbidden group service creation reason
 
+## Group Public. Rule engine sets
+There are public methods presented to work with a rule engine sets data. 
 
+### Get Rule engine set list [GET /api/rule_engine_sets{?name,page,page_size}]
+This web service returns a catalog of all active rule engine sets in eHealth.
+
++ Parameters
+    + `name`: `Some name` (string, optional) - Rule engine set name
+    + `page`: 2 (number, optional) - Page number
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array)
+            + (object)
+                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine set identifier
+                + name: `Some name` (string, required) - Rule engine set name
+
+### Get Rule engine set details [GET /api/rule_engine_sets/{id}]
+This web service returns rule engine set details filtered by ID with active rules in eHealth.
+
++ Parameters
+    + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required)
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (array)
+            + (object)
+                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine set identifier
+                + name: `Some name` (string, required) - Rule engine set name
+                + code
+                    + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine set from dictionary `eHealth/rule_engine_dictionaries`
+                    + value: `insulin_1` (string, required) - Value of rule engine set from dictionary specified in system
+                + description: `Some text` (string, optional) - Rule engine set description
+                + deactivation_reason: `Some text` (string, optional) - Rule engine set deactivation reason
+                + is_active: true (boolean, required) - Rule engine set status
+                + `rules` (array)
+                    + (object)
+                        + field_key: `Some text` (string, required)
+                        + schema: `Some text` (string, required)
+                        + rule: `Some text` (string, required)
+                        + value: `Some text` (string, required)
 
 # Group Private. Contracts
 
