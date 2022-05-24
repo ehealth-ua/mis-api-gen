@@ -5940,6 +5940,12 @@ This method is used to reject medication dispense.
 
 ### Get Medication dispenses by search params [GET /api/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
+To be depricated. 
+
+Please see a similar endpoint with role context ("Get Medication dispenses by search params by Pharmacist") below. 
+
+**Scopes required:** `medication_dispense:read`
+
 + Parameters
     + id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication dispense ID
     + medication_request_id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication request ID
@@ -5965,11 +5971,44 @@ This method is used to reject medication dispense.
             + (object)
                 + include `Medication_Dispense_Response`
 
+### Get Medication dispenses by search params by Pharmacist [GET /api/pharmacy/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
+
+This method intended to get all Medication dispenses for the PHARMACY usersThis method intended to get all Medication dispenses for the PHARMACY users..
+
+**Scopes required:** `medication_dispense:read_pharm`
+
++ Parameters
+    + id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication dispense ID
+    + medication_request_id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication request ID
+    + legal_entity_id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Legal entity ID
+    + division_id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Division ID
+    + status: PROCESSED (string, optional) - Status
+    + dispensed_from: '2017-09-01' (string, optional) - date of dispense
+    + dispensed_to: '2017-10-01' (string, optional) - date of dispense
+    + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array)
+            + (object)
+                + include `Medication_Dispense_Response_for_Pharmacist`
+
 ### Get Medication dispense details [GET /api/medication_dispenses/{id}]
 
 To be depricated. 
 
 Please see a similar endpoint with role context ("Get Medication dispense details by Pharmacist") below. 
+
+**Scopes required:** `medication_dispense:read`
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
