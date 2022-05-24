@@ -5967,6 +5967,10 @@ This method is used to reject medication dispense.
 
 ### Get Medication dispense details [GET /api/medication_dispenses/{id}]
 
+To be depricated. 
+
+Please see a similar endpoint with role context ("Get Medication dispense details by Pharmacist") below. 
+
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
 
@@ -5980,6 +5984,27 @@ This method is used to reject medication dispense.
     + Attributes (Response_OK)
         + data (object)
             + include `Medication_Dispense_Response`
+            
+### Get Medication dispense details by Pharmacist [GET /api/pharmacy/medication_dispenses/{id}]
+
+
+This method allows to get detailed information of the Medication dispense for the PHARMACY users.
+
+**Scopes required:** `medication_dispense:read_pharm`
+
++ Parameters
+    + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + data (object)
+            + include `Medication_Dispense_Response_for_Pharmacist`
 
 ### Get Short Medication dispense details [GET /api/persons/{person_id}/medication_dispenses/{id}]
 
