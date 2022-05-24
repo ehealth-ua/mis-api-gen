@@ -5852,6 +5852,7 @@ Medication Dispense - Indicates that a medication product has been dispensed for
 ![Medication Dispense Sequence](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgUHJvY2VzcyBtZWRpY2F0aW9uIERpc3BlbnNlCgpQaGFybWFjeS0-R1c6IENyZWF0ZQAeDGQAIghHVwAdBkF1dGhvcml6AAwGRUhlYWx0aAAdHQAdBwAiC1ZlcmlmeQABLHkAgQAJIHBlcmlvZAA8GnJlcXVlc3RlZCBwcm9ncmFtAF0kAIESE0dldCByZWltYnVzZW1lbnQgcmF0AIFCCwCCMQg6IFJlc3BvAIJIBWFsdACCZQlNAIJbEyAgICAAgmcKADgKU2lnbgCCYBUAIw5HVzoAgzkUACENAIMVEgAOCACDIgkAIyAAgxcZRFMgAAoXQ2hhbmcAhCMVIHN0YXR1cwAPKQCDNwcAIhUAgmATZWxzZSBSZWplY3QAgk8jR1c6ACUIAIIFOwAjHwCBXUEAgVMUbmQKCg&s=modern-blue)
 
 ### Create Medication Dispense [POST /api/medication_dispenses{?code}]
+To be depricated. Please see a similar endpoint with role context ("Create Medication Dispense by Pharmacist") below. 
 
 This method is used to dispense medications to patient
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
@@ -5859,6 +5860,8 @@ Full list of all validations can be found [here](https://e-health-ua.atlassian.n
 If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` (required) and `payment_id` (optional) should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
+
+**Scopes required:** `medication_dispense:create`
 
 + Parameters
     + `code`: `3114` (string, optional)
@@ -5878,6 +5881,45 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Medication_Dispense_Response`)
+
++ Response 409 (application/json)
+    + Attributes (Response_Error)
+        + meta (Response__Meta)
+            + code: 409 (number)
+        + error (Response__Error)
+            + message: `Invalid division dls status` (string)
+            + type: `request_conflict` (string)
+
+### Create Medication Dispense by Pharmacist [POST /api/pharmacy/medication_dispenses{?code}]
+
+This method is used to dispense medications to patient
+
+Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
+
+If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` (required) and `payment_id` (optional) should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+
+**Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
+
+**Scopes required:** `medication_dispense:create`
+
++ Parameters
+    + `code`: `3114` (string, optional)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+        + medication_dispense (object)
+            + include `Medication_Dispense_Request`
+
++ Response 201 (application/json)
+    + Attributes (Response__Process_OK)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (`Medication_Dispense_Response_for_Pharmacist`)
 
 + Response 409 (application/json)
     + Attributes (Response_Error)
@@ -5973,7 +6015,7 @@ Please see a similar endpoint with role context ("Get Medication dispenses by se
 
 ### Get Medication dispenses by search params by Pharmacist [GET /api/pharmacy/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
-This method intended to get all Medication dispenses for the PHARMACY usersThis method intended to get all Medication dispenses for the PHARMACY users..
+This method intended to get all Medication dispenses for the PHARMACY users.
 
 **Scopes required:** `medication_dispense:read_pharm`
 
