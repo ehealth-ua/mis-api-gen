@@ -5918,10 +5918,25 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
 
 ### Reject Medication Dispense [PATCH /api/medication_dispenses/{id}/actions/reject]
 
+To be depricated. 
+
+Please see a similar endpoint with role context ("Reject Medication Dispense by Pharmacist") below. 
+
 + Response 200 (application/json)
     + Attributes (Response_OK)
         + data (object)
             + include `Medication_Dispense_Response`
+            
+### Reject Medication Dispense by Pharmacist [PATCH /api/pharmacy/medication_dispenses/{id}/actions/reject]
+
+This method is used to reject medication dispense.
+
+**Scopes required:** `medication_dispense:reject`
+
++ Response 200 (application/json)
+    + Attributes (Response_OK)
+        + data (object)
+            + include `Medication_Dispense_Response_for_Pharmacist`
 
 ### Get Medication dispenses by search params [GET /api/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
