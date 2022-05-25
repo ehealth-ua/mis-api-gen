@@ -11596,6 +11596,11 @@ status: `APPROVED` (string, required)
     + `code`: `ML` (string, required)
     + `value` : 4 (number, required)
 
+### `MRR_MR_extension_array`
++ `extension` (array, optional)
+    + (object)
+        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
+
 ### `Innm_Dosage_for_Medication_request`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
@@ -11610,9 +11615,6 @@ status: `APPROVED` (string, required)
 + `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object (to be excluded)
 + `ingredients`: (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
 + `medication_qty`: 10.34 (number, required) - Medication quantity issued by the doctor
-+ `extension` (array, optional)
-    + (object)
-        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
 ### `MR_MRR_additional_fields`
 + priority: routine (enum, optional) - `Dictionary MEDICATION_REQUEST_PRIORITY`
@@ -11850,6 +11852,7 @@ status: `APPROVED` (string, required)
 + `medication_qty`: 10.34 (number, required) - Medication quantity isuued by the doctor
 + `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - `Medical program Identifier`
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11876,9 +11879,6 @@ status: `APPROVED` (string, required)
                     + code: `encounter` (string, required)
 + `dosage_instruction` (array, optional, fixed-type)
     + (Dosage_Instruction)
-+ extension (array, optional)
-    + (object)
-        + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
 ### `Medication_request_Request_Qualify_post_data`
 + `person_id`: `585044f5-1272-4bca-8d41-8440eefe7d26` (string, required) - Person identifier
@@ -11937,6 +11937,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11990,6 +11991,7 @@ status: `APPROVED` (string, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request_Sign`, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
@@ -12164,6 +12166,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12215,6 +12218,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12268,6 +12272,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12319,6 +12324,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12372,6 +12378,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12427,6 +12434,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12489,6 +12497,7 @@ status: `APPROVED` (string, required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request`, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
@@ -12527,6 +12536,7 @@ status: `APPROVED` (string, required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request`, required)
 + `reject_reason_code`: (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
     - NO_REQUEST_NEEDED
@@ -12565,6 +12575,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
++ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
