@@ -11590,6 +11590,11 @@ status: `APPROVED` (string, required)
     + (object)
         + include (`Extension_dosage_container_numerator`, optional) - An extension, which presents a dosage of primary package required by Doctor.
 
+### `MR_MRR_additional_fields`
++ priority: routine (enum, optional) - `Dictionary MEDICATION_REQUEST_PRIORITY`
++ prior_prescription (string, optional)
+    + `Reference`: `e5417deb-5ce6-4fc3-9f88-1eb2c0e07140` (string, required) - An order/prescription that is being replaced
+    
 ### `Manufacturer`
 + `name` : `ПАТ "Київський вітамінний завод"` (string, required)
 + `country` : `UA` (string, required) - `Dictionary COUNTRY`
@@ -11901,6 +11906,7 @@ status: `APPROVED` (string, required)
 + `person` (`Person_Medication_Request`)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
++ include `MR_MRR_additional_fields`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
