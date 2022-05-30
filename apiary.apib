@@ -11591,7 +11591,7 @@ status: `APPROVED` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object (to be excluded)
 + `ingredients`: (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
-+ `medication_qty`: 10.34 (number, required) - Medication quantity issued by the doctor
++ `medication_qty`: 10.00 (number, required) - Medication quantity issued by the doctor
 
 ### `MR_MRR_additional_fields`
 + priority: routine (enum, optional) - `Dictionary MEDICATION_REQUEST_PRIORITY`
@@ -11826,7 +11826,7 @@ status: `APPROVED` (string, required)
 + `started_at`: `2017-08-17` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `medication_id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required) - `Medication (type INNM_DOSAGE) identifier`
-+ `medication_qty`: 10.34 (number, required) - Medication quantity isuued by the doctor
++ `medication_qty`: 10.00 (number, required) - Medication quantity isuued by the doctor
 + `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - `Medical program Identifier`
 + include `MR_MRR_additional_fields`
 + include `MRR_MR_extension_array`
@@ -11865,7 +11865,7 @@ status: `APPROVED` (string, required)
 + `started_at`: `2017-08-17` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `medication_id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required) - Medication identified
-+ `medication_qty`: 10.34 (number, required) - Medication quantity isuued by the doctor
++ `medication_qty`: 10.00 (number, required) - Medication quantity isuued by the doctor
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12689,7 +12689,7 @@ status: `APPROVED` (string, required)
 ### `Medication_Dispense_Detail_Request`
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
 + `medication_id`: `787b6ef1-1d3a-4129-849c-87716c9a2130` (string, required) - Identifier of brand medications
-+ `medication_qty`: 10.34 (number, required) - qnty of medication_unit (pill/ampoule/container/bottle/vial/aerosol) which provides to the patient
++ `medication_qty`: 10.00 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
 + `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
@@ -12698,7 +12698,7 @@ status: `APPROVED` (string, required)
 ### `Medication_Dispense_Detail_Response`
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
-+ `medication_qty`: 10.34 (number, required) - qnty of medication_unit (pill/ampoule/container/bottle/vial/aerosol) which provides to the patient
++ `medication_qty`: '10.00' (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
 + `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
@@ -12708,7 +12708,7 @@ status: `APPROVED` (string, required)
 ### `Medication_Dispense_Detail_Response_old_without_2d_codes`
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
-+ `medication_qty`: 10.34 (number, required) - qnty of medication_unit (pill/ampoule/container/bottle/vial/aerosol) which provides to the patient
++ `medication_qty`: 10.00 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
 + `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
@@ -12807,7 +12807,7 @@ status: `APPROVED` (string, required)
         + `employee_type`: `DOCTOR` (string) - `Dictionary: EMPLOYEE_TYPE`
     + `medical_program` (`Medical_Program_Response_min`, optional)
     + `medication` (`Medication_Short`, required) - Identifier of brand medications
-    + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (pill/ampoule/container/bottle/vial/aerosol) which provides to the patient
+    + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
     + `medication_dispense`(object, optional)
     + `id`: `f08ba3a3-157a-4adc-b65d-737f24f3a1f4` (string, optional) - Medication dispense Identifier
     + `dispensed_at`: `2017-08-17` (string, optional) - date of dispense
@@ -12822,7 +12822,7 @@ status: `APPROVED` (string, required)
             + include `Medication_Short`
             + `package_qty`: 30 (number, required) - qnty medications in the package
             + `details` (object, required)
-                + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (pill/ampoule/container/bottle/vial/aerosol) which provides to the patient
+                + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
                 + `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
                 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
                 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
