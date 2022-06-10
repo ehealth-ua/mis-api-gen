@@ -5671,7 +5671,7 @@ This method is designed to get printout form (content) by medication request id.
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
 
-### Get Medication request by ID by Pharmacist [GET /api/pharmacy/medication_requests/{id}]
+### Get Medication request by ID by Pharmacy User [GET /api/pharmacy/medication_requests/{id}]
 To be developed for Pharmacy based on `Get Medication request by ID`.
 Scope required: `medication_request:details_pharm`
 
@@ -5762,7 +5762,7 @@ Use this method to obtain full information of Medication request an `id`.
 Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
 
 This method can't be used by employees with type 'PHARMACIST'.
-For pharmacists please use [**Block Medication Request by Pharmacist**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request-by-pharmacist).
+For pharmacists please use [**Block Medication Request by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request-by-pharmacist).
 
 **Scopes required:** `medication_request:block`
 
@@ -5810,7 +5810,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
-### Block Medication Request by Pharmacist [PATCH /api/pharmacy/medication_requests/{id}/actions/block]
+### Block Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/block]
 
 Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
 
@@ -5852,7 +5852,7 @@ Medication Dispense - Indicates that a medication product has been dispensed for
 ![Medication Dispense Sequence](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgUHJvY2VzcyBtZWRpY2F0aW9uIERpc3BlbnNlCgpQaGFybWFjeS0-R1c6IENyZWF0ZQAeDGQAIghHVwAdBkF1dGhvcml6AAwGRUhlYWx0aAAdHQAdBwAiC1ZlcmlmeQABLHkAgQAJIHBlcmlvZAA8GnJlcXVlc3RlZCBwcm9ncmFtAF0kAIESE0dldCByZWltYnVzZW1lbnQgcmF0AIFCCwCCMQg6IFJlc3BvAIJIBWFsdACCZQlNAIJbEyAgICAAgmcKADgKU2lnbgCCYBUAIw5HVzoAgzkUACENAIMVEgAOCACDIgkAIyAAgxcZRFMgAAoXQ2hhbmcAhCMVIHN0YXR1cwAPKQCDNwcAIhUAgmATZWxzZSBSZWplY3QAgk8jR1c6ACUIAIIFOwAjHwCBXUEAgVMUbmQKCg&s=modern-blue)
 
 ### Create Medication Dispense [POST /api/medication_dispenses{?code}]
-To be depricated. Please see a similar endpoint with role context ("Create Medication Dispense by Pharmacist") below. 
+To be depricated. Please see a similar endpoint with role context ("Create Medication Dispense by Pharmacy User") below. 
 
 This method is used to dispense medications to patient
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
@@ -5890,7 +5890,7 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
             + message: `Invalid division dls status` (string)
             + type: `request_conflict` (string)
 
-### Create Medication Dispense by Pharmacist [POST /api/pharmacy/medication_dispenses{?code}]
+### Create Medication Dispense by Pharmacy User [POST /api/pharmacy/medication_dispenses{?code}]
 
 This method is used to dispense medications to patient
 
@@ -5931,7 +5931,7 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
 
 ### Process Medication Dispense [PATCH /api/medication_dispenses/{id}/actions/process]
 
-To be depricated. Please see a similar endpoint with role context ("Process Medication Dispense by Pharmacist") below. 
+To be depricated. Please see a similar endpoint with role context ("Process Medication Dispense by Pharmacy User") below. 
 
 This method is used to process created dispense
 
@@ -5961,14 +5961,14 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
         + data (object)
             + include `Medication_Dispense_Response`
             
-### Process Medication Dispense by Pharmacist [PATCH /api/pharmacy/medication_dispenses/{id}/actions/process]
+### Process Medication Dispense by Pharmacy User [PATCH /api/pharmacy/medication_dispenses/{id}/actions/process]
 
 This method is used to process created dispense
 
 **Important**
-Invoke Get Medication dispense details by Pharmacist to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount` should be added.
+Invoke Get Medication dispense details by Pharmacy User to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount` should be added.
 
-Look at [**Dummy Process Medication Dispense by Pharmacist**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-dispense/process-medication-dispense-by-pharmacist) for more details.
+Look at [**Dummy Process Medication Dispense by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-dispense/process-medication-dispense-by-pharmacist) for more details.
 
 **Scopes required:** `medication_dispense:process`
 
@@ -5995,14 +5995,14 @@ Look at [**Dummy Process Medication Dispense by Pharmacist**](https://uaehealtha
 
 To be depricated. 
 
-Please see a similar endpoint with role context ("Reject Medication Dispense by Pharmacist") below. 
+Please see a similar endpoint with role context ("Reject Medication Dispense by Pharmacy User") below. 
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
         + data (object)
             + include `Medication_Dispense_Response`
             
-### Reject Medication Dispense by Pharmacist [PATCH /api/pharmacy/medication_dispenses/{id}/actions/reject]
+### Reject Medication Dispense by Pharmacy User [PATCH /api/pharmacy/medication_dispenses/{id}/actions/reject]
 
 This method is used to reject medication dispense.
 
@@ -6017,7 +6017,7 @@ This method is used to reject medication dispense.
 
 To be depricated. 
 
-Please see a similar endpoint with role context ("Get Medication dispenses by search params by Pharmacist") below. 
+Please see a similar endpoint with role context ("Get Medication dispenses by search params by Pharmacy User") below. 
 
 **Scopes required:** `medication_dispense:read`
 
@@ -6046,7 +6046,7 @@ Please see a similar endpoint with role context ("Get Medication dispenses by se
             + (object)
                 + include `Medication_Dispense_Response`
 
-### Get Medication dispenses by search params by Pharmacist [GET /api/pharmacy/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
+### Get Medication dispenses by search params by Pharmacy User [GET /api/pharmacy/medication_dispenses{?id,medication_request_id,legal_entity_id,division_id,status,dispensed_from,dispensed_to,care_plan_id,page,page_size}]
 
 This method intended to get all Medication dispenses for the PHARMACY users.
 
@@ -6081,7 +6081,7 @@ This method intended to get all Medication dispenses for the PHARMACY users.
 
 To be depricated. 
 
-Please see a similar endpoint with role context ("Get Medication dispense details by Pharmacist") below. 
+Please see a similar endpoint with role context ("Get Medication dispense details by Pharmacy User") below. 
 
 **Scopes required:** `medication_dispense:read`
 
@@ -6099,7 +6099,7 @@ Please see a similar endpoint with role context ("Get Medication dispense detail
         + data (object)
             + include `Medication_Dispense_Response`
             
-### Get Medication dispense details by Pharmacist [GET /api/pharmacy/medication_dispenses/{id}]
+### Get Medication dispense details by Pharmacy User [GET /api/pharmacy/medication_dispenses/{id}]
 
 
 This method allows to get detailed information of the Medication dispense for the PHARMACY users.
@@ -8420,7 +8420,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + include `Medication_Dispense_Response`
             + status: PROCESSED
 
-### Process medication dispense by Pharmacist [PATCH /dummy/pharmacy/medication_dispenses/id/actions/process]
+### Process medication dispense by Pharmacy User [PATCH /dummy/pharmacy/medication_dispenses/id/actions/process]
 
 + Parameters
    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
