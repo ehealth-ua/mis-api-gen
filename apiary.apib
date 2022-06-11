@@ -178,9 +178,11 @@ This method allows to search for a Person (MPI) knowing person's document number
 
 # Group Internal. IL DB
 
+## Declarations [/declaration_requests]
+
 ### Get Declaration requests List - DEPRECATED [GET /declaration_requests{?tax_id,employee_id,legal_entity_id,status,page,page_size}]
 
-Methods returns list of declaration requests by combination of patient_id, doctor_id, msp_id.
+Methods returns list of declaration requests by combination of "patient_id", "doctor_id", "msp_id".
 
 + Parameters
     + tax_id: `3381275610` (string, optional) - MPI ID of a patient.
@@ -1102,7 +1104,7 @@ This method is used to create new innm. Fields descriptions are listed in reques
        + include `Innm_Request`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1131,7 +1133,7 @@ Method returns innms details by ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Innm_Response`
@@ -1178,7 +1180,7 @@ This method is used to create INNM Dosage. Fields descriptions are listed in req
        + include (`INNM_Dosage_Request`, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1207,7 +1209,7 @@ This method is used to deactivate INNM Dosage. Fields descriptions are listed in
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `INNM_Dosage_Response`
@@ -1235,7 +1237,7 @@ Method returns INNM Dosage details by ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `INNM_Dosage_Response`
@@ -1280,7 +1282,7 @@ This method is used to create Medications. Fields descriptions are listed in req
        + include (`Medication_Request`, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1309,7 +1311,7 @@ This method is used to deactivate Medication. Fields descriptions are listed in 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_Response`
@@ -1337,7 +1339,7 @@ Method returns Medication details by ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_Response`
@@ -1383,7 +1385,7 @@ This method is used by NHS admin to create new medical program.
        + include `medical_programs_request`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1406,7 +1408,7 @@ Medical program can't be deactivate if there is at least one participant in the 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `medical_programs_response`
@@ -1454,7 +1456,7 @@ Method returns medical programs details by ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `medical_programs_response`
@@ -1475,7 +1477,7 @@ This method is used to create new participant of a program - to link exsiting ac
        + include (`Program_medications_Request`, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1514,7 +1516,7 @@ This method is used to update flags "is_active" and/or "medication_request_allow
        + include (`Program_medications_Update_Request`, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Program_medications_Response`
@@ -1566,7 +1568,7 @@ Method returns participants(medications) of medical programs details by ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Program_medications_Response`
@@ -1590,7 +1592,7 @@ Returns information about user which ID is in the token.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`User_details_response`)
 
 ## Black list users [/black_list_users]
@@ -2145,13 +2147,15 @@ JWT:
 ```
 
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer JWT
+
+            Authorization: Bearer JWT
 
     + Attributes (object)
         + otp: `1234` (string, required)
         + password: `passWoRd1` (string, required)
-        + patient: (object, required)
+        + patient (object, required)
             + first_name: `Микола` (string, required)
             + last_name: `Івченко` (string, required)
             + second_name: `Степанович` (string, optional)
@@ -2161,14 +2165,12 @@ JWT:
             + gender: `MALE` (string, optional)
             + tax_id: `1002003040` (string, required)
             + unzr: `12345678-54321` (string, optional)
-            + addresses: (array[Address], required)
-            + documents: (array[Document], required)
-            + phones: (array[Phone], optional)
+            + addresses (array[Address], required)
+            + documents (array[Document], required)
+            + phones (array[Phone], optional)
             + `authentication_methods` (array[Authentication_Method], required)
-            + `emergency_contact`: (`Emergency_Contact`, required)
-            + `process_disclosure_data_consent`: `true` (boolean, required)
-
-
+            + `emergency_contact` (`Emergency_Contact`, required)
+            + `process_disclosure_data_consent`: true (boolean, required)
 
 + Response 201 (application/json)
     + Attributes (`Response_OK`)
@@ -2843,7 +2845,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + status: `NEW` (string, required)
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
-            + `data_to_be_signed`: (`Decl_req_data_to_be_signed`, required)
+            + `data_to_be_signed` (`Decl_req_data_to_be_signed`, required)
 
 + Response 422 (application/json)
     + Attributes (Response_Error)
@@ -2883,7 +2885,7 @@ Use this method to reject previously created Declaration Request.
             + status: `NEW` (string, required)
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
-            + `data_to_be_signed`: (`Decl_req_data_to_be_signed`, optional)
+            + `data_to_be_signed` (`Decl_req_data_to_be_signed`, optional)
 
 ### Sign Declaration Request V3 [PATCH /api/v3/declaration_requests/{id}/actions/sign]
 
@@ -2955,7 +2957,7 @@ This endpoint returns declaration requests that were created through V2 and V3. 
                 - CANCELLED
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
-            + `data_to_be_signed`: (`Decl_req_data_to_be_signed`, optional)
+            + `data_to_be_signed` (`Decl_req_data_to_be_signed`, optional)
         + urgent (object, required)
             + `authentication_method_current` (object, required)
                 + type: `OTP` (enum, required)
@@ -3024,7 +3026,7 @@ Use this method to resend sms on previously created Declaration Request V3.
 
 ## Declarations [/api/declarations]
 
-### Get Declarations List [GET /api/declarations{?employee_id,legal_entity_id,status,declaration_number,page,page_size}]
+### Get Declarations List [GET /api/declarations{?employee_id,legal_entity_id,status,declaration_number,page,page_size,reason}]
 
 Use this method to obtain list of Declarations for an `empolee_id` and legal_entity_id. If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor is interested in current UI section.
 
@@ -3374,9 +3376,10 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + data (array)
-            + object(`Person_Short`)
+            + (object)
+                + include (`Person_Short`)
                 + merged_persons (array, required)
-                    + object ()
+                    + (object)
                         + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
                         + inserted_at: `2019-05-08T15:34:00Z` (string, optional)
                         + merge_person_id: `bdadc2a7-7283-4f24-bc99-8d8d9808af80` (string, optional) - identifier of a person who is recognized as a duplicate and subsequently deactivated
@@ -3412,13 +3415,13 @@ This information was in response of Get `Search for a Person` before.
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + data (array)
-            + object ()
+            + (object)
                 + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
                 + inserted_at: `2019-05-08T15:34:00Z` (string, optional)
                 + merge_person_id: `bdadc2a7-7283-4f24-bc99-8d8d9808af80` (string, optional) - identifier of a person who is recognized as a duplicate and subsequently deactivated
                 + master_person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - identifier of the person who as a result of the deduplication is recognized as true and subsequently left active
                 + updated_at: `2019-05-08T15:34:00Z` (string, optional)
-            + object ()
+            + (object)
                 + id: `a4181621-681f-4e46-b0ba-7fa4e59859ef` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
                 + inserted_at: `2019-01-08T15:34:00Z` (string, optional)
                 + merge_person_id: `1a356e56-a991-4ceb-a475-3edfd9930265` (string, optional) - identifier of a person who is recognized as a duplicate and subsequently deactivated
@@ -4599,8 +4602,8 @@ Immutable parameters:
  
     + Headers
 
-        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-        API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
     + Attributes (Equipment_base)
         + type: `23143534` (string, optional)- `code from dictionary -  EQUIPMENT_TYPE`  
@@ -4615,6 +4618,7 @@ Immutable parameters:
 ### Get equipment list [GET /api/equipment{?division_id,type,external_id,status,page,page_size}]
 
 + Parameters
+
     + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Division identifier
     + type: `43235435` (string, optional) - `Code from dictionary EQUIPMENT_TYPE`
     + external_id: `123-ASD-1` (string, optional) - `Identifier from external system`
@@ -4623,13 +4627,15 @@ Immutable parameters:
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Request (application/json)
-    + Headers
 
+    + Headers
+    
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
             
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Equipment_response`])
 
 ### Get equipment details by ID [GET /api/equipment/{id}]
@@ -4638,13 +4644,14 @@ Immutable parameters:
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Equipment identifier
 
 + Request (application/json)
-    + Headers
 
+    + Headers
+    
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
             
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Equipment_response`)
 
 ### Deactivate equipment [PATCH /api/equipment/{id}/actions/deactivate]
@@ -4653,8 +4660,9 @@ Immutable parameters:
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Equipment identifier
 
 + Request (application/json)
-    + Headers
 
+    + Headers
+    
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
@@ -4669,12 +4677,14 @@ Immutable parameters:
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Equipment identifier
 
 + Request (application/json)
-    + Headers
 
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+    + Headers
+    
+        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+        API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
+
     + Attributes (Response__Process_OK)
         + data (`Equipment_response`)
             - status: ACTIVE
@@ -4688,7 +4698,7 @@ This method allows to create unidentified person. There is one necessary field i
 + Request (application/json)
 
     + Headers
-
+    
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
     
@@ -4697,6 +4707,7 @@ This method allows to create unidentified person. There is one necessary field i
         + note: `Registered in SmartMed clinic at 01.01.2019 16:40. Male, 40 years old approximately, tatoo with sport motorcycle on the right forearm` (string, optional) - Notes
         
 + Response 201 (application/json)
+
     + Attributes (Response__Process_OK)
         + meta (Response__Meta)
             + code: 201 (number)
@@ -4708,7 +4719,8 @@ This method allows to create unidentified person. There is one necessary field i
 Method enables to modify all the preperson fields except note and status.
 
 + Parameters
-    + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - MPI identifier of the preperson. 
+
+            + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - MPI identifier of the preperson. 
 
 + Request (application/json)
 
@@ -4785,9 +4797,11 @@ Serves for receiving approval from person on action of merge with preperson. Als
     + id: `7c3da506-804d-4550-8993-bf17f9ee0404` (string, required) - `Identifier of the merge request`
     
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-        API-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
     
     + Attributes (object)
         + `verification_code`: 6598 (number, optional) - required if authentication_method is OTP
@@ -4809,9 +4823,11 @@ This method gives opportunity to reject and close preperson merge request by han
     + id: `7c3da506-804d-4550-8993-bf17f9ee0404` (string, required) - `Identifier of the merge request`
     
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-        API-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
@@ -4838,8 +4854,9 @@ There is a [**dummy method**](https://uaehealthapi.docs.apiary.io/#reference/dum
 + Request (application/json)
 
     + Headers
-        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-        API-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
     + Attributes (object)
         + `signed_content`: `U2lnbmVkIGNvbnRlbnQgTVVTVCBjb25zaXN0cyBvZiBKU09OIG9iamVjdCB3aXRoIG1lcmdlIHJlcXVlc3QgZGF0YSBhbmQgcHJpbnRvdXQgdGVtcGxhdGUuIE9iamVjdCB0aGF0IG5lZWQgdG8gYmUgc2lnbmVkIGlzIHJldHVybmVkIGJ5IEFwcHJvdmUgbWVyZ2UgcmVxdWVzdCBtZXRob2QsIEpTT04uUGF0aDogJC5kYXRhLiBQZXJzb24gbXVzdCByZS1yZWFkIGFuZCBzaWduIG1lcmdlIHJlcXVlc3QgcHJpbnQgZm9ybSBhbmQgYWZ0ZXIgdGhhdCBwYXRpZW50X3NpZ25lZCBzaG91bGQgYmUgY2hhbmdlZCB0byBUUlVFLg==` (string, required)
@@ -4871,7 +4888,7 @@ Use this method to resend sms with OTP-code on previously created merge request 
     + Attributes (Response__Process_OK)
         + data (OTP)
 
-### Get merge requests [GET]
+### Get merge requests [GET /api/merge_requests{?status,master_person_id,merge_person_id,page,page_size}]
 Method returns a list of merge requests. Service returns only merge requests related to the same legal entity as the user. To obtain more detailed information about merge request use [**Get merge request by ID**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/merge-request/get-merge-request-by-id). Note that person and preperson data of SIGNED merge request avaliable limited period of time (depends on schedule of [Auto cleaning person data process](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/624328717/Auto+cleaning+of+person+data+from+merge+requests))
 
 + Parameters
@@ -4887,9 +4904,11 @@ Method returns a list of merge requests. Service returns only merge requests rel
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-        API-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
     + Attributes (Response_Collection_V2)
@@ -4905,6 +4924,7 @@ Method returns merge request details by it's ID. Depending on merge request stat
     + id: `7c3da506-804d-4550-8993-bf17f9ee0404` (string, required) - `Identifier of the merge request`
     
 + Request (application/json)
+
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
@@ -6692,7 +6712,7 @@ Use this method to obtain full information of Medication request an `id`.
             + include `Medication_Dispense_Response`
             
 
-### Get monitoring Justifications [GET /api/cabinet/justifications]
+### Get monitoring Justifications [GET /api/cabinet/justifications{?status,expires_from,expires_to,page,page_size}]
 Use this method to get information about justification for monitoring patient's personal and medical data by NHS employees (not medical employees as doctors)
 
 + Parameters
@@ -7519,9 +7539,11 @@ Service will store signed copy of the request in Media Content Storage if all ch
 Look at [Dummy Create Medical program provision](https://uaehealthapi.docs.apiary.io/#reference/public.-contracts/medical-program-provision/dummy-create-medical-program-provision) for more details
 
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer F3GF124Df565FDS234SDF34
-        api-key: aDGFDFGT46S5gFGD
+    
+            Authorization: Bearer F3GF124Df565FDS234SDF34
+            api-key: aDGFDFGT46S5gFGD
         
     + Attributes (object)
         + `signed_content`:`ew0KICAicGVyaW9kIjogew0KIC...` (string, required, fixed-type)
@@ -7538,9 +7560,11 @@ Look at [Dummy Create Medical program provision](https://uaehealthapi.docs.apiar
 ### Dummy Create Medical program provision [POST]
 
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer F3GF124Df565FDS234SDF34
-        api-key: aDGFDFGT46S5gFGD
+    
+            Authorization: Bearer F3GF124Df565FDS234SDF34
+            api-key: aDGFDFGT46S5gFGD
         
     + Attributes (Medical_program_provision_request)
 
@@ -7556,7 +7580,7 @@ Look at [Dummy Create Medical program provision](https://uaehealthapi.docs.apiar
                 + `division_id`: `6d07bdb0-59c0-4b54-8a90-bada3e232877` (string, required)
 
 
-### Get Medical program provision List [GET /api/medical_program_provision{?contract_number,medical_program_id,division_id,is_active,page,page_size}]
+### Get Medical program provision List [GET /api/medical_program_provision{?contract_number,medical_program_id,division_id,is_active,msp_legal_entity_id,page,page_size}]
 This method allows to get a list of medical programs already provided by the divisions of legal entity according to contracts. Also, this list can be filtered using search parameters.
 
 **Scopes required:** `medical_program_provision:read`
@@ -7571,9 +7595,11 @@ This method allows to get a list of medical programs already provided by the div
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 500. Default: 50
 
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer F3GF124Df565FDS234SDF34
-        api-key: aDGFDFGT46S5gFGD
+    
+            Authorization: Bearer F3GF124Df565FDS234SDF34
+            api-key: aDGFDFGT46S5gFGD
 
 + Response 200 (application/json)
     + Attributes (Response_Collection_V2)
@@ -7592,9 +7618,11 @@ This method allows to deactivate division that provide a medical program within 
     + `id`: `2060b523-b469-4fc5-89af-ddb5899d8efe` (string, required) - Medical program provision identifier
     
 + Request (application/json)
+
     + Headers
-        Authorization: Bearer F3GF124Df565FDS234SDF34
-        api-key: aDGFDFGT46S5gFGD
+    
+            Authorization: Bearer F3GF124Df565FDS234SDF34
+            api-key: aDGFDFGT46S5gFGD
 
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
@@ -7605,7 +7633,7 @@ This method allows to deactivate division that provide a medical program within 
 ## Group Public. Forbidden groups
 There are public methods presented to work with a forbidden groups data. 
 
-### Get Forbidden group list [GET /api/forbidden_groups?name=text&page=2&page_size=50]
+### Get Forbidden group list [GET /api/forbidden_groups{?name,page,page_size}]
 This web service returns a catalog of all active forbidden groups in eHealth.
 
 + Parameters
@@ -7748,7 +7776,7 @@ Assuming that all required business processes and validations is implemented on 
             + code: 200 (number)
         + data (`Contracts_CRUD_response`)
 
-### Private. Get contracts [GET /api/admin/contracts/{?id,type,contractor_legal_entity_id,edrpou,contractor_owner_id,nhs_signer_id,is_suspended,status,contract_number,date_from_start_date,date_to_start_date,date_from_end_date,date_to_end_date,page,page_size}]
+### Private. Get contracts [GET /api/admin/contracts/{?id,type,contractor_legal_entity_id,edrpou,contractor_owner_id,nhs_signer_id,is_suspended,status,is_active,contract_number,date_from_start_date,date_to_start_date,date_from_end_date,date_to_end_date,medical_program_id,page,page_size}]
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - contract id
@@ -7756,7 +7784,7 @@ Assuming that all required business processes and validations is implemented on 
         - CAPITATION
         - REIMBURSEMENT
     + contractor_legal_entity_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of legal entity which created contract request.
-    + edrpo: `5432345432` (string, optional) - contractor legal entity EDRPOU
+    + edrpou: `5432345432` (string, optional) - contractor legal entity EDRPOU
     + contractor_owner_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of legal entity owner.
     + `nhs_signer_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of nhs employee
     + status: `VERIFIED` (enum, optional) - current contract status.
@@ -7854,7 +7882,7 @@ Assuming that all required business processes and validations is implemented on 
             + code: 200 (number)
         + data (`Contract_divisions_CRUD_response`)
 
-### Private. Get contract divisions [GET /api/admin/contract_divisions/{?id,contract_id,division_id,page,page_size}]
+### Private. Get contract divisions [GET /api/admin/contract_divisions/{?id,contract_id,division_id,is_active,page,page_size}]
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - Contract division identifier
@@ -7945,7 +7973,7 @@ Assuming that all required business processes and validations is implemented on 
             + code: 200 (number)
         + data (`Contract_employees_CRUD_response`)
 
-### Private. Get contract employees [GET]
+### Private. Get contract employees [GET /api/admin/contract_employees{?id,employee_id,division_id,contract_id,is_active,page,page_size}]
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - Contract division identifier
@@ -8055,7 +8083,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Parameters
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - legal entity identifier.
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
-    + `patient_id`: `01352B970879A80E19B60C15C8E488DA26CABC3B9F7FA71684904A99DBD5ACE4` (string, optional) - hash of `person_id` of a patient.
+    + `person_id`: `01352B970879A80E19B60C15C8E488DA26CABC3B9F7FA71684904A99DBD5ACE4` (string, optional) - hash of `person_id` of a patient.
     + `status`: `ACTIVE` (enum, optional). Default `ACTIVE`
         - ACTIVE
         - COMPLETED
@@ -8375,7 +8403,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         
 ## Dummy for medication request [/dummy/medication_requests]
 
-### Reject medication request [PATCH /dummy/medication_requests/id/actions/reject]
+### Reject medication request [PATCH /dummy/medication_requests/{id}/actions/reject]
 
 
 + Parameters
@@ -8399,7 +8427,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 ## Dummy for medication dispense [/dummy/medication_dispenses]
 
-### Process medication dispense [PATCH /dummy/medication_dispenses/id/actions/process]
+### Process medication dispense [PATCH /dummy/medication_dispenses/{id}/actions/process]
 
 + Parameters
    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -8420,7 +8448,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + include `Medication_Dispense_Response`
             + status: PROCESSED
 
-### Process medication dispense by Pharmacy User [PATCH /dummy/pharmacy/medication_dispenses/id/actions/process]
+### Process medication dispense by Pharmacy User [PATCH /dummy/pharmacy/medication_dispenses/{id}/actions/process]
 
 + Parameters
    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -8443,7 +8471,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 # Group Deprecated methods
 
-## Declaration Requests [/api/declaration_requests]
+## Declaration Requests
+<!-- /api/declaration_requests -->
 
 ### Get Declaration Requests List - Deprecated [GET /api/declaration_requests{?employee_id,legal_entity_id,status,page,page_size}]
 
@@ -9723,7 +9752,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
 + start_date: `2017-03-02` (string, required)
 + end_date: `2017-03-02` (string, required)
-+ person(`Person_Short`)
++ person (`Person_Short`)
     + unzr: `19910819-00011` (string, optional) - the record number in the demographic register
     + `emergency_contact` (`Emergency_Contact`, required)
     + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
