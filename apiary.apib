@@ -6457,7 +6457,7 @@ This method is used to create Declaration Request online (as part of Declaration
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response`
             + status: `NEW` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
                 + speciality: `FAMILY_DOCTOR` (string, required) - інформація про спеціальність лікаря
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -6549,7 +6549,7 @@ Current WS allows to see details of declaration request knowing its' id.
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response`
             + status: `NEW` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
                 + speciality: `FAMILY_DOCTOR` (string, required) - інформація про спеціальність лікаря
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -8518,7 +8518,7 @@ Block `person` has optional `id`.
                 - family doctor
             + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
-            + employee (Employee_Minimal)
+            + employee (`Employee_Minimal`)
             + `legal_entity` (`Medical_Service_Provider`)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + division (`Division_Details`)
@@ -8564,7 +8564,7 @@ After sign new declaration all previously created pending (status one of the fol
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response`
             + status: `NEW` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + division (`Division_Declaration`, required)
@@ -8616,7 +8616,7 @@ If declaration_request without field `person.id`, a new person is created. But i
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response_v2`
             + status: `NEW` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + division (`Division_Declaration`, required)
@@ -8682,7 +8682,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response`
             + status: `APPROVED` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + division (`Division_Details`, required)
@@ -8719,7 +8719,7 @@ Use this method to reject previously created Declaration Request.
             + seed: hash (string, required)
             + include `Declaration_Request_Public_Response`
             + status: `REJECTED` (string, required)
-            + employee (Employee_Minimal, required)
+            + employee (`Employee_Minimal`, required)
             + `legal_entity` (`Medical_Service_Provider`, required)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + division (`Division_Details`, required)
@@ -9605,7 +9605,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + person(`Person_Request`, required)
     + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
     + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-+ employee (Employee_Minimal)
++ employee (`Employee_Minimal`)
 + `legal_entity` (`Medical_Service_Provider`)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + division (`Division_Details`)
@@ -9635,7 +9635,7 @@ Only legal entity owner can request new client secret for his own legal entity
     - pending_verification
     - terminated
 + person (Person_Minimal_Declaration_Request)
-+ employee (Employee_Minimal)
++ employee (`Employee_Minimal`)
 + `legal_entity` (`MSP_Short`)
 + division (`Division_Short_List`)
 
@@ -9822,7 +9822,7 @@ status: `APPROVED` (string, required)
     + include `Person_info_Public_DRv3`
     + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
     + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-+ employee (Employee_Minimal, required)
++ employee (`Employee_Minimal`, required)
 + `legal_entity` (`Medical_Service_Provider`, required)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + division (`Division_Declaration`, required)
@@ -11602,6 +11602,10 @@ status: `APPROVED` (string, required)
     - stat - The request should be actioned immediately - highest possible priority. E.g. an emergency.
 + `prior_prescription`
     + `reference`: `e5417deb-5ce6-4fc3-9f88-1eb2c0e07140` (string, required) - An order/prescription that is being replaced
++ `container_dosage` - Name of extension. It presents a dosage of primary package required by Doctor.
+    + `system`: `MEDICATION_UNIT` (string, required)
+    + `code`: `ML` (string, required)
+    + `value` : 4 (number, required)
     
 ### `Manufacturer`
 + `name` : `ПАТ "Київський вітамінний завод"` (string, required)
@@ -11830,7 +11834,6 @@ status: `APPROVED` (string, required)
 + `medication_qty`: 10.34 (number, required) - Medication quantity isuued by the doctor
 + `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - `Medical program Identifier`
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11893,8 +11896,10 @@ status: `APPROVED` (string, required)
                     + code: `encounter` (string, required)
 + `dosage_instruction` (array, optional, fixed-type)
     + (Dosage_Instruction)
-
-+ include `MRR_MR_extension_array`
++ `container_dosage` - Name of extension. It presents a dosage of primary package required by Doctor.
+    + `system`: `MEDICATION_UNIT` (string, required)
+    + `code`: `ML` (string, required)
+    + `value` : 4 (number, required)
 
 ### `Medication_request_Request_Public_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request request identifier
@@ -11908,12 +11913,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request`)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -11957,7 +11961,7 @@ status: `APPROVED` (string, required)
     + dls_verified: true (boolean, optional)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `ended_at`: `2018-12-13` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `id`: `fda6839c-7c17-4b45-bc18-14b1039fe702` (string, required) - Medication Request request identifier
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
@@ -11967,7 +11971,6 @@ status: `APPROVED` (string, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request_Sign`, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
@@ -12120,12 +12123,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12177,7 +12179,6 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12226,12 +12227,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12283,7 +12283,6 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12332,12 +12331,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request_Private`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12388,12 +12386,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request_Private`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response_min`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
@@ -12443,7 +12440,7 @@ status: `APPROVED` (string, required)
     + `legal_entity_id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `ended_at`: `2018-12-13` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - Medication Request request identifier
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
@@ -12456,7 +12453,6 @@ status: `APPROVED` (string, required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request`, required)
 + `request_number` : `0000-K8K5-5MTE-352H` (string, required) - Public medication request human readable number
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
@@ -12482,7 +12478,7 @@ status: `APPROVED` (string, required)
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + `dosage_instruction` (array, optional, fixed-type)
     + (Dosage_Instruction)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
@@ -12495,7 +12491,6 @@ status: `APPROVED` (string, required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + `person` (`Person_Medication_Request`, required)
 + `reject_reason_code`: (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
     - NO_REQUEST_NEEDED
@@ -12529,12 +12524,11 @@ status: `APPROVED` (string, required)
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + `division` (`Division_Details`, required)
-+ `employee` (Employee_Minimal, required)
++ `employee` (`Employee_Minimal`, required)
 + `person` (`Person_Medication_Request`, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + include `MR_MRR_additional_fields`
-+ include `MRR_MR_extension_array`
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
