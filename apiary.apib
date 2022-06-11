@@ -4719,8 +4719,7 @@ This method allows to create unidentified person. There is one necessary field i
 Method enables to modify all the preperson fields except note and status.
 
 + Parameters
-
-            + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - MPI identifier of the preperson. 
+    + `id`: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - MPI identifier of the preperson. 
 
 + Request (application/json)
 
@@ -4967,7 +4966,7 @@ Primary license must be added with `Create/Update Legal Entity V2` method.
 
 + Request (application/json)
     + Attributes (`crud_licenses_post`)
-    + is_primary: false (boolean, required)
+      + `is_primary`: false (boolean, required)
 
 + Response 201 (application/json)
     + Attributes (Response_OK)
@@ -4984,7 +4983,7 @@ Primary license must be updated with `Create/Update Legal Entity V2` method.
 
 + Request (application/json)
     + Attributes (`crud_licenses_post`)
-    + is_primary: false (boolean, required)
+      + is_primary: false (boolean, required)
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
@@ -7663,8 +7662,8 @@ This web service returns forbidden group details filtered by ID with active code
         + data (array)
             + (object)
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Forbidden group identifier
-                + name: `Some name` (string, requiered) - Forbidden group name
-                + creation_reason: `Some text` (string, requiered) - Forbidden group creation reason
+                + name: `Some name` (string, required) - Forbidden group name
+                + creation_reason: `Some text` (string, required) - Forbidden group creation reason
                 + deactivation_reason: `Some text` (string) - Forbidden group deactivation reason
                 + `forbidden_group_codes` (array)
                     + (object)
@@ -9873,7 +9872,7 @@ status: `APPROVED` (string, required)
 + tax_id: 3999869394 (string, optional)
 + secret: secret (string, required)
 + documents (array, required)
-    + include
+    + (object)
         + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
         + number: АА120518 (string, required) - document issue number
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
@@ -9902,7 +9901,7 @@ status: `APPROVED` (string, required)
 
 ### `Patient_Request_Short`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - unique id of declaration
-+ status: active (enum, required)
++ status: APPROVED (enum, required)
     - NEW
     - APPROVED
     - SIGNED
@@ -9927,7 +9926,7 @@ status: `APPROVED` (string, required)
 + tax_id: 3999869394 (string, optional)
 + secret: secret (string, required)
 + documents (array, required)
-    + include
+    + (object)
         + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
         + number: АА120518 (string, required) - document issue number
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
@@ -9936,7 +9935,7 @@ status: `APPROVED` (string, required)
 + addresses (array[Address], required)
 + phones (array[Phone], optional)
 + `authentication_methods` (array, required)
-    + include
+    + (object)
         + type (enum, required)
             - OTP
             - OFFLINE
@@ -11027,7 +11026,7 @@ status: `APPROVED` (string, required)
 + medical_program(object, required) - medical program that is provided
     + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
     + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
-    + `medical_program_settings`: (`Medical_program_settings`, required) - some conditions for using program
+    + `medical_program_settings` (`Medical_program_settings`, required) - some conditions for using program
     + `medical_program_settings_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request with some settings
     + `is_active`: `true` (boolean, required) - Is medical program active or not. True - Active; False - Inactive
     + `medication_dispense_allowed`: true (boolean, required) - posibility to create medication dispense with program
@@ -11061,7 +11060,7 @@ status: `APPROVED` (string, required)
     + dls_id: `2872985` (string, optional)
     + dls_verified: true (boolean, optional)
 + `is_active`: true (boolean, required) - status of the Medical program provision
-+ `deactivate_reason`: (string, required, nullable) - the reason of deactivated status
++ `deactivate_reason`: `MANUAL_DEACTIVATION` (string, required, nullable) - the reason of deactivated status
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
@@ -11344,7 +11343,7 @@ status: `APPROVED` (string, required)
 ### `Medical_Program_Response`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
 + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
-+ `medical_program_settings`: (`Medical_program_settings`, required) - some conditions for using program
++ `medical_program_settings` (`Medical_program_settings`, required) - some conditions for using program
 + `medical_program_settings_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request with some settings
 + `is_active`: `true` (boolean, required) - Is medical program active or not. True - Active; False - Inactive
 + `medication_dispense_allowed`: true (boolean, required) - posibility to create medication dispense with program
@@ -11432,7 +11431,7 @@ status: `APPROVED` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
-+ `ingredients`: (array[`Ingredient_v2`], required)
++ `ingredients` (array[`Ingredient_v2`], required)
 + `packages` (array [`Medication_package_DrugsV2`], required)
 
 ### `Ingredient_v2`
@@ -11619,7 +11618,7 @@ status: `APPROVED` (string, required)
 + `medication_name`: `Аміодарон 200мг таблетки` (string, required) - `Name of medication with type **INNM_DOSAGE**`
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `dosage` (`Dosage_drug`, required) - Dosage of innm_dosage object (to be excluded)
-+ `ingredients`: (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
++ `ingredients` (array[`Ingredient_v2`], required) - Details of dosage of INNM ingredients, added 2022-04-23, part 1
 + `medication_qty`: 10.34 (number, required) - Medication quantity issued by the doctor
 
 ### `MR_MRR_additional_fields`
@@ -11726,9 +11725,6 @@ status: `APPROVED` (string, required)
 + `manufacturer` (`Manufacturer`, optional)
 + `form` :  PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `container` (`Dosage_container`, required)
-
-
-
 
 ### `Program_medications_Request`
 + `medication_id`: `59781de0-2e64-4359-b716-bcc05a32c10f`(string, required) -  Medication Identifier
@@ -12086,7 +12082,7 @@ status: `APPROVED` (string, required)
 ### `medical_programs_response`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
 + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
-+ `medical_program_settings`: (`Medical_program_settings`, required) - some conditions for using program
++ `medical_program_settings` (`Medical_program_settings`, required) - some conditions for using program
 + `medical_program_settings_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request with some settings
 + `is_active`: `true` (boolean, required) - Is medical program active or not. True - Active; False - Inactive
 + `medication_dispense_allowed`: true (boolean, required) - posibility to create medication dispense with program
@@ -12486,7 +12482,7 @@ status: `APPROVED` (string, required)
 + `started_at`: `2018-11-13` (string, required) - Start date of a treatment period, which is determined by the external system. Greater or equal to **created_at**. Format *DATE '2017-09-07'*
 + `status`: `ACTIVE` (string, required) - Medication Request status. Find available **statuses** on State Charts wiki page
 + `medical_program` (`Medical_Program_Response`, required)
-+ `reject_reason_code`: (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: WRONG_SIGNATURE (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
     - NO_REQUEST_NEEDED
     - NO_SMS
     - PATIENT_REJECT
@@ -12520,7 +12516,7 @@ status: `APPROVED` (string, required)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
 + `person` (`Person_Medication_Request`, required)
-+ `reject_reason_code`: (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: WRONG_SIGNATURE (enum, required) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
     - NO_REQUEST_NEEDED
     - NO_SMS
     - PATIENT_REJECT
@@ -12699,7 +12695,7 @@ status: `APPROVED` (string, required)
 + `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
-+ `medication_2d_codes`: (array[`Medication_2d_code`], optional) - array of medication 2d codes
++ `medication_2d_codes` (array[`Medication_2d_code`], optional) - array of medication 2d codes
 
 ### `Medication_Dispense_Detail_Response`
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
@@ -12709,7 +12705,7 @@ status: `APPROVED` (string, required)
 + `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
 + `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
 + `reimbursement_amount`: 450 (number, required) - Amount to reimburse for medication package by medical_program
-+ `medication_2d_codes`: (array[`Medication_2d_code`], optional) - array of medication 2d codes
++ `medication_2d_codes` (array[`Medication_2d_code`], optional) - array of medication 2d codes
 
 ### `Medication_Dispense_Detail_Response_old_without_2d_codes`
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
@@ -12919,7 +12915,7 @@ status: `APPROVED` (string, required)
 
 
 ## Clients
-### Client_Deprecated (object)
+### `Client_Deprecated` (object)
 + id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - Unique client id
 + name: `Аптека 199` (string, required) - Client name
 + secret: `ZlFOaHBTR0d3Q0hQcDEraHVYdXBVZz09` (string, required)
@@ -12927,7 +12923,7 @@ status: `APPROVED` (string, required)
 + settings (object)
 + priv_settings (object)
 
-### Client (object)
+### `Client` (object)
 + id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - Unique client id
 + name: `eHealth portal` (string, required) - Client name.
 + settings (object) - Client settings.
@@ -12939,7 +12935,7 @@ status: `APPROVED` (string, required)
 + updated_at: `2017-04-20T19:14:13Z` (string, required) - date and time, when the entity was updated
 
 ## Connections
-### Connection
+### `Connection`
 + id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - Unique connection id
 + client_id: `c4a6d45f-2cf2-4e6d-909a-5962604ad63b` (string, required) - Unique connection id
 + consumer_id: `25c03af6-69bd-439e-b0dd-f1669b3dbbfd` (string, required) - Unique connection id
@@ -13550,7 +13546,7 @@ status: `APPROVED` (string, required)
 + type: `23143534` (string, required)- `code from dictionary -  EQUIPMENT_TYPE`            
 + external_id: `123-ASD-#1` (string, required) - Identifier from external system
 + udi (array, optional) - A set of unique identifiers assigned to the asset by the manufacturer 
-    + include
+    + (object)
         + value: `IMEI 49015420323751` (string, required) - udi identifier
         + type: `default` (string, required) - `type of the udi identifier acording to dictionary EQUIPMENT_UDI_TYPE`
         + assigner_name: `Ukrainian center of the certification` (string, optional) - assigner name of the udi
@@ -13610,7 +13606,7 @@ status: `APPROVED` (string, required)
     + tax_id: 3999869394 (string, required)
     + secret: secret (string, required)
     + documents (array, required)
-        + include
+        + (object)
             + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
             + number: АА120518 (string, required) - document issue number
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
@@ -13672,7 +13668,7 @@ status: `APPROVED` (string, required)
 + `medical_program_id`: `04d5ea65-d6e7-44f8-9eef-f0d3c1121d2b` (string, required) - medical program that is provided
 + `division_id`: `15caea3f-cac3-483c-a3da-5875eba96430` (string, required) - division that provide a medical program
 + `is_active`: true (boolean, required) - status of the Medical program provision
-+ `deactivate_reason`: (string, required, nullable) - the reason of deactivated status
++ `deactivate_reason`: `MANUAL_DEACTIVATION` (string, required, nullable) - the reason of deactivated status
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
