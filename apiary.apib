@@ -442,7 +442,7 @@ Method to create new employee record for the MSP.
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (crud_employee_get)
+        + data (`crud_employee_get`)
 
 ### Update employee [PUT /employees/{id}]
 
@@ -458,7 +458,7 @@ This method to update the employee info by ID.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (crud_employee_get)
+        + data (`crud_employee_get`)
 
 
 ### Search for an Employee [GET /employees{?party_id,no_tax_id,legal_entity_id,division_id,employee_type,status,page,page_size}]
@@ -506,7 +506,7 @@ This service should be used for internal services/processes. Used without `acces
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Employee_Request_Details)
+        + data (`Employee_Request_Details`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
         + urgent (object, optional)
             + user_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -522,7 +522,7 @@ This service should be used for approve employee request (set status on APPROVED
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-       + data (Employee_Request_Approve)
+       + data (`Employee_Request_Approve`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 
 ### Reject Employee Request [POST /employee_requests/{id}/reject]
@@ -538,7 +538,7 @@ This service should be used for reject employee request (set status on REJECTED)
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-       + data (Employee_Request_Details)
+       + data (`Employee_Request_Details`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 
 ### Create User via Employee Request [POST /employee_requests/{id}/user{?password}]
@@ -714,7 +714,7 @@ This method to update the ukr_med_registry info by ID.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (crud_ukr_med_registry_get)
+        + data (`crud_ukr_med_registry_get`)
 
 
 ### Search for the ukr_med_registry record [GET /ukr_med_registry{?edrpou}]
@@ -793,7 +793,7 @@ Methods returns agregated numbers of declarations and doctors by division.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-         + data (MainStats_Division, optional)
+         + data (`MainStats_Division`, optional)
 
 
 
@@ -873,7 +873,7 @@ This method returns employee details by id
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (EntriesEmployeeMap, optional)
+        + data (`EntriesEmployeeMap`, optional)
 
 
 ## Employee Requests [/employee_requests]
@@ -1010,7 +1010,7 @@ Methods returns global parameters for declarations.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Global_Parameters)
+        + data (`Global_Parameters`)
 
 ### Put Global Parameters [PUT]
 
@@ -1021,7 +1021,7 @@ Method updates global parameters for declarations.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Global_Parameters)
+        + data (`Global_Parameters`)
 
 # Group Internal. Digital Signature
 
@@ -1935,7 +1935,7 @@ NHS admin can terminate active declaration using this method.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Nhs_Declaration_v2)
+        + data (`Nhs_Declaration_v2`)
 
 ### Verify declaration  [PATCH /api/nhs_admin/declarations/{id}/actions/approve]
 
@@ -2340,7 +2340,7 @@ Exposed client credentials may be blocked for a security reasons, you will need 
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (Access_Token)
+        + data (`Access_Token`)
 
 ### Use Refresh Token for Access Token extension [POST /oauth/tokens]
 
@@ -2361,7 +2361,7 @@ In future, you will be able to refresh access tokens to extend `access_token` li
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (Access_Token_1)
+        + data (`Access_Token_1`)
 
 ## Dictionaries [/api/dictionaries]
 
@@ -2396,7 +2396,7 @@ Method is used to verify that provided in declarartion request phone number is v
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 ### Complete OTP Verification [PATCH /api/verifications/{phone_number}/actions/complete]
 
@@ -2414,7 +2414,7 @@ Method is used to verify that provided in declarartion request phone number is v
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 ### Find Verifications by Phone Number [GET /api/verifications/{phone_number}]
 
@@ -2429,7 +2429,7 @@ Method is used to verify that provided in declarartion request phone number is v
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Response_verification_by_phone)
+        + data (`Response_verification_by_phone`)
 
 ## Person Requests [/api/person_requests]
 [Person Request]() is a life-cycle entity that is used to create person WITHOUT [Declarations]().
@@ -2737,7 +2737,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/N4DrJ
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 ## Declaration Requests [/api/declaration_requests]
 
@@ -3021,7 +3021,7 @@ Use this method to resend sms on previously created Declaration Request V3.
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 
 ## Declarations [/api/declarations]
@@ -3190,7 +3190,7 @@ Response structure differs depending on employee type:
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Employee_Response)
+        + data (`Employee_Response`)
             + division (Division_Short)
             + `legal_entity` (`Legal_Entity_Short`)
                 + `legal_form`: 140 (string, required) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
@@ -3222,7 +3222,7 @@ Employee deactivation:
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (Employee_Response)
+        + data (`Employee_Response`)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + division (Division_Short)
                 + `legal_entity` (`Legal_Entity_Short`)
@@ -3273,7 +3273,7 @@ Signed content MUST consists of JSON object with the `employee_request` block of
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (Employee_Request_Details)
+        + data (`Employee_Request_Details`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + inserted_at: `2017-05-05T14:09:59.232112` (string, required)
             + updated_at: `2017-05-05T14:09:59.232112` (string, required)
@@ -3319,7 +3319,7 @@ This service should be used with `access_token` authetification method.
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (Employee_Request_Details)
+        + data (`Employee_Request_Details`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + inserted_at: `2017-05-05T14:09:59.232112` (string, optional)
             + updated_at: `2017-05-05T14:09:59.232112` (string, optional)
@@ -3713,7 +3713,7 @@ This method is used when you need to re-send SMS to a person or third person
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 
 ### Get Person verification details [GET  /api/persons/{id}/verification]
@@ -4885,7 +4885,7 @@ Use this method to resend sms with OTP-code on previously created merge request 
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 ### Get merge requests [GET /api/merge_requests{?status,master_person_id,merge_person_id,page,page_size}]
 Method returns a list of merge requests. Service returns only merge requests related to the same legal entity as the user. To obtain more detailed information about merge request use [**Get merge request by ID**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/merge-request/get-merge-request-by-id). Note that person and preperson data of SIGNED merge request avaliable limited period of time (depends on schedule of [Auto cleaning person data process](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/624328717/Auto+cleaning+of+person+data+from+merge+requests))
@@ -6507,7 +6507,7 @@ This method in used to approve declaration request by patient via Cabinet
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (Declaration_Details_Cabinet)
+        + data (`Declaration_Details_Cabinet`)
 
 ### Terminate declarations via Cabinet [PATCH /api/cabinet/declarations/{id}/actions/terminate]
 Patient can terminate active declaration using this method.
@@ -6525,7 +6525,7 @@ Patient can terminate active declaration using this method.
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (Declaration_Details_Cabinet)
+        + data (`Declaration_Details_Cabinet`)
 
 ### Get declaration details via Cabinet [GET /api/cabinet/declarations/{id}]
 
@@ -6608,7 +6608,7 @@ This WS allows to see 2FA number via Cabinet
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (authentication_factor)
+        + data (`authentication_factor`)
         
 
 ### Get medication request list via Cabinet [GET /api/cabinet/medication_requests{?legal_entity_id,employee_id,person_id,status,request_number,created_from,created_to,medication_id,intent,encounter_id,page,page_size}]
@@ -8766,7 +8766,7 @@ Use this method to resend sms on previously created Declaration Request.
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (OTP)
+        + data (`OTP`)
 
 ### Sign Declaration Request - Deprecated [PATCH /api/declaration_requests/{id}/actions/sign]
 
@@ -9074,7 +9074,7 @@ For changes to take effect employee must confirm the changes.
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (Employee_Request_Details)
+        + data (`Employee_Request_Details`)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + inserted_at: `2017-05-05T14:09:59.232112` (string, required)
             + updated_at: `2017-05-05T14:09:59.232112` (string, required)
