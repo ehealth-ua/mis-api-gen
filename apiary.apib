@@ -481,7 +481,7 @@ Methods returns list of employees.
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[crud_employee_get])
+        + data (array[`crud_employee_get`])
 
 ### Get Employee details [GET /employees/{id}]
 
@@ -588,7 +588,7 @@ This service should be used for internal services/processes. Used without `acces
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[crud_legal_entity_get])
+        + data (array[`crud_legal_entity_get`])
 
 ### Get Legal Entity Details by ID [GET /legal_entities/{id}]
 
@@ -779,7 +779,7 @@ The service returns statistics for all regions
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
-        + data (array[StatsByRegionadd], optional)
+        + data (array[`StatsByRegionadd`], optional)
 
 
 
@@ -807,7 +807,7 @@ The service returns statistics for all regions
 
 + Response 200 (application/json)
     + Attributes (Response_OK)
-        + data (array[HistogramStats], optional)
+        + data (array[`HistogramStats`], optional)
 
 ## Divisions [/report/divisions]
 
@@ -838,7 +838,7 @@ Method searches divisions by parameters and returnes division details
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[EntriesDivisionMap], optional)
+        + data (array[`EntriesDivisionMap`], optional)
 
 ## Employees [/api/stats/employees]
 
@@ -864,7 +864,7 @@ Method searches doctor by parameters and returnes division details
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[EntriesEmployeesListMap], optional)
+        + data (array[`EntriesEmployeesListMap`], optional)
 
 ### Search Employee Details [GET /api/stats/employees/{id}]
 This method returns employee details by id
@@ -926,7 +926,7 @@ Service to search parties (doctors) in eHealth
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[EntriesParties], required, fixed-type)
+        + data (array[`EntriesParties`], required, fixed-type)
 
 
 ### Get declaration count internal [POST /api/parties/declaration_count/{ids}]
@@ -970,7 +970,7 @@ Method searches Medical program provision by parameters and returnes it's detail
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[EntriesMedicalProgramProvisionMap], optional)
+        + data (array[`EntriesMedicalProgramProvisionMap`], optional)
 
 # Group Internal. Media Content Storage
 
@@ -2165,10 +2165,10 @@ JWT:
             + gender: `MALE` (string, optional)
             + tax_id: `1002003040` (string, required)
             + unzr: `12345678-54321` (string, optional)
-            + addresses (array[Address], required)
-            + documents (array[Document], required)
-            + phones (array[Phone], optional)
-            + `authentication_methods` (array[Authentication_Method], required)
+            + addresses (array[`Address`], required)
+            + documents (array[`Document`], required)
+            + phones (array[`Phone`], optional)
+            + `authentication_methods` (array[`Authentication_Method`], required)
             + `emergency_contact` (`Emergency_Contact`, required)
             + `process_disclosure_data_consent`: true (boolean, required)
 
@@ -3542,7 +3542,7 @@ It returns:
 
 + Response 200 (application/json)
     + Attributes (Response_Collection)
-        + data (array[Declaration_Details])
+        + data (array[`Declaration_Details`])
 
 + Response 403 (application/json)
     + Attributes (Response_Error)
@@ -5137,7 +5137,7 @@ The method contains is_primary parameter, which indicates whether the ingredient
     + Attributes (`Response_Collection_V2`)
         + meta (Response__Meta)
             + code: 200 (number)
-        + data (array[Drug_v2_Response])
+        + data (array[`Drug_v2_Response`])
 
 ### Get drugs list - Should be deprecated [GET /api/drugs{?innm_id,innm_name,innm_sctid,innm_dosage_form,innm_dosage_id,innm_dosage_name,medication_code_atc,medical_program_id,page,page_size}]
 
@@ -5168,7 +5168,7 @@ This endpoint returns list of drugs. Each drug contains all allowed package form
     + Attributes (`Response_Collection_V2`)
         + meta (Response__Meta)
             + code: 200 (number)
-        + data (array[Drug_Response])
+        + data (array[`Drug_Response`])
 
 ## Medication Request Requests [/api/medication_request_requests]
 
@@ -5636,7 +5636,7 @@ Only Medication dispenses linked to medication request id will be shown. If you 
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[Medication_Dispense_Response_old])
+        + data (array[`Medication_Dispense_Response_old`])
 
 ### Search Medication Dispenses by Medication Request ID [GET /api/persons/{person_id}/medication_requests/{id}/medication_dispenses{?status}]
 
@@ -9181,10 +9181,10 @@ Only legal entity owner can request new client secret for his own legal entity
 + email: email@example.com (string, optional)
 + tax_id: 3126509816 (string, optional)
 + secret: secret (string, required)
-+ documents (array[Document], required)
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
-+ `authentication_methods` (array[Authentication_Method], required)
++ documents (array[`Document`], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ `authentication_methods` (array[`Authentication_Method`], required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
@@ -9201,10 +9201,10 @@ Only legal entity owner can request new client secret for his own legal entity
 + email: email@example.com (string, optional)
 + tax_id: 3126509816 (string, optional)
 + secret: secret (string, required)
-+ documents (array[Document], required)
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
-+ `authentication_methods` (array[Authentication_Method_Patient_Request], required)
++ documents (array[`Document`], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ `authentication_methods` (array[`Authentication_Method_Patient_Request`], required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
@@ -9222,9 +9222,9 @@ Only legal entity owner can request new client secret for his own legal entity
 + email: email@example.com (string, optional)
 + tax_id: 3126509816 (string, optional)
 + secret: secret (string, required)
-+ documents (array[Document], required)
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
++ documents (array[`Document`], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
@@ -9248,9 +9248,9 @@ Only legal entity owner can request new client secret for his own legal entity
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
-+ documents_person (array[Document], required)
-+ documents_relationship (array[RelationshipDocument], required)
-+ phones (array[Phone], optional)
++ documents_person (array[`Document`], required)
++ documents_relationship (array[`RelationshipDocument`], required)
++ phones (array[`Phone`], optional)
 
 ### `Confidant_Person_v2`
 + relation_type: PRIMARY (enum, required)
@@ -9269,16 +9269,16 @@ Only legal entity owner can request new client secret for his own legal entity
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
-+ documents_person (array[Document], required)
-+ documents_relationship (array[RelationshipDocument], required)
-+ phones (array[Phone], optional)
++ documents_person (array[`Document`], required)
++ documents_relationship (array[`RelationshipDocument`], required)
++ phones (array[`Phone`], optional)
 + email: emaill@example.com (string, optional)
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
 + last_name: Іванов (string, required)
 + second_name: Миколайович (string, optional)
-+ phones (array[Phone], required)
++ phones (array[`Phone`], required)
 
 ### `Person_Request`
 + include `Person`
@@ -9289,7 +9289,7 @@ Only legal entity owner can request new client secret for his own legal entity
 ### `Person_Full`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + Include Person_Request
-+ confident_persons (array[Person])  - Should be set if this Person is disabled, underage, etc.
++ confident_persons (array[`Person`])  - Should be set if this Person is disabled, underage, etc.
 + is_active: true (boolean, required)
 + merged_ids (array)
     + (object)
@@ -9334,7 +9334,7 @@ Only legal entity owner can request new client secret for his own legal entity
     - FEMALE
     - MALE
 + tax_id: 3126509816 (string, optional)
-+ phones (array[Phone], optional)
++ phones (array[`Phone`], optional)
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
 
@@ -9348,12 +9348,12 @@ Only legal entity owner can request new client secret for his own legal entity
     - FEMALE
     - MALE
 + tax_id: 3126509816 (string, optional)
-+ phones (array[Phone], optional)
++ phones (array[`Phone`], optional)
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
 + verification_status: NOT_VERIFIED (string, optional)
 + `emergency_contact` (Emergency_Contact, required)
-+ `confidant_person` (array[Confidant_Person], optional) - Should be set if this Person is disabled, underage, etc
++ `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc
 
 ### `Person_Medication_Request`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -9577,9 +9577,9 @@ Only legal entity owner can request new client secret for his own legal entity
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
             + issued_at: `2017-02-28` (string, required) - the date when document was issued
             + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-    + addresses (array[Address], required)
-    + phones (array[Phone], optional)
-    + `authentication_methods` (array[Authentication_Method], required)
+    + addresses (array[`Address`], required)
+    + phones (array[`Phone`], optional)
+    + `authentication_methods` (array[`Authentication_Method`], required)
     + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
         - email
         - phone
@@ -9876,9 +9876,9 @@ status: `APPROVED` (string, required)
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
-+ `authentication_methods` (array[Authentication_Method_Patient_Request], optional)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ `authentication_methods` (array[`Authentication_Method_Patient_Request`], optional)
 + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
 + emergency_contact (object, required)
     + include `Emergency_Contact`
@@ -9930,8 +9930,8 @@ status: `APPROVED` (string, required)
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
 + `authentication_methods` (array, required)
     + (object)
         + type (enum, required)
@@ -9960,11 +9960,11 @@ status: `APPROVED` (string, required)
 + `no_tax_id`: false (boolean, optional)
 + tax_id: 3126509816 (string, required)
 + email: email@example.com (string, optional)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
-+ educations (array[Education], optional)  - освіта
-+ qualifications (array[Qualification], optional) - підвищення кваліфікації
-+ specialities (array[Speciality_party], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
++ educations (array[`Education`], optional)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality_party`], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + science_degree (ScienceDegree, optional)
 
 ### `Party_Request_old`
@@ -9974,8 +9974,8 @@ status: `APPROVED` (string, required)
 + `no_tax_id`: false (boolean, optional) - true if employee doesn't have tax_id and false otherwise
 + tax_id: 3126509816 (string, required) - if no_tax_id=true then passport number, otherwise tax_id
 + email: email@example.com (string, optional)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + working_experience: 10 (number, optional) - full years of working experience
 + about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
 
@@ -9986,8 +9986,8 @@ status: `APPROVED` (string, required)
 + gender: MALE (string, required) - `Dictionary GENDER`
 + `no_tax_id`: false (boolean, optional)
 + tax_id: 3126509816 (string, required)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + working_experience: 10 (number, optional) - full years of working experience
 + about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
 + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
@@ -9999,14 +9999,14 @@ status: `APPROVED` (string, required)
 + tax_id: 3126509816 (string, required)
 + birth_date: `1991-08-19T00:00:00.000Z` (string, required)
 + gender: MALE(string, required) - `Dictionary GENDER`
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + working_experience: 10 (number, optional) - full years of working experience
 + about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
 + declaration_limit: `2000` (number) - maximum number of declaration with a doctor.
-+ educations (array[Education], optional)  - освіта
-+ qualifications (array[Qualification], optional) - підвищення кваліфікації
-+ specialities (array[Speciality_party], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ educations (array[`Education`], optional)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality_party`], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + science_degree (ScienceDegree, optional)
 
 ### `crud_party`
@@ -10017,13 +10017,13 @@ status: `APPROVED` (string, required)
 + gender: MALE(string, required) - `Dictionary GENDER`
 + no_tax_id: false (boolean, optional)
 + tax_id: 3126509816 (string, required)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + working_experience: 10 (number, optional) - full years of working experience
 + about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
-+ educations (array[Education], optional)  - освіта
-+ qualifications (array[Qualification], optional) - підвищення кваліфікації
-+ specialities (array[Speciality_party], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ educations (array[`Education`], optional)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality_party`], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + science_degree (ScienceDegree, optional)
 
 ### `crud_party_post`
@@ -10090,7 +10090,7 @@ status: `APPROVED` (string, required)
     + no_tax_id: true (boolean, required)
     + include `Party_Short`
     + email: email@example.com (string, optional)
-    + phones (array[Phone], optional)
+    + phones (array[`Phone`], optional)
 
 ### `Employee_Minimal_cabinet`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -10189,9 +10189,9 @@ status: `APPROVED` (string, required)
 + short_name: Ноунейм (string, required)
 + type: MSP (string, required) - `Dictionary LEGAL_ENTITY_TYPE`
 + edrpou: 5432345432 (string, required)
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
-+ email: email@example.com (array[Email], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
++ email: email@example.com (array[`Email`], required)
 + is_active: true (boolean)
 + public_name: Клініка Ноунейм (string, required)
 + kveds: 86.1 (array, required)
@@ -10219,9 +10219,9 @@ status: `APPROVED` (string, required)
 + short_name: Ноунейм (string, optional)
 + public_name: Клініка Ноунейм (string, required)
 + type: MSP (string, optional) - `Dictionary LEGAL_ENTITY_TYPE`
-+ addresses (array[Address], optional)
-+ phones (array[Phone], optional)
-+ email: email@example.com (array[Email], optional)
++ addresses (array[`Address`], optional)
++ phones (array[`Phone`], optional)
++ email: email@example.com (array[`Email`], optional)
 + is_active: true (boolean)
 + public_name: Клініка Ноунейм (string, optional)
 + status: VERIFIED (enum, optional)
@@ -10263,15 +10263,15 @@ status: `APPROVED` (string, required)
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`  - business form [as ТОВ/ФОП/ДП/КП]
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + kveds: 86.10 (array, required) - Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73.
-+ addresses (array[Address], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
 + beneficiary: `Борисов Борис Борисович` (string, optional) - legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]
 + owner(`Owner`,required)
 + `medical_service_provider` (MSP)
-+ `archive`(array[Archive], optional)
++ `archive`(array[`Archive`], optional)
 + security (object, required, fixed-type)
     + `redirect_uri`: `https://example.com` (string, required, fixed) - Redirect uri is used in oauth2.0 flow
 + public_offer(object, fixed-type)
@@ -10282,7 +10282,7 @@ status: `APPROVED` (string, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: PRIMARY_CARE (string, required) - type of legal entity
 + residence_address (Address, optional, required) - address where the legal entity is physically located
-+ phones (array[Phone], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -10301,7 +10301,7 @@ status: `APPROVED` (string, required)
         + order_no: ВА43234 (string, required) - номер наказу
     + license (object, required)
         + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-+ `archive`(array[Archive], optional)
++ `archive`(array[`Archive`], optional)
 + security (object, required, fixed-type)
     + `redirect_uri`: `https://example.com` (string, required, fixed) - Redirect uri is used in oauth2.0 flow
 + public_offer(object, fixed-type, required)
@@ -10317,8 +10317,8 @@ status: `APPROVED` (string, required)
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`  - business form [as ТОВ/ФОП/ДП/КП]
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + kveds: 86.10 (array, required) - Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73.
-+ addresses (array[Address], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -10336,7 +10336,7 @@ status: `APPROVED` (string, required)
             + what_licensed: реалізація наркотичних засобів (string, optional)
             + order_no: ВА43234 (string, required) - номер наказу
     + accreditation (MSP_Accreditation, optional)
-+ `archive`(array[Archive], optional)
++ `archive`(array[`Archive`], optional)
 + security (object, fixed-type)
     + `redirect_uri`: `https://example.com` (string, required, fixed) - Redirect uri is used in oauth2.0 flow
 + public_offer(object, fixed-type)
@@ -10348,7 +10348,7 @@ status: `APPROVED` (string, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: PRIMARY_CARE (string, required) - type of legal entity [PRIMARY_CARE/OUTPATIENT/PHARMACY]. MIS can't be created using this WS.
 + residence_address (Address, optional, required) - address where the legal entity is physically located
-+ phones (array[Phone], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -10364,7 +10364,7 @@ status: `APPROVED` (string, required)
     + `active_from_date`: `2017-02-28` (string)
     + what_licensed: реалізація наркотичних засобів (string, optional)
     + order_no: ВА43234 (string) - номер наказу
-+ `archive`(array[Archive], optional)
++ `archive`(array[`Archive`], optional)
 + public_offer(object, fixed-type, required)
     + `consent_text`: `Consent text` (string, required)
     + `consent`: `true` (boolean, required)
@@ -10378,14 +10378,14 @@ status: `APPROVED` (string, required)
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
 + edrpou: 5432345432 (string, required) -  Unified Register of Businesses and Organizations
 + kveds: 86.1 (array, required) - Ukrainian Industry Classification System, there is a check for required kved: 86.10, 86.21, 47.73
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasure code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
 + beneficiary: `Борисов Борис Борисович` (string, optional) - legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]
 + `medical_service_provider` (MSP)
-+ `archive`(array[Archive], optional)
++ `archive`(array[`Archive`], optional)
 + security (object, fixed-type)
     + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri is used in oauth2.0 flow
 + is_active: true (boolean, required)
@@ -10443,8 +10443,8 @@ status: `APPROVED` (string, required)
 ## `Divisions`
 ### `Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - division's email
 + working_hours (`workinghours`) - optional field, business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
 + type: CLINIC (enum, required) - `Dictionary DIVISION_TYPE`
@@ -10478,8 +10478,8 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + `legal_entity_id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - division's email
 + type: clinic (enum, required) - division type
     - CLINIC
@@ -10493,8 +10493,8 @@ status: `APPROVED` (string, required)
 ### `Division_Details_Cabinet`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - division's email
 + location (Location, optional) - geographical location, if it's empty, division won't be shown on a map.
 
@@ -10549,8 +10549,8 @@ status: `APPROVED` (string, required)
 + birth_date: `1991-08-19T00:00:00.000Z` (string, required)
 + gender: MALE (string, required) - `Dictionary GENDER`
 + email: `email@example.com` (string, required)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + position (string, required): `P6`- `Dictionary POSITION`
 
 ### `Owner_V2`
@@ -10561,8 +10561,8 @@ status: `APPROVED` (string, required)
 + birth_date: `1991-08-19` (string, required)
 + gender: MALE (string, required) - `Dictionary GENDER`
 + email: `email@example.com` (string, required)
-+ documents (array[PartyDocument], optional)
-+ phones (array[Phone], optional)
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
 + position (string, required): `P6`- `Dictionary POSITION`
 
 ## `Medical_Service_Providers`
@@ -10570,7 +10570,7 @@ status: `APPROVED` (string, required)
 ### `crud_msp`
 + `legal_entity_id`: 5432345432 (string, required)
 + accreditation (MSP_Accreditation, optional)
-+ licenses (array[MSP_License], required)
++ licenses (array[`MSP_License`], required)
 
 ### `crud_msp_get`
 + include `crud_msp`
@@ -10580,7 +10580,7 @@ status: `APPROVED` (string, required)
 
 ### `crud_msp_patch`
 + accreditation (MSP_Accreditation, optional)
-+ licenses (array[MSP_License], required)
++ licenses (array[`MSP_License`], required)
 
 ### `Medical_Service_Provider`
 + name: Клініка Ноунейм (string, required)
@@ -10588,10 +10588,10 @@ status: `APPROVED` (string, required)
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
 + public_name: ЦПМСД №1 (string, optional)
 + edrpou: 5432345432 (string, required)
-+ licenses (array[MSP_License], required)
++ licenses (array[`MSP_License`], required)
 + accreditation (MSP_Accreditation, optional)
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: `email@example.com` (string, required)
 
 ### `MSP_Short`
@@ -10612,15 +10612,15 @@ status: `APPROVED` (string, required)
     + ACTIVE
     + CLOSED
 + email: `email@example.com` (string, required)
-+ phones (array[Phone], required)
-+ addresses (array[Address], optional)
++ phones (array[`Phone`], required)
++ addresses (array[`Address`], optional)
 
 ### `MSP`
-+ licenses (array[MSP_License], required)
++ licenses (array[`MSP_License`], required)
 + accreditation (MSP_Accreditation, optional)
 
 ### `MSP_V2`
-+ licenses (array[MSP_License_V2], required)
++ licenses (array[`MSP_License_V2`], required)
 + accreditation (MSP_Accreditation, optional)
 
 ## `Ukr_med_registries`
@@ -10872,14 +10872,14 @@ status: `APPROVED` (string, required)
 + total_entries (number, required)
 + page_size (number, required)
 + page (number, required)
-+ entries (array[EntriesDivisionMap], optional)
++ entries (array[`EntriesDivisionMap`], optional)
 
 ### DataEntriesEmployeesListMap
 + total_pages (number, required)
 + total_entries (number, required)
 + page_size (number, required)
 + page (number, required)
-+ entries (array[EntriesEmployeesListMap], optional)
++ entries (array[`EntriesEmployeesListMap`], optional)
 
 ### EntriesDivisionMap
 + id: `asSbcy12sYs8c` (string, required)
@@ -10894,7 +10894,7 @@ status: `APPROVED` (string, required)
 ### EntriesEmployeesListMap
 + id: `7d23bebb-1cf3-4221-bf21-18aada444756` (string, required) - employee id
 + party (PartyMap)
-    + specialities (array[Speciality], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
+    + specialities (array[`Speciality`], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
     + is_available: true (boolean, required)
 + division(object, required)
     + id: `7d23bebb-1cf3-4221-bf21-18aada444756` (string, required)
@@ -10927,13 +10927,13 @@ status: `APPROVED` (string, required)
         - CLOSED
 
 ### EntriesParties (PartyDoctorMap)
-+ employees (array[EntriesPartyEmployees], required, fixed-type)
++ employees (array[`EntriesPartyEmployees`], required, fixed-type)
 
 ### EntriesPartyEmployees
 + id: `7d23bebb-1cf3-4221-bf21-18aada444756` (string, required) - employee id
 + position: P1 (string, required) - employee position
 + employee_type: DOCTOR (string, required)
-+ `healthcare_services` (array[EntriesHealthcareServices], required, fixed-type)
++ `healthcare_services` (array[`EntriesHealthcareServices`], required, fixed-type)
 
 ### EntriesHealthcareServices
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required)
@@ -10971,8 +10971,8 @@ status: `APPROVED` (string, required)
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
 + edrpou: 5432345432 (string, required)
 + kveds: `["86.10", "47.73"]` (string, optional)
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required)
 + nhs_verified: false (string, optional)
 + owner (OwnerMap)
@@ -10994,9 +10994,9 @@ status: `APPROVED` (string, required)
 + first_name: Петро (string, required)
 + second_name: Миколайович (string, required)
 + last_name: Іванов (string, required)
-+ educations (array[Education], required)  - освіта
-+ qualifications (array[Qualification], optional) - підвищення кваліфікації
-+ specialities (array[Speciality], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ educations (array[`Education`], required)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality`], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + is_available: true (boolean, required)
 + science_degree (ScienceDegree, optional)
 + working_experience: 10 (number, optional)
@@ -11013,7 +11013,7 @@ status: `APPROVED` (string, required)
 
 ### ContactInfo
 + email: email@example.com (string, optional)
-+ phones (array[Phone], optional)
++ phones (array[`Phone`], optional)
 
 ### Location
 + latitude: 30.1233 (number, required)
@@ -11045,7 +11045,7 @@ status: `APPROVED` (string, required)
         + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
         + type: PRIMARY_CARE, OUTPATIENT, EMERGENCY (enum, required) - type of MSP legal entity
         + residence_address (Address, optional, required) - address where the legal entity is physically located
-        + phones (array[Phone], required)
+        + phones (array[`Phone`], required)
         + email: email@example.com (string, required) - email to contact person in charge from legal entity
         + website: `www.msp.com.ua` (string, optional) - legal entity website
         + status: ACTIVE (enum, required)
@@ -11067,13 +11067,13 @@ status: `APPROVED` (string, required)
 
 ## DoctorsNew
 ### DoctorNew
-+ educations (array[Education], required)  - освіта
-+ qualifications (array[Qualification], optional) - підвищення кваліфікації
-+ specialities (array[Speciality], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ educations (array[`Education`], required)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality`], required)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + science_degree (ScienceDegree, optional)
 
 ### `DoctorNew_Short`
-+ specialities (array[Speciality], required)
++ specialities (array[`Speciality`], required)
 
 ### `DoctorNew_Short_Single`
 + speciality (Speciality, required)
@@ -11206,13 +11206,13 @@ status: `APPROVED` (string, required)
         - OFFLINE
         - NA
     + number: `+380937777785` (string, required)
-+ documents (array[Document],optional)
++ documents (array[`Document`],optional)
 
 ### `Nhs_Declaration_v2`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - id of the signed document stored on the Media content storage
 + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
 + `legal_entity` (`Legal_Entity_Short`, required)
-  + addresses (array[Address], optional)
+  + addresses (array[`Address`], optional)
 + start_date: `2017-03-02` (string, required)
 + end_date: `2017-03-02` (string, required)
 + signed_at: `2017-03-02T10:45:16.000Z` (string, required)
@@ -11225,16 +11225,16 @@ status: `APPROVED` (string, required)
     + birth_settlement: `Вінниця` (string, required)
     + gender: MALE, FEMALE (enum[string], required) + tax_id: 3126509816 (string, optional)
 + secret: secret (string, required)
-+ documents (array[Document], required)
-+ addresses (array[Address], required)
-+ phones (array[Phone], optional)
-+ `authentication_methods` (array[Authentication_Method], required)
++ documents (array[`Document`], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ `authentication_methods` (array[`Authentication_Method`], required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
 + `division` (`DivisionName`, required)
-  + addresses (array[Address], optional)
-  + phones (array[Phone], required)
+  + addresses (array[`Address`], optional)
+  + phones (array[`Phone`], required)
   + email: email@example.com (string, required) - division's email
   + status: ACTIVE (enum, required)
     - ACTIVE
@@ -12471,7 +12471,7 @@ status: `APPROVED` (string, required)
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
-    + licenses (array[MSP_License], required)
+    + licenses (array[`MSP_License`], required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
@@ -12509,7 +12509,7 @@ status: `APPROVED` (string, required)
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
-    + licenses (array[MSP_License], required)
+    + licenses (array[`MSP_License`], required)
     + accreditation (MSP_Accreditation, optional)
 + `medication_info` (`Innm_Dosage_for_Medication_request_Responce`, required)
 + include `MR_MRR_additional_fields`
@@ -12736,7 +12736,7 @@ status: `APPROVED` (string, required)
     + include `Party_Short`
     + birth_date: `1991-08-19T00:00:00.000Z` (string, required)
     + `no_tax_id`: false (boolean, optional)
-    + phones (array[Phone], optional)
+    + phones (array[`Phone`], optional)
 + `payment_amount`: 50 (number, required) - receipt amount which was paid by patient (UAH)
 + `payment_id`: 1239804 (string, optional) - receipt number for the paid medications
 + `status`: NEW (string, required) - Medication Dispense status (NEW, PROCESSED, REJECTED, EXPIRED)
@@ -12765,7 +12765,7 @@ status: `APPROVED` (string, required)
     + include `Party_Short`
     + birth_date: `1991-08-19T00:00:00.000Z` (string, required)
     + `no_tax_id`: false (boolean, optional)
-    + phones (array[Phone], optional)
+    + phones (array[`Phone`], optional)
 + `payment_amount`: 50 (number, required) - receipt amount which was paid by patient (UAH)
 + `payment_id`: 1239804 (string, optional) - receipt number for the paid medications
 + `status`: NEW (string, required) - Medication Dispense status (NEW, PROCESSED, REJECTED, EXPIRED)
@@ -13148,7 +13148,7 @@ status: `APPROVED` (string, required)
 + id: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) - legal entity ID which make contract request
 + name: Клініка Ноунейм (string, required) - full official name of legal entity also the name to show on public sources [as map, portal etc]
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
-+ addresses (array[Address], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
++ addresses (array[`Address`], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
 
 
 ### `Payment_details`
@@ -13197,8 +13197,8 @@ status: `APPROVED` (string, required)
 ### `Contractor_divisions`
 + id: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required) - division ID
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[Address], required)
-+ phones (array[Phone], required)
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], required)
 + email: email@example.com (string, required) - division's email
 + working_hours (`workinghours`) - optional field, business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
 + mountain_group: false (boolean, optional)
@@ -13610,8 +13610,8 @@ status: `APPROVED` (string, required)
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
             + issued_at: `2017-02-28` (string, required) - the date when document was issued
             + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-    + addresses (array[Address], required)
-    + phones (array[Phone], optional)
+    + addresses (array[`Address`], required)
+    + phones (array[`Phone`], optional)
     + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
     + emergency_contact (object, required)
         + include `Emergency_Contact`
