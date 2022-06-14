@@ -2468,7 +2468,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
     + Attributes (object)
         + person (required)
             + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-            + include (Person_info_Public, required)
+            + include (`Person_info_Public`, required)
         + patient_signed: false (boolean, required) - Факт подписания заявки на збереження/створення персоны.
         + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
         + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -2487,7 +2487,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
             + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-                + include (Person_info_Public, required)
+                + include (`Person_info_Public`, required)
             + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
             + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
             + channel: `MIS` (enum, required) - channel that invoke person request create service
@@ -2551,7 +2551,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
             + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-                + include (Person_info_Public, required)
+                + include (`Person_info_Public`, required)
             + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
             + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
             + content: `Person content` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
@@ -2596,7 +2596,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/MYDAIw
             + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-                + include (Person_info_Public, required)
+                + include (`Person_info_Public`, required)
             + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
             + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
             + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
@@ -2665,7 +2665,7 @@ Look at [**Dummy Sign Person Request**](https://uaehealthapi.docs.apiary.io/#ref
             + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-                + include (Person_info_Public, required)
+                + include (`Person_info_Public`, required)
             + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
             + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
             + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
@@ -3778,7 +3778,7 @@ List consists of legal entities with parameter `is_active = true`.
         + data (array)
             + (object)
                 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-                + include Legal_Entity_Response_Public_V2
+                + include (`Legal_Entity_Response_Public_V2`)
                 + status: ACTIVE (enum, required)
                     - ACTIVE
                     - CLOSED
@@ -3800,7 +3800,7 @@ List consists of legal entities with parameter `is_active = true`.
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Response_Public_V2
+            + include (`Legal_Entity_Response_Public_V2`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -3846,7 +3846,7 @@ There is a [**dummy method Create/Update legal entity V2**](https://uaehealthapi
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Response_Public_V2
+            + include (`Legal_Entity_Response_Public_V2`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -8212,13 +8212,13 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-        + include Legal_Entity_Request_Public
+        + include (`Legal_Entity_Request_Public`)
 
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Request_Public
+            + include (`Legal_Entity_Request_Public`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -8233,7 +8233,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Request_Public
+            + include (`Legal_Entity_Request_Public`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -8257,13 +8257,13 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-        + include Legal_Entity_Request_Public_V2
+        + include (`Legal_Entity_Request_Public_V2`)
 
 + Response 200 (application/json)
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Response_Public_V2
+            + include (`Legal_Entity_Response_Public_V2`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -8282,7 +8282,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Response_Public_V2
+            + include (`Legal_Entity_Response_Public_V2`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -8315,7 +8315,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
         + person (required)
             + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
-            + include (Person_info_Public, required)
+            + include (`Person_info_Public`, required)
         + patient_signed: true (boolean, required) - Факт подписания заявки на декларацию.
         + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
         + content: `<html><body><p>signed person data</p></body></html>` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
@@ -8997,7 +8997,7 @@ Signed content MUST consists of JSON object with Legal Entity data:
     + Attributes (Response__Process_OK)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include Legal_Entity_Response_Public
+            + include (`Legal_Entity_Response_Public`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -10470,7 +10470,7 @@ status: `APPROVED` (string, required)
 ### `Division_Details`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + legal_entity_id: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
-+ include Division
++ include (`Division`)
 + dls_id: `2872985` (string, optional)
 + dls_verified: true (boolean, optional)
 
@@ -11401,7 +11401,7 @@ status: `APPROVED` (string, required)
 + `updated_by`: `d5a5d991-0bf7-476f-b3cf-bec73f044b2e` (string, required) - id of user who has inserted record
 
 ### `Service_in_group`
-+ include (Service_group)
++ include (`Service_group`)
 + groups (array, optional, fixed-type)
     + (Service_group)
         + id: `75a5d991-0bf7-476f-b3cf-bec73f044b2e` (string, required)
@@ -13189,7 +13189,7 @@ status: `APPROVED` (string, required)
 ### `Employee_divisions_response`
 + `employee`
     + include (`Person_Minimal_Contract`)
-    + include (DoctorNew_Short_Single)
+    + include (`DoctorNew_Short_Single`)
 + `staff_units`: `0.5` (number, required)
 + `declaration_limit`: `2000` (number, required) - declaration limit for current employee within the contract
 + `division_id`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required) - division ID
