@@ -64,7 +64,7 @@ To submit issues you should use [Issue Tracking Repo](https://github.com/edenlab
             Authorization: Bearer YW5WcFkyVnFkV2xqWldwMWFXTmxDZzpjY1hwWTR0cWRZbGVjNHAxYUdsMXVJ
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`Person_Full`)
 
 
@@ -76,10 +76,10 @@ To submit issues you should use [Issue Tracking Repo](https://github.com/edenlab
 
             Authorization: Bearer YW5WcFkyVnFkV2xqWldwMWFXTmxDZzpjY1hwWTR0cWRZbGVjNHAxYUdsMXVJ
 
-    + Attributes (Person_Request)
+    + Attributes (`Person_Request`)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Person_Full`)
@@ -116,7 +116,7 @@ Method returns only **requested** parameters and those from the search, birth pl
                 + unzr: `19910819-00011` (string, optional) - the record number in the demographic register
                 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
         + error (Response__Error, fixed-type)
@@ -139,7 +139,7 @@ This method allows to search for a Person (MPI) knowing person's document number
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Person_Short`])
 
 ## Merge Candidates [/merge_candidates]
@@ -158,7 +158,7 @@ This method allows to search for a Person (MPI) knowing person's document number
     + ending_before: 56c31536a60ad644060041aa (string, optional) - A cursor to fetch previous page. Taken from collection response.
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection)
+    + Attributes (`Response_Collection`)
         + data (array[`Merge_Candidate`])
 
 ### Merge candidate [POST /merge_candidates/{id}/actions/merge]
@@ -173,7 +173,7 @@ This method allows to search for a Person (MPI) knowing person's document number
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`Merge_Candidate`)
 
 # Group Internal. IL DB
@@ -206,7 +206,7 @@ This method to update the declaration request status.
     + Attributes
         + `declaration_requests` (array[`declaration_request_patch`])
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`crud_Declaration_request_get`])
 
 ### Get Declaration documents list [GET /declarations/{id}/documents{?page,page_size}]
@@ -232,10 +232,10 @@ Service to get list of signed URLs with the read access for all the documents at
 Method to register new declaration record
 
 + Request (application/json)
-    + Attributes (Declaration)
+    + Attributes (`Declaration`)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`crud_Declaration_get`)
@@ -250,10 +250,10 @@ This method to update the declaration status.
 
 
 + Request (application/json)
-    + Attributes (crud_Declaration_patch)
+    + Attributes (`crud_Declaration_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_Declaration_get`)
 
 ### Get Declaration Details by ID [GET /declarations/{id}]
@@ -264,7 +264,7 @@ This method to update the declaration status.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_Declaration_get`)
 
 
@@ -286,7 +286,7 @@ Response will contain only records that you have access to.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`crud_Declaration_get`])
 
 ### Terminate declarations by employee or person [PATCH /declarations/terminate]
@@ -317,7 +317,7 @@ Response will contain only records that you have access to.
     + name: DOCUMENT_TYPE (string, optional)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`Dictionary`])
 
 ### Update dictionary [PATCH /dictionaries/{name}]
@@ -326,10 +326,10 @@ Response will contain only records that you have access to.
     + name: DOCUMENT_TYPE (string, required)
 
 + Request (application/json)
-    + Attributes (Dictionary)
+    + Attributes (`Dictionary`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`Dictionary`])
 
 ## Party [/party]
@@ -346,7 +346,7 @@ Method to create new party record.
                 + user_id: `2de19358-0062-4f14-8a50-9dff015ed165` (string, required)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -373,7 +373,7 @@ This method to update the employee info by ID.
                 + user_id: `2de19358-0062-4f14-8a50-9dff015ed165` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -420,7 +420,7 @@ Methods returns party details by ID.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + party(`crud_party_get`)
             + users(array)
@@ -436,10 +436,10 @@ Method to create new employee record for the MSP.
 
 
 + Request (application/json)
-    + Attributes (crud_employee_post)
+    + Attributes (`crud_employee_post`)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (crud_employee_get)
@@ -454,10 +454,10 @@ This method to update the employee info by ID.
 
 
 + Request (application/json)
-    + Attributes (crud_employee_post)
+    + Attributes (`crud_employee_post`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (crud_employee_get)
 
 
@@ -493,7 +493,7 @@ Methods returns employee details by ID.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_employee_get`)
 
 ### Get Employee Request by ID [GET /employee_requests/{id}]
@@ -505,7 +505,7 @@ This service should be used for internal services/processes. Used without `acces
 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Employee_Request_Details)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
         + urgent (object, optional)
@@ -521,7 +521,7 @@ This service should be used for approve employee request (set status on APPROVED
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
        + data (Employee_Request_Approve)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 
@@ -537,7 +537,7 @@ This service should be used for reject employee request (set status on REJECTED)
 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
        + data (Employee_Request_Details)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 
@@ -596,16 +596,16 @@ This service should be used for internal services/processes. Used without `acces
     + id: `1341234` (string)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_legal_entity_get`)
 
 ### Create Legal Entity [POST]
 
 + Request (application/json)
-    + Attributes (crud_legal_entity_post)
+    + Attributes (`crud_legal_entity_post`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_legal_entity_get`)
 
 ### Update Legal Entity [PATCH /legal_entities/{id}]
@@ -614,10 +614,10 @@ This service should be used for internal services/processes. Used without `acces
     + id: `24352342` (string, required)
 
 + Request (application/json)
-    + Attributes (crud_legal_entity_patch)
+    + Attributes (`crud_legal_entity_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_legal_entity_get`)
 
 
@@ -631,7 +631,7 @@ Method to create new division record.
     + Attributes (`Division`)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`crud_division_get`)
@@ -649,7 +649,7 @@ This method to update the division info by ID.
     + Attributes (`Division`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 
@@ -680,7 +680,7 @@ Methods returns Division details by ID.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 ## Ukrainian medical registry records [/ukr_med_registry]
@@ -694,7 +694,7 @@ Method to create new ukr_med_registry record.
     + Attributes (`crud_ukr_med_registry_post`)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`crud_ukr_med_registry_get`)
@@ -710,10 +710,10 @@ This method to update the ukr_med_registry info by ID.
 
 
 + Request (application/json)
-    + Attributes (crud_ukr_med_registry_post)
+    + Attributes (`crud_ukr_med_registry_post`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (crud_ukr_med_registry_get)
 
 
@@ -727,7 +727,7 @@ Methods returns list of ukr_med_registry records.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection)
+    + Attributes (`Response_Collection`)
         + data (array[`crud_ukr_med_registry_get`])
 
 ### Get the ukr_med_registry details [GET /ukr_med_registry/{id}]
@@ -740,7 +740,7 @@ Methods returns ukr_med_registry details by ID.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_ukr_med_registry_get`)
 
 
@@ -757,7 +757,7 @@ Total statistis are calculated on the date that is transmitted in the current da
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object, optional)
             + declarations: 100 (number, required)
             + msps: 2 (number, required)
@@ -778,7 +778,7 @@ The service returns statistics for all regions
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`StatsByRegionadd`], optional)
 
 
@@ -792,7 +792,7 @@ Methods returns agregated numbers of declarations and doctors by division.
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
          + data (MainStats_Division, optional)
 
 
@@ -806,7 +806,7 @@ The service returns statistics for all regions
 + Request (application/json)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`HistogramStats`], optional)
 
 ## Divisions [/report/divisions]
@@ -899,7 +899,7 @@ Method logic described on [confluence page](https://e-health-ua.atlassian.net/wi
             Authorization: Bearer YW5WcFkyVnFkV2xqWldwMWFXTmxDZzpjY1hwWTR0cWRZbGVjNHAxYUdsMXVJ
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
 
 ## Parties [/parties]
 
@@ -1009,7 +1009,7 @@ After obtaining token upload should be proceeded with [Google Cloud Storage API]
 Methods returns global parameters for declarations.
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Global_Parameters)
 
 ### Put Global Parameters [PUT]
@@ -1017,10 +1017,10 @@ Methods returns global parameters for declarations.
 Method updates global parameters for declarations.
 
 + Request (application/json)
-    + Attributes (Global_Parameters)
+    + Attributes (`Global_Parameters`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Global_Parameters)
 
 # Group Internal. Digital Signature
@@ -1085,7 +1085,7 @@ Response will contain only records that you have access to.
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`nhs_declaration`)
 
 ## Innms [/innms]
@@ -1111,7 +1111,7 @@ This method is used to create new innm. Fields descriptions are listed in reques
             + include `Innm_Response`
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409
         + error
@@ -1187,7 +1187,7 @@ This method is used to create INNM Dosage. Fields descriptions are listed in req
             + include `INNM_Dosage_Response`
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -1215,7 +1215,7 @@ This method is used to deactivate INNM Dosage. Fields descriptions are listed in
             + include `INNM_Dosage_Response`
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -1289,7 +1289,7 @@ This method is used to create Medications. Fields descriptions are listed in req
             + include `Medication_Response`
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -1317,7 +1317,7 @@ This method is used to deactivate Medication. Fields descriptions are listed in 
             + include `Medication_Response`
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -1414,7 +1414,7 @@ Medical program can't be deactivate if there is at least one participant in the 
             + include `medical_programs_response`
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409
         + error
@@ -1484,7 +1484,7 @@ This method is used to create new participant of a program - to link exsiting ac
             + include `Program_medications_Response`
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409
         + error
@@ -1492,7 +1492,7 @@ This method is used to create new participant of a program - to link exsiting ac
             + message: `Current medication is already the participant of this program` (string, required)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -1522,7 +1522,7 @@ This method is used to update flags "is_active" and/or "medication_request_allow
             + include `Program_medications_Response`
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409
         + error
@@ -1611,7 +1611,7 @@ This method is used to add tax_id to black list. Fields descriptions are listed 
        + include (`Black_list_user_Request`, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -1633,13 +1633,13 @@ This method is used by NHS Admin to deactivate user in black list.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Black_list_user_Response`
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409
         + error
@@ -1710,7 +1710,7 @@ Method allows NHS admin to upload and save files with registers
        + `reason_description`: `Реєстр смертності за 01-31.01.2018` (string, optional)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Registers_response`
@@ -1811,7 +1811,7 @@ Result can be filtered either by
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`person_short_v2`])
 
 ### Get Person Details [GET /api/nhs_admin/persons/{id}]
@@ -1829,7 +1829,7 @@ This method allows to view Person's (MPI) details.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`person_short_v2`)
 
 
@@ -1849,11 +1849,11 @@ This method allows to reset (set to **NA**) person authentication method.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`person_short_v2`)
 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 404 (number)
         + error (Response__Error, fixed-type)
@@ -1912,7 +1912,7 @@ By defaut the result is sorted by start_date:desc
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -1953,10 +1953,10 @@ declaration status will be changed to `active`
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (crud_Declaration_patch)
+    + Attributes (`crud_Declaration_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
 
 ### Reject declaration  [PATCH /declarations/{id}/actions/reject]
 
@@ -1975,10 +1975,10 @@ declaration status will be changed to `closed`
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (crud_Declaration_patch)
+    + Attributes (`crud_Declaration_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
 
 
 # Group Internal. Gandalf
@@ -2039,13 +2039,13 @@ Method check email and send a link via email.
         + email: example@gmail.com (string, required) - Patient's email
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object, required)
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 409 (number)
         + error (Response__Error, fixed-type)
@@ -2053,7 +2053,7 @@ Method check email and send a link via email.
             + message: `User with this email already exists` (string)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -2076,14 +2076,14 @@ Method allows to verify Email and check whether the link we sent is the same as 
             Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object, required)
             + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 409 (number)
         + error (Response__Error, fixed-type)
@@ -2211,7 +2211,7 @@ JWT:
 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
            + token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtaXRocmlsLWxvZ2luIiwiZXhwIjoxNTIzNDM5MjAxLCJpYXQiOjE1MjM0MzgzMDEsImlzcyI6IkVIZWFsdGgiLCJqdGkiOiJlZmUxZjA4ZS1kNGI0LTRjZWYtYTAyYy03OGVhNGExZGRhMjUiLCJuYmYiOjE1MjM0MzgzMDAsIm5vbmNlIjoxMjMsInN1YiI6MTIzLCJ0eXAiOiJhY2Nlc3MifQ.UZ6S92h3nAG-GKY_XUE1Rc6uR_BuqR8ufUJfMhhKtNmt7DkkQlU49qPXjL0LFddVz1E2DXi2a-BQ0FG-DHsTHA' (string, required)
 
@@ -2230,11 +2230,11 @@ Thie WS designed to check existence of user with input tax_id
         + `signed_content_encoding`: `base64` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 409 (number)
         + error (Response__Error, fixed-type)
@@ -2337,7 +2337,7 @@ Exposed client credentials may be blocked for a security reasons, you will need 
             + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (Access_Token)
@@ -2358,7 +2358,7 @@ In future, you will be able to refresh access tokens to extend `access_token` li
             + `grant_type`: refresh_token (string, fixed) - oAuth Grant Type. Currently only `authorization_code` is supported.
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (Access_Token_1)
@@ -2376,7 +2376,7 @@ Each dictionary is an object that contains *{key}*:*{value}* pairs where:
 ### Get dictionaries [GET]
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`Dictionary`])
 
 ## OTP Verification [/api/verifications]
@@ -2395,7 +2395,7 @@ Method is used to verify that provided in declarartion request phone number is v
         + `phone_number`: `+380508887700` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 ### Complete OTP Verification [PATCH /api/verifications/{phone_number}/actions/complete]
@@ -2413,7 +2413,7 @@ Method is used to verify that provided in declarartion request phone number is v
         + code: 3782 (number)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 ### Find Verifications by Phone Number [GET /api/verifications/{phone_number}]
@@ -2428,7 +2428,7 @@ Method is used to verify that provided in declarartion request phone number is v
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Response_verification_by_phone)
 
 ## Person Requests [/api/person_requests]
@@ -2474,7 +2474,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
         + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -2498,7 +2498,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -2538,7 +2538,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
         + `verification_code`: 6598 (number, optional) - required if authentication_method is OTP
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -2559,7 +2559,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -2583,7 +2583,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/MYDAIw
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -2635,7 +2635,7 @@ Look at [**Dummy Sign Person Request**](https://uaehealthapi.docs.apiary.io/#ref
         + `signed_content`: `ewogICJzdGF0dXMiOiAiQVBQUk9WRUQiLAogICJpZCI6ICJlZWViYjg2ZC01Y2JhLTQzYzktODg1Yi02NDgyZWNhZjgyNmIiLAogICJwZXJzb24iOiB7CiAgICAiaWQiOiAiMTMwMDFjNjAtNDVhMC00YjVhLWI0MjUtOTUwNWUxZGUxOGJkIiwKICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgInNlY29uZF9uYW1lIjogItCc0LjQutC+0LvQsNC50L7QstC40YciLAogICAgImJpcnRoX2RhdGUiOiAiMjAwOS0wNy0wNSIsCiAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAiYmlydGhfc2V0dGxlbWVudCI6ICLQktGW0L3QvdC40YbRjyIsCiAgICAiZ2VuZGVyIjogIk1BTEUiLAogICAgImVtYWlsIjogImVtYWlsQGV4YW1wbGUuY29tIiwKICAgICJub190YXhfaWQiOiBmYWxzZSwKICAgICJ0YXhfaWQiOiAiMzk5OTg2OTM5NCIsCiAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAiZG9jdW1lbnRzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiQklSVEhfQ0VSVElGSUNBVEUiLAogICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgImlzc3VlZF9ieSI6ICLQoNC+0LrQuNGC0L3Rj9C90YHRjNC60LjQvCDQoNCSINCT0KMg0JzQktChINCa0LjRl9Cy0YHRjNC60L7RlyDQvtCx0LvQsNGB0YLRliIsCiAgICAgICAgImlzc3VlZF9hdCI6ICIyMDE3LTAyLTI4IiwKICAgICAgICAiZXhwaXJhdGlvbl9kYXRlIjogIjIwMjctMDItMjgiCiAgICAgIH0KICAgIF0sCiAgICAiYWRkcmVzc2VzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiUkVTSURFTkNFIiwKICAgICAgICAiY291bnRyeSI6ICJVQSIsCiAgICAgICAgImFyZWEiOiAi0JbQuNGC0L7QvNC40YDRgdGM0LrQsCIsCiAgICAgICAgInJlZ2lvbiI6ICLQkdC10YDQtNC40YfRltCy0YHRjNC60LjQuSIsCiAgICAgICAgInNldHRsZW1lbnQiOiAi0JrQuNGX0LIiLAogICAgICAgICJzZXR0bGVtZW50X3R5cGUiOiAiQ0lUWSIsCiAgICAgICAgInNldHRsZW1lbnRfaWQiOiAiYjA3NWYxNDgiLAogICAgICAgICJzdHJlZXRfdHlwZSI6ICJTVFJFRVQiLAogICAgICAgICJzdHJlZXQiOiAi0LLRg9C7LiDQndGW0LbQuNC90YHRjNC60LAiLAogICAgICAgICJidWlsZGluZyI6ICIxNSIsCiAgICAgICAgImFwYXJ0bWVudCI6ICIyMyIsCiAgICAgICAgInppcCI6ICIwMjA5MCIKICAgICAgfQogICAgXSwKICAgICJwaG9uZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgfQogICAgXSwKICAgICJhdXRoZW50aWNhdGlvbl9tZXRob2RzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiVEhJUkRfUEVSU09OIiwKICAgICAgICAidmFsdWUiOiAiKzM4MDUwODg4NzcwMCIsCiAgICAgICAgImFsaWFzIjogImh1c2JhbmQiCiAgICAgIH0KICAgIF0sCiAgICAidW56ciI6ICIyMDA5MDcwNS0wMDAxMSIsCiAgICAiZW1lcmdlbmN5X2NvbnRhY3QiOiB7CiAgICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgInBob25lcyI6IFsKICAgICAgICB7CiAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJjb25maWRhbnRfcGVyc29uIjogWwogICAgICB7CiAgICAgICAgInJlbGF0aW9uX3R5cGUiOiAiUFJJTUFSWSIsCiAgICAgICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgICAiYmlydGhfZGF0ZSI6ICIxOTcyLTEwLTI2IiwKICAgICAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAgICAgImJpcnRoX3NldHRsZW1lbnQiOiAi0JLRltC90L3QuNGG0Y8iLAogICAgICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAgICAgInRheF9pZCI6ICIyNjU5NzE5MzUwIiwKICAgICAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAgICAgImRvY3VtZW50c19wZXJzb24iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJ0eXBlIjogIlBBU1NQT1JUIiwKICAgICAgICAgICAgIm51bWJlciI6ICLQkNCQMTIwNTE4IiwKICAgICAgICAgICAgImlzc3VlZF9ieSI6ICLQoNC+0LrQuNGC0L3Rj9C90YHRjNC60LjQvCDQoNCSINCT0KMg0JzQktChINCa0LjRl9Cy0YHRjNC60L7RlyDQvtCx0LvQsNGB0YLRliIsCiAgICAgICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJkb2N1bWVudHNfcmVsYXRpb25zaGlwIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICAgICAiaXNzdWVkX2F0IjogIjIwMTctMDItMjgiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAicGhvbmVzIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgICAibnVtYmVyIjogIiszODA1MDM0MTA4NzAiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZW1haWwiOiAiZW1haWxsQGV4YW1wbGUuY29tIgogICAgICB9CiAgICBdLAogICAgInByZWZlcnJlZF93YXlfY29tbXVuaWNhdGlvbiI6ICJlbWFpbCIKICB9LAogICJwYXRpZW50X3NpZ25lZCI6IHRydWUsCiAgInByb2Nlc3NfZGlzY2xvc3VyZV9kYXRhX2NvbnNlbnQiOiB0cnVlLAogICJjb250ZW50IjogIjxodG1sPjxib2R5PjxwPnNpZ25lZCBwZXJzb24gZGF0YTwvcD48L2JvZHk+PC9odG1sPiIsCiAgImNoYW5uZWwiOiAiTUlTIgp9` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Patient_short`)
         
 
@@ -2652,7 +2652,7 @@ Look at [**Dummy Sign Person Request**](https://uaehealthapi.docs.apiary.io/#ref
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -2736,7 +2736,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/N4DrJ
         + alias: `husband` (string, optional)-->
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 ## Declaration Requests [/api/declaration_requests]
@@ -2766,7 +2766,7 @@ To create declaration request based on active declaration in reorganized legal e
         + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration in reorganized legal entity
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -2793,7 +2793,7 @@ To create declaration request based on active declaration in reorganized legal e
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -2829,7 +2829,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
         + `verification_code`: 2836 (number, optional) - required if authentication_method is OTP
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -2848,7 +2848,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + `data_to_be_signed` (`Decl_req_data_to_be_signed`, required)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -2869,7 +2869,7 @@ Use this method to reject previously created Declaration Request.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -2917,7 +2917,7 @@ There is a [**dummy method**](https://uaehealthapi.docs.apiary.io/#reference/dum
         + `signed_declaration_request`: `ewogICJpZCI6ICJiMDk5ZjE0OC03ZjkzLTRmYzItYjJlYy0yZDgxYjE5YTliN2IiLAogICJkZWNsYXJhdGlvbl9udW1iZXIiOiAiMDAwMC0xMkg0LTI0NUQiLAogICJkZWNsYXJhdGlvbl9pZCI6ICI4MzExYWI4Mi1lMzQxLTRkYTAtOGE5NS0yMzVlYzk4ODVlMjMiLAogICJzdGFydF9kYXRlIjogIjIwMTctMDMtMDIiLAogICJlbmRfZGF0ZSI6ICIyMDE3LTAzLTAyIiwKICAiY29udGVudCI6ICJEZWNsYXJhdGlvbiBjb250ZW50IiwKICAiY2hhbm5lbCI6ICJNSVMiLAogICJwZXJzb24iOiB7CiAgICAiaWQiOiAiNWZiNTdhNWQtMTQ1Ny00MzBlLTk2NzgtYzgxY2VjNzI3NzlmIiwKICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgInNlY29uZF9uYW1lIjogItCc0LjQutC+0LvQsNC50L7QstC40YciLAogICAgImJpcnRoX2RhdGUiOiAiMjAwOS0wNy0wNSIsCiAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAiYmlydGhfc2V0dGxlbWVudCI6ICLQktGW0L3QvdC40YbRjyIsCiAgICAiZ2VuZGVyIjogIk1BTEUiLAogICAgImVtYWlsIjogImVtYWlsQGV4YW1wbGUuY29tIiwKICAgICJub190YXhfaWQiOiBmYWxzZSwKICAgICJ0YXhfaWQiOiAiMzk5OTg2OTM5NCIsCiAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAiZG9jdW1lbnRzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiQklSVEhfQ0VSVElGSUNBVEUiLAogICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgImlzc3VlZF9ieSI6ICLQoNC+0LrQuNGC0L3Rj9C90YHRjNC60LjQvCDQoNCSINCT0KMg0JzQktChINCa0LjRl9Cy0YHRjNC60L7RlyDQvtCx0LvQsNGB0YLRliIsCiAgICAgICAgImlzc3VlZF9hdCI6ICIyMDE3LTAyLTI4IiwKICAgICAgICAiZXhwaXJhdGlvbl9kYXRlIjogIjIwMjctMDItMjgiCiAgICAgIH0KICAgIF0sCiAgICAiYWRkcmVzc2VzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiUkVTSURFTkNFIiwKICAgICAgICAiY291bnRyeSI6ICJVQSIsCiAgICAgICAgImFyZWEiOiAi0JbQuNGC0L7QvNC40YDRgdGM0LrQsCIsCiAgICAgICAgInJlZ2lvbiI6ICLQkdC10YDQtNC40YfRltCy0YHRjNC60LjQuSIsCiAgICAgICAgInNldHRsZW1lbnQiOiAi0JrQuNGX0LIiLAogICAgICAgICJzZXR0bGVtZW50X3R5cGUiOiAiQ0lUWSIsCiAgICAgICAgInNldHRsZW1lbnRfaWQiOiAiYjA3NWYxNDgiLAogICAgICAgICJzdHJlZXRfdHlwZSI6ICJTVFJFRVQiLAogICAgICAgICJzdHJlZXQiOiAi0LLRg9C7LiDQndGW0LbQuNC90YHRjNC60LAiLAogICAgICAgICJidWlsZGluZyI6ICIxNSIsCiAgICAgICAgImFwYXJ0bWVudCI6ICIyMyIsCiAgICAgICAgInppcCI6ICIwMjA5MCIKICAgICAgfQogICAgXSwKICAgICJwaG9uZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgfQogICAgXSwKICAgICJhdXRoZW50aWNhdGlvbl9tZXRob2RzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiVEhJUkRfUEVSU09OIiwKICAgICAgICAidmFsdWUiOiAiKzM4MDUwODg4NzcwMCIsCiAgICAgICAgImFsaWFzIjogImh1c2JhbmQiCiAgICAgIH0KICAgIF0sCiAgICAidW56ciI6ICIyMDA5MDcwNS0wMDAxMSIsCiAgICAiZW1lcmdlbmN5X2NvbnRhY3QiOiB7CiAgICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgInBob25lcyI6IFsKICAgICAgICB7CiAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJjb25maWRhbnRfcGVyc29uIjogWwogICAgICB7CiAgICAgICAgInJlbGF0aW9uX3R5cGUiOiAiUFJJTUFSWSIsCiAgICAgICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgICAiYmlydGhfZGF0ZSI6ICIxOTcyLTEwLTI2IiwKICAgICAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAgICAgImJpcnRoX3NldHRsZW1lbnQiOiAi0JLRltC90L3QuNGG0Y8iLAogICAgICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAgICAgInRheF9pZCI6ICIyNjU5NzE5MzUwIiwKICAgICAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAgICAgInVuenIiOiAiMTk5MDAxMDEtMDAwOTkiLAogICAgICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgICAgICJkb2N1bWVudHNfcGVyc29uIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgICAgICJleHBpcmF0aW9uX2RhdGUiOiAiMjAyMS0wMi0yOCIsCiAgICAgICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICAgICAiaXNzdWVkX2F0IjogIjIwMTctMDItMjgiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZG9jdW1lbnRzX3JlbGF0aW9uc2hpcCI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgInR5cGUiOiAiQklSVEhfQ0VSVElGSUNBVEUiLAogICAgICAgICAgICAibnVtYmVyIjogItCQ0JAxMjA1MTgiLAogICAgICAgICAgICAiaXNzdWVkX2J5IjogItCg0L7QutC40YLQvdGP0L3RgdGM0LrQuNC8INCg0JIg0JPQoyDQnNCS0KEg0JrQuNGX0LLRgdGM0LrQvtGXINC+0LHQu9Cw0YHRgtGWIiwKICAgICAgICAgICAgImlzc3VlZF9hdCI6ICIyMDE3LTAyLTI4IgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgInBob25lcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImVtYWlsIjogImVtYWlsbEBleGFtcGxlLmNvbSIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgInBhdGllbnRfc2lnbmVkIjogdHJ1ZSwKICAgICJwcm9jZXNzX2Rpc2Nsb3N1cmVfZGF0YV9jb25zZW50IjogdHJ1ZQogIH0sCiAgImVtcGxveWVlIjogewogICAgImlkIjogImQyOTBmMWVlLTZjNTQtNGIwMS05MGU2LWQ3MDE3NDhmMDg1MSIsCiAgICAicG9zaXRpb24iOiAiUDYiLAogICAgInBhcnR5IjogewogICAgICAiaWQiOiAiYjA3NWYxNDgtN2Y5My00ZmMyLWIyZWMtMmQ4MWIxOWE5YjdiIiwKICAgICAgIm5vX3RheF9pZCI6IHRydWUsCiAgICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgImVtYWlsIjogImVtYWlsQGV4YW1wbGUuY29tIiwKICAgICAgInBob25lcyI6IFsKICAgICAgICB7CiAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICAgIH0KICAgICAgXQogICAgfQogIH0sCiAgImxlZ2FsX2VudGl0eSI6IHsKICAgICJuYW1lIjogItCa0LvRltC90ZbQutCwINCd0L7Rg9C90LXQudC8IiwKICAgICJzaG9ydF9uYW1lIjogItCd0L7Rg9C90LXQudC8IiwKICAgICJsZWdhbF9mb3JtIjogIjE0MCIsCiAgICAicHVibGljX25hbWUiOiAi0KbQn9Cc0KHQlCDihJYxIiwKICAgICJlZHJwb3UiOiAiNTQzMjM0NTQzMiIsCiAgICAibGljZW5zZXMiOiBbCiAgICAgIHsKICAgICAgICAibGljZW5zZV9udW1iZXIiOiAiZmQxMjM0NDMiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0JrQstCw0LvRltGE0ZbQutCw0YbQudC90LAg0LrQvtC80ZbRgdGW0Y8iLAogICAgICAgICJpc3N1ZWRfZGF0ZSI6ICIyMDE3LTAyLTI4IiwKICAgICAgICAiZXhwaXJ5X2RhdGUiOiAiMjAxNy0wMi0yOCIsCiAgICAgICAgImFjdGl2ZV9mcm9tX2RhdGUiOiAiMjAxNy0wMi0yOCIsCiAgICAgICAgIndoYXRfbGljZW5zZWQiOiAi0YDQtdCw0LvRltC30LDRhtGW0Y8g0L3QsNGA0LrQvtGC0LjRh9C90LjRhSDQt9Cw0YHQvtCx0ZbQsiIsCiAgICAgICAgIm9yZGVyX25vIjogItCS0JA0MzIzNCIKICAgICAgfQogICAgXSwKICAgICJhY2NyZWRpdGF0aW9uIjogewogICAgICAiY2F0ZWdvcnkiOiAiU0VDT05EIiwKICAgICAgImlzc3VlZF9kYXRlIjogIjIwMTctMDItMjgiLAogICAgICAiZXhwaXJ5X2RhdGUiOiAiMjAxNy0wMi0yOCIsCiAgICAgICJvcmRlcl9ubyI6ICJmZDEyMzQ0MyIsCiAgICAgICJvcmRlcl9kYXRlIjogIjIwMTctMDItMjgiCiAgICB9LAogICAgImFkZHJlc3NlcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIlJFU0lERU5DRSIsCiAgICAgICAgImNvdW50cnkiOiAiVUEiLAogICAgICAgICJhcmVhIjogItCW0LjRgtC+0LzQuNGA0YHRjNC60LAiLAogICAgICAgICJyZWdpb24iOiAi0JHQtdGA0LTQuNGH0ZbQstGB0YzQutC40LkiLAogICAgICAgICJzZXR0bGVtZW50IjogItCa0LjRl9CyIiwKICAgICAgICAic2V0dGxlbWVudF90eXBlIjogIkNJVFkiLAogICAgICAgICJzZXR0bGVtZW50X2lkIjogImIwNzVmMTQ4IiwKICAgICAgICAic3RyZWV0X3R5cGUiOiAiU1RSRUVUIiwKICAgICAgICAic3RyZWV0IjogItCy0YPQuy4g0J3RltC20LjQvdGB0YzQutCwIiwKICAgICAgICAiYnVpbGRpbmciOiAiMTUiLAogICAgICAgICJhcGFydG1lbnQiOiAiMjMiLAogICAgICAgICJ6aXAiOiAiMDIwOTAiCiAgICAgIH0KICAgIF0sCiAgICAicGhvbmVzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAibnVtYmVyIjogIiszODA1MDM0MTA4NzAiCiAgICAgIH0KICAgIF0sCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgImlkIjogImIwNzVmMTQ4LTdmOTMtNGZjMi1iMmVjLTJkODFiMTlhOWI3YiIKICB9LAogICJkaXZpc2lvbiI6IHsKICAgICJpZCI6ICJkMjkwZjFlZS02YzU0LTRiMDEtOTBlNi1kNzAxNzQ4ZjA4NTEiLAogICAgImxlZ2FsX2VudGl0eV9pZCI6ICJjOGFhZGI4Ny1lY2I5LTQxY2EtOWFkNC1mZmRmZTFkZDg5YzkiLAogICAgIm5hbWUiOiAi0JHQvtGA0LjRgdC/0ZbQu9GM0YHRjNC60LUg0LLRltC00LTRltC70LXQvdC90Y8g0JrQu9GW0L3RltC60Lgg0J3QvtGD0L3QtdC50LwiLAogICAgImFkZHJlc3NlcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIlJFU0lERU5DRSIsCiAgICAgICAgImNvdW50cnkiOiAiVUEiLAogICAgICAgICJhcmVhIjogItCW0LjRgtC+0LzQuNGA0YHRjNC60LAiLAogICAgICAgICJyZWdpb24iOiAi0JHQtdGA0LTQuNGH0ZbQstGB0YzQutC40LkiLAogICAgICAgICJzZXR0bGVtZW50IjogItCa0LjRl9CyIiwKICAgICAgICAic2V0dGxlbWVudF90eXBlIjogIkNJVFkiLAogICAgICAgICJzZXR0bGVtZW50X2lkIjogImIwNzVmMTQ4IiwKICAgICAgICAic3RyZWV0X3R5cGUiOiAiU1RSRUVUIiwKICAgICAgICAic3RyZWV0IjogItCy0YPQuy4g0J3RltC20LjQvdGB0YzQutCwIiwKICAgICAgICAiYnVpbGRpbmciOiAiMTUiLAogICAgICAgICJhcGFydG1lbnQiOiAiMjMiLAogICAgICAgICJ6aXAiOiAiMDIwOTAiCiAgICAgIH0KICAgIF0sCiAgICAicGhvbmVzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAibnVtYmVyIjogIiszODA1MDM0MTA4NzAiCiAgICAgIH0KICAgIF0sCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInR5cGUiOiAiY2xpbmljIiwKICAgICJleHRlcm5hbF9pZCI6ICIzMjEzMjEzIiwKICAgICJkbHNfaWQiOiAiMjg3Mjk4NSIsCiAgICAiZGxzX3ZlcmlmaWVkIjogdHJ1ZQogIH0sCiAgInNlZWQiOiAiaGFzaCIKfQ==` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Declaration_short_v3`)
         
         
@@ -2936,7 +2936,7 @@ This endpoint returns declaration requests that were created through V2 and V3. 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -3020,7 +3020,7 @@ Use this method to resend sms on previously created Declaration Request V3.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 
@@ -3069,7 +3069,7 @@ This method allows to receive detailed information about person Declaration by d
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -3096,10 +3096,10 @@ declaration status will be changed to `active`
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (crud_Declaration_patch)
+    + Attributes (`crud_Declaration_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
 
 ### Reject declaration  [PATCH /declarations/{id}/reject]
 
@@ -3116,10 +3116,10 @@ declaration status will be changed to `closed`
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (crud_Declaration_patch)
+    + Attributes (`crud_Declaration_patch`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
 
 ## Employees [/api/employees]
 
@@ -3189,7 +3189,7 @@ Response structure differs depending on employee type:
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Employee_Response)
             + division (Division_Short)
             + `legal_entity` (`Legal_Entity_Short`)
@@ -3221,7 +3221,7 @@ Employee deactivation:
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (Employee_Response)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + division (Division_Short)
@@ -3270,7 +3270,7 @@ Signed content MUST consists of JSON object with the `employee_request` block of
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (Employee_Request_Details)
@@ -3318,7 +3318,7 @@ This service should be used with `access_token` authetification method.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9 (string, optional)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (Employee_Request_Details)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + inserted_at: `2017-05-05T14:09:59.232112` (string, optional)
@@ -3342,7 +3342,7 @@ This service should be used with mis `access_token` authetification method and u
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9 (string, optional)   
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + employee_id: `836c4753-ece4-44ba-b63c-0f92900535bf` (string, optional)
@@ -3374,7 +3374,7 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (array)
             + (object)
                 + include (`Person_Short`)
@@ -3388,7 +3388,7 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
 
 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
         + error (Response__Error, fixed-type)
@@ -3413,7 +3413,7 @@ This information was in response of Get `Search for a Person` before.
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (array)
             + (object)
                 + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
@@ -3430,7 +3430,7 @@ This information was in response of Get `Search for a Person` before.
 
 
 + Response 404 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 404 (number)
         + error (Response__Error, fixed-type)
@@ -3517,7 +3517,7 @@ Entity data:
 ` (string, required)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Person_Full`)
@@ -3541,11 +3541,11 @@ It returns:
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection)
+    + Attributes (`Response_Collection`)
         + data (array[`Declaration_Details`])
 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
         + error (Response__Error, fixed-type)
@@ -3567,11 +3567,11 @@ This method allows to reset (set to **NA**) person authentication method.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection)
+    + Attributes (`Response_Collection`)
         + data (`Person_Short`)
 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
         + error (Response__Error, fixed-type)
@@ -3594,12 +3594,12 @@ This method allows to find the active person's authentication methods.
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (array[`Person_auth_methods`])
         
 
 + Response 403 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
         + error (Response__Error, fixed-type)
@@ -3627,7 +3627,7 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/FwC_J
     
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -3639,7 +3639,7 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/FwC_J
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -3676,7 +3676,7 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/G4DJJ
         + `verification_code`: 7489 (number, optional) - required if authentication_method is OTP
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -3686,7 +3686,7 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/G4DJJ
 
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -3712,7 +3712,7 @@ This method is used when you need to re-send SMS to a person or third person
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 
@@ -3732,7 +3732,7 @@ This method returns current person's verification status and another information
     
     
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
                 - VERIFIED
@@ -3797,7 +3797,7 @@ List consists of legal entities with parameter `is_active = true`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Response_Public_V2`)
@@ -3843,7 +3843,7 @@ There is a [**dummy method Create/Update legal entity V2**](https://uaehealthapi
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Response_Public_V2`)
@@ -3862,7 +3862,7 @@ There is a [**dummy method Create/Update legal entity V2**](https://uaehealthapi
             + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include `Legal_Entity_Response_Public`
@@ -3903,7 +3903,7 @@ Available transition:
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Legal_Entity_Request_Public_Short`
 
@@ -3927,7 +3927,7 @@ Update status on CLOSED
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Legal_Entity_Request_Public_Short`
 
@@ -3971,7 +3971,7 @@ Use this method to get the list of child legal entities which are related to cur
 
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (`crud_division_get`)
 
 ### Update division [PATCH /api/divisions/{id}]
@@ -3988,7 +3988,7 @@ More details can be found [here](https://e-health-ua.atlassian.net/wiki/x/GQB7Iw
     + Attributes (`crud_division_post`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 ### Create division [POST]
@@ -4002,7 +4002,7 @@ More details can be found [here](https://e-health-ua.atlassian.net/wiki/x/GQB7Iw
     + Attributes (`crud_division_post`)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 ### Deactivate division [PATCH /api/divisions/{id}/actions/deactivate]
@@ -4010,7 +4010,7 @@ More details can be found [here](https://e-health-ua.atlassian.net/wiki/x/GQB7Iw
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 ### Activate division [PATCH /api/divisions/{id}/actions/activate]
@@ -4018,7 +4018,7 @@ More details can be found [here](https://e-health-ua.atlassian.net/wiki/x/GQB7Iw
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
 ## UAdresses [/api/uaddresses]
@@ -4408,7 +4408,7 @@ The following attribute added to specification for future use. Do not submit thi
         + `not_available` (array[`Restricted_period`], optional)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Healthcare_service_response`)
@@ -4442,7 +4442,7 @@ All other attributes are immutable
         + `not_available` (array[`Restricted_period`], optional)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
 
 ### Get healthcare services [GET /api/healthcare_services/{?division_id,speciality_type,providing_condition,category,status,page,page_size}]
 
@@ -4456,7 +4456,7 @@ All other attributes are immutable
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Healthcare_service_response`])
 
 ### Get healthcare service details by ID [GET /api/healthcare_services/{id}]
@@ -4465,7 +4465,7 @@ All other attributes are immutable
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Healthcare service identifier
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Healthcare_service_response`)
 
 ### Deactivate healthcare service [PATCH /api/healthcare_services/{id}/actions/deactivate]
@@ -4474,7 +4474,7 @@ All other attributes are immutable
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Healthcare service identifier
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Healthcare_service_response`)
             - status: INACTIVE
 
@@ -4484,7 +4484,7 @@ All other attributes are immutable
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Healthcare service identifier
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Healthcare_service_response`)
             - status: ACTIVE
 
@@ -4502,7 +4502,7 @@ All other attributes are immutable
     + Attributes (`Employee_role_base`)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Employee_role_response`)
@@ -4519,7 +4519,7 @@ At least one query parameter must be provided
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Employee_role_response`])
 
 ### Get employee role by ID [GET /api/employee_roles/{id}]
@@ -4528,7 +4528,7 @@ At least one query parameter must be provided
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Employee role identifier
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Employee_role_response`)
 
 ### Deactivate employee role [PATCH /api/employee_roles/{id}/actions/deactivate]
@@ -4537,7 +4537,7 @@ At least one query parameter must be provided
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Employee role identifier
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Employee_role_response`)
             - status: INACTIVE
 
@@ -4558,7 +4558,7 @@ Returns my user details based on user in access_token
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`User_details_response`)
 
         
@@ -4580,7 +4580,7 @@ This method allows to register equipment and bind it with division of legal enti
         + include `Equipment_base`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Equipment_response`)
@@ -4605,12 +4605,12 @@ Immutable parameters:
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
-    + Attributes (Equipment_base)
+    + Attributes (`Equipment_base`)
         + type: `23143534` (string, optional)- `code from dictionary -  EQUIPMENT_TYPE`  
         + external_id: `123-ASD-#1` (string, optional) - Identifier from external system
        
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Equipment_response`)
@@ -4667,7 +4667,7 @@ Immutable parameters:
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Equipment_response`)
             - status: INACTIVE
 
@@ -4685,7 +4685,7 @@ Immutable parameters:
 
 + Response 200 (application/json)
 
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Equipment_response`)
             - status: ACTIVE
             
@@ -4708,7 +4708,7 @@ This method allows to create unidentified person. There is one necessary field i
         
 + Response 201 (application/json)
 
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -4736,7 +4736,7 @@ Method enables to modify all the preperson fields except note and status.
         + note: `Registered in SmartMed clinic at 01.01.2019 16:40. Male, 40 years old approximately, tatoo with sport motorcycle on the right forearm` (string, optional) - Notes
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -4757,7 +4757,7 @@ Returns preperson details by it's MPI identifier
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Preperson_response`)     
@@ -4781,7 +4781,7 @@ If there is needs to change person\`s default authentication method for merge re
         + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of master person auth method
         
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Merge_request_response`)
@@ -4807,7 +4807,7 @@ Serves for receiving approval from person on action of merge with preperson. Als
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Merge_request_response`)
@@ -4829,7 +4829,7 @@ This method gives opportunity to reject and close preperson merge request by han
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Merge_request_response`)
@@ -4862,7 +4862,7 @@ There is a [**dummy method**](https://uaehealthapi.docs.apiary.io/#reference/dum
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Merge_request_response`)
@@ -4884,7 +4884,7 @@ Use this method to resend sms with OTP-code on previously created merge request 
     
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 ### Get merge requests [GET /api/merge_requests{?status,master_person_id,merge_person_id,page,page_size}]
@@ -4910,7 +4910,7 @@ Method returns a list of merge requests. Service returns only merge requests rel
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Merge_request_response`])
 
 
@@ -4930,7 +4930,7 @@ Method returns merge request details by it's ID. Depending on merge request stat
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Merge_request_response`)
@@ -4955,7 +4955,7 @@ Use this end-point to obtain all Licenses of the legal entity.
     + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`crud_licenses_get`])
 
 ### Create license [POST /api/licenses]
@@ -4969,7 +4969,7 @@ Primary license must be added with `Create/Update Legal Entity V2` method.
       + `is_primary`: false (boolean, required)
 
 + Response 201 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_licenses_get`)
 
 ### Update license [PATCH /api/licenses/{id}]
@@ -4986,7 +4986,7 @@ Primary license must be updated with `Create/Update Legal Entity V2` method.
       + is_primary: false (boolean, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`crud_licenses_get`)
 
 # Group Public. Medical Programs
@@ -5192,12 +5192,12 @@ This method is used to pre-qualify data Medication request Request (possibility 
         + `programs` (array[`Qualify_Medication_request_Request_List_program_post_data`], required) - Medical programs list for qualify
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         +  data (array[`Qualify_Medication_request_Request_Responce`]))
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -5219,7 +5219,7 @@ This method is used to create Medication request Request (as a part of Medicatio
         + `medication_request_request`(`Medication_request_Request_post_data`)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -5233,7 +5233,7 @@ This method is used to create Medication request Request (as a part of Medicatio
                 + number: `+38093*****85` (string, required)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -5269,7 +5269,7 @@ Method returns shortened details, to obtain full information - [**Get medication
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Request_Public_Response`
@@ -5301,7 +5301,7 @@ Method returns shortened details, to obtain full information - Get Medication re
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Request_Public_Response`
@@ -5321,7 +5321,7 @@ Use this method to obtain full information of Medication request request by it's
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Request_Public_Response`
@@ -5357,7 +5357,7 @@ Look at [**Dummy Sign Medication Request Requests**](https://uaehealthapi.docs.a
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Medication_request_Public_Response`)
             + printout_form: `HTML` (string, required) - Generated printout form
 
@@ -5375,7 +5375,7 @@ Use this method to reject previously created Medication request Request.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Request_Public_Response`)
 
@@ -5409,7 +5409,7 @@ Method returns shortened details, to obtain full information - Get Medication re
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Request_Public_Response`
@@ -5429,7 +5429,7 @@ Use this method to obtain full information of Medication request Request an `id`
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Request_Public_Response`
@@ -5453,12 +5453,12 @@ This method is used to qualify (possibility to use Innm for the program) Medicat
         + `programs` (array[`Qualify_Medication_request_Request_List_program_post_data`], required) - Medical programs list for qualify
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         +  data (array[`Qualify_by_ID_Request_for_Medication_request_Responce`]))
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -5550,7 +5550,7 @@ Use this method to obtain full information of Medication request by it's ID.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Public_Response_with_Medical_Program_min`
@@ -5589,7 +5589,7 @@ Look at [**Dummy Reject Medication Request**](https://uaehealthapi.docs.apiary.i
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min`)
             + `rejected_at`: `2017-04-20T19:14:13Z` (string, required, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
@@ -5612,7 +5612,7 @@ Use this method to resend SMS to person with medication request number & verific
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
@@ -5685,7 +5685,7 @@ This method is designed to get printout form (content) by medication request id.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
@@ -5706,7 +5706,7 @@ Use this method to obtain full information of Medication request an `id` or requ
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`
@@ -5767,7 +5767,7 @@ Use this method to obtain full information of Medication request an `id`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Public_Response_with_Medical_Program_min`
@@ -5799,7 +5799,7 @@ For pharmacists please use [**Block Medication Request by Pharmacy User**](https
        + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
@@ -5823,7 +5823,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
        + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min`)
 
@@ -5850,7 +5850,7 @@ For employees with other types please use [**Block Medication Request**](https:/
        + block_reason_code: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`)
 
@@ -5894,13 +5894,13 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
             + include `Medication_Dispense_Request`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Medication_Dispense_Response`)
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409 (number)
         + error (Response__Error)
@@ -5933,13 +5933,13 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
             + include `Medication_Dispense_Request`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Medication_Dispense_Response_for_Pharmacist`)
 
 + Response 409 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 409 (number)
         + error (Response__Error)
@@ -5974,7 +5974,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
             
@@ -6004,7 +6004,7 @@ Look at [**Dummy Process Medication Dispense by Pharmacy User**](https://uaeheal
 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
 
@@ -6015,7 +6015,7 @@ To be depricated.
 Please see a similar endpoint with role context ("Reject Medication Dispense by Pharmacy User") below. 
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
             
@@ -6026,7 +6026,7 @@ This method is used to reject medication dispense.
 **Scopes required:** `medication_dispense:reject`
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
 
@@ -6112,7 +6112,7 @@ Please see a similar endpoint with role context ("Get Medication dispense detail
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
             
@@ -6133,7 +6133,7 @@ This method allows to get detailed information of the Medication dispense for th
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
 
@@ -6149,7 +6149,7 @@ This method allows to get detailed information of the Medication dispense for th
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Details_Response`
 
@@ -6356,7 +6356,7 @@ This WS designed to get personal information of patient by token.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Party_Short`
             + id: `7e9cffd9-c75f-45fb-badf-6e8d20b6a8a8` (string, required) - person id
@@ -6366,7 +6366,7 @@ This WS designed to get personal information of patient by token.
 This WS is designed to get person details in cabinet.
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`cabinet_person_response`)
         + id: `7e9cffd9-c75f-45fb-badf-6e8d20b6a8a8` (string, required) - person id
 
@@ -6449,7 +6449,7 @@ Entity data:
 ` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`cabinet_person_response`)
 
 ### Create Declaration Request online [POST /api/cabinet/declaration_requests]
@@ -6466,7 +6466,7 @@ This method is used to create Declaration Request online (as part of Declaration
         + include `Declaration_Request_Online`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -6491,7 +6491,7 @@ This method is used to create Declaration Request online (as part of Declaration
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -6535,7 +6535,7 @@ Current WS allows to see details of declaration knowing its' id.
     + id: 7e9cffd9-c75f-45fb-badf-6e8d20b6a8a8 (uuid)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (`Declaration_Details_Cabinet`)
 
 ### Get declaration list via Cabinet [GET /api/cabinet/declarations{?status,start_year,page,page_size}]
@@ -6549,7 +6549,7 @@ This WS allows to see history of all patient's declarations and filter them.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Declaration_list_cabinet`])
 
 ### Get declaration Request details via Cabinet [GET /api/cabinet/declaration_requests/{id}]
@@ -6560,7 +6560,7 @@ Current WS allows to see details of declaration request knowing its' id.
     + id: 7e9cffd9-c75f-45fb-badf-6e8d20b6a8a8 (uuid)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + seed: hash (string, required)
@@ -6593,7 +6593,7 @@ This WS allows to see history of all patient's declaration requests and filter t
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Declaration_requests_list_cabinet`])
 
 ### Get authentication factor [GET /api/cabinet/authentication_factor]
@@ -6607,7 +6607,7 @@ This WS allows to see 2FA number via Cabinet
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (authentication_factor)
         
 
@@ -6659,7 +6659,7 @@ Use this method to obtain full information of Medication request an `id`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Public_Response_with_Medical_Program_min`
@@ -6704,7 +6704,7 @@ Use this method to obtain full information of Medication request an `id`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
             
@@ -6767,7 +6767,7 @@ This web service allows to initialize contract request creation by generating li
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Init_contract_request_response`
 
@@ -6940,12 +6940,12 @@ Reimbursement version:
         + include `Contract_request_Request_signed`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Capitation`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Reimbursement`
 
@@ -7007,14 +7007,14 @@ This method is designed to get full information of contract request by id
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Capitation`
         + urgent (object, required)
             + documents (array[`contract_media_content`], optional)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Reimbursement`
         + urgent (object, required)
@@ -7041,12 +7041,12 @@ For Create contract request by NHS, the `contract_number` in the request is requ
         + include `Contract_request_Request_signed`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Capitation`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Reimbursement`
 
@@ -7071,7 +7071,7 @@ After assigner was updated, contract request status will be changed to `IN_RPOCE
         + employee_id:  `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, required) -
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Capitation`
 
@@ -7094,7 +7094,7 @@ In case of reimbursement contract, nhs_contract_price shouldn`t be filled.
         + include `Contract_request_Update`
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_request_Details_Capitation`
 
@@ -7150,13 +7150,13 @@ to_approve content for Reimbursement contract type
         + `signed_content_encoding`: `base64` (string, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_request_Details_Capitation`
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7200,14 +7200,14 @@ In DS EDRPOU/DRFO must be equal to contractor_legal_entity.edrpou
         + `signed_content_encoding`: `base64` (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_request_Details_Capitation`
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7232,13 +7232,13 @@ Only after that NHS employee can sign the contract request.
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_request_Details_Capitation`
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7263,14 +7263,14 @@ This WS is designed to terminate contract request by contractor. Contract reques
         + `status_reason`: `Неправильний період контракту`(string, optional) - the reason of terminated status
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_request_Details_Reimbursement`
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7293,7 +7293,7 @@ Get Contract Request Details and Get Contract Request Printout Content and sign 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - contract request identifier
             + `printout_content`: `Contract request content` (string, required) - HTML document for contract request
@@ -7325,13 +7325,13 @@ In DS EDRPOU/DRFO must be equal to contractor_legal_entity.edrpou
         + `signed_content`: `ewogICJpZCI6ICIwOTEwNmI3MC0xOGIwLTQ3MjYtYjBlZC02YmRhMTM2OWZkNTIiLAogICJjb250cmFjdG9yX2xlZ2FsX2VudGl0eSI6IHsKICAgICJpZCI6ICJkZjlmNzBlZS00YjEyLTQ3NDAtYjBmNS1iYjVhZWExMTY4NjMiLAogICAgIm5hbWUiOiAi0JrQu9GW0L3RltC60LAg0J3QvtGD0L3QtdC50LwiLAogICAgImVkcnBvdSI6ICIzMjMyMzQ1NCIsCiAgICAiYWRkcmVzc2VzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiUkVTSURFTkNFIiwKICAgICAgICAiY291bnRyeSI6ICJVQSIsCiAgICAgICAgImFyZWEiOiAi0JbQuNGC0L7QvNC40YDRgdGM0LrQsCIsCiAgICAgICAgInJlZ2lvbiI6ICLQkdC10YDQtNC40YfRltCy0YHRjNC60LjQuSIsCiAgICAgICAgInNldHRsZW1lbnQiOiAi0JrQuNGX0LIiLAogICAgICAgICJzZXR0bGVtZW50X3R5cGUiOiAiQ0lUWSIsCiAgICAgICAgInNldHRsZW1lbnRfaWQiOiAiNDM0MzI0MzIiLAogICAgICAgICJzdHJlZXRfdHlwZSI6ICJTVFJFRVQiLAogICAgICAgICJzdHJlZXQiOiAi0LLRg9C7LiDQndGW0LbQuNC90YHRjNC60LAiLAogICAgICAgICJidWlsZGluZyI6ICIxNSIsCiAgICAgICAgImFwYXJ0bWVudCI6ICIyMyIsCiAgICAgICAgInppcCI6ICIwMjA5MCIKICAgICAgfQogICAgXQogIH0sCiAgImNvbnRyYWN0b3Jfb3duZXIiOiB7CiAgICAiaWQiOiAiYjA3NWYxNDgtN2Y5My00ZmMyLWIyZWMtMmQ4MWIxOWE5YjdiIiwKICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgInNlY29uZF9uYW1lIjogItCc0LjQutC+0LvQsNC50L7QstC40YciCiAgfSwKICAiY29udHJhY3Rvcl9iYXNlIjogItC90LAg0L/RltC00YHRgtCw0LLRliDQt9Cw0LrQvtC90YMg0L/RgNC+INCc0LXQtNC40YfQvdC1INC+0LHRgdC70YPQs9C+0LLRg9Cy0LDQvdC90Y8g0L3QsNGB0LXQu9C10L3QvdGPIiwKICAiY29udHJhY3Rvcl9wYXltZW50X2RldGFpbHMiOiB7CiAgICAiYmFua19uYW1lIjogItCR0LDQvdC6INC90L7QvNC10YAgMSIsCiAgICAiTUZPIjogIjM1MTAwNSIsCiAgICAicGF5ZXJfYWNjb3VudCI6ICIzMjAwOTEwMjcwMTAyNiIKICB9LAogICJjb250cmFjdG9yX3Jtc3BfYW1vdW50IjogNTAwMDAsCiAgImV4dGVybmFsX2NvbnRyYWN0b3JfZmxhZyI6IHRydWUsCiAgImV4dGVybmFsX2NvbnRyYWN0b3JzIjogewogICAgImxlZ2FsX2VudGl0eSI6IHsKICAgICAgImlkIjogImIwNzVmMTQ4LTdmOTMtNGZjMi1iMmVjLTJkODFiMTlhOWI3YiIsCiAgICAgICJuYW1lIjogItCa0LvRltC90ZbQutCwINCd0L7Rg9C90LXQudC8IgogICAgfSwKICAgICJjb250cmFjdCI6IHsKICAgICAgIm51bWJlciI6ICIxMjM0NTY3IiwKICAgICAgImlzc3VlZF9hdCI6ICIyMDE4LTAxLTAxIiwKICAgICAgImV4cGlyZXNfYXQiOiAiMjAxOS0wMS0wMSIKICAgIH0sCiAgICAiZGl2aXNpb25zIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjI5MjJhMjQwLTYzZGItNDA0ZS1iNzMwLTA5MjIyYmZlYjJkZCIsCiAgICAgICAgIm5hbWUiOiAi0JHQvtGA0LjRgdC/0ZbQu9GM0YHRjNC60LUg0LLRltC00LTRltC70LXQvdC90Y8g0JrQu9GW0L3RltC60Lgg0J3QvtGD0L3QtdC50LwiLAogICAgICAgICJtZWRpY2FsX3NlcnZpY2UiOiAi0J/QvtGB0LvRg9Cz0LAg0J/QnNCUIgogICAgICB9CiAgICBdCiAgfSwKICAiY29udHJhY3Rvcl9lbXBsb3llZV9kaXZpc2lvbnMiOiBbCiAgICB7CiAgICAgICJlbXBsb3llZV9pZCI6IHsKICAgICAgICAiaWQiOiAiYjA3NWYxNDgtN2Y5My00ZmMyLWIyZWMtMmQ4MWIxOWE5YjdiIiwKICAgICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAgICAgInNlY29uZF9uYW1lIjogItCc0LjQutC+0LvQsNC50L7QstC40YciLAogICAgICAgICJzcGVjaWFsaXRpZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJzcGVjaWFsaXR5IjogIlRIRVJBUElTVCIsCiAgICAgICAgICAgICJzcGVjaWFsaXR5X29mZmljaW8iOiB0cnVlLAogICAgICAgICAgICAibGV2ZWwiOiAiRklSU1QiLAogICAgICAgICAgICAicXVhbGlmaWNhdGlvbl90eXBlIjogIkFXQVJESU5HIiwKICAgICAgICAgICAgImF0dGVzdGF0aW9uX25hbWUiOiAi0JDQutCw0LTQtdC80ZbRjyDQkdC+0LPQvtC80L7Qu9GM0YbRjyIsCiAgICAgICAgICAgICJhdHRlc3RhdGlvbl9kYXRlIjogIjIwMTciLAogICAgICAgICAgICAidmFsaWRfdG9fZGF0ZSI6ICIyMDIwIiwKICAgICAgICAgICAgImNlcnRpZmljYXRlX251bWJlciI6ICJBQi8yMTMzMSIKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0sCiAgICAgICJzdGFmZl91bml0cyI6IDAuNSwKICAgICAgImRlY2xhcmF0aW9uX2xpbWl0IjogMjAwMCwKICAgICAgImRpdmlzaW9uIjogewogICAgICAgICJpZCI6ICIyOTIyYTI0MC02M2RiLTQwNGUtYjczMC0wOTIyMmJmZWIyZGQiLAogICAgICAgICJuYW1lIjogItCR0L7RgNC40YHQv9GW0LvRjNGB0YzQutC1INCy0ZbQtNC00ZbQu9C10L3QvdGPINCa0LvRltC90ZbQutC4INCd0L7Rg9C90LXQudC8IiwKICAgICAgICAiYWRkcmVzc2VzIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICAgICAiY291bnRyeSI6ICJVQSIsCiAgICAgICAgICAgICJhcmVhIjogItCW0LjRgtC+0LzQuNGA0YHRjNC60LAiLAogICAgICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAgICAgInNldHRsZW1lbnQiOiAi0JrQuNGX0LIiLAogICAgICAgICAgICAic2V0dGxlbWVudF90eXBlIjogIkNJVFkiLAogICAgICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgICAgICJzdHJlZXRfdHlwZSI6ICJTVFJFRVQiLAogICAgICAgICAgICAic3RyZWV0IjogItCy0YPQuy4g0J3RltC20LjQvdGB0YzQutCwIiwKICAgICAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAgICAgImFwYXJ0bWVudCI6ICIyMyIsCiAgICAgICAgICAgICJ6aXAiOiAiMDIwOTAiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAicGhvbmVzIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgICAibnVtYmVyIjogIiszODA1MDM0MTA4NzAiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgICAgICJ3b3JraW5nX2hvdXJzIjogewogICAgICAgICAgIm1vbiI6IFsKICAgICAgICAgICAgWwogICAgICAgICAgICAgICIwOC4wMCIsCiAgICAgICAgICAgICAgIjEyLjAwIgogICAgICAgICAgICBdLAogICAgICAgICAgICBbCiAgICAgICAgICAgICAgIjE0LjAwIiwKICAgICAgICAgICAgICAiMTguMDAiCiAgICAgICAgICAgIF0KICAgICAgICAgIF0sCiAgICAgICAgICAidHVlIjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgIjA4LjAwIiwKICAgICAgICAgICAgICAiMTIuMDAiCiAgICAgICAgICAgIF0KICAgICAgICAgIF0sCiAgICAgICAgICAid2VkIjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgIjA4LjAwIiwKICAgICAgICAgICAgICAiMTIuMDAiCiAgICAgICAgICAgIF0KICAgICAgICAgIF0sCiAgICAgICAgICAidGh1IjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgIjA4LjAwIiwKICAgICAgICAgICAgICAiMTIuMDAiCiAgICAgICAgICAgIF0KICAgICAgICAgIF0sCiAgICAgICAgICAiZnJpIjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgIjA4LjAwIiwKICAgICAgICAgICAgICAiMTIuMDAiCiAgICAgICAgICAgIF0KICAgICAgICAgIF0sCiAgICAgICAgICAic2F0IjogW10sCiAgICAgICAgICAic3VuIjogW10KICAgICAgICB9LAogICAgICAgICJtb3VudGFpbl9ncm91cCI6IGZhbHNlCiAgICAgIH0KICAgIH0KICBdLAogICJpZF9mb3JtIjogIjUiLAogICJuaHNfc2lnbmVyX2Jhc2UiOiAi0L3QsCDQv9GW0LTRgdGC0LDQstGWINC90LDQutCw0LfRgyIsCiAgIm5oc19jb250cmFjdF9wcmljZSI6IDUwMDAwLAogICJuaHNfcGF5bWVudF9tZXRob2QiOiAicHJlcGF5bWVudCIsCiAgIm5oc19wYXltZW50X2RldGFpbHMiOiB7CiAgICAiYmFua19uYW1lIjogItCR0LDQvdC6INC90L7QvNC10YAgMSIsCiAgICAiTUZPIjogIjM1MTAwNSIsCiAgICAicGF5ZXJfYWNjb3VudCI6ICIzMjAwOTEwMjcwMTAyNiIKICB9LAogICJzdGF0dXMiOiAiTkVXIiwKICAic3RhdHVzX3JlYXNvbiI6ICLQndC1INCy0ZbQtNC/0L7QstGW0LTQsNGUINC/0L7Qv9C10YDQtdC00L3RltC8INC00L7QvNC+0LLQu9C10L3QvtGB0YLRj9C8IiwKICAibmhzX3NpZ25lciI6IHsKICAgICJpZCI6ICJiMDc1ZjE0OC03ZjkzLTRmYzItYjJlYy0yZDgxYjE5YTliN2IiLAogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIKICB9LAogICJuaHNfbGVnYWxfZW50aXR5X2lkIjogewogICAgImlkIjogImRmOWY3MGVlLTRiMTItNDc0MC1iMGY1LWJiNWFlYTExNjg2MyIsCiAgICAibmFtZSI6ICLQmtC70ZbQvdGW0LrQsCDQndC+0YPQvdC10LnQvCIsCiAgICAiZWRycG91IjogIjMyMzIzNDU0IiwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdCiAgfSwKICAiaXNzdWVfY2l0eSI6ICLQmtC40ZfQsiIsCiAgImNvbnRyYWN0X251bWJlciI6ICIwMDAwLTlFQVgtWFQ3WC0zMTE1IiwKICAiY29udHJhY3RfaWQiOiAiZGY5ZjcwZWUtNGIxMi00NzQwLWIwZjUtYmI1YWVhMTE2ODYzIiwKICAic3RhcnRfZGF0ZSI6ICIyMDE3LTA0LTIwIiwKICAiZW5kX2RhdGUiOiAiMjAxNy0wNC0yMCIsCiAgInByaW50b3V0X2NvbnRlbnQiOiAiQ29udHJhY3QgcmVxdWVzdCBjb250ZW50Igp9`(string, required)
         + `signed_content_encoding`: `base64` (string, required)
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_request_Details_Capitation`
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7365,13 +7365,13 @@ In DS EDRPOU/DRFO must be equal to contractor_legal_entity.edrpou
         + `signed_content`: `MIIU2wYJKoZIhvcNAQcCoIIUzDCCFMgCAQExDjAMBgoqhiQCAQEBAQIBMIIG+QYJKoZIhvcNAQcBoIIG6gSCBuZ7CiAgICAiaWQiOiAiMDkxMDZiNzAtMThiMC00NzI2LWIwZWQtNmJkYTEzNjlmZDUyIiwKICAgICJjb250cmFjdG9yX293bmVyX2lkIjogImRmOWY3MGVlLTRiMTItNDc0MC1iMGY1LWJiNWFlYTExNjg2MyIsCiAgICAiY29udHJhY3Rvcl9iYXNlIjogItC90LAg0L/RltC00YHRgtCw0LLRliDQt9Cw0LrQvtC90YMg0L/RgNC+INCc0LXQtNC40YfQvdC1INC+0LHRgdC70YPQs9C+0LLRg9Cy0LDQvdC90Y8g0L3QsNGB0LXQu9C10L3QvdGPIiwKICAgICJjb250cmFjdG9yX3BheW1lbnRfZGV0YWlscyI6IHsKICAgICAgImJhbmtfbmFtZSI6ICLQkdCw0L3QuiDQvdC+0LzQtdGAIDEiLAogICAgICAiTUZPIjogIjM1MTAwNSIsCiAgICAgICJwYXllcl9hY2NvdW50IjogIjMyMDA5MTAyNzAxMDI2IgogICAgfSwKICAgICJjb250cmFjdG9yX3Jtc3BfYW1vdW50IjogNTAwMDAsCiAgICAiZXh0ZXJuYWxfY29udHJhY3Rvcl9mbGFnIjogdHJ1ZSwKICAgICJleHRlcm5hbF9jb250cmFjdG9ycyI6IHsKICAgICAgImxlZ2FsX2VudGl0eV9pZCI6ICIyOTIyYTI0MC02M2RiLTQwNGUtYjczMC0wOTIyMmJmZWIyZGQiLAogICAgICAiY29udHJhY3QiOiB7CiAgICAgICAgIm51bWJlciI6ICIxMjM0NTY3IiwKICAgICAgICAiaXNzdWVkX2F0IjogIjIwMTgtMDEtMDEiLAogICAgICAgICJleHBpcmVzX2F0IjogIjIwMTktMDEtMDEiCiAgICAgIH0sCiAgICAgICJkaXZpc2lvbnMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjogIjI5MjJhMjQwLTYzZGItNDA0ZS1iNzMwLTA5MjIyYmZlYjJkZCIsCiAgICAgICAgICAibWVkaWNhbF9zZXJ2aWNlIjogItCf0L7RgdC70YPQs9CwINCf0JzQlCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAiY29udHJhY3Rvcl9lbXBsb3llZV9kaXZpc2lvbnMiOiBbCiAgICAgIHsKICAgICAgICAiZW1wbG95ZWVfaWQiOiAiMjkyMmEyNDAtNjNkYi00MDRlLWI3MzAtMDkyMjJiZmViMmRkIiwKICAgICAgICAic3RhZmZfdW5pdHMiOiAwLjUsCiAgICAgICAgImRlY2xhcmF0aW9uX2xpbWl0IjogMjAwMCwKICAgICAgICAiZGl2aXNpb25faWQiOiAiMjkyMmEyNDAtNjNkYi00MDRlLWI3MzAtMDkyMjJiZmViMmRkIgogICAgICB9CiAgICBdLAogICAgImlkX2Zvcm0iOiAiNSIsCiAgICAibmhzX3NpZ25lcl9iYXNlIjogItC90LAg0L/RltC00YHRgtCw0LLRliDQvdCw0LrQsNC30YMiLAogICAgIm5oc19jb250cmFjdF9wcmljZSI6IDUwMDAwLAogICAgIm5oc19wYXltZW50X21ldGhvZCI6ICJwcmVwYXltZW50IiwKICAgICJpc3N1ZV9jaXR5IjogItCa0LjRl9CyIiwKICAgICJzdGF0dXMiOiAiTkVXIiwKICAgICJzdGF0dXNfcmVhc29uIjogItCd0LUg0LLRltC00L/QvtCy0ZbQtNCw0ZQg0L/QvtC/0LXRgNC10LTQvdGW0Lwg0LTQvtC80L7QstC70LXQvdC+0YHRgtGP0LwiLAogICAgIm5oc19zaWduZXJfaWQiOiAiZGY5ZjcwZWUtNGIxMi00NzQwLWIwZjUtYmI1YWVhMTE2ODYzIiwKICAgICJuaHNfbGVnYWxfZW50aXR5X2lkIjogImRmOWY3MGVlLTRiMTItNDc0MC1iMGY1LWJiNWFlYTExNjg2MyIsCiAgICAiY29udHJhY3RfbnVtYmVyIjogIjAwMDAtOUVBWC1YVDdYLTMxMTUiLAogICAgImNvbnRyYWN0X2lkIjogImRmOWY3MGVlLTRiMTItNDc0MC1iMGY1LWJiNWFlYTExNjg2MyIsCiAgICAic3RhcnRfZGF0ZSI6ICIyMDE3LTA0LTIwIiwKICAgICJlbmRfZGF0ZSI6ICIyMDE3LTA0LTIwIiwKICAgICJwcmludG91dF9jb250ZW50IjogIkNvbnRyYWN0IHJlcXVlc3QgY29udGVudCIKICB9CqCCBbkwggW1MIIFXaADAgECAhQNhO2hu5OB6AQAAABetCIAv7N0ADANBgsqhiQCAQEBAQMBATCCAUIxfDB6BgNVBAoMc9Cf0KPQkdCb0IbQp9Cd0JUg0JDQmtCm0IbQntCd0JXQoNCd0JUg0KLQntCS0JDQoNCY0KHQotCS0J4g0JrQntCc0JXQoNCm0IbQmdCd0JjQmSDQkdCQ0J3QmiDCq9Cf0KDQmNCS0JDQotCR0JDQndCawrsxETAPBgNVBAsMCNCQ0KbQodCaMTYwNAYDVQQDDC3QkNCm0KHQmiDQn9CQ0KIg0JrQkSDCq9Cf0KDQmNCS0JDQotCR0JDQndCawrsxFjAUBgNVBAUMDVVBLTE0MzYwNTcwLTExCzAJBgNVBAYTAlVBMScwJQYDVQQHDB7QlNC90ZbQv9GA0L7Qv9C10YLRgNC+0LLRgdGM0LoxKTAnBgNVBAgMINCU0L3RltC/0YDQvtC/0LXRgtGA0L7QstGB0YzQutCwMB4XDTE4MDEyMzE0NTMzNFoXDTE5MDEyMzIxNTk1OVowggETMSIwIAYDVQQKDBnQpNCG0JfQmNCn0J3QkCDQntCh0J7QkdCQMTkwNwYDVQQDDDDQn9CY0KDQntCT0J7QkiDQhNCS0JPQldCdINCS0JDQm9CV0KDQhtCZ0J7QktCY0KcxFzAVBgNVBAQMDtCf0JjQoNCe0JPQntCSMSowKAYDVQQqDCHQhNCS0JPQldCdINCS0JDQm9CV0KDQhtCZ0J7QktCY0KcxEDAOBgNVBAUMBzIyNzQzOTgxCzAJBgNVBAYTAlVBMScwJQYDVQQHDB7QnC4g0JrQoNCe0J/QmNCS0J3QmNCm0KzQmtCY0JkxJTAjBgNVBAgMHNCa0IbQoNCe0JLQntCT0KDQkNCU0KHQrNCa0JAwRjAeBgsqhiQCAQEBAQMBATAPBg0qhiQCAQEBAQMBAQIGAyQABCGNGaguWpXdyBk172CZxkuWynHt6GAUImGZI9ZFJp6oMAGjggJqMIICZjApBgNVHQ4EIgQgztjUwYvcULAWp/FyOQUBNpFx9HsyWh9lgiY21nLzYEkwKwYDVR0jBCQwIoAgjYTtobuTgejDEZCorJKFP8TYx4TGSgG4NxFX2F0YVVcwLwYDVR0QBCgwJqARGA8yMDE4MDEyMzE0NTMzNFqhERgPMjAxOTAxMjMyMTU5NTlaMA4GA1UdDwEB/wQEAwIGwDAZBgNVHSABAf8EDzANMAsGCSqGJAIBAQECAjAMBgNVHRMBAf8EAjAAMB4GCCsGAQUFBwEDAQH/BA8wDTALBgkqhiQCAQEBAgEwOAYDVR0fBDEwLzAtoCugKYYnaHR0cDovL2Fjc2sucHJpdmF0YmFuay51YS9jcmwvUEItUzkuY3JsMEMGA1UdLgQ8MDowOKA2oDSGMmh0dHA6Ly9hY3NrLnByaXZhdGJhbmsudWEvY3JsZGVsdGEvUEItRGVsdGEtUzkuY3JsMIGUBggrBgEFBQcBAQSBhzCBhDA0BggrBgEFBQcwAYYoaHR0cDovL2Fjc2sucHJpdmF0YmFuay51YS9zZXJ2aWNlcy9vY3NwLzBMBggrBgEFBQcwAoZAaHR0cDovL2Fjc2sucHJpdmF0YmFuay51YS9kb3dubG9hZC9jZXJ0aWZpY2F0ZXMvY2VydGlmaWNhdGVzLnA3YjBDBggrBgEFBQcBCwQ3MDUwMwYIKwYBBQUHMAOGJ2h0dHA6Ly9hY3NrLnByaXZhdGJhbmsudWEvc2VydmljZXMvdHNwLzAnBgNVHQkEIDAeMBwGDCqGJAIBAQELAQQBATEMEwozMjI4NTEyNTk3MA0GCyqGJAIBAQEBAwEBA0MABEDV3X/RhIP0TLUcuXc1cIKv01Z1mOPnNhodBM1sVKyxJji/HjkgYpt48+Eew05fWwuFs9LytruxRJ16E7mL7G1PMYIH9zCCB/MCAQEwggFcMIIBQjF8MHoGA1UECgxz0J/Qo9CR0JvQhtCn0J3QlSDQkNCa0KbQhtCe0J3QldCg0J3QlSDQotCe0JLQkNCg0JjQodCi0JLQniDQmtCe0JzQldCg0KbQhtCZ0J3QmNCZINCR0JDQndCaIMKr0J/QoNCY0JLQkNCi0JHQkNCd0JrCuzERMA8GA1UECwwI0JDQptCh0JoxNjA0BgNVBAMMLdCQ0KbQodCaINCf0JDQoiDQmtCRIMKr0J/QoNCY0JLQkNCi0JHQkNCd0JrCuzEWMBQGA1UEBQwNVUEtMTQzNjA1NzAtMTELMAkGA1UEBhMCVUExJzAlBgNVBAcMHtCU0L3RltC/0YDQvtC/0LXRgtGA0L7QstGB0YzQujEpMCcGA1UECAwg0JTQvdGW0L/RgNC+0L/QtdGC0YDQvtCy0YHRjNC60LACFA2E7aG7k4HoBAAAAF60IgC/s3QAMAwGCiqGJAIBAQEBAgGgggYtMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE4MDQyMzExMTY1MlowLwYJKoZIhvcNAQkEMSIEIMAdYVO8e/4E9usncxHy/CN128dFo878R/guITulNEtLMIIBtQYLKoZIhvcNAQkQAi8xggGkMIIBoDCCAZwwggGYMAwGCiqGJAIBAQEBAgEEIA7ygmjZ8tufBvOKqZW++z4W7TJu9MmyYGLG7gQ/RMCOMIIBZDCCAUqkggFGMIIBQjF8MHoGA1UECgxz0J/Qo9CR0JvQhtCn0J3QlSDQkNCa0KbQhtCe0J3QldCg0J3QlSDQotCe0JLQkNCg0JjQodCi0JLQniDQmtCe0JzQldCg0KbQhtCZ0J3QmNCZINCR0JDQndCaIMKr0J/QoNCY0JLQkNCi0JHQkNCd0JrCuzERMA8GA1UECwwI0JDQptCh0JoxNjA0BgNVBAMMLdCQ0KbQodCaINCf0JDQoiDQmtCRIMKr0J/QoNCY0JLQkNCi0JHQkNCd0JrCuzEWMBQGA1UEBQwNVUEtMTQzNjA1NzAtMTELMAkGA1UEBhMCVUExJzAlBgNVBAcMHtCU0L3RltC/0YDQvtC/0LXRgtGA0L7QstGB0YzQujEpMCcGA1UECAwg0JTQvdGW0L/RgNC+0L/QtdGC0YDQvtCy0YHRjNC60LACFA2E7aG7k4HoBAAAAF60IgC/s3QAMIIEBwYLKoZIhvcNAQkQAhQxggP2MIID8gYJKoZIhvcNAQcCoIID4zCCA98CAQMxDjAMBgoqhiQCAQEBAQIBMGsGCyqGSIb3DQEJEAEEoFwEWjBYAgEBBgoqhiQCAQEBAgMBMDAwDAYKKoYkAgEBAQECAQQgwB1hU7x7/gT26ydzEfL8I3Xbx0WjzvxH+C4hO6U0S0sCBA7BQYgYDzIwMTgwNDIzMTExNzI1WjGCA1swggNXAgEBMIIBEzCB+jE/MD0GA1UECgw20JzRltC90ZbRgdGC0LXRgNGB0YLQstC+INGO0YHRgtC40YbRltGXINCj0LrRgNCw0ZfQvdC4MTEwLwYDVQQLDCjQkNC00LzRltC90ZbRgdGC0YDQsNGC0L7RgCDQhtCi0KEg0KbQl9CeMUkwRwYDVQQDDEDQptC10L3RgtGA0LDQu9GM0L3QuNC5INC30LDRgdCy0ZbQtNGH0YPQstCw0LvRjNC90LjQuSDQvtGA0LPQsNC9MRkwFwYDVQQFDBBVQS0wMDAxNTYyMi0yMDEyMQswCQYDVQQGEwJVQTERMA8GA1UEBwwI0JrQuNGX0LICFDAEdR3vLHiuAgAAAAEAAABKAAAAMAwGCiqGJAIBAQEBAgGgggHaMBoGCSqGSIb3DQEJAzENBgsqhkiG9w0BCRABBDAcBgkqhkiG9w0BCQUxDxcNMTgwNDIzMTExNzI1WjAvBgkqhkiG9w0BCQQxIgQgCJtCNs3qiVo9TGE/mRMPNzCm/+JJKMtYsovNFgQLyPAwggFrBgsqhkiG9w0BCRACLzGCAVowggFWMIIBUjCCAU4wDAYKKoYkAgEBAQECAQQg2Q2mtkhTwy2/l7j25VzNasV5UgPimES648nWVhtnvOowggEaMIIBAKSB/TCB+jE/MD0GA1UECgw20JzRltC90ZbRgdGC0LXRgNGB0YLQstC+INGO0YHRgtC40YbRltGXINCj0LrRgNCw0ZfQvdC4MTEwLwYDVQQLDCjQkNC00LzRltC90ZbRgdGC0YDQsNGC0L7RgCDQhtCi0KEg0KbQl9CeMUkwRwYDVQQDDEDQptC10L3RgtGA0LDQu9GM0L3QuNC5INC30LDRgdCy0ZbQtNGH0YPQstCw0LvRjNC90LjQuSDQvtGA0LPQsNC9MRkwFwYDVQQFDBBVQS0wMDAxNTYyMi0yMDEyMQswCQYDVQQGEwJVQTERMA8GA1UEBwwI0JrQuNGX0LICFDAEdR3vLHiuAgAAAAEAAABKAAAAMA0GCyqGJAIBAQEBAwEBBEDE0LghB5AMretfTrP7pmjj0cylQFjujnRSeUBFXCcvPDF+6IWQ5lhhvgxVNsUFPVfd4TKdcBxe3NQa90gvYxRAMA0GCyqGJAIBAQEBAwEBBED0SMMU1AsD2jQYZw8yVJMcrgpsVIhaPx+v7qWaNo5KRc8F/v8xoDQAmts/LmvybnwRuAOOiKPw4MwZEG2KIoNO`(string, required)
         + `signed_content_encoding`: `base64` (string, required)
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_Details_Capitation`
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7432,13 +7432,13 @@ This method is designed to get full information of contract by id
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_Details_Capitation`
         + urgent (object, required)
             + documents (array[`contract_media_content`], optional)
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + include `Contract_Details_Reimbursement`
         + urgent (object, required)
@@ -7463,7 +7463,7 @@ This WS is designed to terminate contract. Contract must be in status 'VERIFIED'
         + `status_reason`: `Неправильний період контракту`(string, optional) - the reason of terminated status
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7488,14 +7488,14 @@ This WS allows to update end_date for contracts in case legal entity was merged 
         + `end_date`: `2018-12-31`(string, required) - new end date
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
             + include `Contract_Details_Capitation`
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -7519,7 +7519,7 @@ After contract request was signed by both sides signed contract request with pri
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - contract identifier
             + `printout_content`: `Contract content` (string, required) - HTML document for contract
@@ -7547,7 +7547,7 @@ Look at [Dummy Create Medical program provision](https://uaehealthapi.docs.apiar
         + `signed_content_encoding`: `base64` (string, required)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (array)
@@ -7563,11 +7563,11 @@ Look at [Dummy Create Medical program provision](https://uaehealthapi.docs.apiar
             Authorization: Bearer F3GF124Df565FDS234SDF34
             api-key: aDGFDFGT46S5gFGD
         
-    + Attributes (Medical_program_provision_request)
+    + Attributes (`Medical_program_provision_request`)
 
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (array)
@@ -7599,7 +7599,7 @@ This method allows to get a list of medical programs already provided by the div
             api-key: aDGFDFGT46S5gFGD
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection_V2)
+    + Attributes (`Response_Collection_V2`)
         + data (array)
             + (`Medical_program_provision_response`)
             + (`Medical_program_provision_response`)
@@ -7622,7 +7622,7 @@ This method allows to deactivate division that provide a medical program within 
             api-key: aDGFDFGT46S5gFGD
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Medical_program_provision_response`)
             + `is_active`: false (boolean, required)
             + `deactivate_reason`: `MANUAL_DEACTIVATION` (string, required, nullable) - the reason of deactivated status. According to `PROVISON_DEACTIVATE_REASON` dictionary
@@ -7744,12 +7744,12 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contracts_CRUD_request)
+    + Attributes (`Contracts_CRUD_request`)
         + `medical_programs` (array, optional) - list of medical programs
             - `d313342c-0b3c-443b-a92e-afb78d1e8086`
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Contracts_CRUD_response`)
@@ -7765,10 +7765,10 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contracts_CRUD_request)
+    + Attributes (`Contracts_CRUD_request`)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contracts_CRUD_response`)
@@ -7820,7 +7820,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contracts_CRUD_response`)
@@ -7837,7 +7837,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
         + meta (Response__Meta)
             + code: 200 (number)
@@ -7852,10 +7852,10 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contract_divisions_CRUD_request)
+    + Attributes (`Contract_divisions_CRUD_request`)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Contract_divisions_CRUD_response`)
@@ -7871,10 +7871,10 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contract_divisions_CRUD_request)
+    + Attributes (`Contract_divisions_CRUD_request`)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contract_divisions_CRUD_response`)
@@ -7911,7 +7911,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contract_divisions_CRUD_response`)
@@ -7928,7 +7928,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
         + meta (Response__Meta)
             + code: 200 (number)
@@ -7943,10 +7943,10 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contract_employees_CRUD_request)
+    + Attributes (`Contract_employees_CRUD_request`)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (`Contract_employees_CRUD_response`)
@@ -7962,10 +7962,10 @@ Assuming that all required business processes and validations is implemented on 
 
             api-key: c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (Contract_employees_CRUD_request)
+    + Attributes (`Contract_employees_CRUD_request`)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contract_employees_CRUD_response`)
@@ -8003,7 +8003,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Contract_employees_CRUD_response`)
@@ -8020,7 +8020,7 @@ Assuming that all required business processes and validations is implemented on 
             api-key: c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
         + meta (Response__Meta)
             + code: 200 (number)
@@ -8043,7 +8043,7 @@ Assuming that all required business processes and validations is implemented on 
         + `resource_name`: `signed_contract` (string, required) - File name
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -8068,7 +8068,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Private_Response_with_Medical_Program_min`
@@ -8124,7 +8124,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
        + block_reason_code: `DEFAULT` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Private_Response_with_Medical_Program_min`)
 
@@ -8146,7 +8146,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
        + block_reason_code: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (`Medication_request_Private_Response_with_Medical_Program_min`)
 
@@ -8195,7 +8195,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response_Private`
 
@@ -8215,7 +8215,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + include (`Legal_Entity_Request_Public`)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Request_Public`)
@@ -8230,7 +8230,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Request_Public`)
@@ -8260,7 +8260,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + include (`Legal_Entity_Request_Public_V2`)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Response_Public_V2`)
@@ -8279,7 +8279,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Response_Public_V2`)
@@ -8322,7 +8322,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + channel: `MIS` (enum, required) - channel that invoke patient create service
         
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Patient_short`)
 
 ## Dummy for merge request [/dummy/merge_requests]
@@ -8345,7 +8345,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Merge_request_response`)
@@ -8370,7 +8370,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (`Decl_req_data_to_be_signed`, required)
         
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Declaration_short`)
 
 ## Dummy for medication request requests [/dummy/medication_request_requests]
@@ -8392,7 +8392,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (`Medication_request_Request_Sign`, required)
     
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Medication_request_Request_Sign`)
             + printout_form: `HTML` (string, required) - Generated printout form
             + is_blocked: false (boolean, required) - Whether medication request is blocked or not
@@ -8417,7 +8417,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (`Medication_request_Reject`, required)
     
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_request_Reject_Response`
@@ -8440,7 +8440,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (`Medication_Dispense_Process_Request`, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
             + status: PROCESSED
@@ -8461,7 +8461,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + Attributes (`Medication_Dispense_Process_Request_for_Pharmacist`, required)
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
             + status: PROCESSED
@@ -8521,7 +8521,7 @@ Block `person` has optional `id`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response_OK)
+    + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -8581,7 +8581,7 @@ After sign new declaration all previously created pending (status one of the fol
         + `declaration_request` (Declaration_Request_Public)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -8608,7 +8608,7 @@ After sign new declaration all previously created pending (status one of the fol
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -8633,7 +8633,7 @@ If declaration_request without field `person.id`, a new person is created. But i
         + `declaration_request` (Declaration_Request_Public_v2)
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -8660,7 +8660,7 @@ If declaration_request without field `person.id`, a new person is created. But i
             + documents (array[`media_content`], optional)
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -8699,7 +8699,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
         + `verification_code`: 2836 (number, optional) - required if authentication_method is OTP
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (object)
@@ -8715,7 +8715,7 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
 
 + Response 422 (application/json)
-    + Attributes (Response_Error)
+    + Attributes (`Response_Error`)
         + meta (Response__Meta)
             + code: 422
         + error
@@ -8736,7 +8736,7 @@ Use this method to reject previously created Declaration Request.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object)
@@ -8765,7 +8765,7 @@ Use this method to resend sms on previously created Declaration Request.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (OTP)
 
 ### Sign Declaration Request - Deprecated [PATCH /api/declaration_requests/{id}/actions/sign]
@@ -8799,7 +8799,7 @@ Look at [**Dummy Sign Declaration Request**](https://uaehealthapi.docs.apiary.io
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (`Declaration_short`)
         
 
@@ -8856,7 +8856,7 @@ List consists of legal entities with parameter `is_active = true`.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include `Legal_Entity_Request_Public_Short`
@@ -8994,7 +8994,7 @@ Signed content MUST consists of JSON object with Legal Entity data:
         + `signed_content_encoding`: base64 (string, required)
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include (`Legal_Entity_Response_Public`)
@@ -9012,7 +9012,7 @@ Signed content MUST consists of JSON object with Legal Entity data:
             + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
 
 + Response 201 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + include `Legal_Entity_Response_Public`
@@ -9071,7 +9071,7 @@ For changes to take effect employee must confirm the changes.
 
 
 + Response 200 (application/json)
-    + Attributes (Response__Process_OK)
+    + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
         + data (Employee_Request_Details)
