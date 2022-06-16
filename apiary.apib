@@ -7676,17 +7676,17 @@ This web service returns forbidden group details filtered by ID with active code
                         + service_group_id: `d838dbea-0ca0-4295-bf46-819dc069b8d4` (string)
                         + creation_reason: `Some text` (string, required) - Forbidden group service creation reason
 
-## Group Public. Rule engine sets
-There are public methods presented to work with a rule engine sets data. 
+## Group Public. Rule engine rules
+There are public methods presented to work with a rule engine rules data. 
 
-### Get Rule engine set list [GET /api/rule_engine_sets{?name,is_active,system,value,page,page_size}]
-This web service returns a catalog of all active rule engine sets in eHealth.
+### Get Rule engine rule list [GET /api/rule_engine_sets{?name,is_active,system,code,page,page_size}]
+This web service returns a catalog of all active rule engine rules in eHealth.
 
 + Parameters
-    + `name`: `Some name` (string, optional) - Rule engine set name
-    + `is_active`: true (boolean, optional) - Rule engine set status
-    + `system`: `eHealth/clinical_impression_patient_categories` (string, optional) - Code of rule engine set from dictionary `eHealth/rule_engine_dictionaries`
-    + `value`: `insulin_1` (string, optional) - Value of rule engine set from dictionary specified in system
+    + `name`: `Some name` (string, optional) - Rule engine rule name
+    + `is_active`: true (boolean, optional) - Rule engine rule status
+    + `system`: `eHealth/clinical_impression_patient_categories` (string, optional) - Code of rule engine rule system from dictionary `eHealth/rule_engine_dictionaries`
+    + `code`: `insulin_1` (string, optional) - Code of rule engine rule from dictionary specified in the system
     + `page`: 2 (number, optional) - Page number
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -7696,14 +7696,14 @@ This web service returns a catalog of all active rule engine sets in eHealth.
     + Attributes (`Response_Collection_V2`)
         + data (array)
             + (object)
-                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine set identifier
-                + name: `Some name` (string, required) - Rule engine set name
+                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine rule identifier
+                + name: `Some name` (string, required) - Rule engine rule name
                 + code
-                    + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine set from dictionary `eHealth/rule_engine_dictionaries`
-                    + value: `insulin_1` (string, required) - Value of rule engine set from dictionary specified in system
+                    + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine rule system from dictionary `eHealth/rule_engine_dictionaries`
+                    + code: `insulin_1` (string, required) - Code of rule engine rule from dictionary specified in the system
 
-### Get Rule engine set details [GET /api/rule_engine_sets/{id}]
-This web service returns rule engine set details filtered by ID with active rules in eHealth.
+### Get Rule engine rule details [GET /api/rule_engine_sets/{id}]
+This web service returns rule engine rule details filtered by ID with active rules in eHealth.
 
 + Parameters
     + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required)
@@ -7714,20 +7714,16 @@ This web service returns rule engine set details filtered by ID with active rule
     + Attributes (`Response_OK`)
         + data (array)
             + (object)
-                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine set identifier
-                + name: `Some name` (string, required) - Rule engine set name
+                + id: `1f8444a0-e48b-440b-a082-c4703233efa2` (string, required) - Rule engine rule identifier
+                + name: `Some name` (string, required) - Rule engine rule name
                 + code
-                    + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine set from dictionary `eHealth/rule_engine_dictionaries`
-                    + value: `insulin_1` (string, required) - Value of rule engine set from dictionary specified in system
-                + description: `Some text` (string, optional) - Rule engine set description
-                + deactivation_reason: `Some text` (string, optional) - Rule engine set deactivation reason
-                + is_active: true (boolean, required) - Rule engine set status
-                + `rules` (array)
-                    + (object)
-                        + field_key: `Some text` (string, required)
-                        + schema: `Some text` (string, required)
-                        + rule: `Some text` (string, required)
-                        + value: `Some text` (string, required)
+                    + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine rule system from dictionary `eHealth/rule_engine_dictionaries`
+                    + code: `insulin_1` (string, required) - Code of rule engine rule from dictionary specified in the system
+                + description: `Some text` (string, optional) - Rule engine rule description
+                + deactivation_reason: `Some text` (string, optional) - Rule engine rule deactivation reason
+                + is_active: true (boolean, required) - Rule engine rule status
+                + value: `Patient.Age < 18` (string, required) - Rule engine rule value in Human readable format
+
 
 # Group Private. Contracts
 
