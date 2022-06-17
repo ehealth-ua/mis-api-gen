@@ -7679,7 +7679,7 @@ This web service returns forbidden group details filtered by ID with active code
 ## Group Public. Rule engine rules
 There are public methods presented to work with a rule engine rules data. 
 
-### Get Rule engine rule list [GET /api/rule_engine_sets{?name,is_active,system,code,page,page_size}]
+### Get Rule engine rule list [GET /api/rule_engine_rules{?name,is_active,system,code,page,page_size}]
 This web service returns a catalog of all active rule engine rules in eHealth.
 
 + Parameters
@@ -7702,7 +7702,7 @@ This web service returns a catalog of all active rule engine rules in eHealth.
                     + system: `eHealth/clinical_impression_patient_categories` (string, required) - Code of rule engine rule system from dictionary `eHealth/rule_engine_dictionaries`
                     + code: `insulin_1` (string, required) - Code of rule engine rule from dictionary specified in the system
 
-### Get Rule engine rule details [GET /api/rule_engine_sets/{id}]
+### Get Rule engine rule details [GET /api/rule_engine_rules/{id}]
 This web service returns rule engine rule details filtered by ID with active rules in eHealth.
 
 + Parameters
