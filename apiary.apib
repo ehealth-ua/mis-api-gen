@@ -5216,7 +5216,7 @@ This method is used to create Medication request Request (as a part of Medicatio
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-        + `medication_request_request`(`Medication_request_Request_post_data`)
+        + `medication_request_request` (`Medication_request_Request_post_data`)
 
 + Response 201 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -11854,7 +11854,7 @@ status: `APPROVED` (string, required)
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
 + `medication_id` : `1349a693-4db1-4a3f-9ac6-8c2f9e541982` (string, required) - Medication, type = INNM_DOSAGE, identifier
 + `medication_qty`: 10.34 (number, required) - Medication quantity isuued by the doctor
-+ `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - `Medical program Identifier`
++ `medical_program_id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string, required) - Medical program Identifier
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act.
     - order - The request represents a request/demand and authorization for action.
