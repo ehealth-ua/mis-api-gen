@@ -5637,7 +5637,9 @@ Only Medication dispenses linked to medication request id will be shown. If you 
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
-        + data (array[`Medication_Dispense_Response_old`])
+        + data (array)
+            + (object)
+                + include `Medication_Dispense_Response_old`
 
 ### Search Medication Dispenses by Medication Request ID [GET /api/persons/{person_id}/medication_requests/{id}/medication_dispenses{?status}]
 
@@ -5662,7 +5664,8 @@ Only Medication dispenses linked to medication request id will be shown. If you 
         + data (array)
             + (object)
                 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Dispense Response Identifier
-                + `medication_request` (`Medication_request_Public_Response`, required) - Medication request
+                + `medication_request` (object, required) - Medication request
+                    + include `Medication_request_Public_Response`
                 + `dispensed_at`: `2017-08-17` (string, required) - date of dispense
                 + `medical_program` (`Medical_Program_Response`, required) - Active medical program within which medications are going to be provided
                 + `status`: NEW (string, required) - Medication Dispense status (NEW, PROCESSED, REJECTED, EXPIRED)
