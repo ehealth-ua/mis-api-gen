@@ -8112,7 +8112,9 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 + Response 200 (application/json)
    + Attributes (`Response_Collection_V2`)
-        + data (array[`Medication_request_Private_Response`])
+        + data (array)
+            + (object)
+                + include `Medication_request_Private_Response`
 
 ### Private. Block Medication Request [PATCH /api/admin/medication_requests/{id}/actions/block]
 
@@ -8134,7 +8136,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
-        + data (`Medication_request_Private_Response_with_Medical_Program_min`)
+        + data (object)
+            + include `Medication_request_Private_Response_with_Medical_Program_min`
 
 ### Private. Unblock Medication Request [PATCH /api/admin/medication_requests/{id}/actions/unblock]
 
@@ -8156,7 +8159,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
-        + data (`Medication_request_Private_Response_with_Medical_Program_min`)
+        + data (object)
+            + include `Medication_request_Private_Response_with_Medical_Program_min`
 
 ## Private. Medication Dispense [/api/admin/medication_dispenses]
 
