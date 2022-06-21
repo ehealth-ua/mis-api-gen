@@ -11597,7 +11597,7 @@ status: `APPROVED` (string, required)
     - urgent - The request should be actioned promptly - higher priority than routine.
     - asap - The request should be actioned as soon as possible - higher priority than urgent.
     - stat - The request should be actioned immediately - highest possible priority. E.g. an emergency.
-+ `prior_prescription` (Reference, required, fixed-type) - An order/prescription that is being replaced
++ `prior_prescription` (Reference, optional, fixed-type) - An order/prescription that is being replaced
     + identifier (Identifier)
         + type (Codeable_Concept, required)
             + coding (array, fixed-type, required)
