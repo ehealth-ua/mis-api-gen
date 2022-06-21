@@ -11603,7 +11603,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type, required)
                 + (Coding)
                     + code: `medication_request` (string, required)
-+ `container_dosage` - It presents a dosage of primary package required by Doctor in Medication Request.
++ `container_dosage` (object, optional) - It presents a dosage of primary package required by Doctor in Medication Request.
     + `system`: `MEDICATION_UNIT` (string, required)
     + `code`: `ML` (string, required)
     + `value` : 4 (number, required)
