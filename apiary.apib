@@ -6148,7 +6148,11 @@ This method allows to get detailed information of the Medication dispense for th
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
 
-### Get Medication dispense details [GET /api/persons/{person_id}/medication_dispenses/{id}]
+### Get Medication dispense details (within Person Context) [GET /api/persons/{person_id}/medication_dispenses/{id}]
+
+This method allows to get detailed information of the Medication dispense for the MSP (i.o. PRIMARY_CARE, OUTPATIENT) users.
+
+**Scopes required:** `medication_dispense:read`
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
@@ -6162,7 +6166,7 @@ This method allows to get detailed information of the Medication dispense for th
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + data (object)
-            + include `Medication_Dispense_Details_Response`
+            + include `Medication_Dispense_Details_Response_for_MSP`
 
 ## Reimbursement Report [/api/reimbursement_report]
 
@@ -12606,7 +12610,7 @@ status: `APPROVED` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
 
-### `Medication_Dispense_Details_Response`
+### `Medication_Dispense_Details_Response_for_MSP`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Dispense Response Identifier
 + `medication_request` (object, required) - Medication request
     + include `Medication_request_Public_Response`
@@ -12614,9 +12618,7 @@ status: `APPROVED` (string, required)
 + `medical_program` (`Medical_Program_Response`, required) - Active medical program within which medications are going to be provided
 + `status`: NEW (string, required) - Medication Dispense status (NEW, PROCESSED, REJECTED, EXPIRED)
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
-+ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
-+ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
 
 ### `Medication_Dispense_Response_Private`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Dispense Response Identifier
