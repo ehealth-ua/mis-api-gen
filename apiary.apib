@@ -6310,7 +6310,9 @@ ServiceRequest|`program_processing_status` or `status`
 
 ### Get events list [GET /api/events/{?date,date_to,event_type,entity_type,attribute_name,new_value,page,page_size}]
 
-This method is used to abtain list of events with filters.
+This method is used to obtain list of events with filters.
+
+The period of events provided in response is also limited by configuration, not only by the request parameters.
 
 Object `properties` may has a different fields depending on the `entity_type`. 
 
