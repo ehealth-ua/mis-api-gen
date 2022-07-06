@@ -5244,7 +5244,7 @@ This method is used to create Medication request Request (as a part of Medicatio
 ### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,episode_id,care_plan_id,activity_id,encounter_id,status,intent,page,page_size}]
 
 Use this method to obtain list of Medication request Requests. 
-Method returns shortened details, to obtain full information - [**Get medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) by it's ID.
+Use [**Get Medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) to get Medication request Request by ID.
 
 + Parameters
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
@@ -5280,7 +5280,7 @@ Method returns shortened details, to obtain full information - [**Get medication
 The method returns a list of medication request requests in the context of a care plan. 
 User must have an approval on the care plan from url.
 
-Method returns shortened details, to obtain full information - Get Medication request request it by it's ID.
+Use [**Get Medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) to get Medication request Request by ID.
 
 + Parameters
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
@@ -5309,7 +5309,7 @@ Method returns shortened details, to obtain full information - Get Medication re
 
 ### Get medication request requests details [GET /api/persons/{person_id}/medication_request_requests/{id}]
 
-Use this method to obtain full information of Medication request request by it's ID.
+Use this method to obtain Medication request request by ID.
 
 + Parameters
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
@@ -5389,7 +5389,7 @@ Use this method to obtain list of Medication request Requests an `employee_id`. 
 
 Also we suggest use `employee_id` and `legal_entity_id` to make sure that end-user understands context of actions that he or she will perform.
 
-Method returns shortened details, to obtain full information - Get Medication request Request it by it's ID.
+Use [**Get Medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-request-by-id) to get Medication request Request by ID.
 
 + Parameters
     + `employee_id`: `7124259c-eeb1-4cbb-acac-ada2162675d1` (string, optional) - user_id of a doctor.
@@ -5420,7 +5420,7 @@ Method returns shortened details, to obtain full information - Get Medication re
 ### Get Medication Request Request by ID [GET /api/medication_request_requests/{id}]
 Note: This method will be deprecated. `Get medication request requests details` is being developed.
 
-Use this method to obtain full information of Medication request Request an `id`.
+Use this method to obtain Medication request Request by ID.
 
 + Parameters
     + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - request id
@@ -5470,8 +5470,8 @@ This method is used to qualify (possibility to use Innm for the program) Medicat
 
 ### Get medication requests by search params [GET /api/persons/{person_id}/medication_requests{?legal_entity_id,employee_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,episode_id,page,page_size}]
 
-Use this method to obtain list of Medication request Requests. 
-Method returns shortened details, to obtain full information - [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) by it's ID.
+Use this method to obtain list of Medication Requests. 
+Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) to get Medication Request by ID.
 
 + Parameters
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
@@ -5510,7 +5510,7 @@ Method returns shortened details, to obtain full information - [**Get medication
 The method returns a list of medication requests in the context of a care plan. 
 User must have an approval on the care plan from url.
 
-Method returns shortened details, to obtain full information - get Medication request it by it's ID.
+Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) to get Medication Request by ID.
 
 + Parameters
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - legal entity identifier.
@@ -5542,7 +5542,7 @@ Method returns shortened details, to obtain full information - get Medication re
 
 ### Get medication requests details [GET /api/persons/{person_id}/medication_requests/{id}]
 
-Use this method to obtain full information of Medication request by it's ID.
+Use this method to obtain Medication Request by ID.
 
 + Parameters
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
@@ -5625,9 +5625,12 @@ Use this method to resend SMS to person with medication request number & verific
 ### Get Medication Dispenses list by Medication Request ID [GET /api/medication_requests/{id}/dispenses{?status}]
 To be depricated. Please see a similar endpoint with Person ID context below.
 
-Use this method to obtain list of Medication Dispenses by doctor with medication request ID.
+Use this method to obtain list of Medication Dispenses by doctor with Medication Request ID.
 
 Only Medication dispenses linked to medication request id will be shown. If you want to reduce amount of data that is going trough your application, use `status` filter and show only dispenses that Doctor is interested in.
+
+Use [**Get Medication dispense details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-dispense/get-medication-dispense-details) to get Medication Dispense by ID.
+
 
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
@@ -5651,6 +5654,8 @@ Only Medication dispenses linked to medication request id will be shown. If you 
 Use this method to obtain list of Medication Dispenses by doctor with medication request ID.
 
 Only Medication dispenses linked to medication request id will be shown. If you want to reduce amount of data that is going trough your application, use `status` filter and show only dispenses that Doctor is interested in.
+
+Use [**Get Medication dispense details in person context**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-dispense/get-medication-dispense-details-in-person-context) to get Medication Dispense by ID.
 
 + Parameters
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
@@ -5699,11 +5704,10 @@ This method is designed to get printout form (content) by medication request id.
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
 
-### Get Medication request by ID by Pharmacy User [GET /api/pharmacy/medication_requests/{id}]
-To be developed for Pharmacy based on `Get Medication request by ID`.
+### Get Medication Request by ID by Pharmacy User [GET /api/pharmacy/medication_requests/{id}]
 Scope required: `medication_request:details_pharm`
 
-Use this method to obtain full information of Medication request an `id` or request_number.
+Use this method by pharmacy user to obtain short Medication Request by ID or request_number.
 
 + Parameters
     + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - `Medication Request identifier OR request_number`
@@ -5730,7 +5734,7 @@ Use this method to obtain list of Medication request an `employee_id` or/and `pe
 
 Also we suggest use `employee_id` to make sure that end-user understands context of actions that he or she will perform.
 
-Method returns shortened details, to obtain full information - get Medication request it by it's ID.
+Use [**Get Medication request by ID**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-request-by-id) to get Medication Request by ID.
 
 + Parameters
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - legal entity identifier.
@@ -5764,7 +5768,7 @@ Method returns shortened details, to obtain full information - get Medication re
 ### Get Medication request by ID [GET /api/medication_requests/{id}]
 Note: This method will be deprecated. `Get medication requests details` is being developed.
 
-Use this method to obtain full information of Medication request an `id`.
+Use this method to obtain Medication request by ID.
 
 + Parameters
     + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - `Medication Request identifier OR request_number`
@@ -6045,7 +6049,9 @@ This method is used to reject medication dispense.
 
 To be depricated. 
 
-Please see a similar endpoint with role context ("Get Medication dispenses by search params by Pharmacy User") below. 
+Please see a similar endpoint with role context ("Get Medication dispenses by search params by Pharmacy User") below.
+
+Use [**Get Medication dispense details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-dispense/get-medication-dispense-details) to get Medication Dispense by ID.
 
 **Scopes required:** `medication_dispense:read`
 
@@ -6079,6 +6085,8 @@ Please see a similar endpoint with role context ("Get Medication dispenses by se
 This method intended to get all Medication dispenses for the PHARMACY users.
 
 **Scopes required:** `medication_dispense:read_pharm`
+
+Use [**Get Medication dispense  by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-dispense/get-medication-dispense-details-by-pharmacy-user) to get Medication Dispense by ID.
 
 + Parameters
     + id: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, optional) - Medication dispense ID
@@ -6150,7 +6158,7 @@ This method allows to get detailed information of the Medication dispense for th
 
 ### Get Medication dispense details in person context [GET /api/persons/{person_id}/medication_dispenses/{id}]
 
-This method allows to get detailed information of the Medication dispense for the MSP (i.o. PRIMARY_CARE, OUTPATIENT) users.
+This method allows to get short information of the Medication Dispense for the MSP (i.o. PRIMARY_CARE, OUTPATIENT) users.
 
 **Scopes required:** `medication_dispense:read`
 
