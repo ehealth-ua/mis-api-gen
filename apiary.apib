@@ -5893,7 +5893,7 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
-**Scopes required:** `medication_dispense:create`
+**Scopes required:** `medication_dispense:write`
 
 + Parameters
     + `code`: `3114` (string, optional)
@@ -5932,7 +5932,7 @@ If medical program has setting with parameter `skip_medication_dispense_sign` = 
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
-**Scopes required:** `medication_dispense:create`
+**Scopes required:** `medication_dispense:write`
 
 + Parameters
     + `code`: `3114` (string, optional)
@@ -6134,7 +6134,8 @@ Please see a similar endpoint with role context ("Get Medication dispense detail
     + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Response`
-            
+    
+
 ### Get Medication dispense details by Pharmacy User [GET /api/pharmacy/medication_dispenses/{id}]
 
 
