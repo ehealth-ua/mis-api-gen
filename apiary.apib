@@ -5889,7 +5889,7 @@ To be depricated. Please see a similar endpoint with role context ("Create Medic
 This method is used to dispense medications to patient
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
 
-If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` (required) and `payment_id` (optional) should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` and `payment_id` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
@@ -5928,7 +5928,7 @@ This method is used to dispense medications to patient
 
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
 
-If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` (required) and `payment_id` (optional) should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` and `payment_id` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
@@ -11870,7 +11870,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type, required)
                 + (Coding)
                     + code: `encounter` (string, required)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
 
@@ -11907,7 +11907,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type, required)
                 + (Coding)
                     + code: `encounter` (string, required)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
 
@@ -11951,7 +11951,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type, required)
                 + (Coding)
                     + code: `encounter` (string, required)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
 
@@ -12161,7 +12161,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
@@ -12212,7 +12212,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
@@ -12265,7 +12265,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
@@ -12316,7 +12316,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
@@ -12369,7 +12369,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
@@ -12424,7 +12424,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
@@ -12486,7 +12486,7 @@ status: `APPROVED` (string, required)
 + `dispense_valid_to`: `2017-09-16` (string, required) - End date of dispense period, which is determined by the external system. Greater or equal to **dispense_valid_from**. Format *DATE '2017-10-07'*
 + `division` (`Division`, required)
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `employee` (`Employee_Minimal`, required)
 + `ended_at`: `2017-09-16` (string, required) - End date of a treatment period, which is determined by the external system. Greater or equal to **started_at**. Format *DATE '2017-10-07'*
@@ -12562,7 +12562,7 @@ status: `APPROVED` (string, required)
             + coding (array, fixed-type)
                 + (Coding)
                     + code: `encounter` (string)
-+ `dosage_instruction` (array, optional, fixed-type)
++ `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
