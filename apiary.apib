@@ -5334,7 +5334,7 @@ All signature fields will be validated (including signer certificate authority).
 
 This service will store signed copy of Medication request Request in Media Content Storage and create Medication request if signature is all checks is passed.
 
-Signed content MUST consists of JSON object with Medication request Request data. Object that need to be signed is returned by `Get Medication request Request by ID` response, `JSON.Path: $.data`.
+Signed content MUST consists of JSON object with Medication request Request data. Object that need to be signed is returned by [**Get medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) response, `JSON.Path: $.data`.
 
 **Important**
 Invoke Get Medication request Request by ID to obtain seed - Hash of previous block in Medication request Request chain or other random component that should be signed with Medication request Request.
