@@ -5635,6 +5635,8 @@ Use [**Get Medication dispense details**](https://uaehealthapi.docs.apiary.io/#r
 + Parameters
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
     + status: PROCESSED (string, optional) - Status
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
     
 
 + Request (application/json)
@@ -5661,6 +5663,8 @@ Use [**Get Medication dispense details in person context**](https://uaehealthapi
     + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - person_id of a patient.
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
     + status: PROCESSED (string, optional) - Status
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
     
 
 + Request (application/json)
