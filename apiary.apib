@@ -4444,13 +4444,14 @@ All other attributes are immutable
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
 
-### Get healthcare services [GET /api/healthcare_services/{?division_id,speciality_type,providing_condition,category,status,page,page_size}]
+### Get healthcare services [GET /api/healthcare_services/{?division_id,speciality_type,providing_condition,category,type,status,page,page_size}]
 
 + Parameters
     + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Division identifier
     + `speciality_type`: `FAMILY_DOCTOR` (string, optional) - `Dictionary SPECIALITY_TYPE`
     + `providing_condition`: OUTPATIENT (string, optional) - `Dictionary PROVIDING_CONDITION`
     + `category`: MSP (string, optional) - `Dictionary HEALTHCARE_SERVICE_CATEGORIES`
+    + `type`: SALE (string, optional) - `Dictionary of types for category, example HEALTHCARE_SERVICE_PHARMACY_DRUGS_TYPES`
     + status: ACTIVE (string, optional) - Entity status
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
