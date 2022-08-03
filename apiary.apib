@@ -7719,7 +7719,8 @@ This web service returns a catalog of all active Groups of Diagnoses in eHealth.
 
 + Parameters
     + `name`: `Some name` (string, optional) - Group of Diagnoses name
-    + `code`: `G30.9` (string, optional) - Diagnosis Code
+    + `group_code`: `H00` (string, optional) - Group of Diagnoses code
+    + `diagnosis_code`: `G30.9` (string, optional) - Diagnosis code
     + `page`: 2 (number, optional) - Page number
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -7731,6 +7732,7 @@ This web service returns a catalog of all active Groups of Diagnoses in eHealth.
             + (object)
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Group of Diagnoses identifier
                 + name: `Some name` (string, required) - Group of Diagnoses name
+                + code: `H00` (string, required) - Group of Diagnoses code
                 + description: `Some description` (string) - Group of Diagnoses description
 
 ### Get Group of Diagnoses details [GET /api/diagnoses_groups/{id}]
@@ -7747,6 +7749,7 @@ This web service returns Group of Diagnoses details filtered by ID with active d
             + (object)
                 + id: `f7f817b2-3134-4625-b87d-e2d7fc8e9b90` (string, required) - Group of Diagnoses identifier
                 + name: `Some name` (string, required) - Group of Diagnoses name
+                + code: `H00` (string, required) - Group of Diagnoses code
                 + description: `Some description` (string) - Group of Diagnoses description
                 + deactivation_reason: `Some text` (string) - Group of Diagnoses deactivation reason
                 + `diagnoses_group_codes` (array)
