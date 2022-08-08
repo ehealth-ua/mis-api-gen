@@ -11069,6 +11069,7 @@ status: `APPROVED` (string, required)
     + `medication_request_allowed_text`: `Some text` (string, required) - justification of the possibility or impossibility of using the program on medication request
     + `type`: `MEDICATION` (string, required) - `Dictionary MEDICAL_PROGRAM_TYPE`
     + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
+    + `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + division(object, required) - division that provide a medical program
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
     + name: `Aдоніс` (string, required)
@@ -11386,7 +11387,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, optional) - `Dictionary MEDICAL_PROGRAM_TYPE`
 + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
-+ `mr_blank_type`: `F-1` (string, optional) - `Dictionary MR_BLANK_TYPES`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
@@ -11404,6 +11405,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, optional) - `Dictionary MEDICAL_PROGRAM_TYPE`
 + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
@@ -12127,6 +12129,8 @@ status: `APPROVED` (string, required)
 ### `medical_programs_request`
 + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
 + `same_mnn_in_treatment_period`: true (boolean, required) - Allow to create new medication request with the same mnn in one treatment period
++ `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 
 ### `medical_programs_response`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
@@ -12140,7 +12144,7 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication request
 + `type`: `MEDICATION` (string, optional) - `Dictionary MEDICAL_PROGRAM_TYPE`
 + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
-+ `mr_blank_type`: `F-1` (string, optional) - `Dictionary MR_BLANK_TYPES`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
@@ -12178,6 +12182,8 @@ status: `APPROVED` (string, required)
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
 + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
 + `is_active`: `true` (boolean, required) - Is medical program active or not. True - Active; False - Inactive
++ `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
 
 ## `Medication request`
 ### `Medication_request_Public_Response`
