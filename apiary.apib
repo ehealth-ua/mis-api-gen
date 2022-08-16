@@ -13082,6 +13082,9 @@ status: `APPROVED` (string, required)
 + `parent_contract_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - parent contract id
 + `start_date`: `2017-04-20` (string, required) - contract start date
 + `end_date`: `2017-04-20` (string, required) - contract end date
++ `id_form`: `PMD_1` (string, required) - type of contract {DICTIONARY CONTRACT_TYPE}
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 
@@ -13105,6 +13108,9 @@ status: `APPROVED` (string, required)
 + `end_date`: `2017-04-20` (string, required) - contract end date
 + `medical_programs` (array, required)
     + `3914a240-63db-404e-b730-09222bfeb2d0` (string, required) - - ids of a medical programs that is a subject of reimbursment contract
++ `id_form`: `RMB-1` (string, required) - type of contract {DICTIONARY REIMBURSEMENT_CONTRACT_TYPE}
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 ### `Contract_request_Update`
@@ -13158,6 +13164,8 @@ status: `APPROVED` (string, required)
 + `printout_content`: `Contract request content` (optional) - HTML document for contract request, is shown only for requests in `APPROVED`, `PENDING_NHS_SIGN`, `NHS_SIGNED`, `SIGNED` statuses.
 + `previous_request_id`: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, optional) - changed contract request id
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 
@@ -13194,6 +13202,8 @@ status: `APPROVED` (string, required)
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
 + `medical_programs` (array, required)
     + `3914a240-63db-404e-b730-09222bfeb2d0` (string, required) - - ids of a medical programs that is a subject of reimbursment contract
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 ### `Contract_request_Details_Full`
@@ -13290,6 +13300,8 @@ status: `APPROVED` (string, required)
 + id_form: `PMD` (string, required)
 + parent_contract_id: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, optional)
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 ### `Contracts_list_reimbursement`
@@ -13319,6 +13331,8 @@ status: `APPROVED` (string, required)
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
 + `medical_programs` (array, required)
     + `3914a240-63db-404e-b730-09222bfeb2d0` (string, required) - - ids of a medical programs that is a subject of reimbursment contract
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 
@@ -13362,6 +13376,8 @@ status: `APPROVED` (string, required)
 + `end_date`: `2017-04-20` (string, required) - contract end date
 + id_form: `PMD` (string, required)
 + parent_contract_id: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, optional)
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 
@@ -13398,6 +13414,8 @@ status: `APPROVED` (string, required)
 + parent_contract_id: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, optional)
 + `medical_programs` (array, required)
     + `3914a240-63db-404e-b730-09222bfeb2d0` (string, required) - - ids of a medical programs that is a subject of reimbursment contract
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 
 ### `Capitation_report`
