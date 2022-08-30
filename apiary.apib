@@ -1688,6 +1688,35 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
 
 ## Uploading and processing registers [/registers]
 
+### Post Medication Register [POST api/registries/medications/]
+Method allows NHS admin to upload csv file with medications. Multipart should be used.
+
+**Scopes required:** `medication_registry:write`
+
++ Request (multipart/form-data; boundary=---011000010111000001101001)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `csv_data`: `file_in_required_format.csv` (file, required)
+       + `reason_description`: `Доповнення антибіотиків` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_Registers_response`
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: unverified (string, required)
+            + message: ` errors - array TBD to be described / confirm with Roman` (string, required)
+
 ### Post Registers [POST /api/registers]
 Method allows NHS admin to upload and save files with registers
 
@@ -12904,6 +12933,17 @@ status: `APPROVED` (string, required)
         + `second_name`: `Миколайович` (string, optional)
 
 ## Uploading and processing registers
+
+### `Medication_Registers_response`
++ `eta`: `2022-07-21T15:35:38.625778Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `links` (array, optional)
+    + (object)
+        + `entity`: `job` (string, required)
+        + `id`: `11ecabef-5b67-4838-8f4c-72155e05dd12` (string, required)
+    + `status`: PENDING (enum, required)
+            - FAILED
+            - PROCESSED
+            - PENDING
 
 ### `Registers_response`
 + `id`: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, required)
