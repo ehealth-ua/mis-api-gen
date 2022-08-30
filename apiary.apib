@@ -1688,7 +1688,7 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
 
 ## Uploading and processing registers [/registers]
 
-### Post Medication Register [POST api/registries/medications/]
+### Post Medication Register [POST /registers/medications/]
 Method allows NHS admin to upload csv file with medications. Multipart should be used. multipart/form-data; boundary=---011000010111000001101001.
 
 **Scopes required:** `medication_registry:write`
@@ -1700,7 +1700,7 @@ Method allows NHS admin to upload csv file with medications. Multipart should be
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - type - file, not a string. Apiary does not have functionality for multi-part
+       + `csv_data`: `file_in_required_format.csv` (string, required) - type is file, not a string. Apiary does not have functionality for multi-part
        + `reason_description`: `Доповнення антибіотиків` (string, required)
 
 + Response 200 (application/json)
@@ -1714,8 +1714,8 @@ Method allows NHS admin to upload csv file with medications. Multipart should be
         + meta (Response__Meta)
             + code: 422
         + error
-            + type: unverified (string, required)
-            + message: ` errors - array TBD to be described / confirm with Roman` (string, required)
+            + `type`: unverified (string, required)
+            + `message`: ` errors - array TBD to be described / confirm with Roman` (string, required)
 
 ### Post Registers [POST /api/registers]
 Method allows NHS admin to upload and save files with registers
