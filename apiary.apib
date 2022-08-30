@@ -1689,11 +1689,11 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
 ## Uploading and processing registers [/registers]
 
 ### Post Medication Register [POST api/registries/medications/]
-Method allows NHS admin to upload csv file with medications. Multipart should be used.
+Method allows NHS admin to upload csv file with medications. Multipart should be used. "multipart/form-data; boundary=---011000010111000001101001".
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (multipart/form-data; boundary=---011000010111000001101001)
++ Request (application/json)
 
     + Headers
 
