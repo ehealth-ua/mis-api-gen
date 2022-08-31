@@ -1700,7 +1700,7 @@ Method allows NHS admin to upload csv file with medications. Multipart should be
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - type is file, not a string. Apiary does not have functionality for multi-part
+       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
        + `reason_description`: `Доповнення антибіотиків` (string, required)
 
 + Response 200 (application/json)
@@ -1716,6 +1716,90 @@ Method allows NHS admin to upload csv file with medications. Multipart should be
         + error
             + `type`: unverified (string, required)
             + `message`: ` errors - array TBD to be described / confirm with Roman` (string, required)
+
+### Update Program Medications Register [PATCH /registers/medications/program_medications]
+This method allows NHS admin to upload csv file with program medications data. Multipart should be used.
+
+**Scopes required:** `medication_registry:write`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
+       + `reason_description`: `Оновлення даних учасників програм по антибіотикам` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_Registers_response`
+
+### Deactivate INNM DOSAGEs Register [PATCH /registers/medications/innm_dosages/actions/deactivate]
+This method allows NHS admin to upload csv file with INNM DOSAGES ids for deactivation. Multipart should be used.
+
+**Scopes required:** `medication_registry:write`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
+       + `reason_description`: `Деактивація помилково створених лікарських форм` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_Registers_response`
+
+### Deactivate BRANDs Register [PATCH /registers/medications/brands/actions/deactivate]
+This method allows NHS admin to upload csv file with BRANDS ids for deactivation. Multipart should be used.
+
+**Scopes required:** `medication_registry:write`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
+       + `reason_description`: `Деактивація торгівельних найменувань` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_Registers_response`
+
+### Deactivate BRANDs Register [PATCH /registers/medications/program_medications/actions/deactivate]
+This method allows NHS admin to upload csv file with PROGRAM_MEDICATIONs ids for deactivation. Multipart should be used.
+
+**Scopes required:** `medication_registry:write`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
+       + `reason_description`: `Деактивація деактивація учасників програм` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_Registers_response`
 
 ### Post Registers [POST /api/registers]
 Method allows NHS admin to upload and save files with registers
@@ -12934,16 +13018,21 @@ status: `APPROVED` (string, required)
 
 ## Uploading and processing registers
 
+### `file`
+
 ### `Medication_Registers_response`
-+ `eta`: `2022-07-21T15:35:38.625778Z` (string, required) - ISO 8601 date and time in UTC timezone.
-+ `links` (array, optional)
-    + (object)
-        + `entity`: `job` (string, required)
-        + `id`: `11ecabef-5b67-4838-8f4c-72155e05dd12` (string, required)
-    + `status`: PENDING (enum, required)
++ `job` (object, optional)
+    + `id`: `11ecabef-5b67-4838-8f4c-72155e05dd12` (string, required)
+    + `name`: `Name of operation with the registry`  (string, required)
+    + `type`: `type_of_operation`  (string, required)
+    + `strategy`: `SEQUENTIALLY`  (string, required)
+    + `status`: `PENDING`  (string, required)
             - FAILED
             - PROCESSED
             - PENDING
+    + `ended_at`: `2022-08-21T15:37:40.625778Z` (string, required) - ISO 8601 date and time in UTC timezone.
+    + `inserted_at`: `2022-08-21T15:35:38.625778Z` (string, required) - ISO 8601 date and time in UTC timezone.
+    + `updated_at`: `2022-08-21T15:37:40.625778Z` (string, required) - ISO 8601 date and time in UTC timezone.
 
 ### `Registers_response`
 + `id`: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, required)
