@@ -1718,12 +1718,14 @@ Method allows NHS admin to upload csv file with medications. Type of request is 
             + include `Medication_Registers_response`
 
 + Response 422 (application/json)
-    + Attributes (`Response_Error`)
-        + meta (Response__Meta)
-            + code: 422
-        + error
-            + `type`: unverified (string, required)
-            + `message`: ` errors - array TBD to be described / confirm with Roman` (string, required)
+    + Attributes (object)
+        + data (object)
+            + include (`Response_Error`)
+            + include (`Response__Error_ValidationFailed_Extended`, required)
+            + `status`: `failed` (string, required)
+            + `status_code`: 422 (number, required)
+        + `meta` (`Response__Meta`)
+            + `code`: 422
 
 ### Update PROGRAM MEDICATIONs Registry [PATCH /registries/medications/program_medications]
 This method allows NHS admin to upload csv file with program medications data. Type of request is a Multipart type.
@@ -9326,7 +9328,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + type (enum) - Type of data that is located in `data` attribute.
     - object (string) - `data` attribute is a JSON object.
     - list (string) - `data` attribute is a list.
-+ `request_id`: `req-adasdoijasdojsda` (string) - [Request ID](https://docs.apimanifest.apiary.io/#introduction/interacting-with-api/request-id). Send it with `X-Request-ID` header.
++ `request_id`: `6617aeec-15e2-4d6f-b9bd-53559c358f97#17810` (string) - [Request ID](https://docs.apimanifest.apiary.io/#introduction/interacting-with-api/request-id). Send it with `X-Request-ID` header.
 
 ### `Response__Error`
 + type: type_atom (string) - Atom that represents error type.
@@ -9345,6 +9347,24 @@ Only legal entity owner can request new client secret for his own legal entity
     + rules (array)
         + rule: required (string) - String constant that represents validation rule type. List of all types can be found in [API Manifest](https://docs.apimanifest.apiary.io/#introduction/interacting-with-api/errors).
         + params (array) - Validation Parameters.
+        
+### `Response__Error_ValidationFailed_Extended`
++ `error` (object)
+    + type: validation_failed (string) - type of an error.
+    + message: Validation failed. You can find validators description at our API Manifest: https://docs.apimanifest.apiary.io/#introduction/interacting-with-api/errors. (string)
+    + invalid (array)
+        + (object)
+            + `entry`: `$.cvv` (string, required) - JSON Path to an invalid property.
+            + `entry_type`: `json_data_property` (string, required) - Type of error.
+            + `rules` (array)
+                + (object)
+                    + `description`: `value is not allowed in enum` (string, required) - value of error might be different
+                    + params (object) - Validation Parameters.
+                        + `values` (array)
+                    + `raw_description`: `value is not allowed in enum` (string, required) - value of error might be different
+                    + `rule`: required (string) - String constant that represents validation rule type. List of all types can be found in [API Manifest](https://docs.apimanifest.apiary.io/#introduction/interacting-with-api/errors).
+                            - required
+                            - inclusion
 
 ### `Response__Pagination`
 + limit: 20 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50.
