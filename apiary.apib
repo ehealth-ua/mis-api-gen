@@ -1686,22 +1686,30 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
         + meta (Response__Meta)
         + data (array[`Party_user_Response`])
 
-## Uploading and processing registers [/registers]
+## Uploading and processing registries [/registries]
 
-### Post Medication Register [POST /registers/medications/]
-Method allows NHS admin to upload csv file with medications. Multipart should be used. multipart/form-data; boundary=---011000010111000001101001.
+### Post Medication Registry [POST /registries/medications/]
+Method allows NHS admin to upload csv file with medications. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (application/json)
++ Request (multipart/form-data;boundary=---BOUNDARY)
 
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
-       + `reason_description`: `Доповнення антибіотиків` (string, required)
+    + Body
+
+            ---BOUNDARY
+            Content-Disposition: form-data; name="reason_description"
+
+            Доповнення переліку антибіотиків
+            ---BOUNDARY
+            Content-Disposition: form-data; name="csv_data"; filename="filename.csv"
+            Content-Type: text/plain
+            
+            ---BOUNDARY--
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -1717,20 +1725,28 @@ Method allows NHS admin to upload csv file with medications. Multipart should be
             + `type`: unverified (string, required)
             + `message`: ` errors - array TBD to be described / confirm with Roman` (string, required)
 
-### Update PROGRAM MEDICATIONs Register [PATCH /registers/medications/program_medications]
-This method allows NHS admin to upload csv file with program medications data. Multipart should be used.
+### Update PROGRAM MEDICATIONs Registry [PATCH /registries/medications/program_medications]
+This method allows NHS admin to upload csv file with program medications data. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (application/json)
++ Request (multipart/form-data;boundary=---BOUNDARY)
 
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
-       + `reason_description`: `Оновлення даних учасників програм по антибіотикам` (string, required)
+    + Body
+
+            ---BOUNDARY
+            Content-Disposition: form-data; name="reason_description"
+
+            Оновлення даних учасників програм по антибіотикам
+            ---BOUNDARY
+            Content-Disposition: form-data; name="csv_data"; filename="filename.csv"
+            Content-Type: text/plain
+            
+            ---BOUNDARY--
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -1738,20 +1754,28 @@ This method allows NHS admin to upload csv file with program medications data. M
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate INNM DOSAGEs Register [PATCH /registers/medications/innm_dosages/actions/deactivate]
-This method allows NHS admin to upload csv file with INNM_DOSAGES ids for deactivation. Multipart should be used.
+### Deactivate INNM DOSAGEs Registry [PATCH /registries/medications/innm_dosages/actions/deactivate]
+This method allows NHS admin to upload csv file with INNM_DOSAGES ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (application/json)
++ Request (multipart/form-data;boundary=---BOUNDARY)
 
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
-       + `reason_description`: `Деактивація помилково створених лікарських форм` (string, required)
+    + Body
+
+            ---BOUNDARY
+            Content-Disposition: form-data; name="reason_description"
+
+            Деактивація помилково створених лікарських форм
+            ---BOUNDARY
+            Content-Disposition: form-data; name="csv_data"; filename="filename.csv"
+            Content-Type: text/plain
+            
+            ---BOUNDARY--
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -1759,20 +1783,28 @@ This method allows NHS admin to upload csv file with INNM_DOSAGES ids for deacti
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate BRANDs Register [PATCH /registers/medications/brands/actions/deactivate]
-This method allows NHS admin to upload csv file with BRANDS ids for deactivation. Multipart should be used.
+### Deactivate BRANDs Registry [PATCH /registries/medications/brands/actions/deactivate]
+This method allows NHS admin to upload csv file with BRANDS ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (application/json)
++ Request (multipart/form-data;boundary=---BOUNDARY)
 
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
-       + `reason_description`: `Деактивація торгівельних найменувань` (string, required)
+    + Body
+
+            ---BOUNDARY
+            Content-Disposition: form-data; name="reason_description"
+
+            Деактивація торгівельних найменувань
+            ---BOUNDARY
+            Content-Disposition: form-data; name="csv_data"; filename="filename.csv"
+            Content-Type: text/plain
+            
+            ---BOUNDARY--
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -1780,26 +1812,36 @@ This method allows NHS admin to upload csv file with BRANDS ids for deactivation
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate PROGRAM MEDICATIONs Register [PATCH /registers/medications/program_medications/actions/deactivate]
-This method allows NHS admin to upload csv file with PROGRAM_MEDICATIONs ids for deactivation. Multipart should be used.
+### Deactivate PROGRAM MEDICATIONs Registry [PATCH /registries/medications/program_medications/actions/deactivate]
+This method allows NHS admin to upload csv file with PROGRAM_MEDICATIONs ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
 
-+ Request (application/json)
++ Request (multipart/form-data;boundary=---BOUNDARY)
 
     + Headers
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-    + Attributes (object)
-       + `csv_data`: `file_in_required_format.csv` (string, required) - Please, note type of this field - file, not a string. Apiary does not have functionality for multi-part requests.
-       + `reason_description`: `Деактивація деактивація учасників програм` (string, required)
+    + Body
+
+            ---BOUNDARY
+            Content-Disposition: form-data; name="reason_description"
+
+            Деактивація деактивація учасників програм
+            ---BOUNDARY
+            Content-Disposition: form-data; name="csv_data"; filename="filename.csv"
+            Content-Type: text/plain
+            
+            ---BOUNDARY--
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
             + include `Medication_Registers_response`
+
+## Uploading and processing registers [/registers]
 
 ### Post Registers [POST /api/registers]
 Method allows NHS admin to upload and save files with registers
