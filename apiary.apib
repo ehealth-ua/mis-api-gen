@@ -1719,10 +1719,7 @@ Method allows NHS admin to upload csv file with medications. Type of request is 
 
 + Response 422 (application/json)
     + Attributes (object)
-        + data (object)
-            + include (`Response__Error_ValidationFailed_Extended`, required)
-            + `status`: `failed` (string, required)
-            + `status_code`: 422 (number, required)
+        + include (`Response__Error_ValidationFailed_Extended`, required)
         + `meta` (`Response__Meta`)
             + `code`: 422 (number, required)
 
