@@ -11565,23 +11565,17 @@ status: `APPROVED` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, optional)
 
+### `Medical_Program_Response_Report`
++ `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
++ `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
++ `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
+
 ### `Medical_Program_Response_min`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
 + `name`: `Доступні ліки` (string, required) - medical program name that is used on govermental level
 + `medical_program_settings`: (`Medical_program_settings`, required) - some conditions for using program
-+ `medical_program_settings_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication request with some settings
-+ `is_active`: `true` (boolean, optional) - Is medical program active or not. True - Active; False - Inactive
-+ `medication_dispense_allowed`: true (boolean, optional) - posibility to create medication dispense with program
-+ `medication_dispense_allowed_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication dispense
-+ `medication_request_allowed`: true (boolean, optional) - posibility to create medication request with program
-+ `medication_request_allowed_text`: `Some text` (string, optional) - justification of the possibility or impossibility of using the program on medication request
-+ `type`: `MEDICATION` (string, optional) - `Dictionary MEDICAL_PROGRAM_TYPE`
 + `funding_source`: `NHS` (string, required) - `Dictionary FUNDING_SOURCE`
 + `mr_blank_type`: `F-1` (string, required) - `Dictionary MR_BLANK_TYPES`
-+ `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
-+ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
-+ `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
-+ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, optional)
 
 ### `Program_Service_Response`
 + id: `c290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -13037,7 +13031,7 @@ status: `APPROVED` (string, required)
         + `second_name`: `Миколайович` (string, optional)
         + `position`: `P6` (string, required) - `Dictionary POSITION`
         + `employee_type`: `DOCTOR` (string) - `Dictionary: EMPLOYEE_TYPE`
-    + `medical_program` (`Medical_Program_Response_min`, optional)
+    + `medical_program` (`Medical_Program_Response_Report`, optional)
     + `medication` (`Medication_Short`, required) - Identifier of brand medications
     + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
     + `medication_dispense`(object, optional)
