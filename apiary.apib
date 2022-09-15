@@ -3409,7 +3409,7 @@ User may accept or decline Invitation.
 For changes to take effect employee must confirm the changes.
 Method receives signed message (pkcs7) including signed content, digital signature and signer public key.
 All signature fields will be validated (including signer certificate authority).
-Signed content MUST consists of JSON object with the `employee_request` block of [data](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/employee-requests/create-employee-request):
+Signed content MUST consists of JSON object with the `employee_request` block of [data](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-employee-request/create-employee-request-v2):
 
 + Request (application/json)
 
@@ -8654,6 +8654,29 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + data (object)
             + include `Medication_Dispense_Response_for_Pharmacist`
             + status: PROCESSED
+            
+## Dummy for employee request [/dummy/v2/employee_requests]
+
+### Create Employee Request v2 [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+        + `employee_request` (Employee_Update_v2)
+
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (`Employee_Request_Details`)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + inserted_at: `2017-05-05T14:09:59.232112` (string, required)
+            + updated_at: `2017-05-05T14:09:59.232112` (string, required)
 
 # Group Deprecated methods
 
@@ -10216,6 +10239,21 @@ status: `APPROVED` (string, required)
 + specialities (array[`Speciality_party`], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
 + science_degree (ScienceDegree, optional)
 
+### `Party_Update_v2`
++ include `Party_Short`
++ no_tax_id: false (boolean, optional)
++ tax_id: 3126509816 (string, required)
++ birth_date: `1991-08-19T00:00:00.000Z` (string, required)
++ gender: MALE(string, required) - `Dictionary GENDER`
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
++ working_experience: 10 (number, optional) - full years of working experience
++ about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
++ educations (array[`Education`], optional)  - освіта
++ qualifications (array[`Qualification`], optional) - підвищення кваліфікації
++ specialities (array[`Speciality_party`], optional)  - блок інформації про отримання сертифікату спеціалісту та проходження атестацій
++ science_degree (ScienceDegree, optional)
+
 ### `crud_party`
 + first_name: Петро (string, required)
 + last_name: Іванов (string, required)
@@ -10329,6 +10367,15 @@ status: `APPROVED` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + status: APPROVED, DISMISSED (enum, required)
 + party (Party_Update)
++ doctor (DoctorNew, optional)
+
+### `Employee_Update_v2`
++ division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ position: лікар (string, required)
++ start_date: `2017-03-02T10:45:16.000Z` (string, required)
++ end_date: `2018-03-02T10:45:16.000Z` (string, optional)
++ status: 'NEW' (string, required) 
++ party (Party_Update_v2)
 + doctor (DoctorNew, optional)
 
 ### `Employee_Request`
