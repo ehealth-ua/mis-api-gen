@@ -6502,8 +6502,8 @@ Preperson|`status`
 ServiceRequest|`program_processing_status` or `status`
 
 + Parameters
-    + date: `2017-12-06T15:00:00` (datetime, optional) - evets created between datetime and now (or 'date_to' if included).
-    + date_to: `2017-12-07T15:00:00` (datetime, optional) - evets created from 'date' (if included) and before datetime.
+    + date: `2017-12-07T12:00:00` (datetime, optional) - evets created between datetime and datetime plus 3 hours (or 'date_to' if included, but max 3 hours).
+    + date_to: `2017-12-07T15:00:00` (datetime, optional) - evets created from 'date' (if included) and before datetime, max difference 3 hours.
     + event_type: `StatusChangeEvent` (enum, optional) - type of event.
     + entity_type: `MedicationDispense` (enum, optional) - type of entity.
     + attribute_name: `status` (string, optional) - name of event in properties.
