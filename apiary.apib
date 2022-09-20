@@ -1723,7 +1723,7 @@ Method allows NHS admin to upload csv file with medications. Type of request is 
         + `meta` (`Response__Meta`)
             + `code`: 422 (number, required)
 
-### Update PROGRAM MEDICATIONs Registry [PATCH /registries/medications/program_medications]
+### Update Program medications registry [PATCH /registries/medications/program_medications]
 This method allows NHS admin to upload csv file with program medications data. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
@@ -1752,7 +1752,7 @@ This method allows NHS admin to upload csv file with program medications data. T
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate INNM DOSAGEs Registry [PATCH /registries/medications/innm_dosages/actions/deactivate]
+### Deactivate Innm dosages registry [PATCH /registries/medications/innm_dosages/actions/deactivate]
 This method allows NHS admin to upload csv file with INNM_DOSAGES ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
@@ -1781,7 +1781,7 @@ This method allows NHS admin to upload csv file with INNM_DOSAGES ids for deacti
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate BRANDs Registry [PATCH /registries/medications/brands/actions/deactivate]
+### Deactivate Brands registry [PATCH /registries/medications/brands/actions/deactivate]
 This method allows NHS admin to upload csv file with BRANDS ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
@@ -1810,7 +1810,7 @@ This method allows NHS admin to upload csv file with BRANDS ids for deactivation
         + data (object)
             + include `Medication_Registers_response`
 
-### Deactivate PROGRAM MEDICATIONs Registry [PATCH /registries/medications/program_medications/actions/deactivate]
+### Deactivate Program medications registry [PATCH /registries/medications/program_medications/actions/deactivate]
 This method allows NHS admin to upload csv file with PROGRAM_MEDICATIONs ids for deactivation. Type of request is a Multipart type.
 
 **Scopes required:** `medication_registry:write`
