@@ -5257,7 +5257,7 @@ This web service returns a catalog of services that could be submitted in eHealt
 
 ## Drugs [/apidrugs]
 
-### Get drugs list v2 [GET /api/v2/drugs{?innm_id,innm_name,innm_sctid,innm_dosage_form,innm_dosage_id,innm_dosage_name,medication_code_atc,medical_program_id,mr_blank_type,dosage_form_is_dosed,page,page_size}]
+### Get drugs list v2 [GET /api/v2/drugs{?innm_id,innm_name,innm_sctid,innm_dosage_form,innm_dosage_id,innm_dosage_name,medication_code_atc,medical_program_id,mr_blank_type,dosage_form_is_dosed,medication_request_allowed,care_plan_activity_allowed,page,page_size}]
 
 This endpoint returns list of drugs. Each drug contains all allowed package forms and related innm.
 The method contains is_primary parameter, which indicates whether the ingredient is the primary in the drug.
@@ -5276,7 +5276,9 @@ The method contains is_primary parameter, which indicates whether the ingredient
     + `medication_code_atc`: `С01BD01` (string, optional) - Medication code ATC.
     + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.
     + `mr_blank_type`: `F-1` (string, optional) - parameter of Likarska form, specifying of paper form for issuing of Medication request, example F-1 or F-3.
-    + `dosage_form_is_dosed`: TRUE (boolean, optional) - parameter of Likarska form, specifying of type of Likarska form - dosed, like `pills`, or not dosed, like `salve`.    
+    + `dosage_form_is_dosed`: TRUE (boolean, optional) - parameter of Likarska form, specifying of type of Likarska form - dosed, like `pills`, or not dosed, like `salve`.  
+    + `medication_request_allowed`: TRUE (boolean, optional) - flag whether medications are allowed to be dispensed by the program.
+    + `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether activities are allowed to be created with product as this medications.
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
 
@@ -11693,6 +11695,8 @@ status: `APPROVED` (string, required)
 + `form`: PILL (string, required) - `Dictionary MEDICATION_FORM`
 + `daily_dosage`: 50 (number, required) - Daily dosage
 + `max_daily_dosage`: 200 (number, required) - Max daily dosage
++ `medication_request_allowed`: TRUE (boolean, optional) - flag whether medications are allowed to be dispensed by the program.
++ `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether activities are allowed to be created with product as this medications.
 + `ingredients` (array[`Ingredient_v2`], required)
 + `packages` (array [`Medication_package_DrugsV2`], required)
 
