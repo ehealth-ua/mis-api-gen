@@ -11891,9 +11891,9 @@ status: `APPROVED` (string, required)
 + `medication_qty`: 10.34 (number, required) - Medication quantity issued by the doctor
 
 ### `block_legal_entity_object`
-+ `block_legal_entity` (object)
-    + `id`: `UUID` (string, required)
-    + `type`: `NHS` (string, required)
++ `block_legal_entity` (object, required)
+    + `id`: `UUID` (string, required, nullable)
+    + `type`: `NHS` (string, required, nullable)
 
 ### `MR_MRR_additional_fields`
 + priority: routine (enum, optional) - `Dictionary MEDICATION_REQUEST_PRIORITY`
