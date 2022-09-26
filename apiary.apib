@@ -6049,7 +6049,9 @@ To be depricated. Please see a similar endpoint with role context ("Create Medic
 This method is used to dispense medications to patient
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
 
-If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` and `payment_id` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount (optional, if medical program has funding sourse != NHS)` and `payment_id (optional)` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+
+If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `payment_amount`, `discount_amount` must be submitted.
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
@@ -6088,7 +6090,9 @@ This method is used to dispense medications to patient
 
 Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
 
-If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount` and `payment_id` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount (optional, if medical program has funding sourse != NHS)` and `payment_id (optional)` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
+
+If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `payment_amount`, `discount_amount` must be submitted.
 
 **Important** In case medications are dispensed to patient under specific medical program, program participant id must be provided also
 
@@ -6128,7 +6132,7 @@ To be depricated. Please see a similar endpoint with role context ("Process Medi
 This method is used to process created dispense
 
 **Important**
-Invoke Get Medication dispanse details to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount` should be added.
+Invoke Get Medication dispanse details to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount (optional, if medical program has funding sourse != NHS)` should be added.
 
 Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-dispense/process-medication-dispense) for more details.
 
@@ -6158,7 +6162,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
 This method is used to process created dispense
 
 **Important**
-Invoke Get Medication dispense details by Pharmacy User to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount` should be added.
+Invoke Get Medication dispense details by Pharmacy User to obtain previously created medication dispense. In order to process dispense `payment_id (optional)` and `payment_amount (optional, if medical program has funding sourse != NHS)` should be added.
 
 Look at [**Dummy Process Medication Dispense by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-dispense/process-medication-dispense-by-pharmacy-user) for more details.
 
@@ -12866,8 +12870,8 @@ status: `APPROVED` (string, required)
 + `dispense_details` (array, fixed, required)
     + (object)
         + include `Medication_Dispense_Detail_Request`
-+ `payment_id`: 1239804 (string, optional) - receipt number for the paid medications. Sould not be submitted if medical program requires digital sign, and it's optional if not requires 
-+ `payment_amount`: 50 (number, optional) - receipt amount which was paid by patient (UAH). Sould not be submitted if medical program requires digital sign, and should be if not requires.
++ `payment_id`: 1239804 (string, optional) - receipt number for the paid medications. Should not be submitted if medical program requires digital sign, and it's optional if not requires 
++ `payment_amount`: 50 (number, optional) - receipt amount which was paid by patient (UAH). Should not be submitted if medical program requires digital sign, and should be if not requires and medical program has funding source NHS
 
 ### `Medication_Dispense_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Dispense Response Identifier
@@ -12966,18 +12970,18 @@ status: `APPROVED` (string, required)
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
 + `medication_id`: `787b6ef1-1d3a-4129-849c-87716c9a2130` (string, required) - Identifier of brand medications
 + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
-+ `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
-+ `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
-+ `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
++ `sell_price`: 18.65 (number, optional) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol). Must be submitted if medical program has funding source NHS
++ `sell_amount`: 186.5 (number, optional) - total pharmacy's price for the requested medication quantity. Must be submitted if medical program has funding source NHS
++ `discount_amount`: 150 (number, optional) - pharmacy's expected price of dicsount for the requested medication quantity. Must be submitted if medical program has funding source NHS
 + `medication_2d_codes` (array[`Medication_2d_code`], optional) - array of medication 2d codes
 
 ### `Medication_Dispense_Detail_Response`
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
 + `medication_qty`: '10.34' (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
-+ `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
-+ `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
-+ `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
++ `sell_price`: 18.65 (number, optional) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
++ `sell_amount`: 186.5 (number, optional) - total pharmacy's price for the requested medication quantity
++ `discount_amount`: 150 (number, optional) - pharmacy's expected price of dicsount for the requested medication quantity
 + `reimbursement_amount`: 450 (number, required) - Amount to reimburse for medication package by medical_program
 + `medication_2d_codes` (array[`Medication_2d_code`], optional) - array of medication 2d codes
 
@@ -12985,9 +12989,9 @@ status: `APPROVED` (string, required)
 + `medication` (`Medication_Short`, required) - Identifier of brand medications
 + `program_medication_id`: `64c06ebc-0266-4645-85f0-7a6900d7dfbe` (string, optional) - Program participant id
 + `medication_qty`: 10.34 (number, required) - qnty of medication_unit (count/ml/g/mg) which provides to the patient
-+ `sell_price`: 18.65 (number, required) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
-+ `sell_amount`: 186.5 (number, required) - total pharmacy's price for the requested medication quantity
-+ `discount_amount`: 150 (number, required) - pharmacy's expected price of dicsount for the requested medication quantity
++ `sell_price`: 18.65 (number, optional) - pharmacy's price for one nondivisible medication_unit (pill/ampoule/container/bottle/vial/aerosol)
++ `sell_amount`: 186.5 (number, optional) - total pharmacy's price for the requested medication quantity
++ `discount_amount`: 150 (number, optional) - pharmacy's expected price of dicsount for the requested medication quantity
 + `reimbursement_amount`: 450 (number, required) - Amount to reimburse for medication package by medical_program
 
 ### `Medication_Dispense_Process_Request`
