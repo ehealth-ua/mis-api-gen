@@ -12807,6 +12807,8 @@ status: `APPROVED` (string, required)
 + `status`: `REJECTED` (enum[string], required) - Medication Request status. Find available **statuses** on State Charts wiki page
 + `medical_program` (`Medical_Program_Response`, required)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
++ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_without_block_data`
