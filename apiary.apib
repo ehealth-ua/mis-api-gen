@@ -5969,7 +5969,7 @@ For pharmacists please use [**Block Medication Request by Pharmacy User**](https
 
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
-       + `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -5994,7 +5994,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
     
     + Attributes (object)
        + `block_reason`: `помилки відсутні` (string, required) - Unblock reason
-       + `block_reason_code`: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
+       + `block_reason_code`: `UNBLOCK_DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -6022,7 +6022,7 @@ For employees with other types please use [**Block Medication Request**](https:/
 
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
-       + `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
