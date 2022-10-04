@@ -5951,7 +5951,7 @@ Use this method to obtain Medication request by ID.
 
 ### Block Medication Request [PATCH /api/medication_requests/{id}/actions/block]
 
-Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
+Use this method to block Medication request for dispense. In order to block medication request `block_reason`, `block_reason_system` and `block_reason_code` should be added in request.
 
 This method can't be used by employees with type 'PHARMACIST'.
 For pharmacists please use [**Block Medication Request by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request-by-pharmacy-user).
@@ -5969,7 +5969,8 @@ For pharmacists please use [**Block Medication Request by Pharmacy User**](https
 
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
-       + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
+       + `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -5994,7 +5995,8 @@ Use this method to unblock previously blocked Medication request for dispense. I
     
     + Attributes (object)
        + `block_reason`: `помилки відсутні` (string, required) - Unblock reason
-       + `block_reason_code`: `UNBLOCK_DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`       
+       + `block_reason_system`: ` MEDICATION_REQUEST_UNBLOCK_REASON` (string, required) - Unblock reason dictionary
+       + `block_reason_code`: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_UNBLOCK_REASON`       
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -6004,7 +6006,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
 
 ### Block Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/block]
 
-Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
+Use this method to block Medication request for dispense. In order to block medication request `block_reason`, `block_reason_system` and `block_reason_code` should be added in request.
 
 This method must be used only by employees with type 'PHARMACIST'.
 For employees with other types please use [**Block Medication Request**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request).
@@ -6022,7 +6024,8 @@ For employees with other types please use [**Block Medication Request**](https:/
 
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
-       + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
+       + `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -8310,7 +8313,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
-       + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
+       + `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -8333,7 +8337,8 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
     + Attributes (object)
        + `block_reason`: `помилки відсутні` (string, required) - Unblock reason
-       + `block_reason_code`: `UNBLOCK_DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `block_reason_system`: ` MEDICATION_REQUEST_UNBLOCK_REASON` (string, required) - Unblock reason dictionary
+       + `block_reason_code`: `DEFAULT` (string, required) - Unblock reason code `Dictionary MEDICATION_REQUEST_UNBLOCK_REASON`
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -12467,7 +12472,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12517,7 +12523,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12573,7 +12580,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12623,7 +12631,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12679,7 +12688,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12735,7 +12745,8 @@ status: `APPROVED` (string, required)
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12781,7 +12792,8 @@ status: `APPROVED` (string, required)
     - WRONG_SIGNATURE
 + `reject_reason`: `Помилка призначення. Несумісні препарати.` (string, optional) - Medication request reject reason
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12824,7 +12836,8 @@ status: `APPROVED` (string, required)
 + `medical_program` (`Medical_Program_Response`, required)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason_system`: ` MEDICATION_REQUEST_BLOCK_REASON` (string, required) - Block reason dictionary
++ `block_reason_code`: `WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
