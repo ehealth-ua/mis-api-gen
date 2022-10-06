@@ -101,7 +101,7 @@ Method returns only **requested** parameters and those from the search, birth pl
     + phone_number: `+380508887700` (string, optional) - search by phone with type MOBILE
     + `birth_certificate`: 123456 (string, optional) - birth_certificate is optional parameter for search
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -131,7 +131,7 @@ This method allows to search for a Person (MPI) knowing person's document number
     + type: passport (string, required)
     + number: `CM123456` (string, required)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 + Request (application/json)
 
     + Headers
@@ -190,7 +190,7 @@ Methods returns list of declaration requests by combination of "patient_id", "do
     + `legal_entity_id`: `A7C1ABD7-4472-42CB-9C39-3F3AB1F1F4FD` (string, optional) - MSP ID.
     + status: active (string, optional) - Declaration request current status.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -215,7 +215,7 @@ Service to get list of signed URLs with the read access for all the documents at
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -281,7 +281,7 @@ Response will contain only records that you have access to.
     + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - MSP ID.
     + status: active (string, optional) - Search only for active or disabled declarations.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -396,7 +396,7 @@ Methods returns list of parties.
     + tax_id: 3126509816 (string, optional)
     + phone_number: `+380508887700` (string, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -475,7 +475,7 @@ Methods returns list of employees.
         - NEW
         - APPROVED
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -584,7 +584,7 @@ This service should be used for internal services/processes. Used without `acces
         - РЕЛІГІЙНА ОРГАНІЗАЦІЯ
         - ІНШІ ОРГАНІЗАЦІЙНО-ПРАВОВІ ФОРМИ
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -662,7 +662,7 @@ Methods returns list of legal entity divisions.
     + `legal_entity_id`: 314083428 (string, optional)
     + name: Клініка (string, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -858,7 +858,7 @@ Method searches doctor by parameters and returnes division details
     + `updated_at_from`: `2017-04-20T19:14:13Z` (string, optional)
     + `updated_at_to`: `2017-04-20T19:14:13Z` (string, optional)
     + page: 2 (number, optional)
-    + page_size: 50 (number, optional)
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -920,7 +920,7 @@ Service to search parties (doctors) in eHealth
     + location_south: 50.32423 (number, optional)
     + location_west: 50.32423 (number, optional)
     + page: 2 (number, optional)
-    + page_size: 50 (number, optional)
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -964,7 +964,7 @@ Method searches Medical program provision by parameters and returnes it's detail
     + `division_name`: `Аптека доброго здоров'я` (string, optional) - the name of pharmacy division
     + `is_active`: true (boolean, optional) - Medical program provision status
     + page: 2 (number, optional)
-    + page_size: 50 (number, optional)
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1072,7 +1072,7 @@ Response will contain only records that you have access to.
 + Parameters
     + status: active (text, optional) - Search only for active or disabled declarations.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -1150,7 +1150,7 @@ Use this method to obtain list of Innms. If you want to reduce amount of data th
     + `name`: `Аміодарон` (string, optional) - Innm local name.
     + `name_original`: `Amiodarone` (string, optional) - Innm original name.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1253,7 +1253,7 @@ Use this method to obtain list of INNM Dosage. If you want to reduce amount of d
     + `name`: `Аміодарон` (string, optional) - `Innm local name.`
     + `form`:  `PILL` (string, required) - `Dictionary MEDICATION_FORM`
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1357,7 +1357,7 @@ Use this method to obtain list of Medications. If you want to reduce amount of d
     + `innm_dosage_name`: `Аміодарон` (string, optional) - `INNM name.`
     + `form`:  `PILL` (string, required) - `Dictionary MEDICATION_FORM`
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1430,7 +1430,7 @@ Method returns list of medical programs filtering by parameters. By default meth
     + `name`: `Доступні ліки` (string, optional) - Name of the Medical program
     + `is_active`: `true` (boolean, optional) - Is medical program active or not. Default: true
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1543,7 +1543,7 @@ Method returns list of participants(medications) of medical programs filtering b
     + `medication_id`:  `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Medication Identifier.
     + `medication_name`: `Аритміл` (string, optional) - Medication name.
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -1655,7 +1655,7 @@ Method returns list of participants(medications) of medical programs filtered by
     + `tax_id`: `3126509816` (string, optional) - tax_id by party_id
     + `is_active`: `true` (string, optional) - medical program name
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -1676,7 +1676,7 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
     + `user_id`: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, optional) - user Identifier
     + `party_id`: `79a91507-d409-49fc-b373-934b59c4f694` (string, optional) - Party Identifier
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -1881,7 +1881,7 @@ Method returns list of files which were uploaded with statistics.
     + `inserted_at_from`: `2017-10-01` (string, optional)
     + `inserted_at_to`: `2017-10-30` (string, optional)
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1904,7 +1904,7 @@ Method returns list of records from each uploaded file with status.
     + `document_type`: `3028106992` (string, optional)
     + `document_number`: `123456789` (string, optional)
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1956,7 +1956,7 @@ Result can be filtered either by
       - first_name&last_name:asc
       - first_name&last_name:desc
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 + Request (application/json)
 
     + Headers
@@ -2039,7 +2039,7 @@ By defaut the result is sorted by start_date:desc
       - status:desc
       - status:asc
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -2849,7 +2849,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
         - REJECTED
         - CANCELLED
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -3144,7 +3144,7 @@ If declaration request is created by v2, the field `person_id` will be empty
         - REJECTED
         - CANCELLED
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -3195,7 +3195,7 @@ Method returns shortened details, to obtain full information - get Declaration D
         + Default: active
     + reason: offline (string, optional) - filter declaration by reason
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -3303,7 +3303,7 @@ Method returns shortened details (for DOCTOR and PHARMACIST - additional return
         - DISMISSED
     + employee_type: DOCTOR (string, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -3444,7 +3444,7 @@ Signed content MUST consists of JSON object with the `employee_request` block of
         - APPROVED
         + Default: NEW
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -3918,7 +3918,7 @@ List consists of legal entities with parameter `is_active = true`.
         - CLOSED
     + `nhs_verified`: false (boolean, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -4093,7 +4093,7 @@ Use this method to get the list of child legal entities which are related to cur
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -4120,7 +4120,7 @@ Use this method to get the list of child legal entities which are related to cur
         - ACTIVE
         - INACTIVE
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Response 200 (application/json)
@@ -4187,7 +4187,7 @@ API for searching Ukrainian Addresses
     + name: `Незалежності` (string, optional) - Street name
     + type: STREET (string, optional) - Street type (Dictionary STREET_TYPE)
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Response 200 (application/json)
@@ -4208,7 +4208,7 @@ Use this method to obtain list of cities. If you want to reduce amount of data t
     + district: `Києво-Святошинський` (string, optional) - Administrative district of province
     + koatuu: `2625286301` (string, optional) - koatuu classifier id
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Response 200 (application/json)
@@ -4238,7 +4238,7 @@ Use this method to obtain city details.
     + name: Київ (string, optional) - Province name
     + koatuu: `2625286301` (string, optional) - koatuu classifier id
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4255,7 +4255,7 @@ Use this method to obtain city details.
     + name: `Києво-Святошинський` (string, optional) - Administrative district of province
     + koatuu: `2625286301` (string, optional) - koatuu classifier id
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4269,7 +4269,7 @@ Use this method to obtain city details.
     + name: `Києво-Святошинський` (string, optional) - Filter by district name
     + koatuu: `2625286301` (string, optional) - koatuu classifier id
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4285,7 +4285,7 @@ Get list of cities by district
     + name: `Київ` (string, optional) - Filter by settlement name
     + koatuu: `2625286301` (string, optional) - koatuu classifier id
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4306,7 +4306,7 @@ Roles are set separately for each Client.
 + Parameters
     + name: `My role` (string, optional) - Return only roles that contains `name` substring.
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -4490,7 +4490,7 @@ Capitation reports are created monthly
 
 + Parameters
     + `page`: 2 (number) - Page number
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -4607,7 +4607,7 @@ All other attributes are immutable
     + `type`: SALE (string, optional) - `Dictionary of types for category, example HEALTHCARE_SERVICE_PHARMACY_DRUGS_TYPES`
     + status: ACTIVE (string, optional) - Entity status
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4670,7 +4670,7 @@ At least one query parameter must be provided
     + `healthcare_service_id`: `c4de7c6e-8c6e-4d4f-8843-6bc122977227` (string, optional) - Healthcare service identifier
     + status: active (string, optional) - Search only for active or inactive employee roles.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4778,7 +4778,7 @@ Immutable parameters:
     + external_id: `123-ASD-1` (string, optional) - `Identifier from external system`
     + status: ACTIVE (string, optional) - Entity status
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5054,7 +5054,7 @@ Method returns a list of merge requests. Service returns only merge requests rel
     + master_person_id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, optional) - MPI identifier of the master preperson.
     + merge_person_id: `7c3da506-804d-4550-8993-bf17f9ee0403` (string, optional) - MPI identifier of the merge person \(preperson\).
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5106,7 +5106,7 @@ Use this end-point to obtain all Licenses of the legal entity.
     + type: MSP (string, optional) - Dictionary LICENSE_TYPE
     + is_primary: true (boolean, optional) - primary or additional license flag
     + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -5158,7 +5158,7 @@ Method returns list of medical programs filtering by parameters. By default meth
     + `is_active`: `true` (boolean, optional) - Is medical program active or not. Default: true
     + `mr_blank_type`: `F-1` (string, optional) - Type of blank required by Program for prescription of Medications
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5199,7 +5199,7 @@ This endpoint returns list of service program members.
 + Parameters
     + medical_program_id: `1380df72-275a-11e7-93ae-92361f002671` (string, required)
     + page: 2 (number, optional) - Page number
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 500. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5280,7 +5280,7 @@ The method contains is_primary parameter, which indicates whether the ingredient
     + `medication_request_allowed`: TRUE (boolean, optional) - flag whether medications are allowed to be dispensed by the program.
     + `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether activities are allowed to be created with product as this medications.
     + `page`: 2 (number, optional) - Page number.
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5311,7 +5311,7 @@ This endpoint returns list of drugs. Each drug contains all allowed package form
     + `medication_code_atc`: `С01BD01` (string, optional) - Medication code ATC.
     + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5417,7 +5417,7 @@ Use [**Get Medication request requests details**](https://uaehealthapi.docs.apia
         - REJECTED
     + intent: order (string, optional) - Medication request request intent
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5449,7 +5449,7 @@ Use [**Get Medication request requests details**](https://uaehealthapi.docs.apia
     + intent: order (string, optional) - Medication request request intent
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5559,7 +5559,7 @@ Use [**Get Medication request requests by ID**](https://uaehealthapi.docs.apiary
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5647,7 +5647,7 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + `episode_id`: `6f305d0e-1758-4920-9167-d4f97225ad7e` (string, optional) - Unique episode identifier, look into episode in encounter.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5684,7 +5684,7 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
     + intent: order (string, optional) - Medication request intent
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -5792,7 +5792,7 @@ Use [**Get Medication dispense details**](https://uaehealthapi.docs.apiary.io/#r
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
     + status: PROCESSED (string, optional) - Status
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
     
 
 + Request (application/json)
@@ -5820,7 +5820,7 @@ Use [**Get Medication dispense details in person context**](https://uaehealthapi
     + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
     + status: PROCESSED (string, optional) - Status
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
     
 
 + Request (application/json)
@@ -5913,7 +5913,7 @@ Use [**Get Medication request by ID**](https://uaehealthapi.docs.apiary.io/#refe
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -6229,7 +6229,7 @@ Use [**Get Medication dispense details**](https://uaehealthapi.docs.apiary.io/#r
     + dispensed_to: `2017-10-01` (string, optional) - date of dispense
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -6262,7 +6262,7 @@ Use [**Get Medication dispense  by Pharmacy User**](https://uaehealthapi.docs.ap
     + dispensed_to: `2017-10-01` (string, optional) - date of dispense
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 500. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -6359,7 +6359,7 @@ Reimbursement Report combines information about Medication requests and correspo
     + date_from_dispense: `2017-09-01` (date, optional) - Start date for Medication Dispense disbursed_at date
     + date_to_dispense: `2017-10-01` (date, optional) - End date for Medication Dispense disbursed_at date
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -6515,7 +6515,7 @@ ServiceRequest|`program_processing_status` or `status`
     + attribute_name: `status` (string, optional) - name of event in properties.
     + new_value: `COMPLETED` (enum, optional)- new status of entity.
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -6739,7 +6739,7 @@ This WS allows to see history of all patient's declarations and filter them.
     + status: active (string, optional)
     + start_year: 2018 (string, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -6783,7 +6783,7 @@ This WS allows to see history of all patient's declaration requests and filter t
     + status: active (string, optional)
     + start_year: 2018 (string, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -6825,7 +6825,7 @@ Method returns shortened details, to obtain full information - get Medication re
     + intent: order (string, optional) - Medication request intent
     + encounter_id: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - Encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -6871,7 +6871,7 @@ Use this method to obtain full information of Medication request an `id`.
     + dispensed_from: '2017-09-01' (string, optional) - date of dispense
     + dispensed_to: '2017-10-01' (string, optional) - date of dispense
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -6913,7 +6913,7 @@ Use this method to get information about justification for monitoring patient's 
     + `expires_from`: `2017-09-01` (string, optional) - date when justification expires
     + `expires_to`: `2022-10-01` (string, optional) - date when justification expires
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -7168,7 +7168,7 @@ This method is designed to obtain list of contract request with filters. This me
     + contract_number: `0000-9EAX-XT7X-3115` (string, optional) - human readable number of contract request.
     + medical_program_id: `2075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of a program that is a subject of contract
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7595,7 +7595,7 @@ This method is designed to obtain list of contracts with filters. This method re
     + contract_number: `0000-9EAX-XT7X-3115` (string, optional) - human readable number of contract request.
     + medical_program_id: `2075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of a program that is a subject of a contract
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7783,7 +7783,7 @@ This method allows to get a list of medical programs already provided by the div
     + `is_active`: true (boolean, optional) - Medical program provision status
     + `msp_legal_entity_id`: `15d5ea65-d6e7-44f8-9eef-f0d3c1121d3a` (string, optional) - MSP legal entity identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 500. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7830,7 +7830,7 @@ This web service returns a catalog of all active forbidden groups in eHealth.
 + Parameters
     + `name`: `Some name` (string, optional) - Forbidden group name
     + `page`: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7880,7 +7880,7 @@ This web service returns a catalog of all active Groups of Diagnoses in eHealth.
     + `name`: `Some name` (string, optional) - Group of Diagnoses name
     + `code`: `H00` (string, optional) - Group of Diagnoses code
     + `page`: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7983,7 +7983,7 @@ Assuming that all required business processes and validations is implemented on 
     + contract_number: `0000-9EAX-XT7X-3115` (string, optional) - human readable number of contract request.
     + medical_program_id: `2075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - id of a program that is a subject of reimbursement contract
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -8074,7 +8074,7 @@ Assuming that all required business processes and validations is implemented on 
     + division_id: `f93ac873-b999-47d2-a945-32e7f582eed0` (string, optional) - Division identifier
     + is_active: true (boolean, optional) - wether contract divisions is active
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -8166,7 +8166,7 @@ Assuming that all required business processes and validations is implemented on 
     + contract_id: `82286646-ee07-4d89-929d-29287c367e8a` (string, optional) - Contract identifier
     + is_active: true (boolean, optional) - wether contract employees is active
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned. Maximum: 500
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -8281,7 +8281,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + `encounter_id`: `7075e0e2-6b57-47fd-aff7-324806efa7e5` (string, optional) - encounter identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -8357,7 +8357,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
     + dispensed_to: '2017-10-01' (string, optional) - date of dispense
     + `care_plan_id`: `8838982b-6a77-4cb5-87cd-cdb82eb55364` (string, optional) - care plan identifier
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -8709,7 +8709,7 @@ This endpoint returns all declaration requests that were created through V2 and 
         - REJECTED
         - CANCELLED
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
@@ -9042,7 +9042,7 @@ List consists of legal entities with parameter `is_active = true`.
         - CLOSED
     + `nhs_verified`: false (boolean, optional)
     + page: 2 (number, optional) - Page number.
-    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -9400,7 +9400,7 @@ Only legal entity owner can request new client secret for his own legal entity
 
 ### `Response__Pagination__V2`
 + page_number: 2 (number) - Page number.
-+ page_size: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
++ page_size: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 + total_entries: 1000 (number) - Total number of objects in collection.
 + total_pages: 23 (number) - Total number of pages.
 
