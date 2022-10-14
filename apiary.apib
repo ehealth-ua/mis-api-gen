@@ -12629,8 +12629,8 @@ status: `APPROVED` (string, required)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
