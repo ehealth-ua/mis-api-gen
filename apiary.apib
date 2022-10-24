@@ -5236,9 +5236,15 @@ This endpoint returns service program member by id.
         + data (`Program_Service_Response`)
 
 
-### Get Services Dictionary [GET /api/services]
+### Get Services Dictionary [GET /api/services{?code,name,page,page_size}]
 
 This web service returns a catalog of services that could be submitted in eHealth. The catalog has a tree data structure. Each node represents group of services (or sub-group), except end-node, that represents services themselves. Maximum nesting level is 4.
+
++ Parameters
+    + `code`: `JF2 01` (string, optional) - Service code.
+    + `name`: `Some Name` (string, optional) - Service name.
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
