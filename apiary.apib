@@ -12476,10 +12476,10 @@ status: `APPROVED` (string, required)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
-+ `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12526,10 +12526,10 @@ status: `APPROVED` (string, required)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
-+ `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12582,10 +12582,10 @@ status: `APPROVED` (string, required)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
-+ `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12688,10 +12688,10 @@ status: `APPROVED` (string, required)
 + `rejected_at`: `2022-01-28` (string, optional, nullable) - Reject date - ISO 8601 date and time in UTC timezone.
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
-+ `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
++ `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 + is_blocked: false (boolean, required) - Whether medication request is blocked or not
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12792,8 +12792,8 @@ status: `APPROVED` (string, required)
     - WRONG_QTY
     - WRONG_SIGNATURE
 + `reject_reason`: `Помилка призначення. Несумісні препарати.` (string, optional) - Medication request reject reason
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
@@ -12835,8 +12835,8 @@ status: `APPROVED` (string, required)
 + `status`: `REJECTED` (enum[string], required) - Medication Request status. Find available **statuses** on State Charts wiki page
 + `medical_program` (`Medical_Program_Response`, required)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
-+ `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
-+ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
++ `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
++ `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
