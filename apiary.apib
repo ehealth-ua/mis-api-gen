@@ -3289,7 +3289,7 @@ Use this end-point to obtain all Employees of the legal entity specified by the 
 
 We suggest to use `status` filter to limit response size. Eg. you MAY want to list only active employees for everyones except HR's. Also it's a good idea to filter list by employee `type`.
 
-Method returns shortened details (for DOCTOR and PHARMACIST - additional returns specialities information), to obtain full information - get Employee it by ID.
+Method returns shortened details (for DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST, MED_ADMIN, LABORANT or MED_COORDINATOR - additional returns specialities information), to obtain full information - get Employee it by ID.
 
 + Parameters
     + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
@@ -3330,7 +3330,7 @@ Response structure differs depending on employee type:
 * Person info
 * Employee info
 * User Info
-* Doctor info
+* Employee info
 
 + Parameters
     + employee_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
