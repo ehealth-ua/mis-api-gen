@@ -956,6 +956,8 @@ This service returns parties.declaration_count from report DB for get employees 
 ### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,medical_program_id,medical_program_name,division_id,division_name,is_active,page,page_size}]
 Method searches Medical program provision by parameters and returnes it's details
 
+**Scopes required:** `medical_program_provision:read`
+
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - provision ID
     + `medical_program_id`: `a175f148-7f93-4fc2-b2ec-2d81b19a9b8a` (string, optional) - Medical program ID
@@ -1008,6 +1010,8 @@ After obtaining token upload should be proceeded with [Google Cloud Storage API]
 
 Methods returns global parameters for declarations.
 
+**Scopes required:** `global_parameters:read`
+
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + data (`Global_Parameters`)
@@ -1015,6 +1019,8 @@ Methods returns global parameters for declarations.
 ### Put Global Parameters [PUT]
 
 Method updates global parameters for declarations.
+
+**Scopes required:** `global_parameters:write`
 
 + Request (application/json)
     + Attributes (`Global_Parameters`)
@@ -1069,6 +1075,8 @@ Methods returns list of declarations by combination of patient_id, doctor_id, ms
 
 Response will contain only records that you have access to.
 
+**Scopes required:** `declaration:read`
+
 + Parameters
     + status: active (text, optional) - Search only for active or disabled declarations.
     + page: 2 (number, optional) - Page number.
@@ -1080,6 +1088,8 @@ Response will contain only records that you have access to.
 
 
 ### Get Declaration Details by ID [GET /nhs_admin/declarations/{id}]
+
+**Scopes required:** `declaration:read`
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -3765,6 +3775,8 @@ This process describes adding an additional authentication method to an existing
 
 Confluence - https://e-health-ua.atlassian.net/wiki/x/FwC_J
 
+**Scopes required:** `authentication_method_request:write`
+
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
 
@@ -3813,6 +3825,8 @@ In case if authentication_method is OFFLINE, request body should be empty. Befor
 
 Confluence - https://e-health-ua.atlassian.net/wiki/x/G4DJJ
 
+**Scopes required:** `authentication_method_request:write`
+
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
     + request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Request identifier
@@ -3850,6 +3864,7 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/G4DJJ
 
 This method is used when you need to re-send SMS to a person or third person
 
+**Scopes required:** `authentication_method_request:write`
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
