@@ -5418,7 +5418,7 @@ This method is used to create Medication request Request (as a part of Medicatio
             + type: unverified (string, required)
             + message: `Only active employee with type DOCTOR can create medication request!` (string, required)
 
-### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,episode_id,care_plan_id,activity_id,encounter_id,status,intent,page,page_size}]
+### Get medication request requests by search params [GET /api/persons/{person_id}/medication_request_requests{?legal_entity_id,employee_id,episode_id,care_plan_id,activity_id,encounter_id,status,intent,page,page_size,medical_program_id,started_at,ended_at}]
 
 Use this method to obtain list of Medication request Requests. 
 Use [**Get Medication request requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request-requests/get-medication-request-requests-details) to get Medication request Request by ID.
@@ -5439,6 +5439,10 @@ Use [**Get Medication request requests details**](https://uaehealthapi.docs.apia
     + intent: order (string, optional) - Medication request request intent
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    + `medical_program_id`: `9a2fc263-6029-4b2b-b40a-66f4435509b7` (string, optional) - Internal medical program ID, a UUID string.
+    + `started_at`: `2017-08-17` (string, optional) - Start date of a treatment period, which is determined by the external system. Greater or equal to created_at. Format DATE '2017-08-17'.
+    + `ended_at`: `2017-09-16` (string, optional) - End date of a treatment period, which is determined by the external system. Greater or equal to started_at. Format DATE '2017-09-16'.
+    
 
 + Request (application/json)
 
@@ -5645,7 +5649,7 @@ This method is used to qualify (possibility to use Innm for the program) Medicat
             + type: unverified (string, required)
             + message: `Only for active MPI record can create medication request!` (string, required)
 
-### Get medication requests by search params [GET /api/persons/{person_id}/medication_requests{?legal_entity_id,employee_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,episode_id,page,page_size}]
+### Get medication requests by search params [GET /api/persons/{person_id}/medication_requests{?legal_entity_id,employee_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,episode_id,page,page_size,medical_program_id,started_at,ended_at}]
 
 Use this method to obtain list of Medication Requests. 
 Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) to get Medication Request by ID.
@@ -5669,6 +5673,10 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
     + `episode_id`: `6f305d0e-1758-4920-9167-d4f97225ad7e` (string, optional) - Unique episode identifier, look into episode in encounter.
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    + `medical_program_id`: `9a2fc263-6029-4b2b-b40a-66f4435509b7` (string, optional) - Internal medical program ID, a UUID string.
+    + `started_at`: `2017-08-17` (string, optional) - Start date of a treatment period, which is determined by the external system. Greater or equal to created_at. Format DATE '2017-08-17'.
+    + `ended_at`: `2017-09-16` (string, optional) - End date of a treatment period, which is determined by the external system. Greater or equal to started_at. Format DATE '2017-09-16'.
+
 
 + Request (application/json)
 
