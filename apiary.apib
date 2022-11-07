@@ -8699,7 +8699,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
     + Attributes (object)
-        + `employee_request` (Employee_Update_v2)
+        + `employee_request` (Employee_Create_v2)
 
 
 + Response 200 (application/json)
@@ -10256,6 +10256,18 @@ status: `APPROVED` (string, required)
 + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
 + declaration_count: `0` (number) - TO BE DEPRECATED, always zero! current number of declaration with a doctor.
 
+### `Party_Create_v2`
++ include `Party_Short`
++ no_tax_id: false (boolean, optional)
++ tax_id: 3126509816 (string, required)
++ birth_date: `1991-08-19T00:00:00.000Z` (string, required)
++ gender: MALE(string, required) - `Dictionary GENDER`
++ documents (array[`PartyDocument`], optional)
++ phones (array[`Phone`], optional)
++ working_experience: 10 (number, optional) - full years of working experience
++ about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
+
+
 ### `Party_Update`
 + include `Party_Short`
 + no_tax_id: false (boolean, optional)
@@ -10404,11 +10416,19 @@ status: `APPROVED` (string, required)
 
 ### `Employee_Update_v2`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
-+ position: лікар (string, required)
++ position: P164 (string, required)
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + status: 'NEW' (string, required) 
 + party (Party_Update_v2)
++ doctor (DoctorNew, optional)
+
+### `Employee_Create_v2`
++ division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ position: P164 (string, required)
++ start_date: `2017-03-02T10:45:16.000Z` (string, required)
++ status: 'NEW' (string, required) 
++ party (Party_Create_v2)
 + doctor (DoctorNew, optional)
 
 ### `Employee_Request`
