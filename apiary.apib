@@ -3913,6 +3913,32 @@ This method returns current person's verification status and another information
                 - INITIAL
             + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
 
+### Get Person Emergency contact [GET  /api/persons/{id}/emergency_contact]
+
+This method returns person's emergency contact.
+
+**Scopes required:** `persons_emergency_contact:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+    
+    
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + `emergency_contact`(object, required)
+                + first_name: Петро (string, required)
+                + phones (array[`Phone`], required)
+
 
 ## Legal Entities [/api/legal_entities]
 
