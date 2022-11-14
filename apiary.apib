@@ -10285,7 +10285,8 @@ status: `APPROVED` (string, required)
 + include `Party_Short`
 + no_tax_id: false (boolean, optional)
 + tax_id: 3126509816 (string, required)
-+ birth_date: `1991-08-19T00:00:00.000Z` (string, required)
++ email: email@example.com (string, required)
++ birth_date: `1991-08-19` (string, required)
 + gender: MALE(string, required) - `Dictionary GENDER`
 + documents (array[`PartyDocument`], optional)
 + phones (array[`Phone`], optional)
@@ -10451,7 +10452,7 @@ status: `APPROVED` (string, required)
 ### `Employee_Create_v2`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 + position: P164 (string, required)
-+ start_date: `2017-03-02T10:45:16.000Z` (string, required)
++ start_date: `2017-03-02` (string, required)
 + status: NEW (string, required)
 + employee_type: DOCTOR (string, required),
 + party (Party_Create_v2)
@@ -11430,15 +11431,15 @@ status: `APPROVED` (string, required)
 + institution_name: Академія Богомольця (string, required)
 + diploma_number: DD123543 (string, required)
 + speciality: Педіатр (string, required)
-+ issued_date: 2017-02-28 (string, optional)
++ issued_date: `2017-02-28` (string, optional)
 
 ### Qualification
 + type: SPECIALIZATION (string, required) - `Dictionary QUALIFICATION_TYPE`
 + institution_name: Академія Богомольця (string, required)
 + speciality: Педіатр (string, required)
-+ issued_date: 2017-02-28 (string, required) - дата отримання сертифікату
-+ certificate_number: 2017-02-28 (string, required)
-+ valid_to: 2017-02-28 (string, optional) - дійсний до
++ issued_date: `2017-02-28` (string, required) - дата отримання сертифікату
++ certificate_number: `2017-02-28` (string, required)
++ valid_to: `2017-02-28` (string, optional) - дійсний до
 + additional_info: додаткова інофрмація (string, optional) - додаткова інформація
 
 ### Speciality
@@ -11456,8 +11457,8 @@ status: `APPROVED` (string, required)
 + level: FIRST (string, required) - `Dictionary SPECIALITY_LEVEL`
 + `qualification_type`: AWARDING (string, required) - `Dictionary SPEC_QUALIFICATION_TYPE`
 + attestation_name: Академія Богомольця (string, required) - орган що видав
-+ attestation_date: 2017-02-28 (string, required) - дата отримання
-+ valid_to_date: 2020-02-28 (string, required) - дата дії до
++ attestation_date: `2017-02-28` (string, required) - дата отримання
++ valid_to_date: `2020-02-28` (string, required) - дата дії до
 + certificate_number: AB/21331 (string, required)
 
 ### Affordance
