@@ -3885,7 +3885,7 @@ This method is used when you need to re-send SMS to a person or third person
         + data (`OTP`)
 
 
-### Get Person verification details [GET  /api/persons/{id}/verification]
+### Get Person verification details [GET /api/persons/{id}/verification]
 This method returns current person's verification status and another information about it.
 
 + Parameters
@@ -3913,6 +3913,44 @@ This method returns current person's verification status and another information
                 - AUTO
                 - INITIAL
             + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
+            + `details` (object)
+                + `drfo` (object)
+                    + `drfo_data_status`: `12` (string, optional) - status of person DRFO synchronization according to `DRFO_RESULT` dictionary
+                    + `drfo_synced_at`: `2022-11-12T00:00:00.000Z` (string, optional) - date and time of last person synchronization with DRFO
+                    + `drfo_verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                        - VERIFIED
+                        - NOT_VERIFIED
+                        - IN_REVIEW
+                        - VERIFICATION_NEEDED
+                    + `drfo_verification_reason`: `AUTO` (enum, required) - how current DRFO verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+                        - MANUAL
+                        - AUTO
+                        - INITIAL
+                        - ONLINE_TRIGGERED
+                + `dracs_death` (object)
+                    + `dracs_death_act_id`: `a4a6289a-9c51-4187-a25d-f6cd4453d5c5` (string, optional) - identifier of death act that triggered person DRACS death verification status
+                    + `dracs_death_verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                        - VERIFIED
+                        - NOT_VERIFIED
+                        - IN_REVIEW
+                        - VERIFICATION_NEEDED
+                    + `dracs_death_verification_reason`: `AUTO` (enum, required) - how current DRACS death verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+                        - MANUAL
+                        - AUTO
+                        - INITIAL
+                        - ONLINE_TRIGGERED
+                + `nhs_verification` (object)
+                    + `nhs_verification_status`: `NOT_VERIFIED` (enum, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                        - VERIFIED
+                        - NOT_VERIFIED
+                        - IN_REVIEW
+                        - VERIFICATION_NEEDED
+                    + `nhs_verification_reason`: `AUTO` (enum, required) - how current manual NHS verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+                        - MANUAL
+                        - AUTO
+                        - INITIAL
+                        - RULES_TRIGGERED
+                    + `nhs_verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
 
 ### Get Person Emergency contact [GET  /api/persons/{id}/emergency_contact]
 
