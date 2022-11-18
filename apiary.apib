@@ -3908,11 +3908,6 @@ This method returns current person's verification status and another information
                 - NOT_VERIFIED
                 - IN_REVIEW
                 - VERIFICATION_NEEDED
-            + `verification_reason`: `MANUAL` (enum, required) - how current verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                - MANUAL
-                - AUTO
-                - INITIAL
-            + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
             + `details` (object)
                 + `drfo` (object)
                     + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
@@ -3925,7 +3920,7 @@ This method returns current person's verification status and another information
                         - AUTO
                         - INITIAL
                         - ONLINE_TRIGGERED
-                    + `data_status`: `12` (string, optional) - status of person DRFO synchronization according to `DRFO_RESULT` dictionary
+                    + `result`: `12` (string, optional) - result of person DRFO synchronization according to `DRFO_RESULT` dictionary
                 + `dracs_death` (object)
                     + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
                         - VERIFIED
@@ -3938,7 +3933,7 @@ This method returns current person's verification status and another information
                         - INITIAL
                         - ONLINE_TRIGGERED
                     + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by NHS in case NOT_VERIFIED
-                + `nhs_verification` (object)
+                + `nhs` (object)
                     + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
                         - VERIFIED
                         - NOT_VERIFIED
