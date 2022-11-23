@@ -3306,7 +3306,6 @@ Method returns shortened details (For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST,
     + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
     + tax_id: 3015492561 (string, optional)
     + party_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
-    + `verification_status`: `NOT_VERIFIED` (string, optional) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
     + edrpou: 38782323 (string, optional) - filter employees by legal_entity edrpou
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional) - filter employees by legal_entity id
     + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
@@ -5704,7 +5703,7 @@ This method is used to qualify (possibility to use Innm for the program) Medicat
             + type: unverified (string, required)
             + message: `Only for active MPI record can create medication request!` (string, required)
 
-### Get medication requests by search params [GET /api/persons/{person_id}/medication_requests{?legal_entity_id,employee_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,episode_id,page,page_size,medical_program_id,started_at_from,started_at_to,ended_at_from,ended_at_to}]
+### Get medication requests by search params [GET /api/persons/{person_id}/medication_requests{?legal_entity_id,employee_id,status,request_number,created_from,created_to,medication_id,intent,care_plan_id,encounter_id,episode_id,page,page_size,medical_program_id,started_at_from,started_at_to,ended_at_from,ended_at_to,dispense_valid_from_start,dispense_valid_from_end,dispense_valid_to_start,dispense_valid_to_end}]
 
 Use this method to obtain list of Medication Requests. 
 Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/get-medication-requests-details) to get Medication Request by ID.
@@ -5733,6 +5732,10 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
     + `ended_at_from`: `2017-09-16` (string, optional) - End date of the period of treatment initiation period. Format DATE '2017-09-16'.
     + `started_at_to`: `2017-08-20` (string, optional) - Start date of the period of treatment ending period. Format DATE '2017-08-20'.
     + `ended_at_to`: `2017-09-20` (string, optional) - End date of the period of treatment ending period. Format DATE '2017-09-20'.
+    + `dispense_valid_from_start`: `2017-02-17` (string, optional) - Start date of the period of dispense issue date. Format DATE '2017-02-17'.
+    + `dispense_valid_from_end`: `2017-02-19` (string, optional) - End date of the period of dispense issue date. Format DATE '2017-02-19'.
+    + `dispense_valid_to_start`: `2017-03-26` (string, optional) - Start date of the period of dispense expiry date. Format DATE '2017-03-26'.
+    + `dispense_valid_to_end`: `2017-03-30` (string, optional) - End date of the period of dispense expiry date. Format DATE '2017-03-30'.
 
 
 + Request (application/json)
@@ -5747,7 +5750,7 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
             + (object)
                 + include `Medication_request_Public_Response_with_Medical_Program_min`
 
-### Get Medication requests in care plan context [GET /api/care_plans/{care_plan_id}/medication_requests{?legal_entity_id,employee_id,person_id,status,request_number,created_from,created_to,medication_id,intent,encounter_id,page,page_size,medical_program_id,started_at_from,started_at_to,ended_at_from,ended_at_to}]
+### Get Medication requests in care plan context [GET /api/care_plans/{care_plan_id}/medication_requests{?legal_entity_id,employee_id,person_id,status,request_number,created_from,created_to,medication_id,intent,encounter_id,page,page_size,medical_program_id,started_at_from,started_at_to,ended_at_from,ended_at_to,dispense_valid_from_start,dispense_valid_from_end,dispense_valid_to_start,dispense_valid_to_end}]
 
 The method returns a list of medication requests in the context of a care plan. 
 User must have an approval on the care plan from url.
@@ -5776,6 +5779,10 @@ Use [**Get medication requests details**](https://uaehealthapi.docs.apiary.io/#r
     + `ended_at_from`: `2017-09-16` (string, optional) - End date of the period of treatment initiation period. Format DATE '2017-09-16'.
     + `started_at_to`: `2017-08-20` (string, optional) - Start date of the period of treatment ending period. Format DATE '2017-08-20'.
     + `ended_at_to`: `2017-09-20` (string, optional) - End date of the period of treatment ending period. Format DATE '2017-09-20'.
+    + `dispense_valid_from_start`: `2017-02-17` (string, optional) - Start date of the period of dispense issue date. Format DATE '2017-02-17'.
+    + `dispense_valid_from_end`: `2017-02-19` (string, optional) - End date of the period of dispense issue date. Format DATE '2017-02-19'.
+    + `dispense_valid_to_start`: `2017-03-26` (string, optional) - Start date of the period of dispense expiry date. Format DATE '2017-03-26'.
+    + `dispense_valid_to_end`: `2017-03-30` (string, optional) - End date of the period of dispense expiry date. Format DATE '2017-03-30'.
 
 + Request (application/json)
 
