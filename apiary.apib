@@ -3391,6 +3391,54 @@ Employee deactivation:
             + division (Division_Short)
                 + `legal_entity` (`Legal_Entity_Short`)
 
+### Get Party verification details [GET /api/parties/{id}/verification]
+This method returns current party's verification status and another information about it.
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Party identifier
+    
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+                - VERIFIED
+                - NOT_VERIFIED
+                - IN_REVIEW
+                - VERIFICATION_NEEDED
+            + `details` (object)
+                + `drfo` (object)
+                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+                        - VERIFIED
+                        - NOT_VERIFIED
+                        - IN_REVIEW
+                        - VERIFICATION_NEEDED
+                    + `verification_reason`: `AUTO` (enum, required) - how current DRFO verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
+                        - MANUAL
+                        - AUTO
+                        - INITIAL
+                        - ONLINE_TRIGGERED
+                    + `result`: `12` (string, optional) - result of party DRFO synchronization according to `DRFO_RESULT` dictionary
+                + `dracs_death` (object)
+                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party DRACS death verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+                        - VERIFIED
+                        - NOT_VERIFIED
+                        - IN_REVIEW
+                        - VERIFICATION_NEEDED
+                    + `verification_reason`: `AUTO` (enum, required) - how current DRACS death verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
+                        - MANUAL
+                        - AUTO
+                        - INITIAL
+                        - ONLINE_TRIGGERED
+                    + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by OWNER in case NOT_VERIFIED
+
 ## Employee Requests [/api/employee_requests]
 
 ### Create Employee Request v2 [POST /api/v2/employee_requests]
