@@ -3294,7 +3294,7 @@ According to the strong binding of the Employees to the Employer (legal entity)
 all GET-endpoints returning Employee info are mounted through the
 `/legal_entities/{legal_entity_id}` path.
 
-### Get Employees List [GET /api/employees{?no_tax_id,tax_id,party_id,edrpou,legal_entity_id,division_id,status,employee_type,page,page_size}]
+### Get Employees List [GET /api/employees{?no_tax_id,tax_id,party_id,verification_status,edrpou,legal_entity_id,division_id,status,employee_type,page,page_size}]
 
 Use this end-point to obtain all Employees of the legal entity specified by the `legal_entity_id`.
 
@@ -3305,7 +3305,8 @@ Method returns shortened details (For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST,
 + Parameters
     + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
     + tax_id: 3015492561 (string, optional)
-    + party_id: 3015492561 (string, optional)
+    + party_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
+    + `verification_status`: `NOT_VERIFIED` (string, optional) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
     + edrpou: 38782323 (string, optional) - filter employees by legal_entity edrpou
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional) - filter employees by legal_entity id
     + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
@@ -3408,35 +3409,15 @@ This method returns current party's verification status and another information 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + data (object)
-            + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-                - VERIFIED
-                - NOT_VERIFIED
-                - IN_REVIEW
-                - VERIFICATION_NEEDED
-            + `details` (object)
-                + `drfo` (object)
-                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-                        - VERIFIED
-                        - NOT_VERIFIED
-                        - IN_REVIEW
-                        - VERIFICATION_NEEDED
-                    + `verification_reason`: `AUTO` (enum, required) - how current DRFO verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
-                        - MANUAL
-                        - AUTO
-                        - INITIAL
-                        - ONLINE_TRIGGERED
+            + `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+            + details (object)
+                + drfo (object)
+                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+                    + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
                     + `result`: `12` (string, optional) - result of party DRFO synchronization according to `DRFO_RESULT` dictionary
-                + `dracs_death` (object)
-                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of party DRACS death verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-                        - VERIFIED
-                        - NOT_VERIFIED
-                        - IN_REVIEW
-                        - VERIFICATION_NEEDED
-                    + `verification_reason`: `AUTO` (enum, required) - how current DRACS death verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
-                        - MANUAL
-                        - AUTO
-                        - INITIAL
-                        - ONLINE_TRIGGERED
+                + dracs_death (object)
+                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRACS death verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+                    + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
                     + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by OWNER in case NOT_VERIFIED
 
 ## Employee Requests [/api/employee_requests]
@@ -3951,47 +3932,19 @@ This method returns current person's verification status and another information
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + data (object)
-            + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                - VERIFIED
-                - NOT_VERIFIED
-                - IN_REVIEW
-                - VERIFICATION_NEEDED
+            + `verification_status`: `NOT_VERIFIED` (string, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
             + `details` (object)
                 + `drfo` (object)
-                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                        - VERIFIED
-                        - NOT_VERIFIED
-                        - IN_REVIEW
-                        - VERIFICATION_NEEDED
-                    + `verification_reason`: `AUTO` (enum, required) - how current DRFO verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                        - MANUAL
-                        - AUTO
-                        - INITIAL
-                        - ONLINE_TRIGGERED
+                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                    + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
                     + `result`: `12` (string, optional) - result of person DRFO synchronization according to `DRFO_RESULT` dictionary
                 + `dracs_death` (object)
-                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                        - VERIFIED
-                        - NOT_VERIFIED
-                        - IN_REVIEW
-                        - VERIFICATION_NEEDED
-                    + `verification_reason`: `AUTO` (enum, required) - how current DRACS death verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                        - MANUAL
-                        - AUTO
-                        - INITIAL
-                        - ONLINE_TRIGGERED
+                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                    + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
                     + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by NHS in case NOT_VERIFIED
                 + `nhs` (object)
-                    + `verification_status`: `NOT_VERIFIED` (enum, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                        - VERIFIED
-                        - NOT_VERIFIED
-                        - IN_REVIEW
-                        - VERIFICATION_NEEDED
-                    + `verification_reason`: `AUTO` (enum, required) - how current manual NHS verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                        - MANUAL
-                        - AUTO
-                        - INITIAL
-                        - RULES_TRIGGERED
+                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+                    + `verification_reason`: `AUTO` (string, required) - how current manual NHS verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
                     + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
 
 ### Get Person Emergency contact [GET  /api/persons/{id}/emergency_contact]
@@ -9681,7 +9634,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + last_name: Іванов (string, required)
 + second_name: Миколайович (string, optional)
 + birth_date: 1991-08-19 (string, required)
-+ verification_status: NOT_VERIFIED (string, optional) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
++ `verification_status`: `NOT_VERIFIED` (string, required) - Search declarations by person verification status(according to `PERSON_VERIFICATION_STATUSES` dictionary)
 
 ### `Person_Minimal_Declaration_Request`
 + first_name: Петро (string, optional)
@@ -9723,7 +9676,7 @@ Only legal entity owner can request new client secret for his own legal entity
 + phones (array[`Phone`], optional)
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
-+ verification_status: NOT_VERIFIED (string, optional)
++ `verification_status`: `NOT_VERIFIED` (string, required)
 + `emergency_contact` (Emergency_Contact, required)
 + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc
 
@@ -10362,6 +10315,7 @@ status: `APPROVED` (string, required)
 + phones (array[`Phone`], optional)
 + working_experience: 10 (number, optional) - full years of working experience
 + about_myself: `Закінчив всі можливі курси` (string, optional) - field for medical employee to describe the most important statements.
++ `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
 + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
 + declaration_count: `0` (number) - TO BE DEPRECATED, always zero! current number of declaration with a doctor.
 
@@ -10580,6 +10534,7 @@ status: `APPROVED` (string, required)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
     + no_tax_id: true (boolean, optional) - true if employee doesn't have tax_id and false otherwise
     + include `Party_Short`
+    + `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
     + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
     + declaration_count: `0` (number) - TO BE DEPRECATED, always zero! current number of declaration with a doctor.
 + division (`Division_Short`)
