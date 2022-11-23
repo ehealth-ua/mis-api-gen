@@ -3294,13 +3294,12 @@ According to the strong binding of the Employees to the Employer (legal entity)
 all GET-endpoints returning Employee info are mounted through the
 `/legal_entities/{legal_entity_id}` path.
 
-### Get Employees List [GET /api/employees{?no_tax_id,tax_id,party_id,verification_status,edrpou,legal_entity_id,division_id,status,employee_type,page,page_size}]
+### Get Employees list [GET /api/employees{?no_tax_id,tax_id,party_id,verification_status,edrpou,legal_entity_id,division_id,status,employee_type,page,page_size}]
 
-Use this end-point to obtain all Employees of the legal entity specified by the `legal_entity_id`.
+Use this end-point to obtain all Employees of the legal entity.
+Method returns shortened data structure. Use [**Get Employee details**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/employees/get-employee-details) to get detailed information.
 
-We suggest to use `status` filter to limit response size. Eg. you MAY want to list only active employees for everyones except HR's. Also it's a good idea to filter list by employee `type`.
-
-Method returns shortened details (For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST, MED_ADMIN, LABORANT or MED_COORDINATOR - additional returns specialities information), to obtain full information - get Employee it by ID.
+**Scopes required:** `employee:read`
 
 + Parameters
     + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
@@ -3326,22 +3325,23 @@ Method returns shortened details (For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST,
     + Attributes (`Response_Collection_V2`)
         + data (array[`Employee_Short`])
 
-### Get Employee Details [GET /api/employees/{employee_id}]
+### Get Employee details [GET /api/employees/{employee_id}]
 
+Use this end-point to obtain detailed information about employee.
 Response structure differs depending on employee type:
 
 **For HR, ACCOUNTANT, OWNER or PHARMACY_OWNER:**
-
 * Person info
 * Employee info
 * User Info
 
 **For DOCTOR, SPECIALIST, ASSISTANT, PHARMACIST, MED_ADMIN, LABORANT or MED_COORDINATOR:**
-
 * Person info
 * Employee info
 * User Info
 * Employee info
+
+**Scopes required:** `employee:details`
 
 + Parameters
     + employee_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -10474,7 +10474,7 @@ status: `APPROVED` (string, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
-+ doctor (DoctorNew, optional) - `Field's name depends of employee type name: Doctor -> doctor, Specialist -> specialist, Assistant -> assistant, Pharmacist -> pharmacist, MED_ADMIN -> med_admin. Otherwise, this field is absent`
++ doctor (DoctorNew, optional) - `Field's name depends on employee type name.
 
 ### `Employee_Update`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
