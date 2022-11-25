@@ -3930,21 +3930,36 @@ This method returns current person's verification status and another information
     
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
+         + data (object)
+            + include `Person_Verification_Details`
+            
+
+### Update Person DRACS death verification details [PATCH /api/persons/{id}/verification]
+Use this method to update person's DRACS verification status.
+
+**Scopes required:** `person:write`
+
++ Parameters
+    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Person identifier
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+       + `dracs_death` (object)
+           + `verification_status`: `VERIFICATION_NEEEDED` (string, required) - Person DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary
+           + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+           + `verification_comment`: `Смерть пацієнта підтверджено` (string, required) - Verification comment
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
         + data (object)
-            + `verification_status`: `NOT_VERIFIED` (string, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-            + `details` (object)
-                + `drfo` (object)
-                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                    + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                    + `result`: `12` (string, optional) - result of person DRFO synchronization according to `DRFO_RESULT` dictionary
-                + `dracs_death` (object)
-                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                    + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                    + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by NHS in case NOT_VERIFIED
-                + `nhs` (object)
-                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
-                    + `verification_reason`: `AUTO` (string, required) - how current manual NHS verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
-                    + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
+            + include `Person_Verification_Details`
+
 
 ### Get Person Emergency contact [GET  /api/persons/{id}/emergency_contact]
 
@@ -9816,6 +9831,23 @@ Only legal entity owner can request new client secret for his own legal entity
     - terminated
 + inserted_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime.
 + updated_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime.
+
+### `Person_Verification_Details`
++ `verification_status`: `NOT_VERIFIED` (string, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
++ `details` (object)
+    + `drfo` (object)
+        + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRFO verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+        + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+        + `result`: `12` (string, optional) - result of person DRFO synchronization according to `DRFO_RESULT` dictionary
+    + `dracs_death` (object)
+        + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRACS death verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+        + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+        + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by NHS or Doctor
+    + `nhs` (object)
+        + `verification_status`: `NOT_VERIFIED` (string, required) - status of person manual NHS verification according to `PERSON_VERIFICATION_STATUSES` dictionary
+        + `verification_reason`: `AUTO` (string, required) - how current manual NHS verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+        + `verification_comment`: `Бракує даних паспорту пацієнта та його ІПН` (string, optional) - verification status description set by NHS in case NOT_VERIFIED
+
 
 ## `Merge_Candidates`
 ### `Merge_Candidate`
