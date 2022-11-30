@@ -3407,17 +3407,9 @@ This method returns current party's verification status and another information 
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
         + data (object)
-            + `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-            + details (object)
-                + drfo (object)
-                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-                    + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
-                    + `result`: `12` (string, optional) - result of party DRFO synchronization according to `DRFO_RESULT` dictionary
-                + dracs_death (object)
-                    + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRACS death verification according to `PARTY_VERIFICATION_STATUSES` dictionary
-                    + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
-                    + `verification_comment`: `Необхідно повторно підтвердити факт смерті у пацієнта` (string, optional) - DRACS death verification status description set by OWNER in case NOT_VERIFIED
+            + include `Party_Verification_Details`
                     
 
 ### Update Party DRACS death verification status [PATCH /api/parties/{id}/verification]
@@ -3436,7 +3428,7 @@ Use this method to update party's DRACS verification status.
 
     + Attributes (object)
        + `dracs_death` (object)
-           + `verification_status`: `VERIFICATION_NEEEDED` (string, required) - Party DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFICATION_NEEEDED` only is allowed.
+           + `verification_status`: `VERIFIED` (string, required) - Party DRACS death verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
            + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
            + `verification_comment`: `Смерть співробітника підтверджено` (string, required) - Verification comment
 
@@ -3444,7 +3436,7 @@ Use this method to update party's DRACS verification status.
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
         + data (object)
-            + include `Person_Verification_Details`
+            + include `Party_Verification_Details`
 
 
 ## Employee Requests [/api/employee_requests]
@@ -10621,6 +10613,19 @@ status: `APPROVED` (string, required)
 + division_id: `4cffa825-8b5b-4cba-9a38-fb57733e14b2` (string, optional) - division identifier
 + `legal_entity_id`: `be3a154c-3e07-496d-9680-f22c443f5d0c` (string, required) - legal entity identifier
 + doctor (DoctorNew)
+
+### `Party_Verification_Details`
++ `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
++ details (object)
+    + drfo (object)
+        + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+        + `verification_reason`: `AUTO` (string, required) - how current DRFO verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
+        + `result`: `12` (string, optional) - result of party DRFO synchronization according to `DRFO_RESULT` dictionary
+    + dracs_death (object)
+        + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRACS death verification according to `PARTY_VERIFICATION_STATUSES` dictionary
+        + `verification_reason`: `AUTO` (string, required) - how current DRACS death verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
+        + `verification_comment`: `Необхідно повторно підтвердити факт смерті у співробітника` (string, optional) - DRACS death verification status description set by OWNER in case NOT_VERIFIED
+
 
 ## `Legal_Entities`
 
