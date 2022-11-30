@@ -3950,8 +3950,8 @@ Use this method to update person's DRACS verification status.
 
     + Attributes (object)
        + `dracs_death` (object)
-           + `verification_status`: `VERIFICATION_NEEEDED` (string, required) - Person DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary
-           + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
+           + `verification_status`: `VERIFICATION_NEEEDED` (string, required) - Person DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFICATION_NEEEDED` only is allowed.
+           + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
            + `verification_comment`: `Смерть пацієнта підтверджено` (string, required) - Verification comment
 
 + Response 200 (application/json)
