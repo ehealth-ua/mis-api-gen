@@ -3982,14 +3982,16 @@ Use this method to update person's verification status. Now updating of DRACS de
             + include `Person_Verification_Details`
 
 
-### Get Person Emergency contact [GET  /api/persons/{id}/emergency_contact]
+### Get Person Emergency contact [GET  /api/patients/{patient_id}/{medical_event_type}/{medical_event_id}/emergency_contact]
 
 This method returns person's emergency contact.
 
 **Scopes required:** `person_emergency_contact:read`
 
 + Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + patient_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Patient identifier
+    + medical_event_type: `conditions` (string, required) - Medical event type
+    + medical_event_id: `164f9ce8-4455-4759-b0c2-726db7218224` (string, required) - Medical event identifier
     
     
 + Request (application/json)
