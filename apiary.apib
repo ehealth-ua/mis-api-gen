@@ -3415,7 +3415,7 @@ This method returns current party's verification status and another information 
 ### Update Party verification status [PATCH /api/parties/{id}/verification]
 Use this method to update party's verification status. Now updating of DRACS death verification status is allowed.
 
-**Scopes required:** `employee:write`
+**Scopes required:** `party_verification:write`
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Party identifier
@@ -3958,7 +3958,7 @@ This method returns current person's verification status and another information
 ### Update Person verification status [PATCH /api/persons/{id}/verification]
 Use this method to update person's verification status. Now updating of DRACS death verification status is allowed.
 
-**Scopes required:** `person:write`
+**Scopes required:** `person_verification:write`
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Person identifier
