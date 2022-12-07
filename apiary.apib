@@ -3430,7 +3430,7 @@ Use this method to update party's verification status. Now updating of DRACS dea
        + `dracs_death` (object)
            + `verification_status`: `VERIFIED` (string, required) - Party DRACS death verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
            + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
-           + `verification_comment`: `Смерть співробітника підтверджено` (string, required) - Verification comment
+           + `verification_comment`: `Смерть співробітника підтверджено` (string) - Verification comment
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
