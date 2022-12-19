@@ -13092,6 +13092,9 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required) - Rejected user identifier
 
 ### `Medication_request_Reject`
++ `block_legal_entity` (object, optional)
+    + `id`: `UUID` (string, required, nullable)
+    + `type`: `NHS` (string, required, nullable)
 + category: community (enum, required) - Type of medication usage. Dictionary MEDICATION_REQUEST_CATEGORY
     - community - Includes requests for medications to be administered or consumed by the patient in their home
 + `created_at`: `2018-11-13` (string, required) - Medication request creation date, which is determined by the external system. Format *DATE '2017-09-07'*
@@ -13108,7 +13111,7 @@ status: `APPROVED` (string, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act. "medical_program" is absent
     - order - The request represents a request/demand and authorization for action. "medical_program" is required
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
++ is_blocked: false (boolean, optional) - Whether medication request is blocked or not
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
     + licenses (array[`MSP_License`], required)
@@ -13130,7 +13133,6 @@ status: `APPROVED` (string, required)
 + `reject_reason`: `Помилка призначення. Несумісні препарати.` (string, optional) - Medication request reject reason
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
-+ include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Reject_Response`
