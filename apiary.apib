@@ -13175,7 +13175,9 @@ status: `APPROVED` (string, required)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
-+ include `block_legal_entity_object`
++ `block_legal_entity` (object, optional)
+    + `id`: `UUID` (string, required, nullable)
+    + `type`: `NHS` (string, required, nullable)
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_without_block_data`
