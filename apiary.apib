@@ -12150,10 +12150,20 @@ status: `APPROVED` (string, required)
     + `id`: `UUID` (string, required, nullable)
     + `type`: `NHS` (string, required, nullable)
 
+### `reject_legal_entity_object`
++ `reject_legal_entity` (object, required)
+    + `id`: `UUID` (string, required, nullable)
+    + `type`: `PHARMACY` (string, required, nullable)
+
 ### `block_legal_entity_object_not_required`
 + `block_legal_entity` (object, optional)
     + `id`: `UUID` (string, required, nullable)
     + `type`: `NHS` (string, required, nullable)
+
+### `reject_legal_entity_object_not_required`
++ `reject_legal_entity` (object, optional)
+    + `id`: `UUID` (string, required, nullable)
+    + `type`: `PHARMACY` (string, required, nullable)
 
 ### `MR_MRR_additional_fields`
 + priority: routine (enum, optional) - `Dictionary MEDICATION_REQUEST_PRIORITY`
@@ -12780,6 +12790,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_for_Pharmacist`
@@ -12830,6 +12841,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_with_Medical_Program_min`
@@ -12886,6 +12898,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_reject_Public_Response_with_Medical_Program_min`
@@ -12942,6 +12955,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object_not_required`
++ include `reject_legal_entity_object_not_required`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_block_reason_required`
@@ -12998,6 +13012,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`
@@ -13048,6 +13063,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`
@@ -13098,6 +13114,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Private_Response`
@@ -13154,6 +13171,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Private_Response_with_Medical_Program_min`
@@ -13210,6 +13228,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
++ include `reject_legal_entity_object`
 + include `MR_MRR_additional_fields`
 
 ### `Medication_request_Reject_Public_Response`
