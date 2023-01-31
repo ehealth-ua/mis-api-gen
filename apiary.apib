@@ -5865,7 +5865,7 @@ Use this method to reject previously created and signed Medication request.
 
 **Important**
 
-Invoke Get Medication request by ID to obtain previously created medication request. In order to reject medication request `reject_reason (optional)` (if `OTHER` key is sent in `reject_reason_code`, then `reject_reason` is required) and `reject_reason_code (required)` should be added.
+Invoke Get Medication request by ID to obtain previously created medication request. In order to reject medication request `reject_reason_code` and `reject_reason` (`optional`, but required for `reject_reason_code` = `OTHER`) should be added.
 
 **Note!** that medication request with intent *plan* and *order* has different structure.
 
@@ -5904,7 +5904,7 @@ Use this method to reject existing active Medication request.
 
 **Important**
 
-Invoke Get Medication request by ID to obtain previously created medication request. In order to reject medication request `reject_reason (optional)` (if `OTHER` key is sent in `reject_reason_code`, then `reject_reason` is required) and `reject_reason_code (required)` should be added.
+Invoke Get Medication request by ID to obtain previously created medication request. In order to reject medication request `reject_reason_code` and `reject_reason` (`optional`, but required for `reject_reason_code` = `OTHER`) should be added.
 
 **Note!** that medication request with intent *plan* and *order* has different structure.
 
