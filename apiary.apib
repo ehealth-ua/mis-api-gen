@@ -5924,20 +5924,20 @@ Look at [**Dummy Reject Medication Request**](https://uaehealthapi.docs.apiary.i
             + `reject_reason`: `Помилка призначення. Несумісні препарати.` (string, optional, nullable) - Medication request reject reason
             + `reject_reason_code`: `INCORRECT_DOSAGE` (string, required, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
 
-### Reject Medication Request by Pharmcy user [PATCH /api/pharmacy/medication_requests/{id}/actions/reject]
+### Reject Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/reject]
 
 Use this method to reject existing active Medication request.
 
 **Important**
 
-Invoke Get Medication request by ID to obtain previously created medication request. In order to reject medication request `reject_reason_code` and `reject_reason` (`optional`, but required for `reject_reason_code` = `OTHER`) should be added.
+Invoke Get Medication Request by ID by Pharmacy User to obtain previously created medication request. In order to reject medication request `reject_reason_code` and `reject_reason` (`optional`, but required for `reject_reason_code` = `OTHER`) should be added.
 
 **Note!** that medication request with intent *plan* and *order* has different structure.
 
 * *Medical program* is required for *order*
 * *Medical program* is absent in *plan*
 
-Look at [**Dummy Reject Medication Request by Pharmacy user**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-request/dummy-reject-medication-request-by-pharmacy-user) for more details.
+Look at [**Dummy Reject Medication Request by Pharmacy User**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-medication-request/dummy-reject-medication-request-by-pharmacy-user) for more details.
 
 
 + Parameters
