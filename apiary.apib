@@ -7697,7 +7697,7 @@ Get Contract Request Details and Get Contract Request Printout Content and sign 
     + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - contract request identifier
-            + `printout_content`: `Contract request content` (string, required) - HTML document for contract request
+            + `printout_content`: `Contract request content` (string, required) - HTML document for contract request, is shown contract request in status 'PENDING_NHS_SIGN'
 
 
 
@@ -13958,7 +13958,7 @@ status: `APPROVED` (string, required)
 + `parent_contract_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - parent contract id
 + `start_date`: `2017-04-20` (string, required) - contract start date
 + `end_date`: `2017-04-20` (string, required) - contract end date
-+ `printout_content`: `Contract request content` (optional) - HTML document for contract request, is shown only for requests in `APPROVED`, `PENDING_NHS_SIGN`, `NHS_SIGNED`, `SIGNED` statuses.
++ `printout_content`: `Contract request content` (optional) - HTML document for contract request, is shown for all statuses of contract request.
 + `previous_request_id`: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, optional) - changed contract request id
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
@@ -13994,7 +13994,7 @@ status: `APPROVED` (string, required)
 + `parent_contract_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - parent contract id
 + `start_date`: `2017-04-20` (string, required) - contract start date
 + `end_date`: `2017-04-20` (string, required) - contract end date
-+ `printout_content`: `Contract request content` (optional) - HTML document for contract request, is shown only for requests in `APPROVED`, `PENDING_NHS_SIGN`, `NHS_SIGNED`, `SIGNED` statuses.
++ `printout_content`: `Contract request content` (optional) - HTML document for contract request, is shown for all statuses of contract request.
 + `previous_request_id`: `df9f70ee-4b12-4740-b0f5-bb5aea116863` (string, optional) - changed contract request id
 + `assignee_id`: `22e416c4-5747-41cd-9f73-c3a85cdee885` (string, optional) - NHS employee which review contract request
 + `medical_programs` (array, required)
