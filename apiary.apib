@@ -7870,65 +7870,8 @@ This method is designed to get full information of contract by id
         + urgent (object, required)
             + documents (array[`contract_media_content`], optional)
 
-### Private. Terminate Contract [PATCH /api/contracts/{id}/actions/terminate]
 
-***Scope  contract:terminate***
-
-This WS is designed to terminate contract. Contract must be in status 'VERIFIED'
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-    + Attributes (object)
-        + `status_reason`: `Неправильний період контракту`(string, optional) - the reason of terminated status
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-            + code: 201 (number)
-        + data (object)
-            + include `Contract_Details_Capitation`
-
-### Private. Prolongate Contract [PATCH /api/contracts/{id}/actions/update]
-
-***Scope  contract:update***
-
-This WS allows to update end_date for contracts in case legal entity was merged and can't sign new contract. Contract must be in status 'VERIFIED'
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-    + Attributes (object)
-        + `end_date`: `2018-12-31`(string, required) - new end date
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-            + code: 201 (number)
-        + data (object)
-            + include `Contract_Details_Capitation`
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-            + code: 201 (number)
-        + data (object)
-            + include `Contract_Details_Reimbursement`
-
-
-### Private. Get Contract printout form [GET /api/contracts/{contract_type}/{id}/printout_content]
+### Public. Get Contract printout form [GET /api/contracts/{contract_type}/{id}/printout_content]
 
 ***Scope  contract:read***
 
@@ -8261,6 +8204,63 @@ Assuming that all required business processes and validations is implemented on 
         + data (object)
         + meta (Response__Meta)
             + code: 200 (number)
+
+### Private. Terminate Contract [PATCH /api/contracts/{id}/actions/terminate]
+
+***Scope  contract:terminate***
+
+This WS is designed to terminate contract. Contract must be in status 'VERIFIED'
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+        + `status_reason`: `Неправильний період контракту`(string, optional) - the reason of terminated status
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + include `Contract_Details_Capitation`
+
+### Private. Prolongate Contract [PATCH /api/contracts/{id}/actions/update]
+
+***Scope  contract:update***
+
+This WS allows to update end_date for contracts in case legal entity was merged and can't sign new contract. Contract must be in status 'VERIFIED'
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+        + `end_date`: `2018-12-31`(string, required) - new end date
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + include `Contract_Details_Capitation`
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + include `Contract_Details_Reimbursement`
 
 ## Private. Contract divisions [/api/admin/contract_divisions]
 
