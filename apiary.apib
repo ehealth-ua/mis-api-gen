@@ -2145,6 +2145,41 @@ declaration status will be changed to `closed`
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
 
+## Contract Request [/api/graphql]
+
+### Assign Contract Request by NHS Employee [POST /api/graphql]
+
+***Scope  contract_request:update***
+
+This GraphQl mutation is designed to add/update contract request assignee by NHS employees. Before rewieving contract request it must be assign to NHS employee who will be responsible for this request.
+To assign employee contract it must be in status NEW, IN_PROCESS.
+After assigner was updated, contract request status will be changed to `IN_PROCESS`.
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
+    + Attributes (object)
+        + query:  `mutation AssignContractRequestMutation($input: AssignContractRequestInput!) {contractRequest: assignContractRequest(input: $input) {contractRequest {id __typename}__typename}}` (string, required)
+        + variables (object, required) 
+            + input (object, required)
+                + id: `Q2FwaXRhdGlvbkNvbnRyYWN0UmVxdWVzdDo4ODIxYzdhYi04ODg3LTRmYjItOGRiZC02ZThmZmQxOGJlYzU=` (string, required) - contract request identifier in base64 format
+                + employeeId: `RW1wbG95ZWU6NTE4YmEwYmEtNGYyMC00YjU0LWJhMDYtZTQzYmMxZjM3OWNl` (string, required) - employee identifier in base64 format
+
++ Response 200 (application/json)
+    + Attributes (object)
+        + data (object)
+            + `contractRequest` (object)
+                + `__typename`: AssignContractRequestPayload,
+                + `contractRequest`(object)
+                    + `__typename`: `CapitationContractRequest`
+                    + `id`: `Q2FwaXRhdGlvbkNvbnRyYWN0UmVxdWVzdDo4ODIxYzdhYi04ODg3LTRmYjItOGRiZC02ZThmZmQxOGJlYzU`
+        + extensions (object)
+            + `requestId`: `80032d98-3441-4169-b245-acbd35eb5335#13`
+            
+
 
 # Group Internal. Gandalf
 
