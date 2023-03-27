@@ -2356,6 +2356,9 @@ JWT:
             + access_token: `my-oauth-token` (string, required) - access token
 
 ### Get Nonce [GET /oauth/nonce]
+This WS allows to get nonce (one time JWT) for active client of the system.
+Field `client_secret` must be passed if client type = TRUSTED_PIS.
+Nonce payload example:
 ```
 {
   "aud": "mithril-login",
@@ -2373,6 +2376,7 @@ JWT:
 
     + Attributes (object)
         + `client_id`: `30074b6e-fbab-4dc1-9d37-88c21dab1847` (string, required)
+        + `client_secret`: `c2778f3064753ea70de870a53795f5c9` (string, optional)
 
 
 + Response 200 (application/json)
