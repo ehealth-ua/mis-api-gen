@@ -1998,14 +1998,11 @@ This method allows to view Person's (MPI) details.
         + data (`person_short_v2`)
 
 
-### Reset authentication method [PATCH /api/persons/{id}/actions/reset_authentication_method]
+### Reset person authentication method [POST /api/graphql]
 
-This method allows to reset (set to **NA**) person authentication method.
+***Scope: person:reset_authentication_method***
 
-***Scope person:reset_authentication_method***
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+This GraphQl mutation is designed to reset person (MPI) authentication method by NHS employees. 
 
 + Request (application/json)
 
@@ -2013,17 +2010,23 @@ This method allows to reset (set to **NA**) person authentication method.
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 
-+ Response 200 (application/json)
-    + Attributes (`Response_OK`)
-        + data (`person_short_v2`)
+    + Attributes (object)
+        + query:  `mutation ResetAuthMethodMutation($input: ResetPersonAuthInput\u0021) {person: resetPersonAuth(input: $input) {person {id __typename }__typename}}` (string, required)
+        + variables (object, required) 
+            + input (object, required)
+                + personId: `9d1f3c8e-bec7-452a-8e9f-cab7e8dcae58` (string, required) - person identifier
 
-+ Response 403 (application/json)
-    + Attributes (`Response_Error`)
-        + meta (Response__Meta, fixed-type)
-            + code: 404 (number)
-        + error (Response__Error, fixed-type)
-            + type: `not_found`
-            + message: `Not found active person with such ID!` (string)
++ Response 200 (application/json)
+    + Attributes (object)
+        + data (object)
+            + `person` (object)
+                + `__typename`: ResetPersonAuthPayload,
+                + `person`(object)
+                    + `__typename`: `Person`
+                    + `id`: `UGVyc29uOjlkMWYzYzhlLWJlYzctNDUyYS04ZTlmLWNhYjdlOGRjYWU1OA==`
+        + extensions (object)
+            + `requestId`: `80032d98-3441-4169-b245-acbd35eb5335#13`
+          
 
 ## Declarations [/api/nhs_admin/declarations]
 
