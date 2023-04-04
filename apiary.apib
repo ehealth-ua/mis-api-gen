@@ -69,23 +69,6 @@ To submit issues you should use [Issue Tracking Repo](https://github.com/edenlab
         + data (`Person_Full`)
 
 
-### Create or Update person [POST]
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer YW5WcFkyVnFkV2xqWldwMWFXTmxDZzpjY1hwWTR0cWRZbGVjNHAxYUdsMXVJ
-
-    + Attributes (`Person_Request`)
-
-+ Response 201 (application/json)
-    + Attributes (`Response_OK`)
-        + meta (Response__Meta)
-            + code: 201 (number)
-        + data (`Person_Full`)
-
-
 ### Search for a Person [GET /api/persons{?first_name,last_name,second_name,birth_date,tax_id,unzr,phone_number,birth_certificate,birth_place,page,page_size}]
 
 This method allows to search for a Person (MPI) without disclosing personal data.
