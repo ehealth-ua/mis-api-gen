@@ -3875,32 +3875,6 @@ It returns:
             + type: `forbidden`
             + message: `Active declaration belongs to another msp` (string)
 
-### Reset authentication method [PATCH /api/persons/{id}/actions/reset_authentication_method]
-
-This method allows to reset (set to **NA**) person authentication method.
-
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-
-+ Response 200 (application/json)
-    + Attributes (`Response_Collection`)
-        + data (`Person_Short`)
-
-+ Response 403 (application/json)
-    + Attributes (`Response_Error`)
-        + meta (Response__Meta, fixed-type)
-            + code: 403 (number)
-        + error (Response__Error, fixed-type)
-            + type: `forbidden`
-            + message: `Not found active declaration with person for this legal entity!` (string)
-
 ### Get Person Authentication methods [GET /api/persons/{id}/authentication_methods]
 
 This method allows to find the active person's authentication methods.
@@ -8757,6 +8731,34 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + updated_at: `2017-05-05T14:09:59.232112` (string, required)
 
 # Group Deprecated methods
+
+## Persons [/api/persons]
+
+### Reset authentication method [PATCH /api/persons/{id}/actions/reset_authentication_method]
+
+This method allows to reset (set to **NA**) person authentication method.
+
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection`)
+        + data (`Person_Short`)
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `forbidden`
+            + message: `Not found active declaration with person for this legal entity!` (string)
 
 ## Declaration Requests [/api/declaration_requests]
 
