@@ -2547,6 +2547,54 @@ Signed content must contain nonce that was generated for trusted PIS.
                 + tax_id: 3000080053 (string, required)
             + token (`Access_Token`)
 
+### Get Approvals [GET /api/pis/apps{?client_ids,client_names,ci,page_number,page_size}]
+
++ Parameters
+    + `client_names`: `client_name-Clinic N1,client_name-Clinic N2`(string, optional) - List of Client name's separated by comma.
+    + client_ids: `client-1380df72-275a-11e7-93ae-92361f002671,client-1380e1de-275a-11e7-93ae-92361f002671` (string, optional) - List of Client ID's separated by comma.
+    + `page_number`: 2 (number) - Page number.
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlbWFpbC12ZXJpZmljYXRpb24iLCJlbWFpbCI6ImJvZ2RhbmEua29ub3ZhbGVua28rOEBnbWFpbC5jb20iLCJleHAiOjE1MjM2MzMwMTksImlhdCI6MTUyMzM3MzgxOSwiaXNzIjoiRUhlYWx0aCIsImp0aSI6ImY0NWYyYzI1LWY1N2ItNGM5Yy04Y2UxLTY4OWZjYzVmYWE2MiIsIm5iZiI6MTUyMzM3MzgxOCwic3ViIjoiYm9nZGFuYS5rb25vdmFsZW5rbys4QGdtYWlsLmNvbSIsInR5cCI6ImFjY2VzcyJ9.dng-m1uZO0CQa_TnQZhO2ZnR8kUcZiNl6Y-RW7oGYIUOyYLBW9ng51_Hiw0_JpUkDR4R9Yq_KS4UvdEUFz3i7A (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection`)
+        + data (array[`Approval_Response`])
+
+### Get Approval by ID [GET /api/pis/apps/{id}]
+
++ Parameters
+    + id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlbWFpbC12ZXJpZmljYXRpb24iLCJlbWFpbCI6ImJvZ2RhbmEua29ub3ZhbGVua28rOEBnbWFpbC5jb20iLCJleHAiOjE1MjM2MzMwMTksImlhdCI6MTUyMzM3MzgxOSwiaXNzIjoiRUhlYWx0aCIsImp0aSI6ImY0NWYyYzI1LWY1N2ItNGM5Yy04Y2UxLTY4OWZjYzVmYWE2MiIsIm5iZiI6MTUyMzM3MzgxOCwic3ViIjoiYm9nZGFuYS5rb25vdmFsZW5rbys4QGdtYWlsLmNvbSIsInR5cCI6ImFjY2VzcyJ9.dng-m1uZO0CQa_TnQZhO2ZnR8kUcZiNl6Y-RW7oGYIUOyYLBW9ng51_Hiw0_JpUkDR4R9Yq_KS4UvdEUFz3i7A (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`Approval_Response`)
+
+### Delete Approval [DELETE /api/pis/apps/{id}]
+
+This method can be used to de-authorize Client. By deleting Approval all further exchanges refresh token to access will be prohibited. But existsing token (JWT) will be ective till the expiration time occurs
+
++ Parameters
+    + id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlbWFpbC12ZXJpZmljYXRpb24iLCJlbWFpbCI6ImJvZ2RhbmEua29ub3ZhbGVua28rOEBnbWFpbC5jb20iLCJleHAiOjE1MjM2MzMwMTksImlhdCI6MTUyMzM3MzgxOSwiaXNzIjoiRUhlYWx0aCIsImp0aSI6ImY0NWYyYzI1LWY1N2ItNGM5Yy04Y2UxLTY4OWZjYzVmYWE2MiIsIm5iZiI6MTUyMzM3MzgxOCwic3ViIjoiYm9nZGFuYS5rb25vdmFsZW5rbys4QGdtYWlsLmNvbSIsInR5cCI6ImFjY2VzcyJ9.dng-m1uZO0CQa_TnQZhO2ZnR8kUcZiNl6Y-RW7oGYIUOyYLBW9ng51_Hiw0_JpUkDR4R9Yq_KS4UvdEUFz3i7A (string, required)
+
++ Response 204 (application/json)
+
 # Group Public. Medical Service Provider Integration Layer
 the below table reflects actual API endpoints for all the ehealth environments
 Env     | Host
@@ -14804,3 +14852,15 @@ status: `APPROVED` (string, required)
 ### `crud_licenses_post`
 + include `License`
 + is_primary: false (boolean, required)
+
+## Approvals
+### Approval (object)
++ user_id: `user-1380df72-275a-11e7-93ae-92361f002671` (string, required) - Internal user ID, a UUID string.
++ client_name: `Clinic N1` (string, required) - Internal client name, string.
++ client_id: `client-1380df72-275a-11e7-93ae-92361f002671` (string, required) - Internal client ID, a UUID string.
++ scope: `notebooks:read notebooks:create patients:read` (string, required) - Scope, in a space-delimited format.
+
+### `Approval_Response` (Approval)
++ id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string) - Internal app ID, a UUID string.
++ `created_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
