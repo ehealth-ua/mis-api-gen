@@ -2489,6 +2489,64 @@ Thie WS designed to check existence of user with input tax_id
                 + tax_id: 3000080053 (string, required)
             + acess_token: `my-oauth-token` (string, required) - access token
 
+### Trusted sign-in [POST /api/pis/signin]
+
+This endpoint is used to authenticate, approve scopes and sign-in user using one endpoint. If user does not exist - search for active patient and create user.
+
+This endpoint must be used only by trusted PIS clients.
+
+Signed content must contain signed nonce that was generated for trusted PIS.
+
++ Request
+    + Attributes (object)
+        + token (object)
+            + `grant_type`: pis_auth (string, fixed, required) - Auth Grant Type. Currently only `pis_auth` is supported.
+            + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
+            + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
+            + `signed_content`: `eyJqd3QiOiJleUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaGRXUWlPaUowY25WemRHVmtMV05zYVdWdWRDSXNJbVY0Y0NJNk1UWTRNak14TnprME9Dd2lhV0YwSWpveE5qZ3lNekUwTXpRNExDSnBjM01pT2lKRlNHVmhiSFJvSWl3aWFuUnBJam9pWWpZMk1USTROVGN0TlRCaVlTMDBZV0V6TFdFNE56QXRPR0U1T0dZNU1tTmpNalUwSWl3aWJtSm1Jam94TmpneU16RTBNelEzTENKdWIyNWpaU0k2SW1RMU5XUmxOMkkxTFRZeFlURXROREZsWWkxaE9Ua3hMV1ZsWm1VNVptRmlZbU00WlNJc0luTjFZaUk2SW1RMU5XUmxOMkkxTFRZeFlURXROREZsWWkxaE9Ua3hMV1ZsWm1VNVptRmlZbU00WlNJc0luUjVjQ0k2SW1GalkyVnpjeUo5LkhXTzZlbmxyUE5hYlNIM0xfaWtJU3ZaSjFadnpEV3VkaUNNTEJadkFpcksxQW5SeE5ERW5BY0JKUWVxM2pLdWJsSHBpWUFmNktOZXY5a3daeTJLMXp3In0=` (string, required)
+            + `signed_content_encoding`: base64 (string, required)
+            + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification.
+            + `scope`: `declaration_request:read declaration_request:terminate declaration:read person:read app:read authentication_factor:read profile:read` (string, required) - List of scopes that is required in application business logic, separated by space.
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (`Access_Token`)
+
+### Trusted patient registration [POST /api/pis/signup]
+
+This endpoint is used to authenticate, create mpi record for patient if needed, create user for patient if needed, approve scopes and sign-in user.
+
+This endpoint must be used only by trusted PIS clients.
+
+Signed content must contain nonce that was generated for trusted PIS.
+
++ Request
+    + Attributes (object)
+        + `signed_content`: `ewogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAiYmlydGhfZGF0ZSI6ICIxOTkxLTA4LTE5IiwKICAgICJiaXJ0aF9jb3VudHJ5IjogItCj0LrRgNCw0ZfQvdCwIiwKICAgICJiaXJ0aF9zZXR0bGVtZW50IjogItCS0ZbQvdC90LjRhtGPIiwKICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInRheF9pZCI6ICIzMTI2NTA5ODE2IiwKICAgICJzZWNyZXQiOiAic2VjcmV0IiwKICAgICJkb2N1bWVudHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgIm51bWJlciI6ICIxMjA1MTgiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgfQogICAgXSwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdLAogICAgInBob25lcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIk1PQklMRSIsCiAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICB9CiAgICBdLAogICAgImF1dGhlbnRpY2F0aW9uX21ldGhvZHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJPVFAiLAogICAgICAgICJwaG9uZV9udW1iZXIiOiAiKzM4MDUwODg4NzcwMCIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgImVtZXJnZW5jeV9jb250YWN0IjogewogICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAgICJwaG9uZXMiOiBbCiAgICAgICAgewogICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAicHJvY2Vzc19kaXNjbG9zdXJlX2RhdGFfY29uc2VudCI6IHRydWUKICB9Cn0=` (string, required)
+        + `signed_content_encoding`: base64 (string, required)
+        + otp: `1234` (string, optional)
+        + token (object)
+            + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
+            + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
+            + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification.
+            + `scope`: `declaration_request:read declaration_request:terminate declaration:read person:read app:read authentication_factor:read profile:read` (string, required) - List of scopes that is required in application business logic, separated by space.
+            
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (object, required)
+            + patient (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + user (object, required)
+                + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
+                + tax_id: 3000080053 (string, required)
+            + token (`Access_Token`)
+
 # Group Public. Medical Service Provider Integration Layer
 the below table reflects actual API endpoints for all the ehealth environments
 Env     | Host
