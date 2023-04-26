@@ -2489,7 +2489,7 @@ Thie WS designed to check existence of user with input tax_id
                 + tax_id: 3000080053 (string, required)
             + acess_token: `my-oauth-token` (string, required) - access token
 
-### Trusted sign-in [POST /api/pis/signin]
+### Trusted sign-in [POST /api/pis/sign_in]
 
 This endpoint is used to authenticate, approve scopes and sign-in user using one endpoint. If user does not exist - search for active patient and create user.
 
@@ -2514,7 +2514,7 @@ Signed content must contain signed nonce that was generated for trusted PIS.
             + code: 201 (number)
         + data (`Access_Token`)
 
-### Trusted patient registration [POST /api/pis/signup]
+### Trusted sign-up [POST /api/pis/sign_up]
 
 This endpoint is used to authenticate, create mpi record for patient if needed, create user for patient if needed, approve scopes and sign-in user.
 
