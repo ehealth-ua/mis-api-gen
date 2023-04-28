@@ -2505,7 +2505,6 @@ Signed content must contain signed nonce that was generated for trusted PIS.
             + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
             + `signed_content`: `eyJqd3QiOiJleUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaGRXUWlPaUowY25WemRHVmtMV05zYVdWdWRDSXNJbVY0Y0NJNk1UWTRNak14TnprME9Dd2lhV0YwSWpveE5qZ3lNekUwTXpRNExDSnBjM01pT2lKRlNHVmhiSFJvSWl3aWFuUnBJam9pWWpZMk1USTROVGN0TlRCaVlTMDBZV0V6TFdFNE56QXRPR0U1T0dZNU1tTmpNalUwSWl3aWJtSm1Jam94TmpneU16RTBNelEzTENKdWIyNWpaU0k2SW1RMU5XUmxOMkkxTFRZeFlURXROREZsWWkxaE9Ua3hMV1ZsWm1VNVptRmlZbU00WlNJc0luTjFZaUk2SW1RMU5XUmxOMkkxTFRZeFlURXROREZsWWkxaE9Ua3hMV1ZsWm1VNVptRmlZbU00WlNJc0luUjVjQ0k2SW1GalkyVnpjeUo5LkhXTzZlbmxyUE5hYlNIM0xfaWtJU3ZaSjFadnpEV3VkaUNNTEJadkFpcksxQW5SeE5ERW5BY0JKUWVxM2pLdWJsSHBpWUFmNktOZXY5a3daeTJLMXp3In0=` (string, required)
             + `signed_content_encoding`: base64 (string, required)
-            + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification.
             + `scope`: `declaration_request:read declaration_request:terminate declaration:read person:read app:read authentication_factor:read profile:read` (string, required) - List of scopes that is required in application business logic, separated by space.
 
 + Response 201 (application/json)
@@ -2531,7 +2530,6 @@ Signed content must contain nonce that was generated for trusted PIS.
             + `grant_type`: pis_auth (string, fixed, required) - Auth Grant Type. Currently only `pis_auth` is supported.
             + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
             + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
-            + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification.
             + `scope`: `declaration_request:read declaration_request:terminate declaration:read person:read app:read authentication_factor:read profile:read` (string, required) - List of scopes that is required in application business logic, separated by space.
             
 + Response 201 (application/json)
