@@ -2437,6 +2437,12 @@ Thie WS designed to check existence of user with input tax_id
 
 ### Sign-up validation [POST /api/pis/signup_validation]
 
+This endpoint is used to validate signed content as a part of patient registration process, extract patient data if it is valid and create session token to do further steps.
+
+This endpoint must be used only by Auth UI client.
+
+Signed content must contain patient data and nonce that was generated for PIS.
+
 + Request (application/json)
 
     + Attributes (object)
@@ -2463,6 +2469,12 @@ Thie WS designed to check existence of user with input tax_id
             + message: `User with such tax_id already exists` (string)
 
 ### Register patient in the system [POST /api/pis/register]
+
+This endpoint is used to register patient in the system based on data received from Patient Information System.
+
+This endpoint must be used only by Auth UI client.
+
+Signed content must contain patient data. Request authorization header must contain JWT that was generated as a result of [Sign-up validation](https://uaehealthapi.docs.apiary.io/#reference/internal.-pis/patient-information-system/sign-up-validation) endpoint.
 
 + Request (application/json)
 
