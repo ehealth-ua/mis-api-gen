@@ -8877,6 +8877,77 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
             + inserted_at: `2017-05-05T14:09:59.232112` (string, required)
             + updated_at: `2017-05-05T14:09:59.232112` (string, required)
 
+## Dummy for PIS methods [/dummy/pis]
+
+### Dummy for sign-up validation [POST /dummy/pis/signup_validation]
+
++ Request (application/json)
+    + Attributes (object)
+        + `patient` (object, required)
+            + include (`Person_info_Public`, required)
+        + `patient_signed`: true (boolean, required)
+        + `process_disclosure_data_consent`: true (boolean, required)
+        + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (object, required)
+            + patient (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+
+### Dummy for register patient [POST /dummy/pis/register]
+
++ Request (application/json)
+    + Attributes (object)
+        + `patient` (object, required)
+            + include (`Person_info_Public`, required)
+        + `patient_signed`: true (boolean, required)
+        + `process_disclosure_data_consent`: true (boolean, required)
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (object, required)
+            + patient (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + user (object, required)
+                + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
+                + tax_id: 3000080053 (string, required)
+            + acess_token: `my-oauth-token` (string, required) - access token
+
+### Dummy for Trusted sign-up [POST /dummy/pis/sign_up]
+
++ Request (application/json)
+    + Attributes (object)
+        + `patient` (object, required)
+            + include (`Person_info_Public`, required)
+        + `patient_signed`: true (boolean, required)
+        + `process_disclosure_data_consent`: true (boolean, required)
+        + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (object, required)
+            + patient (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + user (object, required)
+                + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
+                + tax_id: 3000080053 (string, required)
+            + token (`Access_Token`)
+
+
 # Group Deprecated methods
 
 ## Persons [/api/persons]
