@@ -2443,6 +2443,8 @@ This endpoint must be used only by Auth UI client.
 
 Signed content must contain patient data and nonce that was generated for PIS.
 
+Look at [**Dummy Sign-up validation**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-sign-up-validation) for more details.
+
 + Request (application/json)
 
     + Attributes (object)
@@ -2475,6 +2477,8 @@ This endpoint is used to register patient in the system based on data received f
 This endpoint must be used only by Auth UI client.
 
 Signed content must contain patient data. Request authorization header must contain JWT that was generated as a result of [Sign-up validation](https://uaehealthapi.docs.apiary.io/#reference/internal.-pis/patient-information-system/sign-up-validation) endpoint.
+
+Look at [**Dummy Register patient**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-register-patient) for more details.
 
 + Request (application/json)
 
@@ -2532,6 +2536,8 @@ This endpoint is used to authenticate, create mpi record for patient if needed, 
 This endpoint must be used only by trusted PIS clients.
 
 Signed content must contain nonce that was generated for trusted PIS.
+
+Look at [**Dummy Trusted sign-up**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-trusted-sign-up) for more details.
 
 + Request
     + Attributes (object)
