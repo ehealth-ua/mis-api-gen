@@ -2681,7 +2681,7 @@ API-key:uXhEczJ56adsfh3Ri9SUkc4en
 
 ![oAuth Sequence](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgb0F1dGggRmxvdwoKQ2xpZW50IC0-IExvZ2luIFVJOiByZWRpcmVjdCB0bwANCSB3aXRoIGBjACoFX2lkYCwgYAAgCF91cmlgIGFuZCBgcmVzcG9uc2VfdHlwZT1jb2RlYCBxdWVyeSBwYXJhbXMKAEcJAGUNY29tcGxldGUgU2Vzc2lvbiBhdXRoIGZsb3cAJA1Vc2VyOiByZW5kZXIgcGFnZQCBEAZBcHByb3ZhbCAod2hpY2ggbGlzdHMgcmVxdWVzdGVkIHNjb3BlcykKVXNlcgCBXA5hADUFZQAbBwCBEA0Agh8FU2VydmVyOiBzZW5kIGBQT1NUIC9hcHBzYABWCAoAHAsAgjcOSFRUUCAyMDEsAIEVCmFuZCBMb2NhdGlvbiBoZWFkZXIAggMNAIMGBgCCdQt1c2VyIHRvIHVybCByZXR1cm5lZCBpbiBgAD4IYAA_CACDPQoAgSYSAIExBnRva2Vucz9ncmFudACDGAZhdXRob3JpegCBCwVfY29kZSAtIGV4Y2hhbmdlIGAAgzcGZnJvbQCDNgxldGVycyB0byBhbiBgYWNjZXNzXwBWBWAAgXsQAIIzDnRvcmUgcmVmcmVzaCAAgQcFAIIrEACBdggAJQZgACUHAFYHIChpbiBiYWNrLWVuZCEpAIRoBQCDDwYAdw0gdG8Agj8HIFVJCm5vdGUgb3ZlcgBMEAAmDihpbiBsb2NhbACBIQVhZ2UsIGNvb2tpZSwgZXRjLgBnBm1ha2VzIGFsbCBmdXR1AIFHBQCEWgVzAIYSB0F1aHQAgkQJOiBCZWFyZXIgPACCFgw-AIMlCQo&s=modern-blue)
 
-### Show Login UI [GET /sign-in{?client_id,redirect_uri,scope,email}]
+### Show Login UI [GET /sign-in{?client_id,redirect_uri,scope,email,user_data}]
 
 **Attention!**
 Use following HOSTs for oAuth 2.0 Authentication
@@ -2703,6 +2703,7 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
     + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification. This url will receive `code` and `state` parameters in query string.
     + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
     + email: email@example.com
+    + `user_data`: `base64_string` - Auth request signed on client side
 
 + Response 200 (text/html; charset=UTF-8)
 
