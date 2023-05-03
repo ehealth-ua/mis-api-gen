@@ -2596,6 +2596,10 @@ This enpoint is used only by `TRUSTED_PIS`, `PIS` and `CABINET` client types.
 
 ### Get Approvals [GET /api/pis/apps{?client_ids,client_names,ci,page_number,page_size}]
 
+This endpoint is used to show all active approvals made by the user to different clients.
+
+Approvals are filtered by user from Authorization token. 
+
 + Parameters
     + `client_names`: `client_name-Clinic N1,client_name-Clinic N2`(string, optional) - List of Client name's separated by comma.
     + client_ids: `client-1380df72-275a-11e7-93ae-92361f002671,client-1380e1de-275a-11e7-93ae-92361f002671` (string, optional) - List of Client ID's separated by comma.
@@ -2614,6 +2618,10 @@ This enpoint is used only by `TRUSTED_PIS`, `PIS` and `CABINET` client types.
 
 ### Get Approval by ID [GET /api/pis/apps/{id}]
 
+This endpoint is used to show active approval by ID made by the user to client.
+
+Approval is filtered by user from Authorization token. 
+
 + Parameters
     + id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string, required)
 
@@ -2629,7 +2637,9 @@ This enpoint is used only by `TRUSTED_PIS`, `PIS` and `CABINET` client types.
 
 ### Delete Approval [DELETE /api/pis/apps/{id}]
 
-This method can be used to de-authorize Client. By deleting Approval all further exchanges refresh token to access will be prohibited. But existsing token (JWT) will be ective till the expiration time occurs
+This endpoint is used to deauthorize approval made by the user to client. 
+
+By deleting Approval all further exchanges of refresh token to access token will be prohibited. But existing access tokens (in JWT format) will be active till the expiration time occurs.
 
 + Parameters
     + id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string, required)
