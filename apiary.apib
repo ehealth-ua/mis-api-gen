@@ -2456,7 +2456,7 @@ Look at [**Dummy Sign-up validation**](https://uaehealthapi.docs.apiary.io/#refe
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
@@ -2496,14 +2496,14 @@ Look at [**Dummy Register patient**](https://uaehealthapi.docs.apiary.io/#refere
         + meta (`Response__Meta`)
             + code: 201 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
             + user (object, required)
                 + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
                 + tax_id: 3000080053 (string, required)
-            + acess_token: `my-oauth-token` (string, required) - access token
+            + access_token: `my-oauth-token` (string, required) - access token
 
 ### Trusted sign-in [POST /api/pis/sign_in]
 
@@ -2590,7 +2590,7 @@ Look at [**Dummy Trusted sign-up**](https://uaehealthapi.docs.apiary.io/#referen
         + meta (`Response__Meta`)
             + code: 201 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
@@ -9011,18 +9011,18 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 + Request (application/json)
     + Attributes (object)
-        + `patient` (object, required)
+        + `person` (object, required)
             + include (`Person_info_Public`, required)
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
-        + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+        + `jwt`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
@@ -9032,7 +9032,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 + Request (application/json)
     + Attributes (object)
-        + `patient` (object, required)
+        + `person` (object, required)
             + include (`Person_info_Public`, required)
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
@@ -9042,31 +9042,31 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + meta (`Response__Meta`)
             + code: 201 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
             + user (object, required)
                 + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
                 + tax_id: 3000080053 (string, required)
-            + acess_token: `my-oauth-token` (string, required) - access token
+            + access_token: `my-oauth-token` (string, required) - access token
 
 ### Dummy for Trusted sign-up [POST /dummy/pis/sign_up]
 
 + Request (application/json)
     + Attributes (object)
-        + `patient` (object, required)
+        + `person` (object, required)
             + include (`Person_info_Public`, required)
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
-        + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+        + `jwt`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
 
 + Response 201 (application/json)
     + Attributes (`Response_OK`)
         + meta (`Response__Meta`)
             + code: 201 (number)
         + data (object, required)
-            + patient (object, required)
+            + person (object, required)
                 + include `Person`
                 + emergency_contact (object, required)
                     + include `Emergency_Contact`
