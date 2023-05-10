@@ -2435,7 +2435,7 @@ Thie WS designed to check existence of user with input tax_id
 
 ## Patient Information System [/api/pis]
 
-### Sign-up validation [POST /api/pis/signup_validation]
+### Sign-up validation [POST /api/pis/sign-up_validation]
 
 This endpoint is used to validate signed content as a part of patient registration process, extract patient data if it is valid and create session token to do further steps.
 
@@ -2536,7 +2536,7 @@ This endpoint must be used only by Auth UI client.
                 + tax_id: 3000080053 (string, required)
             + access_token: `my-oauth-token` (string, required) - access token
 
-### Trusted sign-in [POST /api/pis/sign_in]
+### Trusted sign-in [POST /api/pis/sign-in]
 
 This endpoint is used to authenticate, approve scopes and sign-in user using one endpoint. If user does not exist - search for active patient and create user.
 
@@ -2560,7 +2560,7 @@ Signed content must contain signed nonce that was generated for trusted PIS.
             + code: 201 (number)
         + data (`Access_Token`)
 
-### Trusted sign-in as confidant person [POST /api/pis/confidant/sign_in]
+### Trusted sign-in as confidant person [POST /api/pis/confidant/sign-in]
 
 This endpoint is used to authenticate, approve scopes and sign-in as a confidant person. 
 
@@ -2595,7 +2595,7 @@ Look at [**Dummy Trusted sign-in as confidant person**](https://uaehealthapi.doc
             + code: 201 (number)
         + data (`Access_Token`)
 
-### Trusted sign-up [POST /api/pis/sign_up]
+### Trusted sign-up [POST /api/pis/sign-up]
 
 This endpoint is used to authenticate, create mpi record for patient if needed, create user for patient if needed, approve scopes and sign-in user.
 
@@ -2630,7 +2630,7 @@ Look at [**Dummy Trusted sign-up**](https://uaehealthapi.docs.apiary.io/#referen
                 + tax_id: 3000080053 (string, required)
             + token (`Access_Token`)
 
-### Trusted sign-up via confidant person [POST /api/pis/confidant/sign_up]
+### Trusted sign-up via confidant person [POST /api/pis/confidant/sign-up]
 
 This endpoint is used to register patient (Legally Incapacitated) in the system by the hands of their confidant person
 
@@ -9070,7 +9070,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 
 ## Dummy for PIS methods [/dummy/pis]
 
-### Dummy for sign-up validation [POST /dummy/pis/signup_validation]
+### Dummy for sign-up validation [POST /dummy/pis/sign-up_validation]
 
 + Request (application/json)
     + Attributes (object)
@@ -9114,7 +9114,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
                 + tax_id: 3000080053 (string, required)
             + access_token: `my-oauth-token` (string, required) - access token
 
-### Dummy for Trusted sign-up [POST /dummy/pis/sign_up]
+### Dummy for Trusted sign-up [POST /dummy/pis/sign-up]
 
 + Request (application/json)
     + Attributes (object)
@@ -9138,7 +9138,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
                 + tax_id: 3000080053 (string, required)
             + token (`Access_Token`)
 
-### Dummy for Trusted sign-in as confidant person [POST /dummy/pis/confidant/sign_in]
+### Dummy for Trusted sign-in as confidant person [POST /dummy/pis/confidant/sign-in]
 
 + Request (application/json)
     + Attributes (object)
