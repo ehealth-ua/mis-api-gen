@@ -2546,7 +2546,7 @@ Signed content must contain signed nonce that was generated for trusted PIS.
 
 + Request
     + Attributes (object)
-        + token (object)
+        + token (object, required)
             + `grant_type`: pis_auth (string, fixed, required) - Auth Grant Type. Currently only `pis_auth` is supported.
             + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
             + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
@@ -2610,7 +2610,7 @@ Look at [**Dummy Trusted sign-up**](https://uaehealthapi.docs.apiary.io/#referen
         + `signed_content`: `ewogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAiYmlydGhfZGF0ZSI6ICIxOTkxLTA4LTE5IiwKICAgICJiaXJ0aF9jb3VudHJ5IjogItCj0LrRgNCw0ZfQvdCwIiwKICAgICJiaXJ0aF9zZXR0bGVtZW50IjogItCS0ZbQvdC90LjRhtGPIiwKICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInRheF9pZCI6ICIzMTI2NTA5ODE2IiwKICAgICJzZWNyZXQiOiAic2VjcmV0IiwKICAgICJkb2N1bWVudHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgIm51bWJlciI6ICIxMjA1MTgiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgfQogICAgXSwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdLAogICAgInBob25lcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIk1PQklMRSIsCiAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICB9CiAgICBdLAogICAgImF1dGhlbnRpY2F0aW9uX21ldGhvZHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJPVFAiLAogICAgICAgICJwaG9uZV9udW1iZXIiOiAiKzM4MDUwODg4NzcwMCIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgImVtZXJnZW5jeV9jb250YWN0IjogewogICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAgICJwaG9uZXMiOiBbCiAgICAgICAgewogICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAicHJvY2Vzc19kaXNjbG9zdXJlX2RhdGFfY29uc2VudCI6IHRydWUKICB9Cn0=` (string, required)
         + `signed_content_encoding`: base64 (string, required)
         + otp: `1234` (string, optional)
-        + token (object)
+        + token (object, required)
             + `grant_type`: pis_auth (string, fixed, required) - Auth Grant Type. Currently only `pis_auth` is supported.
             + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
             + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
@@ -2652,7 +2652,7 @@ Look at [**Dummy Trusted sign-up**](https://uaehealthapi.docs.apiary.io/#referen
         + `signed_content`: `ewogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAiYmlydGhfZGF0ZSI6ICIxOTkxLTA4LTE5IiwKICAgICJiaXJ0aF9jb3VudHJ5IjogItCj0LrRgNCw0ZfQvdCwIiwKICAgICJiaXJ0aF9zZXR0bGVtZW50IjogItCS0ZbQvdC90LjRhtGPIiwKICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInRheF9pZCI6ICIzMTI2NTA5ODE2IiwKICAgICJzZWNyZXQiOiAic2VjcmV0IiwKICAgICJkb2N1bWVudHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgIm51bWJlciI6ICIxMjA1MTgiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgfQogICAgXSwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdLAogICAgInBob25lcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIk1PQklMRSIsCiAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICB9CiAgICBdLAogICAgImF1dGhlbnRpY2F0aW9uX21ldGhvZHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJPVFAiLAogICAgICAgICJwaG9uZV9udW1iZXIiOiAiKzM4MDUwODg4NzcwMCIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgImVtZXJnZW5jeV9jb250YWN0IjogewogICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAgICJwaG9uZXMiOiBbCiAgICAgICAgewogICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAicHJvY2Vzc19kaXNjbG9zdXJlX2RhdGFfY29uc2VudCI6IHRydWUKICB9Cn0=` (string, required)
         + `signed_content_encoding`: base64 (string, required)
         + otp: `1234` (string, optional)
-        + token (object)
+        + token (object, required)
             + `grant_type`: pis_auth (string, fixed, required) - Auth Grant Type. Currently only `pis_auth` is supported.
             + `client_id`: `4fc161ad-5e3d-4c5e-9a9e-189e2ddffe56` (string, required) - Patient information system ID. Used to identify the context of the PIS.
             + `client_secret`: `UXhEczJacXh3Ri9SUkc4enhHTVVpQ119` (string, required) - Patient information system secret key issued upon integration request. Used to identify application developer.
@@ -3057,8 +3057,15 @@ Actions   | person.id     | person.authentication_methods
 
       
 
-There are three methods of authentication - OTP, OFFLINE and the THIRD_PERSON. A person > 14 years  can have OTP or OFFLINE.
-A person < 14 years can only have authentication method =  third person.
+There are three methods of authentication - OTP, OFFLINE and the THIRD_PERSON. A person > 14 years can have OTP or OFFLINE.
+A person < 14 years can only have authentication method = THIRD PERSON.
+
+In case if confidant person has been set as link to another person (`confidant_person.person_id` is presented in the request), link to THIRD PERSON (`authentication_methods.value`) must be equal to confidant person id
+
+
+In case if `confidant_person.person_id` is not presented in the request, fields with confidant person information becomes required (`first_name`, `last_name`, `birth_date`, `birth_country`, `birth_settlement`, `gender`, `secret`, `documents_person`)
+
+Else if `confidant_person.person_id` is presented in the request, only `person_id`, `relation_type`, `documents_relationship` fields must be set for confidant person.
 
 More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
 
@@ -10319,6 +10326,29 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + phones (array[`Phone`], optional)
 + email: emaill@example.com (string, optional)
 
+### `Confidant_Person_v3`
++ person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ relation_type: PRIMARY (enum, required)
+    - PRIMARY
+    - SECONDARY
++ documents_relationship (array[`RelationshipDocument`], required)
++ first_name: Петро (string, optional)
++ last_name: Іванов (string, optional)
++ second_name: Миколайович (string, optional)
++ birth_date: `1972-10-26` (string, optional)
++ birth_country: `Україна` (string, optional)
++ birth_settlement: `Вінниця` (string, optional)
++ gender: MALE, FEMALE (enum[string], optional)
++ tax_id: 2659719350 (string, optional)
++ secret: `secret` (string, optional)
++ unzr: `19900101-00099` (string, optional)
++ preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
+    - email
+    - phone
++ documents_person (array[`Document`], optional)
++ phones (array[`Phone`], optional)
++ email: emaill@example.com (string, optional)      
+
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
 + last_name: Іванов (string, required)
@@ -10944,7 +10974,7 @@ status: `APPROVED` (string, required)
 + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
 + emergency_contact (object, required)
     + include `Emergency_Contact`
-+ `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
++ `confidant_person` (array[`Confidant_Person_v3`], optional) - Should be set if this Person is disabled, underage, etc.
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone    
