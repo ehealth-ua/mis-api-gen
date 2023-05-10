@@ -9096,7 +9096,9 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Request (application/json)
     + Attributes (object)
         + `person` (object, required)
-            + include (`Person_info_Public`, required)
+            + include `Person`
+            + emergency_contact (object, required)
+                + include `Emergency_Contact`
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
 
@@ -9119,7 +9121,9 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Request (application/json)
     + Attributes (object)
         + `person` (object, required)
-            + include (`Person_info_Public`, required)
+            + include `Person`
+            + emergency_contact (object, required)
+                + include `Emergency_Contact`
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
         + `jwt`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
@@ -10978,8 +10982,6 @@ status: `APPROVED` (string, required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone    
-
-
 
 ### `Patient_short`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Id створеної персони
