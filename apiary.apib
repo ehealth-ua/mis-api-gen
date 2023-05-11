@@ -2702,7 +2702,7 @@ This enpoint is used only by `TRUSTED_PIS`, `PIS` and `CABINET` client types.
         + urgent (object, required)
             + `next_step`: `REQUEST_OTP` (string, optional) - next step that needs to be taken in phone verification process.
 
-### Get Approvals [GET /api/pis/apps{?client_ids,client_names,ci,page_number,page_size}]
+### Get Approvals [GET /api/pis/apps{?client_ids,client_names,page_number,page_size}]
 
 This endpoint is used to show all active approvals made by the user to different clients.
 
@@ -2863,7 +2863,7 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
 
             X-CSRF-Token: my-csrf-token
 
-### Show Login UI for confidant person [GET /confidant/sign-in{?client_id,redirect_uri,scope,email,user_data,token}]
+### Show Login UI for confidant person [GET /confidant/sign-in{?client_id,redirect_uri,scope,user_data,token}]
 
 **Note!**
 Only to login as confidant person in a context of related person as this page requires valid access token of confidant person itself
@@ -2878,7 +2878,6 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
     + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
     + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification. This url will receive `code` and `state` parameters in query string.
     + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
-    + email: email@example.com
     + `user_data`: `base64_string` - Auth request signed on client side
     + `token`: `eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9`
 
