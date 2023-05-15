@@ -2505,6 +2505,77 @@ Look at [**Dummy Register patient**](https://uaehealthapi.docs.apiary.io/#refere
                 + tax_id: 3000080053 (string, required)
             + access_token: `my-oauth-token` (string, required) - access token
 
+### Sign-up via confidant person validation [POST /api/pis/confidant/sign-up_validation]
+
+This endpoint is used to validate signed content as a part of patient registration via confidant person process, extract patient data if it is valid and create session token to do further steps.
+
+This endpoint must be used only by Auth UI client.
+
+Signed content must contain patient data and nonce that was generated for PIS.
+
+Confidant person's access token must be provided as well
+
+Look at [**Dummy Sign-up via confidant validation**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-sign-up-via-confidant-validation) for more details.
+
++ Request (application/json)
+
+    + Attributes (object)
+        + `signed_content`: `ewogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAiYmlydGhfZGF0ZSI6ICIxOTkxLTA4LTE5IiwKICAgICJiaXJ0aF9jb3VudHJ5IjogItCj0LrRgNCw0ZfQvdCwIiwKICAgICJiaXJ0aF9zZXR0bGVtZW50IjogItCS0ZbQvdC90LjRhtGPIiwKICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInRheF9pZCI6ICIzMTI2NTA5ODE2IiwKICAgICJzZWNyZXQiOiAic2VjcmV0IiwKICAgICJkb2N1bWVudHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgIm51bWJlciI6ICIxMjA1MTgiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgfQogICAgXSwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdLAogICAgInBob25lcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIk1PQklMRSIsCiAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICB9CiAgICBdLAogICAgImF1dGhlbnRpY2F0aW9uX21ldGhvZHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJPVFAiLAogICAgICAgICJwaG9uZV9udW1iZXIiOiAiKzM4MDUwODg4NzcwMCIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgImVtZXJnZW5jeV9jb250YWN0IjogewogICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAgICJwaG9uZXMiOiBbCiAgICAgICAgewogICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAicHJvY2Vzc19kaXNjbG9zdXJlX2RhdGFfY29uc2VudCI6IHRydWUKICB9Cn0=` (string, required)
+        + `signed_content_encoding`: base64 (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (object, required)
+            + person (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
+
++ Response 409 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 409 (number)
+        + error (Response__Error, fixed-type)
+            + type: `conflict`
+            + message: `User with such tax_id already exists` (string)
+
+### Register patient via confidant person [POST /api/pis/confidant/register]
+
+This endpoint is used to register patient in the system via confidant person based on data received from Patient Information System.
+
+This endpoint must be used only by Auth UI client.
+
+Signed content must contain patient data as well as authenticated person details. Request authorization header must contain confidant person's token
+
+Look at [**Dummy Register patient via confidant person**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-register-patient-via-confidant-person) for more details.
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+
+    + Attributes (object)
+        + `signed_content`: `ewogICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAiYmlydGhfZGF0ZSI6ICIxOTkxLTA4LTE5IiwKICAgICJiaXJ0aF9jb3VudHJ5IjogItCj0LrRgNCw0ZfQvdCwIiwKICAgICJiaXJ0aF9zZXR0bGVtZW50IjogItCS0ZbQvdC90LjRhtGPIiwKICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAiZW1haWwiOiAiZW1haWxAZXhhbXBsZS5jb20iLAogICAgInRheF9pZCI6ICIzMTI2NTA5ODE2IiwKICAgICJzZWNyZXQiOiAic2VjcmV0IiwKICAgICJkb2N1bWVudHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgIm51bWJlciI6ICIxMjA1MTgiLAogICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgfQogICAgXSwKICAgICJhZGRyZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJSRVNJREVOQ0UiLAogICAgICAgICJjb3VudHJ5IjogIlVBIiwKICAgICAgICAiYXJlYSI6ICLQltC40YLQvtC80LjRgNGB0YzQutCwIiwKICAgICAgICAicmVnaW9uIjogItCR0LXRgNC00LjRh9GW0LLRgdGM0LrQuNC5IiwKICAgICAgICAic2V0dGxlbWVudCI6ICLQmtC40ZfQsiIsCiAgICAgICAgInNldHRsZW1lbnRfdHlwZSI6ICJDSVRZIiwKICAgICAgICAic2V0dGxlbWVudF9pZCI6ICI0MzQzMjQzMiIsCiAgICAgICAgInN0cmVldF90eXBlIjogIlNUUkVFVCIsCiAgICAgICAgInN0cmVldCI6ICLQstGD0LsuINCd0ZbQttC40L3RgdGM0LrQsCIsCiAgICAgICAgImJ1aWxkaW5nIjogIjE1IiwKICAgICAgICAiYXBhcnRtZW50IjogIjIzIiwKICAgICAgICAiemlwIjogIjAyMDkwIgogICAgICB9CiAgICBdLAogICAgInBob25lcyI6IFsKICAgICAgewogICAgICAgICJ0eXBlIjogIk1PQklMRSIsCiAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICB9CiAgICBdLAogICAgImF1dGhlbnRpY2F0aW9uX21ldGhvZHMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJPVFAiLAogICAgICAgICJwaG9uZV9udW1iZXIiOiAiKzM4MDUwODg4NzcwMCIKICAgICAgfQogICAgXSwKICAgICJwcmVmZXJyZWRfd2F5X2NvbW11bmljYXRpb24iOiAiZW1haWwiLAogICAgImVtZXJnZW5jeV9jb250YWN0IjogewogICAgICAiZmlyc3RfbmFtZSI6ICLQn9C10YLRgNC+IiwKICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAic2Vjb25kX25hbWUiOiAi0JzQuNC60L7Qu9Cw0LnQvtCy0LjRhyIsCiAgICAgICJwaG9uZXMiOiBbCiAgICAgICAgewogICAgICAgICAgInR5cGUiOiAiTU9CSUxFIiwKICAgICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAicHJvY2Vzc19kaXNjbG9zdXJlX2RhdGFfY29uc2VudCI6IHRydWUKICB9Cn0=` (string, required)
+        + `signed_content_encoding`: base64 (string, required)
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (object, required)
+            + person (object, required)
+                + include `Person`
+                + emergency_contact (object, required)
+                    + include `Emergency_Contact`
+            + user (object, required)
+                + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
+                + tax_id: 3000080053 (string, required)
+            + access_token: `my-oauth-token` (string, required) - access token
+
 ### Login in the system as confidant person [POST /api/pis/confidant/login]
 
 This endpoint is used to create authorization token for confidant person to approve or reject scopes request for related person
