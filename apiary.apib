@@ -2957,6 +2957,43 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
 
             X-CSRF-Token: my-csrf-token
 
+### Show Registration UI [GET /sign-up{?client_id,redirect_uri,scope,user_data}]
+
+You MUST redirect your users to this URL to register in the system
+
+User will see rendered registration page signed on PIS side and provided via query_params and will be able to confirm or reject this request
+
++ Parameters
+    + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
+    + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification. This url will receive `code` and `state` parameters in query string.
+    + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
+    + `user_data`: `base64_string` - Auth request signed on client side
+
++ Response 200 (text/html; charset=UTF-8)
+
+    + Headers
+
+            X-CSRF-Token: my-csrf-token
+
+### Show Registration UI for patient via confidant person [GET /confidant/sign-up{?client_id,redirect_uri,scope,user_data,token}]
+
+You MUST redirect your authenticated users to this URL to register patient in the system via confidant person
+
+User will see rendered registration page signed on PIS side and provided via query_params and will be able to confirm or reject this request
+
++ Parameters
+    + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
+    + `redirect_uri`: https://example.com/ (string, required) - URL where user will be redirected after authentification. This url will receive `code` and `state` parameters in query string.
+    + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
+    + `user_data`: `base64_string` - Auth request signed on client side
+    + `token`: `eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9`
+
++ Response 200 (text/html; charset=UTF-8)
+
+    + Headers
+
+            X-CSRF-Token: my-csrf-token
+
 ### Exchange oAuth Code Grant to Access Token [POST /oauth/tokens]
 
 After obtaining oAuth Code Grant, it should be exchanged to an `access_token` **on your back-end**.
