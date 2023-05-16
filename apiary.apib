@@ -9205,10 +9205,9 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Request (application/json)
     + Attributes (object)
         + `person` (object, required)
-            + include (`Person_info_Public`, required)
+            + include (`Person_info_Public_PIS`, required)
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
-        + `jwt`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -9226,9 +9225,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Request (application/json)
     + Attributes (object)
         + `person` (object, required)
-            + include `Person`
-            + emergency_contact (object, required)
-                + include `Emergency_Contact`
+            + include `Person_info_Public_PIS`
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
 
@@ -9298,9 +9295,7 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
 + Request (application/json)
     + Attributes (object)
         + `person` (object, required)
-            + include `Person`
-            + emergency_contact (object, required)
-                + include `Emergency_Contact`
+            + include `Person_info_Public_PIS`
         + `patient_signed`: true (boolean, required)
         + `process_disclosure_data_consent`: true (boolean, required)
         + `jwt`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNwLnZpcm55QGdtYWlsLmNvbSIsInRpbWVzdGFtcCI6IjIwMTgtMDItMjggMTA6Mzg6MDAifQ.LJRLTqK-zf9gxDNMONcI8cMCSYosDtmAIZqhzZUdhz4` (string, required)
@@ -10503,7 +10498,14 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     - phone
 + documents_person (array[`Document`], optional)
 + phones (array[`Phone`], optional)
-+ email: emaill@example.com (string, optional)      
++ email: emaill@example.com (string, optional)
+
+### `Confidant_Person_PIS`
++ person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ relation_type: PRIMARY (enum, required)
+    - PRIMARY
+    - SECONDARY
++ documents_relationship (array[`RelationshipDocument`], required)
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
@@ -11133,7 +11135,7 @@ status: `APPROVED` (string, required)
 + `confidant_person` (array[`Confidant_Person_v3`], optional) - Should be set if this Person is disabled, underage, etc.
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
-    - phone    
+    - phone
 
 ### `Patient_short`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Id створеної персони
@@ -11190,7 +11192,38 @@ status: `APPROVED` (string, required)
 + `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
-    - phone 
+    - phone
+
+### `Person_info_Public_PIS`
++ first_name: Петро (string, required)
++ last_name: Іванов (string, required)
++ second_name: Миколайович (string, optional)
++ birth_date: `2009-07-05` (string, required)
++ birth_country: `Україна` (string, required)
++ birth_settlement: `Вінниця` (string, required)
++ gender: MALE, FEMALE (enum[string], required)
++ email: email@example.com (string, optional)
++ no_tax_id: false (boolean, required)
++ tax_id: 3999869394 (string, optional)
++ secret: secret (string, required)
++ documents (array, required)
+    + (object)
+        + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
+        + number: АА120518 (string, required) - document issue number
+        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+        + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ `authentication_methods` (array[`Authentication_Method_Patient_Request`], optional)
++ unzr: `20090705-00011` (string, optional) - the record number in the demographic register
++ emergency_contact (object, required)
+    + include `Emergency_Contact`
++ `confidant_person` (object, required)
+    + include `Confidant_Person_PIS`
++ preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
+    - email
+    - phone
 
   
 ## Party
