@@ -2588,6 +2588,8 @@ This endpoint is used to create authorization token for confidant person to appr
 
 This endpoint must be used only by Auth UI client.
 
+Look at [**Dummy Login in the system as confidant person**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-pis-methods/dummy-for-login-in-the-system-as-confidant-person) for more details.
+
 + Request (application/json)
 
     + Headers
@@ -9349,6 +9351,28 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
                 + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
                 + tax_id: 3000080053 (string, required)
             + token (`Access_Token`)
+            
+
+### Dummy for Login in the system as confidant person [POST /dummy/pis/confidant/login]
+
++ Request (application/json)
+    + Attributes (object)
+        + `last_name`: `Петров` (string, required)
+        + `first_name`: `Петро Петрович` (string, required)
+        + `tax_id`: `2323232323` (string, optional)
+        + `document` (object, optional)
+            + `type`: PASSPORT (string, required) - `Dictionary DOCUMENT_TYPE`
+            + `number`: АА120518 (string, required) - document issue number
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (object, required)
+            + user (object, required)
+                + `id`: `7673eb5a-0cae-4fa8-9f81-e6da46aa2940` (string, optional)
+                + tax_id: 3000080053 (string, required)
+            + access_token: `my-oauth-token` (string, required) - access token
 
 # Group Deprecated methods
 
