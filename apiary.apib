@@ -87,7 +87,7 @@ API-key:uXhEczJ56adsfh3Ri9SUkc4en
 
 ![oAuth Sequence](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgb0F1dGggRmxvdwoKQ2xpZW50IC0-IExvZ2luIFVJOiByZWRpcmVjdCB0bwANCSB3aXRoIGBjACoFX2lkYCwgYAAgCF91cmlgIGFuZCBgcmVzcG9uc2VfdHlwZT1jb2RlYCBxdWVyeSBwYXJhbXMKAEcJAGUNY29tcGxldGUgU2Vzc2lvbiBhdXRoIGZsb3cAJA1Vc2VyOiByZW5kZXIgcGFnZQCBEAZBcHByb3ZhbCAod2hpY2ggbGlzdHMgcmVxdWVzdGVkIHNjb3BlcykKVXNlcgCBXA5hADUFZQAbBwCBEA0Agh8FU2VydmVyOiBzZW5kIGBQT1NUIC9hcHBzYABWCAoAHAsAgjcOSFRUUCAyMDEsAIEVCmFuZCBMb2NhdGlvbiBoZWFkZXIAggMNAIMGBgCCdQt1c2VyIHRvIHVybCByZXR1cm5lZCBpbiBgAD4IYAA_CACDPQoAgSYSAIExBnRva2Vucz9ncmFudACDGAZhdXRob3JpegCBCwVfY29kZSAtIGV4Y2hhbmdlIGAAgzcGZnJvbQCDNgxldGVycyB0byBhbiBgYWNjZXNzXwBWBWAAgXsQAIIzDnRvcmUgcmVmcmVzaCAAgQcFAIIrEACBdggAJQZgACUHAFYHIChpbiBiYWNrLWVuZCEpAIRoBQCDDwYAdw0gdG8Agj8HIFVJCm5vdGUgb3ZlcgBMEAAmDihpbiBsb2NhbACBIQVhZ2UsIGNvb2tpZSwgZXRjLgBnBm1ha2VzIGFsbCBmdXR1AIFHBQCEWgVzAIYSB0F1aHQAgkQJOiBCZWFyZXIgPACCFgw-AIMlCQo&s=modern-blue)
 
-### Show Login UI [GET /sign-in{?client_id,redirect_uri,scope,email,user_data}]
+### Login [GET /sign-in{?client_id,redirect_uri,scope,email,user_data}]
 
 **Attention!**
 Use following HOSTs for oAuth 2.0 Authentication
@@ -116,6 +116,141 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
     + Headers
 
             X-CSRF-Token: my-csrf-token
+
+### Logout [POST /auth/logout]
+
+This endpoint is used to terminate users authenticated session based on a valid access token.
+
+Refresh token from authenticated session will also be expired.
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+
+### Get Nonce [GET /oauth/nonce]
+This WS allows to get nonce (one time JWT) for active client of the system.
+Field `client_secret` must be passed if client type = TRUSTED_PIS.
+Nonce payload example:
+```
+{
+  "aud": "mithril-login",
+  "exp": 1523439201,
+  "iat": 1523438301,
+  "iss": "EHealth",
+  "jti": "efe1f08e-d4b4-4cef-a02c-78ea4a1dda25",
+  "nbf": 1523438300,
+  "nonce": 123,
+  "sub": 123,
+  "typ": "access"
+}
+```
++ Request (application/json)
+
+    + Attributes (object)
+        + `client_id`: `30074b6e-fbab-4dc1-9d37-88c21dab1847` (string, required)
+        + `client_secret`: `c2778f3064753ea70de870a53795f5c9` (string, optional)
+
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (object)
+           + token: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtaXRocmlsLWxvZ2luIiwiZXhwIjoxNTIzNDM5MjAxLCJpYXQiOjE1MjM0MzgzMDEsImlzcyI6IkVIZWFsdGgiLCJqdGkiOiJlZmUxZjA4ZS1kNGI0LTRjZWYtYTAyYy03OGVhNGExZGRhMjUiLCJuYmYiOjE1MjM0MzgzMDAsIm5vbmNlIjoxMjMsInN1YiI6MTIzLCJ0eXAiOiJhY2Nlc3MifQ.UZ6S92h3nAG-GKY_XUE1Rc6uR_BuqR8ufUJfMhhKtNmt7DkkQlU49qPXjL0LFddVz1E2DXi2a-BQ0FG-DHsTHA' (string, required)
+
+### Authorize an Approval [POST /oauth/apps/authorize]
+This endpoint should be reachable only by the eHealth authorization front-end application.
+It will update or create Approval. It's idempotent.
+
+After creating Approval user should be redirected to `redirect_url` with `code` query parameter.
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer 432fsdfg543252345tfgdsgdft2345 - access_token with the `app:authorize` scope
+
+    + Attributes
+        + app (required)
+            + client_id: `client-1380df72-275a-11e7-93ae-92361f002671` (string, required) - ID of client that is granted with access to user's resources.
+            + scope: `notebooks:read notebooks:create patients:read` (string, required) - List of scopes that are granted to the client on the user's behalf.
+            + `redirect_uri`: `http://example.com/my_success_login_page` (string, required) - URL of client where user will be redirected on Approval creation.
+
++ Response 201 (application/json)
+    + Headers
+
+            Location: http://example.com/my_success_login_page?code=authorization_code-cTdHUE9jN29yWHo0VTAwL3lwSVRoUT09
+
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 201 (number)
+        + data (`Approval_Response_v2`)
+        + urgent
+            + `redirect_uri`: `http://example.com/my_success_login_page?code=authorization_code-cTdHUE9jN29yWHo0VTAwL3lwSVRoUT09`
+
++ Response 200 (application/json)
+    + Headers
+
+            Location: http://example.com/my_success_login_page?code=authorization_code-cTdHUE9jN29yWHo0VTAwL3lwSVRoUT09
+
+    + Attributes (`Response_OK`)
+        + data (`Approval_Response`)
+
+### Exchange oAuth Code Grant to Access Token [POST /oauth/tokens]
+
+After obtaining oAuth Code Grant, it should be exchanged to an `access_token` **on your back-end**.
+
+General recommendations:
+
+- Never expose `client_secret` to your front-end.
+- Also we recommend to avoid pushing it to the application source code, to limit number of developers that have access to it.
+
+Exposed client credentials may be blocked for a security reasons, you will need to contact administrator to receive a new credentials.
+
++ Request (application/json)
+
+    + Headers
+
+            X-CSRF-Token: my-csrf-token
+
+    + Attributes (object)
+        + token (object)
+            + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
+            + client_secret: `msp-001-secret-key` (string, required) - Medical Information System secret key issued upon integration request. Used to identify application developer.
+            + code: 299383828 (string, required) - oAuth code grant.
+            + `grant_type`: authorization_code (string, fixed, required) - oAuth Grant Type. Currently only `authorization_code` is supported.
+            + redirect_uri: https://example.com/ (string, required) - URL where user will be redirected after authentification. This url will receive `code` and `state` parameters in query string.
+            + scope: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - List of scopes that is required in application business logic, separated by space. Different login forms will be shown based on scopes that you requested.
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (`Access_Token`)
+
+### Use Refresh Token for Access Token extension [POST /oauth/tokens]
+
+Currently `access_token` and `refresh_token` are configured to have same lifetime, so we don't expect you to refresh it.
+
+In future, you will be able to refresh access tokens to extend `access_token` lifetime.
+
++ Request (application/json)
+
+    + Attributes (object)
+        + token (object)
+            + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
+            + client_secret: `msp-001-secret-key` (string, required) - Medical Service provider secret key issued upon integration request. Used to identify MSP.
+            + refresh_token: `my-oauth-refresh-token` (string, required) - oAuth refresh token.
+            + `grant_type`: refresh_token (string, fixed) - oAuth Grant Type. Currently only `authorization_code` is supported.
+
++ Response 201 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (`Access_Token_1`)
+
 
 ## Dictionaries [/api/dictionaries]
 
@@ -210,6 +345,34 @@ Method is used to verify that provided in declarartion request phone number is v
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + data (`Response_verification_by_phone`)
+
+### Verify phone number [POST /api/sms_verifications]
+
+This endpoint is used to verify submitted phone number as a part of person registration process. 
+
+In case number needs verification - generate and send OTP, in case phone does not need verification - return OK.
+
++ Request (application/json)
+
+    + Headers
+            Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjYWJpbmV0LXJlZ2lzdHJhdGlvbiIsImVtYWlsIjoiYXByb2tvcHBoYXJtZGlyNEB1a3IubmV0IiwiZXhwIjoxNjgyNjkzNTc3LCJpYXQiOjE2ODI2NjQ3NzcsImlzcyI6IkVIZWFsdGgiLCJqdGkiOiIxOTAyYTkyYS00MDcyLTQ3MWEtYmU4NS1iZWU0MzQzNmNlYjEiLCJuYmYiOjE2ODI2NjQ3NzYsInN1YiI6ImFwcm9rb3BwaGFybWRpcjRAdWtyLm5ldCIsInR5cCI6ImFjY2VzcyJ9.EXTuYRQenjqzsjNAJ5agmEbSHcg_XRKwc3VOGAtSjfMOy4uIJ_BBMUeUWSVzy4_OezPjEIiVcnaLTN4pZbtgow
+
+    + Attributes (object)
+        + `factor`: `+380501112233` (string, required) - phone number that needs to be verified.
+        + `type`: SMS (enum, required) - verification type.
+            - SMS
+        + `content_hash`: `76dea970d89477ed03dc5289f297443c` (string, optional) - MD5 hash of content with phone number that needs to be verified.
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (`Response__Meta`)
+            + code: 200 (number)
+        + data (object, required)
+            + `result`: `OTP sent` (enum, required) - phone verification result.
+                - `OTP sent`
+                - `Verified`
+        + urgent (object, required)
+            + `next_step`: `REQUEST_OTP` (string, optional) - next step that needs to be taken in phone verification process.
 
 ## Person Requests [/api/person_requests]
 [Person Request]() is a life-cycle entity that is used to create person WITHOUT [Declarations]().
@@ -12540,3 +12703,15 @@ status: `APPROVED` (string, required)
 + id: `approval-1380df72-275a-11e7-93ae-92361f002671` (string) - Internal app ID, a UUID string.
 + `created_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
+
+### `Approval_Response_v2`
++ value: `authorization_code-cTdHUE9jN29yWHo0VTAwL3lwSVRoUT09` (string, required) - oAuth grant code
++ user_id: `3ff33ced-69dc-415a-b231-c6446898335a` (string, required) - user identifier
++ name: `authorization_code` (string, required) - oAuth token name
++ id: `3ff33ced-69dc-415a-b231-c6446898335a` - oAuth token identifier
++ expires_at: 1498749591 (number, required) - expiration date-time timestamp
++ details (object, required)
+    + `scope_request`: `capitation_contracts:view capitation_contracts:create patients:view patients:create` (string, required) - list of scopes that are granted with the token
+    + `redirect_uri`: `http://example.com/my_success_login_page` (string, required) - client Redirect URL pattern to protect from malicious redirects
+    + `grant_type`: `password` (string, required)
+    + `client_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - client ID of authorized user
