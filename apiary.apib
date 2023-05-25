@@ -6092,30 +6092,46 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + data (object)
             + include `Medication_Dispense_Response_Private`
 
-# Group Private. Portal and Reports
 
-## Parties [/parties]
+# Group Private. Parties and users
 
-### Get declaration count private [GET /api/parties/declaration_count/{ids}]
+## Party users [/party_users]
 
-This service returns parties.declaration_count from report DB for get employees services.
+### Get Party users list [GET /party_users{?user_id,party_id,page,page_size}]
+Method returns list of user_id(s) by party_id(s) filtered by parameters.
+
+**Scopes required:** `party_user:read`
 
 + Parameters
-    + ids: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - id of a party
+    + `user_id`: `09106b70-18b0-4726-b0ed-6bda1369fd52` (string, optional) - user Identifier
+    + `party_id`: `79a91507-d409-49fc-b373-934b59c4f694` (string, optional) - Party Identifier
+    + `page`: 2 (number) - Page number.
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
 
 + Request (application/json)
 
-    + Headers
-
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
+        + meta (Response__Meta)
+        + data (array[`Party_user_Response`])
 
-        + data (array)
+### Get party details [GET /party/{id}]
 
-            + (object)
+Methods returns party details by ID.
 
-                + `declaration_count`: 1234 (number, required) - declaration_count for a certain party id in report DB
-                + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - id of a party
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (object)
+            + party(`crud_party_get`)
+            + users(array)
+                + (object)
+                    + user_id: `2de19358-0062-4f14-8a50-9dff015ed165` (string, required)
 
 # Group Dummy methods
 
