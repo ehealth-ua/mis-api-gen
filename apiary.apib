@@ -6092,6 +6092,31 @@ This group of endpoints is implemented for NHS Admin to manipulate with reimburs
         + data (object)
             + include `Medication_Dispense_Response_Private`
 
+# Group Private. Portal and Reports
+
+## Parties [/parties]
+
+### Get declaration count private [GET /api/parties/declaration_count/{ids}]
+
+This service returns parties.declaration_count from report DB for get employees services.
+
++ Parameters
+    + ids: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - id of a party
+
++ Request (application/json)
+
+    + Headers
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+
+        + data (array)
+
+            + (object)
+
+                + `declaration_count`: 1234 (number, required) - declaration_count for a certain party id in report DB
+                + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - id of a party
+
 # Group Dummy methods
 
 ## Dummy for legal entity [/dummy/legal_entities]
