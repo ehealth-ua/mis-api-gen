@@ -6116,23 +6116,6 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
         + meta (Response__Meta)
         + data (array[`Party_user_Response`])
 
-### Get party details [GET /party/{id}]
-
-Methods returns party details by ID.
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-
-+ Request (application/json)
-
-+ Response 200 (application/json)
-    + Attributes (`Response_OK`)
-        + data (object)
-            + party(`crud_party_get`)
-            + users(array)
-                + (object)
-                    + user_id: `2de19358-0062-4f14-8a50-9dff015ed165` (string, required)
-
 # Group Dummy methods
 
 ## Dummy for legal entity [/dummy/legal_entities]
