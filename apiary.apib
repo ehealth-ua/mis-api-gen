@@ -5561,6 +5561,25 @@ This web service returns Group of Diagnoses details filtered by ID with active d
                         + code: `G30.9` (string, required)
                         + system: `eHealth/ICD10_AM/condition_codes` (string, required)
 
+## Group Public. Devices
+Public method to operate with devices and related entites
+
+### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name}]
+Method to get or search all active device definitions in the system
+
++ Parameters
+    + `classification_type`: `30221` (string, optional) - Classification type `Dictionary DEVICE_DEFINITION_CLASSIFICATION_TYPE`
+    + `model_number`: `H00P53` (string, optional) - Group of Diagnoses code
+    + `name`: `Some name` (string, optional) - Diagnosis name
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (array[`Device_Definition_Response`])
+
 # Group Private. Contracts
 
 This group of endpoints is implemented for trusted third party to manipulate with contract records in ehealth system.
@@ -8472,12 +8491,18 @@ status: `APPROVED` (string, required)
     + `confidant_person` (array, optional)
         + (object)
             + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + relation_type: PRIMARY (enum, required)
+                - PRIMARY
+                - SECONDARY
             + documents_relationship (array, required)
                 + (object)
                     + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
                     + number: АА120518 (string, required) - document issue number
                     + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
                     + issued_at: `2017-02-28` (string, optional) - the date when document was issued
+            + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
+                - email
+                - phone
 
 ### `Patient_short`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Id створеної персони
@@ -12751,3 +12776,23 @@ status: `APPROVED` (string, required)
     + `redirect_uri`: `http://example.com/my_success_login_page` (string, required) - client Redirect URL pattern to protect from malicious redirects
     + `grant_type`: `password` (string, required)
     + `client_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - client ID of authorized user
+
+## Devices
+### `Device_Definition_Response`
++ id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - Unique identifier of Device definition
++ name: `Тест-смужки Accu-Chek Active для глюкометра` (string, required) - Device name
++ description: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Device description
++ `manufacturer` (`Manufacturer`, optional)
++ model_number: `M23N76` (string, optional) - Model number
++ part_number: `P00234` (string, optional) - Part number
++ `classification_type`: `30221` (string, required) - Classification type `Dictionary DEVICE_DEFINITION_CLASSIFICATION_TYPE`
++ packaging_type: `undefined` (string, required) - Packaging type `Dictionary TBD`
++ packaging_count: 50 (number, required) - Number of devices in container
++ packaging_unit: `pcs` (string, required) - Packaging unit `Dictionary TBD`
++ note: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Notes and comments for device
++ external_id: `0012351` (string, optional) - Device identifier in external registry
++ `is_active`: true (boolean, required) - status of the Device definition
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
