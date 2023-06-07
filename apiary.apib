@@ -5564,13 +5564,15 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 ## Group Public. Devices
 Public method to operate with devices and related entites
 
-### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name}]
+### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,page,page_size}]
 Method to get or search all active device definitions in the system
 
 + Parameters
     + `classification_type`: `30221` (string, optional) - Classification type `Dictionary DEVICE_DEFINITION_CLASSIFICATION_TYPE`
     + `model_number`: `H00P53` (string, optional) - Group of Diagnoses code
     + `name`: `Some name` (string, optional) - Diagnosis name
+    + `page`: 2 (number, optional) - Page number
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -7821,6 +7823,9 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `Confidant_Person_PIS`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ relation_type: PRIMARY (enum, required)
+    - PRIMARY
+    - SECONDARY
 + documents_relationship (array[`RelationshipDocument`], required)
 
 ### `Emergency_Contact`
@@ -8488,13 +8493,18 @@ status: `APPROVED` (string, required)
     + `confidant_person` (array, optional)
         + (object)
             + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + relation_type: PRIMARY (enum, required)
+                - PRIMARY
+                - SECONDARY
             + documents_relationship (array, required)
                 + (object)
                     + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
                     + number: АА120518 (string, required) - document issue number
                     + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
                     + issued_at: `2017-02-28` (string, optional) - the date when document was issued
-                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
+                - email
+                - phone
 
 ### `Patient_short`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Id створеної персони
@@ -9414,7 +9424,6 @@ status: `APPROVED` (string, required)
 + number: АА120518 (string, required) - document issue number
 + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
 + issued_at: `2017-02-28` (string, optional) - the date when document was issued
-+ active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
 
 ### `Medical_Certificate`
 + name: Диплом доктора медицини (string, required)
