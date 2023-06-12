@@ -5585,6 +5585,127 @@ Method to get or search all active device definitions in the system
             + code: 200 (number)
         + data (array[`Device_Definition_Response`])
 
+# Group Public. Portal and Reports
+
+## MainStats [/reports/stats]
+
+### Get Main Stats [GET /reports/stats/]
+
+Methods returns agregated numbers of declarations, doctors, msp, pharmacies,pharmacists. Also returns counts of Active and Completed medication requests.
+Total statistis are calculated on the date that is transmitted in the current date
+
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (object, optional)
+            + declarations: 100 (number, required)
+            + msps: 2 (number, required)
+            + doctors: 15 (number, required)
+            + pharmacies: 2 (number, required)
+            + pharmacists: 6 (number, required)
+            + medication_requests_active: 13 (number, required)
+            + medication_requests_completed: 20 (number, required)
+            
+
+### Get Main Stats by Regions [GET /reports/stats/regions/]
+
+Methods returns agregated numbers of declarations, MSP, PHARMACIES, doctors, pharmacists, active MR and completed MR grouped by region.
+Total statistis are calculated on the date that is transmitted in the current dste
+The service returns statistics for all regions
+
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (array[`StatsByRegionadd`], optional)
+
+
+
+### Get Main Stats by Division [GET /reports/stats/division/{division_id}]
+Methods returns agregated numbers of declarations and doctors by division.
+
++ Parameters
+    + division_id: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, required)
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+         + data (`MainStats_Division`, optional)
+
+
+
+### Get Histogram Stats Declarations [GET /reports/stats/histogram]
+
+Methods returns agregated numbers of declarations.
+Total statistis are calculated by automatically setting parameters (at the moment, from the current date for 13 months with a MONTH interval).
+The service returns statistics for all regions
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (array[`HistogramStats`], optional)
+
+## Divisions [/report/divisions]
+
+### Search Divisions [GET /reports/stats/divisions{?id,employee_id,type,name,area,region,settlement,legal_entity_edrpou,legal_entity_id,legal_entity_name,healthcare_service_speciality_type,healthcare_service_providing_condition,north,east,south,west,updated_at_from,updated_at_to}]
+Method searches divisions by parameters and returnes division details
+
++ Parameters
+    + id: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, optional) - division ID
+    + employee_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - employee ID
+    + type: CLINIC (enum, optional) - `Dictionary DIVISION_TYPE`
+    + name: Відділення1 (string, optional) - the name of division
+    + area:`Волинська` (string, optional) - the name of region where division is located
+    + region: `Луцький` (string, optional) - the name of district where division is located
+    + settlement: `Луцьк` (string, optional) - the name of settlement where division is located
+    + `legal_entity_edrpou`: 12345678 (string, optional) - legal_entity edrpou
+    + `legal_entity_id`: b075f148-7f93-4fc2-b2ec-2d81b19a9b7b (string, optional) - legal entity ID
+    + `legal_entity_name`: `Аптека 199` (string, optional) - legal_entity name
+    + `healthcare_service_speciality_type`: `FAMILY_DOCTOR` (string, optional) - `Dictionary SPECIALITY_TYPE`
+    + `healthcare_service_providing_condition`: OUTPATIENT (string, optional) - `Dictionary PROVIDING_CONDITION`
+    + north: 30.1233 (number, required)
+    + east: 50.32423 (number, required)
+    + south: 50.32423 (number, required)
+    + west: 50.32423 (number, required)
+    + `updated_at_from`: `2017-04-20T19:14:13Z` (string, optional)
+    + `updated_at_to`: `2017-04-20T19:14:13Z` (string, optional)
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`EntriesDivisionMap`], optional)
+
+## Medical program provision [/report/medical_program_provision]
+
+### Search Medical program provision [GET /reports/stats/medical_program_provision{?id,medical_program_id,medical_program_name,division_id,division_name,is_active,page,page_size}]
+Method searches Medical program provision by parameters and returnes it's details
+
+**Scopes required:** `medical_program_provision:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - provision ID
+    + `medical_program_id`: `a175f148-7f93-4fc2-b2ec-2d81b19a9b8a` (string, optional) - Medical program ID
+    + `medical_program_name`: `Доступні ліки` (string, optional) - the name of medical program
+    + `division_id`: `c275f148-7f93-4fc2-b2ec-2d81b19a9b8c` (string, optional) - ID of the division that provides a program
+    + `division_name`: `Аптека доброго здоров'я` (string, optional) - the name of pharmacy division
+    + `is_active`: true (boolean, optional) - Medical program provision status
+    + page: 2 (number, optional)
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
++ Request (application/json)
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`EntriesMedicalProgramProvisionMap`], optional)
+
+
+
 # Group Private. Contracts
 
 This group of endpoints is implemented for trusted third party to manipulate with contract records in ehealth system.
