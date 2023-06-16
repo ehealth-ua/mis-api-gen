@@ -11583,9 +11583,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required) - Rejected user identifier
 
 ### `Medication_request_Reject`
-+ `block_legal_entity` (object, optional)
-    + `id`: `UUID` (string, required, nullable)
-    + `type`: `NHS` (string, required, nullable)
 + category: community (enum, required) - Type of medication usage. Dictionary MEDICATION_REQUEST_CATEGORY
     - community - Includes requests for medications to be administered or consumed by the patient in their home
 + `created_at`: `2018-11-13` (string, required) - Medication request creation date, which is determined by the external system. Format *DATE '2017-09-07'*
