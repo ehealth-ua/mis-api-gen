@@ -1572,7 +1572,7 @@ This method allows to find the active person's authentication methods.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (array[`Person_auth_methods`])
+        + data (array[`Person_auth_methods`, `Person_auth_methods_v2`])
         
 
 + Response 403 (application/json)
@@ -8221,10 +8221,33 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     - THIRD_PERSON
     - OTP
     - OFFLINE
-+ phone_number: `+38093*****85` (string, optional) - it's required for type = OTP
 + value: `34d4aca0-ee15-4d2d-9ab8-336e5ba1f9c7` (string, optional) - mpi identifier of `third_person`. It s required for type = `THIRD_PERSON`
 + alias: `husband` (string, optional)
-+ ended_at: `2020-01-10 18:23:34.217335` (string, optional) - ISO Datetime.
++ ended_at: `2020-01-10 18:23:34.217335` (string, optional) - ISO Datetime
++ started_at: `2020-01-01 18:23:34.217335` (string, optional) - ISO Datetime
++ is_active: true (boolean, required)
++ inserted_by: `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, required)
++ updated_by: `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, optional)
++ person_id: `50320ee5-2bca-472c-a1a0-28e2e003ec2a` (string, optional)
++ inserted_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime
++ updated_at: `2021-11-09T00:00:00.000Z` (string, optional) - ISO Datetime
+
+### `Person_auth_methods_v2`
+
++ id: `b84893f5-b66b-4431-b023-d5b5c037caef` (string, required)
++ type (enum, required)
+    - OTP
+    - THIRD_PERSON
+    - OFFLINE
++ phone_number: `+38093*****85` (string, optional) - it's required for type = OTP
++ ended_at: `2020-01-10 18:23:34.217335` (string, optional) - ISO Datetime
++ started_at: `2020-01-01 18:23:34.217335` (string, optional) - ISO Datetime
++ is_active: true (boolean, required)
++ inserted_by: `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, required)
++ updated_by: `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, optional)
++ person_id: `50320ee5-2bca-472c-a1a0-28e2e003ec2a` (string, optional)
++ inserted_at: `2021-11-09T00:00:00.000Z` (string, required) - ISO Datetime
++ updated_at: `2021-11-09T00:00:00.000Z` (string, optional) - ISO Datetime
 
 ### `cabinet_person_response`
 + include `Person`
