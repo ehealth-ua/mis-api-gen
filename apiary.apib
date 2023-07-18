@@ -8234,10 +8234,16 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
                     + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
     + object()
         + action: UPDATE (string, required)
-        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method: THIRD_PERSON who must verify relationship deactivation
+        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
         + confidant_person (object, required)
             + confidant_person_relationship_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
             + active_to: `2023-02-28` (string, required) - the date when relationship has been deactivated
+         + documents_relationship (array, required)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, optional) - the date when document was issued
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
