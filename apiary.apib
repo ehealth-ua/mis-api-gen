@@ -1696,6 +1696,146 @@ This method is used when you need to re-send SMS to a person or third person
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + data (`OTP`)
+        
+
+### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationships]
+
+This method allows to view list of active approved person's confidants with masked personal data.
+
+**Scopes required:** `confidant_person_relationships:read`
+
++ Parameters
+    + id: `030d5c41-a945-41ac-89d1-b7c6d1c226c7` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (array[`Confidant_Person_Masked`])
+        
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `forbidden`
+            + message: `Such person not found` (string)
+
+### Create Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationships]
+
+This process describes adding Confidant Person relationship for an existing person and update it.
+
+**Scopes required:** `confidant_person_relationships:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+    + Attributes (object)
+        + include (`Confidant_Person_request`)
+    
+
++ Response 201 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `NEW` (enum, optional) - current verification status on relationship
+            + reason: `CREATED_BY_DOCTOR` (enum, optional) - current verification reason on relationship
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship
+        + urgent (object, required)
+            + `authentication_method_current` (array[`Authentication_Method_for_request`], required) - if the person doesn't have active auth methods, then this block will be nill
+            + documents (array[`media_content`], required)
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: unverified (string, required)
+            + message: `Unverified phone number` (string, required)
+
+
+### Approve Confidant Person relationship [PATCH /api/persons/{id}/confidant_person_relationships/{confidant_person_relationship_id}/actions/approve]
+
+Use this method to approve previously created Confidant Person relationship.
+Request example:
+
+{
+  "verification_code": 7590
+}
+
+**Scopes required:** `confidant_person_relationships:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + confidant_person_relationship_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship identifier
+    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+    + Attributes (object)
+        + `verification_code`: 7489 (number, required)
+
++ Response 201 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `VERIFICATION_NEEDED` (enum, optional) - current verification status on relationship
+            + reason: `APPROVED_BY_DOCTOR` (enum, optional) - current verification reason on relationship
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship
+
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: request_malformed (string, required)
+            + message: `This patient has X confidants and can not have more` (string, required)
+
+### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationships/{confidant_person_relationship_id}/actions/resend_otp]
+
+This method is used when you need to re-send SMS to Confidant
+
+**Scopes required:** `confidant_person_relationships:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + confidant_person_relationship_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship identifier
+    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (`OTP`)
 
 
 ### Get Person verification details [GET /api/persons/{id}/verification]
@@ -8061,6 +8201,41 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 ### `Confidant_Person_PIS`
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + documents_relationship (array[`RelationshipDocument`], required)
+
+### `Confidant_Person_Masked`
++ confidant_person_relationship_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ name: Петров А.А. (string, required) - confidant person name, masked
++ gender: MALE, FEMALE (enum[string], optional)
++ tax_id: ******50 (string, optional) - confidant person tax id, masked
++ no_tax_id: false (boolean, required) - fact of declining tax_id
++ unzr: `**********99` (string, optional) - unzr (if exists), masked
++ documents_person (array)
+    + (object)
+        + type: PASSPORT (string, required) - `Dictionary DOCUMENT_TYPE`
+        + number: ******18 (string, required) - confidant person document issue number, masked
++ phones (array)
+    + (object)
+        + type: MOBILE (string, required) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
+        + number: ********90 (string, required) - confidant person phone number, masked
+
+### `Confidant_Person_request`
+  - One of
+    + object()
+        + action: INSERT (string, required)
+        + confidant_person (object, required)
+            + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + documents_relationship (array, required)
+                + (object)
+                    + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, optional) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+    + object()
+        + action: UPDATE (string, required)
+        + confidant_person (object, required)
+            + confidant_person_relationship_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
+            + active_to: `2023-02-28` (string, required) - the date when relationship has been deactivated
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
