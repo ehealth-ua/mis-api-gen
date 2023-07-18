@@ -920,7 +920,7 @@ This endpoint returns declaration requests that were created through V2 and V3. 
                 + number: `+38093*****85` (string, required)
             + documents (array[`media_content`], optional)
 
-### Get Declaration Requests List V3 [GET /api/v3/declaration_requests{?employee_id,legal_entity_id,status,page,page_size}]
+### Get Declaration Requests List V3 [GET /api/v3/declaration_requests{?employee_id,legal_entity_id,status,channel,page,page_size}]
 
 Use this method to obtain list of Declaration Requests for an `empolee_id`. If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI section.
 
@@ -943,6 +943,10 @@ If declaration request is created by v2, the field `person_id` will be empty
         - SIGNED
         - REJECTED
         - CANCELLED
+    + channel: MIS (enum, optional)
+        - MIS
+        - PIS
+        - CABINET
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
@@ -1831,6 +1835,9 @@ This method is used when you need to re-send SMS to Confidant
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+    + Attributes (object)
+        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
 
 
 + Response 200 (application/json)
