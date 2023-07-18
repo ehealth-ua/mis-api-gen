@@ -5707,7 +5707,7 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 ## Group Public. Devices
 Public method to operate with devices and related entites
 
-### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,page,page_size}]
+### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
 Method to get or search all active device definitions in the system
 
 + Parameters
@@ -5716,6 +5716,7 @@ Method to get or search all active device definitions in the system
     + `name`: `Some name` (string, optional) - Device name
     + `name_type`: `registered_name` (enum, optional) - Device name type. Dictionary `device_name_type`
     + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.    
+    + `is_active`: true (boolean, optional) - device definition status
     + `page`: 2 (number, optional) - Page number
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
@@ -13216,6 +13217,8 @@ status: `APPROVED` (string, required)
 + part_number: `P00234` (string, optional) - Part number
 + note: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Notes and comments for device
 + `packaging` (`Device_definition_package`, required)
++ `program_devices` (array [`Program_device`], optional)
++ `is_active`: true (boolean, required) - device definition status
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
@@ -13232,7 +13235,6 @@ status: `APPROVED` (string, required)
 + `packaging_type`: `undefined` (string, required) - Packaging type. Dictionary `device_definition_packaging_type`
 + packaging_count: 50 (number, required) - Number of devices in container
 + `packaging_unit`: `pcs` (string, required) - Packaging unit. Dictionary `device_unit`
-+ `program_devices` (array [`Program_device`], required)
 
 ### `Program_device`
 + id: `e477a845-972b-47a1-8ca3-1c71e4fd00c2` (string, required) - Program device id
