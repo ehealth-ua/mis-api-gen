@@ -8216,19 +8216,24 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `Confidant_Person_Masked`
 + confidant_person_relationship_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-+ name: Петров А.А. (string, required) - confidant person name, masked
-+ gender: MALE, FEMALE (enum[string], optional)
-+ tax_id: ******50 (string, optional) - confidant person tax id, masked
-+ no_tax_id: false (boolean, required) - fact of declining tax_id
-+ unzr: `**********99` (string, optional) - unzr (if exists), masked
-+ documents_person (array)
-    + (object)
-        + type: PASSPORT (string, required) - `Dictionary DOCUMENT_TYPE`
-        + number: ******18 (string, required) - confidant person document issue number, masked
-+ phones (array)
-    + (object)
-        + type: MOBILE (string, required) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
-        + number: +38093*****85 (string, required) - confidant person phone number, masked
++ relationship_verification_details (object, required)
+    + `verification_status`: `VERIFICATION_NEEDED` (string, required) - status of relationship verification according to `PERSONS_RELATIONSHIP_VERIFICATION_STATUSES` dictionary
+    + `verification_reason`: `Встановлено вручну у процесі реєстрації Пацієнта Лікарем` (string, required) - how current relationship verification status has been set according to `PERSONS_RELATIONSHIP_VERIFICATION_STATUSES` dictionary
+    + `verification_comment`: `Підтверджено на підставі свідоцтва про народження` (string, optional) - Relationship verification status description set by NHS or Doctor
++ confidant_person (object, required)
+    + name: Петров А.А. (string, required) - confidant person name, masked
+    + gender: MALE, FEMALE (enum[string], optional)
+    + tax_id: ******50 (string, optional) - confidant person tax id, masked
+    + no_tax_id: false (boolean, required) - fact of declining tax_id
+    + unzr: `**********99` (string, optional) - unzr (if exists), masked
+    + documents_person (array)
+        + (object)
+            + type: PASSPORT (string, required) - `Dictionary DOCUMENT_TYPE`
+            + number: ******18 (string, required) - confidant person document issue number, masked
+    + phones (array)
+        + (object)
+            + type: MOBILE (string, required) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
+            + number: +38093*****85 (string, required) - confidant person phone number, masked
 
 ### `Confidant_Person_request`
   - One of
