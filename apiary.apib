@@ -5725,7 +5725,7 @@ Method to get or search all active device definitions in the system
     + `classification_type`: `30221` (string, optional) - Classification type. Dictionary `device_definition_classification_type`
     + `model_number`: `H00P53` (string, optional) - Model number for the device
     + `name`: `Some name` (string, optional) - Device name
-    + `name_type`: `registered_name` (enum, optional) - Device name type. Dictionary `device_name_type`
+    + `name_type`: `registered` (enum, optional) - Device name type. Dictionary `device_name_type`
     + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.    
     + `is_active`: true (boolean, optional) - device definition status
     + `page`: 2 (number, optional) - Page number
@@ -13254,10 +13254,10 @@ status: `APPROVED` (string, required)
 
 ### `device_name`
 + `name`: `Тест-смужки Accu-Chek Active для глюкометра` (string, required) - Device name
-+ `type`: `user_friendly_name` (enum, required) - Device name type. Dictionary `device_name_type`
-    - user_friendly_name
-    - registered_name
-    - patient_reported_name    
++ `type`: `user_friendly` (enum, required) - Device name type. Dictionary `device_name_type`
+    - user_friendly
+    - registered
+    - patient_reported    
 
 ### `Device_definition_package`
 + `packaging_type`: `undefined` (string, required) - Packaging type. Dictionary `device_definition_packaging_type`
