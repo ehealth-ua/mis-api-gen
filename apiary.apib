@@ -1706,7 +1706,7 @@ This method is used when you need to re-send SMS to a person or third person
         + data (`OTP`)
         
 
-### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationships]
+### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationship_requests]
 
 This method allows to view list of active approved person's confidants with masked personal data.
 
@@ -1735,9 +1735,9 @@ This method allows to view list of active approved person's confidants with mask
             + type: `forbidden`
             + message: `Such person not found` (string)
 
-### Manage Confidant Person relationships [POST /api/persons/{id}/confidant_person_relationships]
+### Create new Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests/create]
 
-This process describes adding Confidant Person relationship for an existing person and update it.
+This process describes adding Confidant Person relationship for an existing person.
 
 **Scopes required:** `confidant_person_relationships:write`
 
@@ -1752,7 +1752,7 @@ This process describes adding Confidant Person relationship for an existing pers
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
     + Attributes (object)
-        + include (`Confidant_Person_request`)
+        + include (`Create_Confidant_Person_request`)
     
 
 + Response 201 (application/json)
@@ -1761,9 +1761,8 @@ This process describes adding Confidant Person relationship for an existing pers
             + code: 201 (number)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + status: `NEW` (enum, optional) - current verification status on relationship
-            + reason: `CREATED_BY_DOCTOR` (enum, optional) - current verification reason on relationship
-            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship
+            + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
         + urgent (object, required)
             + `authentication_method_current` (array[`Authentication_Method_for_request`], required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
@@ -1776,8 +1775,46 @@ This process describes adding Confidant Person relationship for an existing pers
             + type: unverified (string, required)
             + message: `Unverified phone number` (string, required)
 
+### Deactivate Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests/deactivate]
 
-### Approve Confidant Person relationship [PATCH /api/persons/{id}/confidant_person_relationships/{confidant_person_relationship_id}/actions/approve]
+This process describes deactivation Confidant Person relationship.
+
+
+**Scopes required:** `confidant_person_relationships:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+
+    + Attributes (object)
+        + include (`Deactivate_Confidant_Person_request`)
+
++ Response 201 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: request_malformed (string, required)
+            + message: `This patient has X confidants and can not have more` (string, required)
+
+### Approve Confidant Person relationship [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
 
 Use this method to approve previously created Confidant Person relationship.
 Request example:
@@ -1790,7 +1827,7 @@ Request example:
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
-    + confidant_person_relationship_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship identifier
+    + confidant_person_relationship_request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship request identifier
     
 
 + Request (application/json)
@@ -1809,9 +1846,8 @@ Request example:
             + code: 201 (number)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + status: `VERIFICATION_NEEDED` (enum, optional) - current verification status on relationship
-            + reason: `APPROVED_BY_DOCTOR` (enum, optional) - current verification reason on relationship
-            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship
+            + status: `COMPLETED` (enum, optional) - current verification status on relationship request.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
 
 
 + Response 422 (application/json)
@@ -1822,7 +1858,7 @@ Request example:
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
 
-### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationships/{confidant_person_relationship_id}/actions/resend_otp]
+### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/resend_otp]
 
 This method is used when you need to re-send SMS to Confidant
 
@@ -1830,7 +1866,7 @@ This method is used when you need to re-send SMS to Confidant
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
-    + confidant_person_relationship_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship identifier
+    + confidant_person_relationship_request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship request identifier
     
 
 + Request (application/json)
@@ -8235,31 +8271,27 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
             + type: MOBILE (string, required) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
             + number: +38093*****85 (string, required) - confidant person phone number, masked
 
-### `Confidant_Person_request`
-  - One of
-    + object()
-        + action: INSERT (string, required)
-        + confidant_person (object, required)
-            + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + documents_relationship (array, required)
-                + (object)
-                    + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
-                    + number: АА120518 (string, required) - document issue number
-                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
-                    + issued_at: `2017-02-28` (string, optional) - the date when document was issued
-                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
-    + object()
-        + action: UPDATE (string, required)
-        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
-        + confidant_person (object, required)
-            + confidant_person_relationship_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
-            + active_to: `2023-02-28` (string, required) - the date when relationship has been deactivated
-         + documents_relationship (array, required)
-                + (object)
-                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
-                    + number: АА120518 (string, required) - document issue number
-                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
-                    + issued_at: `2017-02-28` (string, optional) - the date when document was issued
+### `Create_Confidant_Person_request`
++ confidant_person (object, required)
+    + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+    + documents_relationship (array, required)
+        + (object)
+            + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+            + number: АА120518 (string, required) - document issue number
+            + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
+            + issued_at: `2017-02-28` (string, optional) - the date when document was issued
+            + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+
+### `Deactivate_Confidant_Person_request` 
++ authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
++ confidant_person (object, required)
+    + confidant_person_relationship_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
+    + documents_relationship (array, required)
+        + (object)
+            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
+            + number: АА120518 (string, required) - document issue number
+            + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
+            + issued_at: `2017-02-28` (string, optional) - the date when document was issued
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
