@@ -1706,9 +1706,9 @@ This method is used when you need to re-send SMS to a person or third person
         + data (`OTP`)
         
 
-### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationship_requests]
+### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationships]
 
-This method allows to view list of active approved person's confidants with masked personal data.
+This method allows to view list of active person's confidants with masked personal data.
 
 **Scopes required:** `confidant_person_relationships:read`
 
@@ -1814,9 +1814,9 @@ This process describes deactivation Confidant Person relationship.
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
 
-### Approve Confidant Person relationship [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
+### Approve Confidant Person relationship [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/approve]
 
-Use this method to approve previously created Confidant Person relationship.
+Use this method to approve previously created Confidant Person relationship request.
 Request example:
 
 {
