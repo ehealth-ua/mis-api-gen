@@ -1793,8 +1793,6 @@ This process describes deactivation Confidant Person relationship.
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
-    + Attributes (object)
-        + include (`Deactivate_Confidant_Person_request`)
 
 + Response 201 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -1858,7 +1856,7 @@ Request example:
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
 
-### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/resend_otp]
+### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/resend_otp]
 
 This method is used when you need to re-send SMS to Confidant
 
