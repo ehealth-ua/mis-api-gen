@@ -979,7 +979,9 @@ To create declaration request based on active declaration in reorganized legal e
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
             + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
-            + status_reason: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `status_reason`: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `system_declaration_limit`: 900 (number, optional) - Current doctor's limit based on speciality_officio
+            + `current_declaration_count`: 675 (number, optional) - Number of declarations assigned to doctor
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
             
@@ -1043,7 +1045,9 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
             + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
-            + status_reason: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `status_reason`: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `system_declaration_limit`: 900 (number, optional) - Current doctor's limit based on speciality_officio
+            + `current_declaration_count`: 675 (number, optional) - Number of declarations assigned to doctor
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
             + `data_to_be_signed` (`Decl_req_data_to_be_signed`, required)
@@ -1084,7 +1088,9 @@ Use this method to reject previously created Declaration Request.
             + declaration_id: `8311ab82-e341-4da0-8a95-235ec9885e23` (string, required) - presetted id for future declaration
             + parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
             + status: `NEW` (string, required)
-            + status_reason: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `status_reason`: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `system_declaration_limit`: 900 (number, optional) - Current doctor's limit based on speciality_officio
+            + `current_declaration_count`: 675 (number, optional) - Number of declarations assigned to doctor
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
             + `data_to_be_signed` (`Decl_req_data_to_be_signed`, optional)
@@ -1157,7 +1163,9 @@ This endpoint returns declaration requests that were created through V2 and V3. 
                 - APPROVED
                 - SIGNED
                 - CANCELLED
-            + status_reason: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `status_reason`: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
+            + `system_declaration_limit`: 900 (number, optional) - Current doctor's limit based on speciality_officio
+            + `current_declaration_count`: 675 (number, optional) - Number of declarations assigned to doctor
             + channel: `MIS` (enum, required) - channel that invoke declaration create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
             + `data_to_be_signed` (`Decl_req_data_to_be_signed`, optional)
