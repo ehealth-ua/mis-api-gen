@@ -1864,7 +1864,24 @@ Confluence - https://e-health-ua.atlassian.net/wiki/x/FwC_J
             api-key: uXhEczJ56adsfh3Ri9SUkc4en
 
     + Attributes (object)
-        + include (`Authentication_methods_request`)
+        - One of
+            + `action`: DEACTIVATE (string, required)
+            + `action`: INSERT (string, required)
+            + `action`: UPDATE (string, required)
+        - One of
+            + `authentication_method`(object, required)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
+            + `authentication_method`(object, required)
+                + type(enum, required)
+                    - THIRD_PERSON
+                    - OTP
+                    - OFFLINE
+                + phone_number: `+380976549872` (string, optional)
+                + value: `7b100a9c-daaa-490e-b88d-2a911059b0d2` (string, optional) - identifier of active person. It's required when type= THIRd_PERSON 
+                + alias: `husband` (string, optional) - it's required id type = THIRD_PERSON
+            + `authentication_method`(object, required)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required)
+                + alias: `wife` (string, optional)
     
 
 + Response 201 (application/json)
