@@ -8541,11 +8541,11 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
             + number: +38093*****85 (string, required) - confidant person phone number, masked
 
 ### `Create_Confidant_Person_request`
-+ confidant_person (object, required)
-    + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ confidant_person_relationship (object, required)
+    + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
     + documents_relationship (array, required)
         + (object)
-            + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
             + number: АА120518 (string, required) - document issue number
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
             + issued_at: `2017-02-28` (string, optional) - the date when document was issued
@@ -8553,7 +8553,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `Deactivate_Confidant_Person_request`
 + confidant_person_relationship (object, required)
-    + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship
+    + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
     + documents_relationship (array, required)
         + (object)
             + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
