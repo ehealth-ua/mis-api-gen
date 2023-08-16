@@ -2033,6 +2033,7 @@ This process describes adding Confidant Person relationship for an existing pers
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + action: `INSERT` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
         + urgent (object, required)
             + `authentication_method_current` (array[`Authentication_Method_for_request`], required) - if the person doesn't have active auth methods, then this block will be nill
@@ -2074,6 +2075,7 @@ This process describes deactivation Confidant Person relationship.
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
 
 
@@ -2118,6 +2120,7 @@ Request example:
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
             + status: `COMPLETED` (enum, optional) - current verification status on relationship request.
+            + action: `INSERT` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
 
 
