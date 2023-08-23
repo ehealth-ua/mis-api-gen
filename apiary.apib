@@ -1977,11 +1977,11 @@ This method is used when you need to re-send SMS to a person or third person
         + data (`OTP`)
         
 
-### Get Person Confidants [GET /api/persons/{id}/confidant_person_relationships]
+### Get Confidant Person relationships [GET /api/persons/{id}/confidant_person_relationships]
 
-This method allows to view list of active person's confidants with masked personal data.
+This method allows to view list of active confidant person relationships.
 
-**Scopes required:** `confidant_person_relationships:read`
+**Scopes required:** `confidant_person_relationship:read`
 
 + Parameters
     + id: `030d5c41-a945-41ac-89d1-b7c6d1c226c7` (string, required)
@@ -2006,9 +2006,9 @@ This method allows to view list of active person's confidants with masked person
             + type: `forbidden`
             + message: `Such person not found` (string)
 
-### Create new Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests/create]
+### Create new Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests]
 
-This process describes adding Confidant Person relationship for an existing person.
+This method allows add Confidant Person relationship.
 
 **Scopes required:** `confidant_person_relationship_request:write`
 
@@ -2049,8 +2049,7 @@ This process describes adding Confidant Person relationship for an existing pers
 
 ### Deactivate Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests/deactivate]
 
-This process describes deactivation Confidant Person relationship.
-
+This method allows to deactivate Confidant Person relationship.
 
 **Scopes required:** `confidant_person_relationship_request:write`
 
@@ -2089,7 +2088,7 @@ This process describes deactivation Confidant Person relationship.
 
 ### Approve Confidant Person relationship request [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
 
-Use this method to approve previously created Confidant Person relationship request.
+Use this method to approve previously created Confidant Person relationship request (for creation or deactivation).
 Request example:
 
 {
