@@ -9016,7 +9016,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     - SIGNED
     - REJECTED
     - CANCELLED
-+ status_reason: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
++ `status_reason`: `not relevant` (string, optional) - `Dictionary DECLARATION_REQUEST_STATUS_REASON`
 + channel: `MIS` (enum, required) - channel where declaration request was originated
     - MIS
     - PIS
@@ -9026,7 +9026,9 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + division_id : `4c9c9c6e-5230-444d-8b65-7678da1c1ab3` (string, required) - unique id of dividion
 + `legal_entity_id` : `56b8bcd7-78b8-4ff7-8a60-a48e54a6ef57` (string, required) unique id of LE
 + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
-+ parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration  
++ parent_declaration_id: `8c7753fc-a647-435f-8e43-4ff4546431f6` (string, optional) - identifier of parent declaration
++ `system_declaration_limit`: 900 (number, optional) - Current doctor's limit based on speciality_officio
++ `current_declaration_count`: 675 (number, optional) - Number of declarations assigned to doctor
 
 ### `Declaration_short`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
