@@ -11460,6 +11460,7 @@ status: `APPROVED` (string, required)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Request_Qualify_post_data`
 + `person_id`: `585044f5-1272-4bca-8d41-8440eefe7d26` (string, required) - Person identifier
@@ -11541,6 +11542,7 @@ status: `APPROVED` (string, required)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Request_Public_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request request identifier
@@ -11585,6 +11587,7 @@ status: `APPROVED` (string, required)
 + `dosage_instruction` (array, required, fixed-type)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Request_Sign`
 + `category`: `community` (enum, required)
@@ -11617,6 +11620,7 @@ status: `APPROVED` (string, required)
 + `status`: `NEW` (string, required) - Medication Request status. Find available **statuses** on State Charts wiki page
 + `medical_program` (`medical_programs_list`, required)
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Qualify_Medication_request_Request_List_program_post_data`
 + `id`: `59781de0-2e64-4359-b716-bcc05a32c10f` (string,required) - `Medical program Identifier`
@@ -11815,6 +11819,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Public_Response_for_Pharmacist`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -11865,6 +11870,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Public_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -11921,6 +11927,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_reject_Public_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -11977,6 +11984,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object_not_required`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_block_reason_required`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12083,6 +12091,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12188,6 +12197,7 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `block_legal_entity_object`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Private_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12289,6 +12299,7 @@ status: `APPROVED` (string, required)
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Reject_Response`
 + category: community (enum, required) - Type of medication usage. Dictionary MEDICATION_REQUEST_CATEGORY
@@ -12334,6 +12345,7 @@ status: `APPROVED` (string, required)
     + `id`: `UUID` (string, required, nullable)
     + `type`: `NHS` (string, required, nullable)
 + include `MR_MRR_additional_fields`
++ note: some additional info (string, optional) - Additional information
 
 ### `Medication_request_Public_Response_without_block_data`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
