@@ -247,6 +247,9 @@ In future, you will be able to refresh access tokens to extend `access_token` li
 
 + Request (application/json)
 
+    + Headers
+        X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
     + Attributes (object)
         + token (object)
             + `client_id`: `6498d88e-97fb-47e2-85a5-99e884f888aa` (string, required) - Medical Service provider ID issued after legal_entity registration. Used to identify the context of the MSP/Pharmacy.
@@ -369,6 +372,7 @@ In case number needs verification - generate and send OTP, in case phone does no
     + Headers
             Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjYWJpbmV0LXJlZ2lzdHJhdGlvbiIsImVtYWlsIjoiYXByb2tvcHBoYXJtZGlyNEB1a3IubmV0IiwiZXhwIjoxNjgyNjkzNTc3LCJpYXQiOjE2ODI2NjQ3NzcsImlzcyI6IkVIZWFsdGgiLCJqdGkiOiIxOTAyYTkyYS00MDcyLTQ3MWEtYmU4NS1iZWU0MzQzNmNlYjEiLCJuYmYiOjE2ODI2NjQ3NzYsInN1YiI6ImFwcm9rb3BwaGFybWRpcjRAdWtyLm5ldCIsInR5cCI6ImFjY2VzcyJ9.EXTuYRQenjqzsjNAJ5agmEbSHcg_XRKwc3VOGAtSjfMOy4uIJ_BBMUeUWSVzy4_OezPjEIiVcnaLTN4pZbtgow
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+            
     + Attributes (object)
         + `factor`: `+380501112233` (string, required) - phone number that needs to be verified.
         + `type`: SMS (enum, required) - verification type.
@@ -2936,6 +2940,10 @@ Capitation reports are created monthly
     + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
+    
+    + Headers
+    
+        X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -2962,6 +2970,10 @@ There are following age groups right now:
     + `report_id`: `role-1380df72-275a-11e7-93ae-92361f002671` (string, optional)
 
 + Request (application/json)
+
+    + Headers
+        
+        X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -3582,6 +3594,13 @@ This method must be used to create additional licenses for legal entity (`is_pri
 Primary license must be added with `Create/Update Legal Entity V2` method.
 
 + Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
     + Attributes (`crud_licenses_post`)
       + `is_primary`: false (boolean, required)
 
@@ -3599,6 +3618,13 @@ Primary license must be updated with `Create/Update Legal Entity V2` method.
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 
 + Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
     + Attributes (`crud_licenses_post`)
       + is_primary: false (boolean, required)
 
