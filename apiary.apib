@@ -279,6 +279,11 @@ Each dictionary is an object that contains *{key}*:*{value}* pairs where:
     + `name`: `eHealth/LOINC/observation_codes` (string, optional) - dictionary name
     + `is_active`: true (boolean, optional) - dictionary status
 
++ Request (application/json)
+
+    + Headers
+        X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + data (array[`Dictionary`])
@@ -293,6 +298,11 @@ Each dictionary is an object that contains not only a code and description of a 
     + `value_code`: `b1142` (string, optional) - code of the dictionary value
     + `value_description`: `Орієнтація в особі` (string, optional) - description of the dictionary value
     + `value_is_active`: true (string, optional) - status of the dictionary value
+
++ Request (application/json)
+
+    + Headers
+        X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
