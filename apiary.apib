@@ -73,7 +73,14 @@ DEMO    | https://api.demo.edenlab.com.ua
 **API-key:**
 - For identifiers MIS clients (as a brocker) we use term API-key. MIS must be **mandatory** send API-key when called e-Health API.
 - API-key its a `mis_client_secret` - Medical Information System secret key issued upon integration request.
-- API-key dispatched in Request HEADER as a `API-key` attribute. Example:
+- API-key dispatched in Request HEADER as a `API-key` attribute. 
+- If MIS don't send API-key in Request HEADER, API return 401 error wih message "API-KEY header required".
+
+**X-Custom-PSK:**
+- For identifiers of MIS clients we use header X-Custom-PSK.
+- We use X-Custom-PSK header for check hosting provider. If X-Custom-PSK is correct we get access to `kong` MIS routes.
+- Each MIS must mandatory send X-Custom-PSK when called any eHealth API.
+Example:
 ```
 HEADERS
 Content-Type: application/json
@@ -81,7 +88,6 @@ Authorization: Bearer c2778f3064753ea70de870a53795f5c9
 API-key: uXhEczJ56adsfh3Ri9SUkc4en
 X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 ```
-- If MIS don't send API-key in Request HEADER, API return 401 error wih message "API-KEY header required".
 
 
 **Sequence Diagram**
