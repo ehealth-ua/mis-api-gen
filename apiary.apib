@@ -2098,8 +2098,7 @@ This method allows add Confidant Person relationship.
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-        + include (`Create_Confidant_Person_request`)
-    
+        + include (`Create_Confidant_Person_request`, required)
 
 + Response 201 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -8817,15 +8816,14 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
             + number: +38093*****85 (string, required) - confidant person phone number, masked
 
 ### `Create_Confidant_Person_request`
-+ confidant_person_relationship (object, required)
-    + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
-    + documents_relationship (array, required)
-        + (object)
-            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
-            + number: АА120518 (string, required) - document issue number
-            + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
-            + issued_at: `2017-02-28` (string, optional) - the date when document was issued
-            + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
++ confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
++ documents_relationship (array, required)
+    + (object)
+        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
+        + number: АА120518 (string, required) - document issue number
+        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
+        + issued_at: `2017-02-28` (string, optional) - the date when document was issued
+        + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
 
 ### `Deactivate_Confidant_Person_request`
 + confidant_person_relationship (object, required)
