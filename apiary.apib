@@ -2110,7 +2110,7 @@ This method allows add Confidant Person relationship.
             + action: `INSERT` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
         + urgent (object, required)
-            + `authentication_method_current` (array[`Authentication_Method_for_request`], required) - if the person doesn't have active auth methods, then this block will be nill
+            + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
 
 + Response 422 (application/json)
