@@ -3652,7 +3652,7 @@ Primary license must be updated with `Create/Update Legal Entity V2` method.
 
 ## Medical Program [/api/medical_program]
 
-### Get medical programs list [GET /api/medical_programs{?id,name,is_active,mr_blank_type,page,page_size}]
+### Get medical programs list [GET /api/medical_programs{?id,name,is_active,mr_blank_type,type,page,page_size}]
 Method returns list of medical programs filtering by parameters. By default method returns only active medical programs `is_active=true`
 
 **Scopes required:** `medical_program:read`
@@ -3664,6 +3664,8 @@ Method returns list of medical programs filtering by parameters. By default meth
     + `mr_blank_type`: `F-1` (string, optional) - Type of blank required by Program for prescription of Medications
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    + `type`: `MEDICATION`(string, optional) - medical program type
+    
 
 + Request (application/json)
 
