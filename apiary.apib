@@ -3208,53 +3208,21 @@ This method allows to register equipment and bind it with division of legal enti
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-        + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Division identifier
-        + include `Equipment_base`
+        + include `Equipment_base_v2`
 
 + Response 201 (application/json)
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (`Equipment_response`)
+        + data (`Equipment_response_v2`)
 
-### Update equipment [PATCH /api/equipment/{id}]
-
-This method used for update equipment data, except link with division and status. You can send only those fields you want to change
-
-Immutable parameters:
- - division_id
- - status
- 
- All the other parameters are mutable.
-
-+ Parameters
-    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Equipment identifier
-
-+ Request (application/json)
- 
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            API-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-    + Attributes (`Equipment_base`)
-        + type: `23143534` (string, optional)- `code from dictionary -  EQUIPMENT_TYPE`  
-        + external_id: `123-ASD-#1` (string, optional) - Identifier from external system
-       
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-            + code: 200 (number)
-        + data (`Equipment_response`)
-
-### Get equipment list [GET /api/equipment{?division_id,type,external_id,status,page,page_size}]
+### Get equipment list [GET /api/equipment{?division_id,device_definition_id,type,status,page,page_size}]
 
 + Parameters
 
     + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Division identifier
-    + type: `43235435` (string, optional) - `Code from dictionary EQUIPMENT_TYPE`
-    + external_id: `123-ASD-1` (string, optional) - `Identifier from external system`
+    + device_definition_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Device definition identifier
+    + type: `03221` (string, optional) - `Code from dictionary EQUIPMENT_TYPE`
     + status: ACTIVE (string, optional) - Entity status
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
@@ -3270,7 +3238,7 @@ Immutable parameters:
 + Response 200 (application/json)
 
     + Attributes (`Response_Collection_V2`)
-        + data (array[`Equipment_response`])
+        + data (array[`Equipment_response_v2`])
 
 ### Get equipment details by ID [GET /api/equipment/{id}]
 
@@ -3287,9 +3255,11 @@ Immutable parameters:
             
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (`Equipment_response`)
+        + data (`Equipment_response_v2`)
 
 ### Deactivate equipment [PATCH /api/equipment/{id}/actions/deactivate]
+
+Method to changes equipment status to `inactive` or `entered-in-error`
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Equipment identifier
@@ -3301,13 +3271,18 @@ Immutable parameters:
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+    
+    + Attributes (object)
+        + status: `entered-in-error` (string, required) - New equipment status
+        + error_reason: `Out of service` (string, optional) - Error reason
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + data (`Equipment_response`)
-            - status: INACTIVE
+        + data (`Equipment_response_v2`)
+            - status: `entered-in-error` (string, required) - New equipment status
+            - error_reason: `Out of service` (string, optional) - Error reason
 
-### Activate equipment [PATCH /api/equipment/{id}/actions/activate]
+### Change equipment availability status [PATCH /api/equipment/{id}/actions/availability_status]
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Equipment identifier
@@ -3319,12 +3294,15 @@ Immutable parameters:
         Authorization: Bearer c2778f3064753ea70de870a53795f5c9
         API-key: uXhEczJ56adsfh3Ri9SUkc4en
         X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+    
+    + Attributes (object)
+        + availability_status: `damaged` (string, required) - New equipment status
 
 + Response 200 (application/json)
 
     + Attributes (`Response__Process_OK`)
-        + data (`Equipment_response`)
-            - status: ACTIVE
+        + data (`Equipment_response_v2`)
+            - availability_status: `damaged` (string, required) - New equipment status
             
 
 ## Preperson [/api/prepersons]
@@ -13720,6 +13698,38 @@ status: `APPROVED` (string, required)
 + name: `Рентген апарат флюрографічній` (string, optional)
 + serial_number: `S/N234554` (string, optional)
 + note: `Технічний огляд раз на рік` (string, optional)
+
+### `Equipment_base_v2`
++ inventory_number: `234554` (string, optional) - Inventory number
++ serial_number: `S/N234554` (string, optional) - Serial number
++ device_definition_id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, optional) - Reference to device definition
++ status: active (string, required) - Device status
++ availability_status: available (string, required) - Device availability status
++ manufacturer: `GlobalMed, Inc` (string, optional) - Manufacturer
++ manufacture_date: `1999-01-01` (string, optional) - Manufacturer date
++ model_number: `NSPX30` (string, optional) - Model number
++ type: `30221` (string, required) - `Dictionary: device_definition_classification_type`
++ `legal_entity_id`: `483af06f-d4c6-4c9e-8d9b-680b5ef7270d` (string, required) - Reference to legal entity
++ division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Reference to division
++ note: `Технічний огляд раз на рік` (string, optional)
++ parent_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Reference to equipment
++ lot_number: `RZ12345678` (string, optional) - Lot number
++ expiration_date: `2020-01-01` (string, optional) - Expiration date
++ udi (array, optional) - A set of unique identifiers assigned to the asset by the manufacturer
+    + (object)
+        + value: `IMEI 49015420323751` (string, required) - udi identifier
+        + type: `default` (string, required) - `type of the udi identifier acording to dictionary EQUIPMENT_UDI_TYPE`
+        + assigner_name: `Ukrainian center of the certification` (string, optional) - assigner name of the udi
+
+### `Equipment_response_v2`
++ id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - Equipment identifier
++ include `Equipment_base_v2`
++ error_reason: `Out of service` (string, optional) - Error reason
++ is_active: true (boolean, required) - Technical attribute. Indicates the availability of therecord in the system
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
++ `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
 
 ### `Equipment_response`
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - Equipment identifier
