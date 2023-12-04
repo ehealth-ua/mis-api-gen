@@ -13703,6 +13703,7 @@ status: `APPROVED` (string, required)
 + inventory_number: `234554` (string, optional) - Inventory number
 + serial_number: `S/N234554` (string, optional) - Serial number
 + device_definition_id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, optional) - Reference to device definition
++ names (array[`Equipment_name`], required) - Equipment names
 + status: active (string, required) - Device status
 + availability_status: available (string, required) - Device availability status
 + manufacturer: `GlobalMed, Inc` (string, optional) - Manufacturer
@@ -13730,6 +13731,13 @@ status: `APPROVED` (string, required)
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
+
+### `Equipment_name`
++ `name`: `Екг-апарат портативний PM10 S61-2047` (string, required) - Equipment name
++ `type`: `registered` (enum, required) - Equipment name type. Dictionary `device_name_type`
+    - user_friendly
+    - registered
+    - patient_reported
 
 ### `Equipment_response`
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - Equipment identifier
