@@ -8801,7 +8801,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
 + documents_relationship (array, required)
     + (object)
-        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
+        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
         + number: АА120518 (string, required) - document issue number
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
         + issued_at: `2017-02-28` (string, optional) - the date when document was issued
@@ -8812,11 +8812,11 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
     + documents_relationship (array, required)
         + (object)
-            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_DEPRIVATION_OF_CONFIDANT_RIGHTS_TYPE`
+            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
             + number: АА120518 (string, required) - document issue number
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
             + issued_at: `2017-02-28` (string, optional) - the date when document was issued
-+ authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
++ authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
