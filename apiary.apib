@@ -922,11 +922,12 @@ Use this method to obtain Person Request details.
 ### Get Person Requests List [GET /api/person_requests{?legal_entity_id,status,page,page_size}]
 
 Use this method to obtain list of Person Requests. 
-If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UIfeat: section.
+If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI.
 
 Service returns only person request related to the same legal entity as the user.
 
-Method returns shortened details, to obtain full information - get Person Request it by it's ID.
+Method returns shortened details, to obtain full information - get Person Request by it's ID using appropriate version of endpoint based on `version` value in response.
+That is, for `version: 1` use [**Get Person Request by ID**](#reference/public.-medical-service-provider-integration-layer/person-requests/get-person-request-by-id) endpoint, for `version: 2` use [**Get Person Request by ID V2**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/person-requests/get-person-request-by-id-v2) endpoint.
 
 More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
 
@@ -953,11 +954,9 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
     + Attributes (`Response_Collection_V2`)
         + data (array[`Patient_Request_Short`])
 
-
 ### Resend Authorization OTP on Person Request [POST /api/person_requests/{id}/actions/resend_otp]
 
 This method is used when you need to re-send SMS to a person who approve creating or updating data about himself.
-
 
 More detailed information - https://e-health-ua.atlassian.net/wiki/x/N4DrJ
 
@@ -9593,7 +9592,7 @@ status: `APPROVED` (string, required)
     + first_name: Петро (string, required)
     + last_name: Іванов (string, required)
     + second_name: Миколайович (string, optional)
-
++ version: 2 (number, required) - version of endpoint used to create person request
 
 ### `Person_info_Public_DRv3`
 + first_name: Петро (string, required)
