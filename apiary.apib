@@ -5583,8 +5583,8 @@ For Create contract request by NHS, the `contract_number` in the request is requ
 ***Scope  contract_request:update***
 
 This WS is designed for NHS employees. Before rewieving contract request it must be assign to NHS employee who will be responsible for this request.
-To assign employee contract it must be in status NEW, IN_RPOCESS.
-After assigner was updated, contract request status will be changed to `IN_RPOCESS`.
+To assign employee contract it must be in status NEW, IN_PROCESS.
+After assigner was updated, contract request status will be changed to `IN_PROCESS`.
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - contract request identifier
@@ -5632,7 +5632,7 @@ In case of reimbursement contract, nhs_contract_price shouldn`t be filled.
 
 ***Scope  contract_request:update***
 
-This WS is designed to approve contract request by NHS. Contract request only in status IN_RPOCESS could be approved.
+This WS is designed to approve contract request by NHS. Contract request only in status IN_PROCESS could be approved.
 
 To approve contract next fields must be signed by NHS employee and sent by same NHS employee in base64 format (all fields below are required):
 In DS EDRPOU/DRFO must be equal to contractor_legal_entity.edrpou
@@ -5698,7 +5698,7 @@ to_approve content for Reimbursement contract type
 
 ***Scope  contract_request:update***
 
-This WS is designed to decline contract request by NHS. Contract request only in status IN_RPOCESS could be declined.
+This WS is designed to decline contract request by NHS. Contract request only in status IN_PROCESS could be declined.
 To decline contract next fields must be signed by NHS employee and sent by same NHS employee in base64 format (all fields below are required):
 In DS EDRPOU/DRFO must be equal to contractor_legal_entity.edrpou
 
