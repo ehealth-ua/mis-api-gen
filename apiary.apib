@@ -13709,10 +13709,11 @@ status: `APPROVED` (string, required)
 + manufacture_date: `1999-01-01` (string, optional) - Manufacturer date
 + model_number: `NSPX30` (string, optional) - Model number
 + type: `30221` (string, required) - `Dictionary: device_definition_classification_type`
++ properties (array[`Equipment_property`], optional) - Equipment properties
 + `legal_entity_id`: `483af06f-d4c6-4c9e-8d9b-680b5ef7270d` (string, required) - Reference to legal entity
 + division_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Reference to division
 + note: `Технічний огляд раз на рік` (string, optional)
-+ parent_id: `8be63914-a278-470b-b868-1af5b9087332` (string, required) - Reference to equipment
++ parent_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Reference to equipment
 + lot_number: `RZ12345678` (string, optional) - Lot number
 + expiration_date: `2020-01-01` (string, optional) - Expiration date
 + udi (array, optional) - A set of unique identifiers assigned to the asset by the manufacturer
@@ -13737,6 +13738,14 @@ status: `APPROVED` (string, required)
     - user_friendly
     - registered
     - patient_reported
+
+### `Equipment_property`
++ `type`: `width` (string, required) - Property type. Dictionary `device_properties`
+- One of
+    + `value_integer`: 10 (number, required)
+    + `value_decimal`: 15.543 (number, required)
+    + `value_boolean`: true (boolean, required)
+    + `value_string`: `blue` (string, required)
 
 ### `Equipment_response`
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - Equipment identifier
