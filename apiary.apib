@@ -3215,7 +3215,7 @@ This method allows to register equipment and bind it with division of legal enti
             + code: 201 (number)
         + data (`Equipment_response_v2`)
 
-### Get equipment list [GET /api/equipment{?division_id,device_definition_id,type,status,page,page_size}]
+### Get equipment list [GET /api/equipment{?division_id,device_definition_id,type,status,model_number,manufacturer,availability_status,recorder,legal_entity_id,inventory_number,serial_number,name,created_from,created_to,page,page_size}]
 
 + Parameters
 
@@ -3223,6 +3223,16 @@ This method allows to register equipment and bind it with division of legal enti
     + device_definition_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Device definition identifier
     + type: `03221` (string, optional) - `Code from dictionary EQUIPMENT_TYPE`
     + status: ACTIVE (string, optional) - Entity status
+    + model_number: PC122345 (string, optional) - Model number
+    + manufacturer: `ФОП Виробник` (string, optional) - Manufacturer
+    + availability_status: AVAILABLE (string, optional) - Availability status
+    + recorder: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Employee who created equipment
+    + legal_entity_id: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Legal entity identifier
+    + inventory_number: `123-654` (string, optional) - Inventory number
+    + serial_number: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Serial number
+    + name: `8be63914-a278-470b-b868-1af5b9087332` (string, optional) - Name
+    + created_from: `2017-08-17` (string, optional) - Start date of the period to find equipments created in this period
+    + created_to: `2017-08-20` (string, optional) - End date of the period to find equipments created in this period
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
