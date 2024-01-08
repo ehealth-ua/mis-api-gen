@@ -6223,10 +6223,11 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 ## Group Public. Devices
 Public method to operate with devices and related entites
 
-### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
+### Get device definitions [GET /api/device_definitions{?id,classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
 Method to get or search all active device definitions in the system
 
 + Parameters
+    + `id`: `993a3466-f9af-499d-9288-549240c0282f` (string, optional) - Device definition id.
     + `classification_type`: `30221` (string, optional) - Classification type. Dictionary `device_definition_classification_type`
     + `model_number`: `H00P53` (string, optional) - Model number for the device
     + `name`: `Some name` (string, optional) - Device name
@@ -13928,6 +13929,8 @@ status: `APPROVED` (string, required)
 + part_number: `P00234` (string, optional) - Part number
 + note: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Notes and comments for device
 + `packaging` (`Device_definition_package`, required)
++ `properties` (array[`Equipment_property`], optional) - Device definition properties
++ `parent_device_definition_id`: `3bc7a920-53a5-46a6-a88e-b5f298c7b898` (string, optional) - Reference to parent device definition
 + `program_devices` (array [`Program_device`], optional) - returns if `medical_program_id` search parameter was set
 + `is_active`: true (boolean, required) - device definition status
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
@@ -13952,5 +13955,6 @@ status: `APPROVED` (string, required)
 + start_date: `2019-01-01` (string, optional) - Active from date
 + end_date: `2025-06-30` (string, optional) - Active to date
 + `device_request_allowed`: TRUE (boolean, optional) - flag whether device definition are allowed to be dispensed by the program.
++ `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether it is allowed to create care plan activity for this device definition.
 + registry_number: `REG-1111` (string, optional) - Registry number
 + `max_daily_count`: 200 (number, required) - Max daily count
