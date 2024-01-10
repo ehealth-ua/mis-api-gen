@@ -3266,9 +3266,9 @@ This method allows to register equipment and bind it with division of legal enti
     + Attributes (`Response__Process_OK`)
         + data (`Equipment_response_v2`)
 
-### Deactivate equipment [PATCH /api/equipment/{id}/actions/deactivate]
+### Change equipment status [PATCH /api/equipment/{id}/actions/change_status]
 
-Method to changes equipment status to `inactive` or `entered-in-error`
+Method to changes equipment status to `inactive` or `entered_in_error`
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Equipment identifier
@@ -3282,16 +3282,16 @@ Method to changes equipment status to `inactive` or `entered-in-error`
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
     
     + Attributes (object)
-        + status: `entered-in-error` (string, required) - New equipment status
+        + status: `entered_in_error` (string, required) - New equipment status
         + error_reason: `Out of service` (string, optional) - Error reason
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + data (`Equipment_response_v2`)
-            - status: `entered-in-error` (string, required) - New equipment status
+            - status: `entered_in_error` (string, required) - New equipment status
             - error_reason: `Out of service` (string, optional) - Error reason
 
-### Change equipment availability status [PATCH /api/equipment/{id}/actions/availability_status]
+### Change equipment availability status [PATCH /api/equipment/{id}/actions/change_availability_status]
 
 + Parameters
     + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - Equipment identifier
