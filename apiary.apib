@@ -6223,11 +6223,10 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 ## Group Public. Devices
 Public method to operate with devices and related entites
 
-### Get device definitions [GET /api/device_definitions{?id,classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
+### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
 Method to get or search all active device definitions in the system
 
 + Parameters
-    + `id`: `993a3466-f9af-499d-9288-549240c0282f` (string, optional) - Device definition id.
     + `classification_type`: `30221` (string, optional) - Classification type. Dictionary `device_definition_classification_type`
     + `model_number`: `H00P53` (string, optional) - Model number for the device
     + `name`: `Some name` (string, optional) - Device name
