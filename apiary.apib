@@ -12048,6 +12048,9 @@ status: `APPROVED` (string, required)
 + `license_types_allowed` (array, optional) - the types of legal entity licenses required to dispense medication request - `Dictionary LICENSE_TYPE`
     + `PHARMACY` (string, required)
     + `PHARMACY_DRUGS` (string, required)
++ `device_request_allowed_code_types` (array, optional) - describes at which way a Device should be represented in care plan activity
+    + `CLASSIFICATION_TYPE`
+    + `DEVICE_DEFINITION`
 
 ### `medical_programs_list`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
