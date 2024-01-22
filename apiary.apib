@@ -6223,7 +6223,7 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 ## Group Public. Devices
 Public method to operate with devices and related entites
 
-### Get device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
+### Get Device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
 Method to get or search all active device definitions in the system
 
 + Parameters
@@ -6249,6 +6249,26 @@ Method to get or search all active device definitions in the system
         + meta (Response__Meta)
             + code: 200 (number)
         + data (array[`Device_Definition_Response`])
+
+### Get Device definition details [GET /api/device_definitions/{id}]
+This web service returns Device definition details filtered by ID.
+
++ Parameters
+    + `id`: `88ecde40-c97f-4b36-bffd-0da9c60d697c` (string, required) - Device definition identifier    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (`Device_Definition_Response`)
 
 # Group Public. Portal and Reports
 
