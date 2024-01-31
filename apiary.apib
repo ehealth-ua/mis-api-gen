@@ -12071,6 +12071,7 @@ status: `APPROVED` (string, required)
 + `device_request_allowed_code_types` (array, optional) - describes at which way a Device should be represented in care plan activity
     + `CLASSIFICATION_TYPE`
     + `DEVICE_DEFINITION`
++ `request_notification_disabled`: true (boolean, optional) - check if patient should not be notified via SMS on operations with medication or device request (create/reject/resend)
 
 ### `medical_programs_list`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
