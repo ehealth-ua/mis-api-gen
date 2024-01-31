@@ -123,8 +123,6 @@ For security purposes, we will set `X-Frame-Options: deny` header that will disa
 
     + Headers
 
-            X-CSRF-Token: my-csrf-token
-
 ### Logout [POST /auth/logout]
 
 This endpoint is used to terminate users authenticated session based on a valid access token.
@@ -228,7 +226,6 @@ Exposed client credentials may be blocked for a security reasons, you will need 
 
     + Headers
 
-            X-CSRF-Token: my-csrf-token
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
