@@ -12077,6 +12077,7 @@ status: `APPROVED` (string, required)
     + `CLASSIFICATION_TYPE`
     + `DEVICE_DEFINITION`
 + `request_notification_disabled`: true (boolean, optional) - check if patient should not be notified via SMS on operations with medication or device request (create/reject/resend)
++ `skip_dispense_division_dls_verify`: true (boolean, optional) -  Check if validation of DLS license should be invoked for the medical program
 
 ### `medical_programs_list`
 + `id`: `c7d52544-0bd4-4129-97b0-2d72633e0490` (string, required) - Internal medical program ID, a UUID string.
