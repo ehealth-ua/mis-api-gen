@@ -4493,6 +4493,33 @@ For employees with other types please use [**Block Medication Request**](https:/
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`)
 
+### Get Medication Request details in composition context [GET /api/persons/{person_id}/compositions/{composition_id}/medication_requests/{id}]
+
+Method returns Medication Request details in the context of Composition 
+User must have an approval on the composition from url.
+
++ Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - Patient identifier
+    + `composition_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Composition identifier
+    + id: `48416485-cc98-46c4-8bba-e321de9e1ecd` (string, required) - Medication Request identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Medication_request_Public_Response_with_Medical_Program_min`
+            + `medication_info` (object, required)
+                + include `Innm_Dosage_for_Medication_request_Responce`
+                + `medication_remaining_qty`: 10.23 (number, optional) - medication quantity allowed to dispense
+
+
 ## Medication Dispense [/api/medication_dispenses]
 
 Medication Dispense - Indicates that a medication product has been dispensed for a named person/patient
@@ -4656,6 +4683,27 @@ This method allows to get short information of the Medication Dispense for the M
     + Attributes (`Response_OK`)
         + data (object)
             + include `Medication_Dispense_Details_Response_for_MSP`
+
+### Get Medication Dispense details in Composition context [GET /api/persons/{person_id}/compositions/{composition_id}/medication_dispenses/{id}]
+
+Method returns Medication Dispense details in the context of Composition 
+User must have an approval on the composition from url.
+
++ Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - Patient identifier
+    + `composition_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Composition identifier
+    + `id`: `a89f6a26-4221-4597-a1d2-542d5e40b565` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`Medication_Dispense_Response_for_Pharmacist`)
 
 ## Reimbursement Report [/api/reimbursement_report]
 
