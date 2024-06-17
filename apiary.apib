@@ -1406,15 +1406,17 @@ Method returns shortened data structure. Use [**Get Employee details**](https://
 **Scopes required:** `employee:read`
 
 + Parameters
-    + no_tax_id: true (boolean, optional) - filer employees with or w/o tax_id
+    + no_tax_id: true (boolean, optional) - filter employees with or w/o tax_id
     + tax_id: 3015492561 (string, optional)
     + party_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
     + edrpou: 38782323 (string, optional) - filter employees by legal_entity edrpou
     + `legal_entity_id`: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional) - filter employees by legal_entity id
     + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0152` (string, optional)
-    + status: APPROVED (enum, optional) - filet employees by status
+    + status: APPROVED (enum, optional) - filter employees by status
         - APPROVED
-        - DISMISSED
+        - STOPPED
+        - ENTERED IN ERROR
+        - AUTODEACTIVATED
         - REORGANIZED
     + employee_type: DOCTOR (string, optional)
     + page: 2 (number, optional) - Page number.
@@ -1479,8 +1481,7 @@ Employee deactivation:
 
 2. Deactivate declarations
 
-3. Update employee parameters:
- - change status=DISMISSED and end_date=now
+3. Update employee parameters
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -1491,6 +1492,10 @@ Employee deactivation:
 
             Authorization: Bearer c2778f3064753ea70de870a53795f5c9
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+   
+    + Attributes (object)
+        + `status`: `STOPPED` (string, required) - reasons for deactivation: STOPPED or ENTERED IN ERROR
+        + `end_date`: `2017-09-01` (string, optional) - the actual date of termination the employee in the specified position. Required for status = STOPPED
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -9971,7 +9976,7 @@ status: `APPROVED` (string, required)
 + position: P8 (string, required) - `Dictionary POSITION`
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
-+ status: APPROVED, DISMISSED, REORGANIZED (enum, required)
++ status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
@@ -10035,7 +10040,7 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + position: P1 (string, required) - `Dictionary: POSITION`
 + `employee_type`: DOCTOR (string) - `Dictionary: EMPLOYEE_TYPE`
-+ status: APPROVED, DISMISSED, REORGANIZED (enum, required) - Employee status
++ status: APPROVED, STOPPED, ENTERED IN ERROR, AUTODEACTIVATED, REORGANIZED (enum, required) - Employee status
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + party (object)
@@ -10053,7 +10058,7 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + position: P1 (string, required) - `Dictionary: POSITION`
 + `employee_type`: DOCTOR (string) - `Dictionary: EMPLOYEE_TYPE`
-+ status: APPROVED, DISMISSED (enum, required) - Employee status
++ status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required) - Employee status
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + party (object)
