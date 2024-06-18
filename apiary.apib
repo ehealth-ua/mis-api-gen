@@ -1503,6 +1503,7 @@ Employee deactivation:
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
             + division (Division_Short)
                 + `legal_entity` (`Legal_Entity_Short`)
+            + status: STOPPED, ENTERED IN ERROR (enum,required)
 
 ### Get Party verification details [GET /api/parties/{id}/verification]
 This method returns current party's verification status and another information about it.
@@ -5106,6 +5107,9 @@ This method in used to approve declaration request by patient via Cabinet
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (`Declaration_Details_Cabinet`)
+            + employee (`Employee_Declaration_Short`)
+                + status: APPROVED (enum, required)
+        
 
 ### Terminate declarations via Cabinet [PATCH /api/cabinet/declarations/{id}/actions/terminate]
 Patient can terminate active declaration using this method.
@@ -5125,6 +5129,8 @@ Patient can terminate active declaration using this method.
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (`Declaration_Details_Cabinet`)
+            + employee (`Employee_Declaration_Short`)
+                + status: APPROVED (enum, required)
 
 ### Get declaration details via Cabinet [GET /api/cabinet/declarations/{id}]
 
