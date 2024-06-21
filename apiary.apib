@@ -1730,13 +1730,14 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
             + message: `This API method returns only exact match results, please retry with more specific search result` (string)
             
 
-### Search Person's merged persons [GET /api/persons/{id}/merged_persons]
+### Search Person's merged persons [GET /api/persons/{id}/merged_persons{?status}]
 
 This method allows to find all persons, which were merged with this person. Also this endpoint shows all the persons who enter the whole chain of merges to this person.
 This information was in response of Get `Search for a Person` before.
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+    + status: `MERGED` (string, optional)
 
 + Request (application/json)
 
@@ -1756,12 +1757,14 @@ This information was in response of Get `Search for a Person` before.
                 + merge_person_id: `bdadc2a7-7283-4f24-bc99-8d8d9808af80` (string, optional) - identifier of a person who is recognized as a duplicate and subsequently deactivated
                 + master_person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - identifier of the person who as a result of the deduplication is recognized as true and subsequently left active
                 + updated_at: `2019-05-08T15:34:00Z` (string, optional)
+                + status: `MERGED` (string, optional)
             + (object)
                 + id: `a4181621-681f-4e46-b0ba-7fa4e59859ef` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
                 + inserted_at: `2019-01-08T15:34:00Z` (string, optional)
                 + merge_person_id: `1a356e56-a991-4ceb-a475-3edfd9930265` (string, optional) - identifier of a person who is recognized as a duplicate and subsequently deactivated
                 + master_person_id: `bdadc2a7-7283-4f24-bc99-8d8d9808af80` (string, optional) - identifier of the person who as a result of the deduplication is recognized as true and subsequently left active
                 + updated_at: `2019-01-08T15:34:00Z` (string, optional)
+                + status: `DECLINED` (string, optional)
 
 
 + Response 404 (application/json)
