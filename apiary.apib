@@ -4543,7 +4543,6 @@ Use this method to unblock previously blocked Medication request for dispense. I
 Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
 
 This method must be used only by employees with type 'PHARMACIST'.
-For employees with other types please use [**Block Medication Request**](https://uaehealthapi.docs.apiary.io/#reference/public.-reimbursement/medication-request/block-medication-request).
 
 **Scopes required:** `medication_request:block_pharm`
 
@@ -4560,6 +4559,7 @@ For employees with other types please use [**Block Medication Request**](https:/
     + Attributes (object)
        + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
        + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
+       + `blocked_to`: `2017-10-01` (string, optional) - Block expiration date
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
