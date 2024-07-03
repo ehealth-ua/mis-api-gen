@@ -4566,6 +4566,33 @@ For employees with other types please use [**Block Medication Request**](https:/
         + meta (Response__Meta)
         + data (`Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`)
 
+### Unblock Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/unblock]
+
+Use this method to unblock Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
+
+This method must be used only by employees with type 'PHARMACIST'.
+
+**Scopes required:** `medication_request:unblock_pharm`
+
++ Parameters
+    + `id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+       + `block_reason`: `Виготовлення лікарських засобів перервано` (string, required) - Block reason
+       + `block_reason_code`: `MEDICATION_CANCEL` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_UNBLOCK_REASON`
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+        + data (`Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`)
+
 ### Get Medication Request details in composition context [GET /api/persons/{person_id}/compositions/{composition_id}/medication_requests/{id}]
 
 Method returns Medication Request details in the context of Composition 
