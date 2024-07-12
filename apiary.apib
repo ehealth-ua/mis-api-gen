@@ -5480,8 +5480,8 @@ previous_request_id | false | опційне поле, яке вказує, що
 contractor_divisions|true| масив id відділень мед. закладу, що включаються в договір
 external_contractor_flag|false| наявність додатку 2 (підрядники, залучені до надання медичних послуг за Договором)
 external_contractors|false|масив об'єктів типу external_contractor objects - підрядники, залучені до надання медичних послуг за Договором
-start_date|false| пункт 9.2 - цей договір діє з (рік має бути поточний або настпуний)
-end_date|false| пункт 9.2 - цей договір діє по (рік має співпадати з роком у start_date або бути наступним за роком start_date за умови, що договір укладається строком на рік)
+start_date|true| пункт 9.2 - цей договір діє з
+end_date|true| пункт 9.2 - цей договір діє по
 id_form|true| словник `CONTRACT_TYPE`, поки що лише один вид Договір на ПМД
 contract_number|false| human-redable номер контракту
 statute_md5|true| хеш завантаженого документу (статуту)
@@ -5496,8 +5496,8 @@ contractor_owner_id|true| підписант, зі сторони мед. зак
 contractor_base|true| на якій підставі діє підписант: закон/домовленість
 contractor_payment_details|true| об'єкт, що містить дані по рахунку, на який будуть здійснюватися виплати
 previous_request_id | false | опційне поле, яке вказує, що поточний запит на контракт є новою версією вказаного запиту
-start_date|false| пункт 9.2 - цей договір діє з (рік має бути поточний або настпуний)
-end_date|false| пункт 9.2 - цей договір діє по (рік має співпадати з роком у start_date або бути наступним за роком start_date за умови, що договір укладається строком на рік)
+start_date|true| пункт 9.2 - цей договір діє з
+end_date|true| пункт 9.2 - цей договір діє по
 id_form|true| словник `REIMBURSEMENT_CONTRACT_TYPE`
 contract_number|false| human-redable номер контракту
 statute_md5|false| хеш завантаженого документу (статуту)o
