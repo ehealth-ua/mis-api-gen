@@ -4638,7 +4638,7 @@ Medication Dispense - Indicates that a medication product has been dispensed for
 
 This method is used to dispense medications to patient
 
-Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
+Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/17080647770/Create+Medication+Dispense+by+Pharmacy+User)
 
 If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount (optional, if medical program has funding sourse != NHS)` and `payment_id (optional)` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
 
@@ -6586,7 +6586,7 @@ Available employee status transitions:
 NEW -> REJECTED (action=reject)
 NEW -> APPROVED (action=approve)
 
-Method logic described on [confluence page](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583401574/Approve+Reject+Employee+Request)
+Method logic described on [confluence page](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403978/Approve+or+Reject+employee+Request)
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -8689,7 +8689,7 @@ Look at [**Dummy Process Medication Dispense**](https://uaehealthapi.docs.apiary
 ### Create Medication Dispense - Deprecated [POST /api/medication_dispenses{?code}]
 
 This method is used to dispense medications to patient
-Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/583403856/Create+Medication+Dispense)
+Full list of all validations can be found [here](https://e-health-ua.atlassian.net/wiki/spaces/EH/pages/17080647770/Create+Medication+Dispense+by+Pharmacy+User)
 
 If medical program has setting with parameter `skip_medication_dispense_sign` = true then  fields `payment_amount (optional, if medical program has funding sourse != NHS)` and `payment_id (optional)` should be submitted. In this case process of medication dispense will be performed on create (w/o using digital sign)
 
@@ -11187,7 +11187,7 @@ status: `APPROVED` (string, required)
 ### `nhs_declaration`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + include `Declaration_Request_Details_Public`
-+ `media_content`: `https://cs5.pikabu.ru/post_img/big/2015/12/04/5/1449210847155432089.jpg`,`https://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg`  (array, required)
++ `media_content`: `https://ehealth.gov.ua/wp-content/uploads/2022/07/photo_2022-07-15_15-16-49-825x510.jpg`,`https://ehealth.gov.ua/wp-content/uploads/2020/11/mockDrop_iPhone-5-825x510.jpg`  (array, required)
 
 ## NHS Portal v2
 
