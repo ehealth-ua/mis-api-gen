@@ -10223,6 +10223,17 @@ status: `APPROVED` (string, required)
     - ACTIVE
     - CLOSED
 
+### `blocked_by_legal_entity_short`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ name: Клініка Ноунейм (string, required)
++ short_name: Ноунейм (string, required)
++ public_name: Клініка Ноунейм (string, required)
++ type: MSP (string, required)
++ edrpou: 5432345432 (string, required)
++ status: ACTIVE (enum, required)
+    - ACTIVE
+    - CLOSED
+
 ### `Legal_Entity_For_Declaration_Short`
 + short_name: Ноунейм (string, required)
 + name: Клініка Ноунейм (string, required)
@@ -12329,7 +12340,8 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Public_Response_for_Pharmacist`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12381,7 +12393,8 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Public_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12439,7 +12452,9 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
+
 
 ### `Medication_request_reject_Public_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12497,7 +12512,8 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_block_reason_required`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12554,7 +12570,8 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12606,7 +12623,8 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12657,7 +12675,8 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Private_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12715,7 +12734,8 @@ status: `APPROVED` (string, required)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Private_Response_with_Medical_Program_min`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12772,7 +12792,8 @@ status: `APPROVED` (string, required)
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
-+ blocked_by_legal_entity_id: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Legal entity identifier who blocked MR
++ `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
+    + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 
 ### `Medication_request_Reject_Public_Response`
 + `rejected_at`: `2017-04-20T19:14:13Z` (string, required) - Reject date - ISO 8601 date and time in UTC timezone.
