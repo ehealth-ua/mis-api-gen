@@ -3321,7 +3321,7 @@ Method to changes equipment status to `inactive` or `entered_in_error`
     + Attributes (`Response__Process_OK`)
         + data (`Equipment_response_v2`)
             - status: `entered_in_error` (string, required) - New equipment status `Dictionary: equipment_statuses`
-            - error_reason: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
+            - `error_reason`: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
 
 ### Change equipment availability status [PATCH /api/equipment/{id}/actions/change_availability_status]
 
@@ -13988,7 +13988,7 @@ status: `APPROVED` (string, required)
 + id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, required) - Equipment identifier
 + include `Equipment_base_v2`
 + `legal_entity_id`: `483af06f-d4c6-4c9e-8d9b-680b5ef7270d` (string, required) - Reference to legal entity
-+ error_reason: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
++ `error_reason`: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
