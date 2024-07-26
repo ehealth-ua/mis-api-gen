@@ -3315,7 +3315,7 @@ Method to changes equipment status to `inactive` or `entered_in_error`
     
     + Attributes (object)
         + status: `entered_in_error` (string, required) - New equipment status `Dictionary: equipment_statuses`
-        + error_reason: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
+        + `error_reason`: `Out of service` (string, optional) - Error reason `Dictionary: equipment_status_reasons`
 
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -13970,8 +13970,8 @@ status: `APPROVED` (string, required)
 + serial_number: `S/N234554` (string, optional) - Serial number
 + device_definition_id: `7c3da506-804d-4550-8993-bf17f9ee0402` (string, optional) - Reference to device definition
 + names (array[`Equipment_name`], required) - Equipment names
-+ status: active (string, required) - Device status `Dictionary: equipment_statuses`
-+ availability_status: available (string, required) - Device availability status `Dictionary: equipment_status_reasons`
++ status: `active` (string, required) - Device status `Dictionary: equipment_statuses`
++ `availability_status`: `available` (string, required) - Device availability status `Dictionary: equipment_status_reasons`
 + manufacturer: `GlobalMed, Inc` (string, optional) - Manufacturer
 + manufacture_date: `1999-01-01` (string, optional) - Manufacturer date
 + model_number: `NSPX30` (string, optional) - Model number
