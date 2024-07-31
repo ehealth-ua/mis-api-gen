@@ -4969,7 +4969,7 @@ Division|`dls_verified`
 Employee|`status`
 EmployeeRequest|`status` and `employee_id`
 MedicationDispense|`status`
-MedicationRequest|`is_blocked` or `status`
+MedicationRequest|`status`
 LegalEntity|`status`
 Person|`verification_status` or `status`
 Preperson|`status`
@@ -12335,7 +12335,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12388,7 +12387,6 @@ status: `APPROVED` (string, required)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12447,7 +12445,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12507,7 +12504,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12566,7 +12562,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12618,7 +12613,6 @@ status: `APPROVED` (string, required)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12671,7 +12665,6 @@ status: `APPROVED` (string, required)
     + (Dosage_Instruction)
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12729,7 +12722,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, optional, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, optional) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, optional) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12788,7 +12780,6 @@ status: `APPROVED` (string, required)
 + `rejected_by`: `e8e5a969-74d8-4620-8496-f5e41f2e8312` (string, optional, nullable) - Rejected user identifier
 + `reject_reason`: `Incompatible drugs` (string, optional, nullable) - Medication request reject reason
 + `reject_reason_code`: `PATIENT_REJECT` (string, required, nullable, nullable) - `Dictionary MEDICATION_REQUEST_REJECT_REASON`
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `block_reason`: `Підозра на фрод` (string, required) - Block or unblock reason description
 + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block or unblock reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
 + include `MR_MRR_additional_fields`
@@ -12817,7 +12808,6 @@ status: `APPROVED` (string, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act. "medical_program" is absent
     - order - The request represents a request/demand and authorization for action. "medical_program" is required
-+ is_blocked: false (boolean, optional) - Whether medication request is blocked or not
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
     + licenses (array[`MSP_License`], required)
@@ -12858,7 +12848,6 @@ status: `APPROVED` (string, required)
 + intent: plan (enum, required) - Represents the medication request purpose. Dictionary MEDICATION_REQUEST_INTENT
     - plan - The request represents an intention to ensure something occurs without providing an authorization for others to act. "medical_program" is absent
     - order - The request represents a request/demand and authorization for action. "medical_program" is required
-+ is_blocked: false (boolean, required) - Whether medication request is blocked or not
 + `legal_entity` (`Legal_Entity_Short`, required)
     + `id`: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, required)
     + licenses (array[`MSP_License`], required)
