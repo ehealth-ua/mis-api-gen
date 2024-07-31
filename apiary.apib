@@ -4557,7 +4557,7 @@ This method must be used only by employees with type 'PHARMACIST'.
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-       + `block_reason`: `перевищено норми відпуску` (string, required) - Block reason
+       + `block_reason`: `перевищено норми відпуску` (string, optional) - Block reason
        + `block_reason_code`: `BLOCK_WRONG_QTY_DRUG` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_BLOCK_REASON`
        + `blocked_to`: `2018-08-02T10:45:16.000Z` (string, optional) - Block expiration date
 
@@ -4585,7 +4585,6 @@ This method must be used only by employees with type 'PHARMACIST'.
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-       + `block_reason`: `Виготовлення лікарських засобів перервано` (string, required) - Block reason
        + `block_reason_code`: `MEDICATION_CANCEL` (string, required) - Block reason code `Dictionary MEDICATION_REQUEST_UNBLOCK_REASON`
 
 + Response 200 (application/json)
