@@ -4540,7 +4540,7 @@ Use this method to unblock previously blocked Medication request for dispense. I
 
 ### Block Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/block]
 
-Use this method to block Medication request for dispense. In order to block medication request `block_reason` and `block_reason_code` should be added in request.
+Use this method to block Medication request for dispense. In order to block medication request `block_reason_code` and `block_reason`(optional) should be added in request.
 
 This method must be used only by employees with type 'PHARMACIST'.
 
@@ -4568,7 +4568,7 @@ This method must be used only by employees with type 'PHARMACIST'.
 
 ### Unblock Medication Request by Pharmacy User [PATCH /api/pharmacy/medication_requests/{id}/actions/unblock]
 
-Use this method to unblock Medication request for dispense. In order to unblock medication request `block_reason` and `block_reason_code` should be added in request.
+Use this method to unblock Medication request for dispense. In order to unblock medication request `block_reason` should be added in request.
 
 This method must be used only by employees with type 'PHARMACIST'.
 
