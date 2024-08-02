@@ -11520,7 +11520,8 @@ status: `APPROVED` (string, required)
 + `medication_request_allowed`: TRUE (boolean, optional) - flag whether medications are allowed to be dispensed by the program.
 + `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether activities are allowed to be created with product as this medications.
 + registry_number: `REG-1111` (string, optional) - Registry number
-+ `max_daily_dosage`: 200 (number, required) - Max daily dosage
++ `max_daily_dosage`: 200 (number, required) - Max daily dosage'
++ `package_qty_divisible`: TRUE (boolean, required) - package divisible flag
 
 ## Complex FHIR Types
 ### `Extension`
@@ -12205,6 +12206,7 @@ status: `APPROVED` (string, required)
 + `end_date`: `2019-06-30` (string, optional) - Active to date
 + `registry_number`: `REG-1111` (string, optional) - Registry number
 + `drlz_sku_id`: `0404466792737630283703997321` (string, optional) - identifier of a product out of external DRLZ register 
++ `package_qty_divisible`: TRUE (boolean, required) - package divisible flag
 
 ### `Qualify_by_ID_Request_for_Medication_request_Responce`
 + include `Qualify_Medication_request_Request_Responce`
