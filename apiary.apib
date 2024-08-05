@@ -2283,7 +2283,7 @@ Use this method to update person's verification status. Now updating of DRACS de
 
 
 ### Dummy Update Person verification status [PATCH /api/persons/{id}/verification]
-Use this method to update person's verification status. Now updating of DRACS death verification status is allowed.
+Use this method to update person's verification status. Now updating of DRACS death and DRACS name change verification status is allowed.
 
 **Scopes required:** `person_verification:write`
 
@@ -2303,6 +2303,10 @@ Use this method to update person's verification status. Now updating of DRACS de
            + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
            + `verification_comment`: `Смерть пацієнта підтверджено` (string, required) - Verification comment
            + `death_date`: `2022-05-09` (string, optional) - Patient death_date
+        + `dracs_name_change` (object)
+           + `verification_status`: `VERIFIED` (string, required) - Person DRACS name change verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+           + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+           + `verification_comment`: `Пацієнт не замінював ПІБ` (string, required) - Verification comment
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -9278,6 +9282,10 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
         + `verification_status`: `NOT_VERIFIED` (string, required) - status of person DRACS birth verification according to `PERSON_VERIFICATION_STATUSES` dictionary
         + `verification_reason`: `AUTO_ONLINE` (string, required) - how current DRACS birth verification status has been set according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary
         + `verification_comment`: `Необхідно повторно підтвердити дані свідоцтва про народження пацієнта` (string, optional) - DRACS birth verification status description set by NHS
+    + `dracs_name_change` (object)
+       + `verification_status`: `VERIFIED` (string, required) - Person DRACS name change verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+       + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+       + `verification_comment`: `Пацієнт не замінював ПІБ` (string, optional) - Verification comment
 
 ## `Merge_Candidates`
 ### `Merge_Candidate`
