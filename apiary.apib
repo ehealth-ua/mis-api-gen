@@ -1528,7 +1528,7 @@ This method returns current party's verification status and another information 
                     
 
 ### Update Party verification status [PATCH /api/parties/{id}/verification]
-Use this method to update party's verification status. Now updating of DRACS death verification status is allowed.
+Use this method to update party's verification status. Now updating of DRACS death and DRACS name change verification status is allowed.
 
 **Scopes required:** `party_verification:write`
 
@@ -1543,10 +1543,14 @@ Use this method to update party's verification status. Now updating of DRACS dea
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-       + `dracs_death` (object)
+        + `dracs_death` (object)
            + `verification_status`: `VERIFIED` (string, required) - Party DRACS death verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
            + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
            + `verification_comment`: `Смерть співробітника підтверджено` (string) - Verification comment
+        + `dracs_name_change` (object)
+           + `verification_status`: `VERIFIED` (string, required) - Party DRACS name change verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+           + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+           + `verification_comment`: `Співробітник не замінював ПІБ` (string, required) - Verification comment
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -10170,6 +10174,10 @@ status: `APPROVED` (string, required)
         + `verification_status`: `NOT_VERIFIED` (string, required) - status of DMS passport verification for the party according to `PARTY_VERIFICATION_STATUSES` dictionary
         + `verification_reason`: `AUTO` (string, required) - how current DMS passport verification status has been set according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary
         + `status`: 1 (number, optional) - status of the record in EIS MVS register for the passport document. It is set by synchronization according to `EIS_MVS_STATUS` dictionary
+    + `dracs_name_change` (object)
+       + `verification_status`: `VERIFIED` (string, required) - Party DRACS name change verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+       + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+       + `verification_comment`: `Співробітник не замінював ПІБ` (string, optional) - Verification comment
 
 
 ## `Legal_Entities`
