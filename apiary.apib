@@ -1543,14 +1543,15 @@ Use this method to update party's verification status. Now updating of DRACS dea
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-        + `dracs_death` (object)
-           + `verification_status`: `VERIFIED` (string, required) - Party DRACS death verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
-           + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
-           + `verification_comment`: `Смерть співробітника підтверджено` (string) - Verification comment
-        + `dracs_name_change` (object)
-           + `verification_status`: `VERIFIED` (string, required) - Party DRACS name change verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
-           + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
-           + `verification_comment`: `Співробітник не замінював ПІБ` (string, required) - Verification comment
+       - One of
+           + `dracs_death` (object)
+               + `verification_status`: `VERIFIED` (string, required) - Party DRACS death verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+               + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
+               + `verification_comment`: `Смерть співробітника підтверджено` (string) - Verification comment
+           + `dracs_name_change` (object)
+               + `verification_status`: `VERIFIED` (string, required) - Party DRACS name change verification status according to `PARTY_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+               + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+               + `verification_comment`: `Співробітник не замінював ПІБ` (string, required) - Verification comment
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -2302,15 +2303,16 @@ Use this method to update person's verification status. Now updating of DRACS de
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
     + Attributes (object)
-       + `dracs_death` (object)
-           + `verification_status`: `VERIFIED` (string, required) - Person DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
-           + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
-           + `verification_comment`: `Смерть пацієнта підтверджено` (string, required) - Verification comment
-           + `death_date`: `2022-05-09` (string, optional) - Patient death_date
-        + `dracs_name_change` (object)
-           + `verification_status`: `VERIFIED` (string, required) - Person DRACS name change verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
-           + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
-           + `verification_comment`: `Пацієнт не замінював ПІБ` (string, required) - Verification comment
+       - One of
+           + `dracs_death` (object)
+               + `verification_status`: `VERIFIED` (string, required) - Person DRACS death verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+               + `verification_reason`: `MANUAL_COMFIRMED` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL_CONFIRMED` OR `MANUAL_NOT_CONFIRMED` are allowed.
+               + `verification_comment`: `Смерть пацієнта підтверджено` (string, required) - Verification comment
+               + `death_date`: `2022-05-09` (string, optional) - Patient death_date
+            + `dracs_name_change` (object)
+               + `verification_status`: `VERIFIED` (string, required) - Person DRACS name change verification status according to `PERSON_VERIFICATION_STATUSES` dictionary. `VERIFIED` only is allowed.
+               + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
+               + `verification_comment`: `Пацієнт не замінював ПІБ` (string, required) - Verification comment
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
