@@ -1729,7 +1729,7 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
             + message: `This API method returns only exact match results, please retry with more specific search result` (string)
             
 
-### Search Person's merged persons [GET /api/persons/{id}/merged_persons{?status}]
+### Search Person's merged persons [GET /api/persons/{id}/merged_persons{?status,page,page_size}]
 
 This method allows to find all persons, which were merged with this person. Also this endpoint shows all the persons who enter the whole chain of merges to this person.
 This information was in response of Get `Search for a Person` before.
@@ -1737,6 +1737,8 @@ This information was in response of Get `Search for a Person` before.
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
     + status: `MERGED` (string, optional)
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1748,7 +1750,7 @@ This information was in response of Get `Search for a Person` before.
 
 
 + Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
+    + Attributes (`Response_Collection_V2`)
         + data (array)
             + (object)
                 + id: `57e30ea3-16f1-4f8e-adcd-1a05e99e2d22` (string, optional) - identifier of the relation of persons who are compared during the deduplication process
