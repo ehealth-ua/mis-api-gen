@@ -443,9 +443,9 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
         + person (required)
             + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
             + include (`Person_info_Public`, required)
-        + patient_signed: false (boolean, required) - Факт подписания заявки на збереження/створення персоны.
-        + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
+        + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+        + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
 
 + Response 201 (application/json)
     + Attributes (`Response__Process_OK`)
@@ -462,8 +462,8 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
             + channel: `MIS` (enum, required) - channel that invoke person request create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
         + urgent (object, required)
@@ -516,8 +516,8 @@ Link to THIRD PERSON (`authentication_methods.value`) must be equal to confidant
         + person (required)
             + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
             + include (`Person_info_Public_request_v2_with_new_confidant_data`, required)
-        + patient_signed: false (boolean, required) - Факт подписания заявки на збереження/створення персоны.
-        + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+        + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+        + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
         + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
 + Response 201 (application/json)
@@ -535,8 +535,8 @@ Link to THIRD PERSON (`authentication_methods.value`) must be equal to confidant
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public_response_v2_with_new_confidant_data_object`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
             + channel: `MIS` (enum, required) - channel that invoke person request create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
         + urgent (object, required)
@@ -602,9 +602,9 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, required) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke patient create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
@@ -662,9 +662,9 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public_response_v2_with_new_confidant_data_object`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, required) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke patient create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
@@ -710,11 +710,11 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/MYDAIw
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, optional) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke patient create service
-            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
 
 
 ### Reject Person Request v2 [PATCH /api/v2/person_requests/{id}/actions/reject]
@@ -747,9 +747,9 @@ Use this method to reject previously created Person Request.
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public_response_v2_with_new_confidant_data_object`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, optional) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke patient create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
 
@@ -857,9 +857,9 @@ This method will be depricated. Use **Get Person Request by ID v2** instead.
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, optional) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke person request create service
                 - MIS
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -899,9 +899,9 @@ Use this method to obtain Person Request details.
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public_response_v2_with_new_confidant_data_object`, required)
-            + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-            + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-            + content: `Person content` (string, optional) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by hes key.
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, optional) - HTML document that MUST be shown to a end-user and signed by his key.
             + channel: `MIS` (enum, required) - channel that invoke person request create service
                 - MIS
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
@@ -7245,9 +7245,9 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
         + person (required)
             + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
             + include (`Person_info_Public`, required)
-        + patient_signed: true (boolean, required) - Факт подписания заявки на декларацию.
-        + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
-        + content: `<html><body><p>signed person data</p></body></html>` (string, required) - HTML document that MUST be shown to a  - Should be defined on the client side.end-user and signed by his key.
+        + patient_signed: true (boolean, required) - Person's evidence of sign the person request
+        + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+        + content: `<html><body><p>signed person data</p></body></html>` (string, required) - HTML document that MUST be shown to a end-user and signed by his key.
         + channel: `MIS` (enum, required) - channel that invoke patient create service
         
 + Response 200 (application/json)
@@ -7668,8 +7668,8 @@ Block `person` has optional `id`.
             + start_date: `2017-03-02` (string, required) - Should be defined on the client side.
             + end_date: `2017-03-02` (string, required) - Will be defined on eHealth side if it's not set.
             + person(`Person_Request`, required) - Object that described a Patient. Confidant person should be set for disabled persons, underage persons, etc.
-                + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-                + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+                + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+                + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
                 + id: `53af47ba-d9eb-4a87-a2f7-4114adcf1fc4` (string, optional)
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
             + scope (enum, required)
@@ -9181,8 +9181,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 ### `Declaration_Request_Public`
 + person(`Person_Request`, required) - Object that described a Patient. Confidant person should be set for disabled persons, underage persons, etc.
     + person_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - person id, that should be changed.
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + `employee_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Employee ID with `type=DOCTOR` selected from available Employees as a third contract party.
 + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Registered Medical Service Provider Division identifier.
 + scope (enum, required)
@@ -9220,8 +9220,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     + emergency_contact (object, required)
         + include `Emergency_Contact`
     + `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + `employee_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Employee ID with `type=DOCTOR` selected from available Employees as a third contract party.
 + division_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Registered Medical Service Provider Division identifier.
 + scope (enum, required)
@@ -9232,8 +9232,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + start_date: `2017-03-02` (string, required) - Should be defined on the client side.
 + end_date: `2017-03-02` (string, required) - Will be defined on eHealth side if it's not set.
 + person(`Person_Request`, required) - Object that described a Patient. Confidant person should be set for disabled persons, underage persons, etc.
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + scope (enum, required)
     - family doctor
 + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
@@ -9249,8 +9249,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     + emergency_contact (object, required)
         + include `Emergency_Contact`
     + `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + scope (enum, required)
     - family doctor
 + declaration_number: `0000-12H4-245D` (string, required) - unique number of declaration.
@@ -9260,8 +9260,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + start_date: `2017-03-02` (string, required)
 + end_date: `2017-03-02` (string, required)
 + person(`Person_Request`, required)
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + employee (`Employee_Minimal`)
 + `legal_entity` (`Medical_Service_Provider`)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
@@ -9463,8 +9463,8 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + end_date: `2017-03-02` (string, required)
 + person(`Person_Request`, required)
     + id: `5fb57a5d-1457-430e-9678-c81cec72779f` (string)
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
     + `legal_entity` (`Medical_Service_Provider`)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + division (`Division_Details`)
@@ -9484,8 +9484,8 @@ status: `APPROVED` (string, required)
 + person (object, required) - Object that described a Patient. Confidant person should be set for disabled persons, underage persons, etc.
     + id: `5fb57a5d-1457-430e-9678-c81cec72779f` (string,required )
     + include `Person_info_Public_DRv3`
-    + patient_signed: false (boolean, required) - Факт подписания заявки на декларацию.
-    + `process_disclosure_data_consent`: true (boolean, required) - Согласие на раскрытие персональных данных
+    + patient_signed: false (boolean, required) - Person's evidence of sign the declaration request
+    + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
 + employee (`Employee_Minimal`, required)
 + `legal_entity` (`Medical_Service_Provider`, required)
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
