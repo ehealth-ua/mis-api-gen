@@ -1971,7 +1971,7 @@ This method is used when you need to re-send SMS to a person or third person
         + data (`OTP`)
         
 
-### Get Confidant Person relationships [GET /api/persons/{id}/confidant_person_relationships{?is_expired}]
+### Get Confidant Person relationships [GET /api/persons/{id}/confidant_person_relationships{?is_expired,page,page_size}]
 
 This method allows to view list of confidant person relationships of person.
 
@@ -1980,6 +1980,8 @@ This method allows to view list of confidant person relationships of person.
 + Parameters
     + id: `030d5c41-a945-41ac-89d1-b7c6d1c226c7` (string, required) - identifier of the person
     + is_expired: `false` (boolean, optional) - true if active to date-time less than now, false if active to date-time greater than now or null
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Request (application/json)
 
@@ -1990,7 +1992,7 @@ This method allows to view list of confidant person relationships of person.
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
 + Response 200 (application/json)
-    + Attributes (`Response_OK`)
+    + Attributes (`Response_Collection_V2`)
         + data (array[`Confidant_Person_Masked`])
 
 + Response 403 (application/json)
