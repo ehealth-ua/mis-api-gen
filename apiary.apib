@@ -6266,7 +6266,8 @@ This web service returns Group of Diagnoses details filtered by ID with active d
 Public method to operate with devices and related entites
 
 ### Get Device definitions [GET /api/device_definitions{?classification_type,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
-Method to get or search all active device definitions in the system
+
+Will be deprecated. The method to get or search active device definitions in the system with old structure only. Use **Get Device definitions v2** instead.
 
 + Parameters
     + `classification_type`: `30221` (string, optional) - Classification type. Dictionary `device_definition_classification_type`
@@ -6292,8 +6293,38 @@ Method to get or search all active device definitions in the system
             + code: 200 (number)
         + data (array[`Device_Definition_Response`])
 
+### Get Device definitions v2 [GET /api/v2/device_definitions{?classification_type_system,classification_type_code,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
+
+The method to search all active device definitions in the system.
+
++ Parameters
+    + `classification_type_system`: `device_definition_classification_type` (string, optional) - The system of Classification type that corresponds to dictionary name
+    + `classification_type_code`: `30221` (string, optional) - The code of Classification type that corresponds to dictionary value
+    + `model_number`: `H00P53` (string, optional) - Model number for the device
+    + `name`: `Some name` (string, optional) - Device name
+    + `name_type`: `registered` (enum, optional) - Device name type. Dictionary `device_name_type`
+    + `medical_program_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - medical program id.    
+    + `is_active`: true (boolean, optional) - device definition status
+    + `page`: 2 (number, optional) - Page number
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (array[`Device_Definition_Response_v2`])
+
 ### Get Device definition details [GET /api/device_definitions/{id}]
-This web service returns Device definition details filtered by ID.
+
+Will be deprecated. This web service returns Device definition details filtered by ID with old structure only. Use **Get Device definition details v2** instead.
 
 + Parameters
     + `id`: `88ecde40-c97f-4b36-bffd-0da9c60d697c` (string, required) - Device definition identifier    
@@ -6311,6 +6342,29 @@ This web service returns Device definition details filtered by ID.
         + meta (Response__Meta)
             + code: 200 (number)
         + data (`Device_Definition_Response`)
+        
+
+### Get Device definition details v2 [GET /api/v2/device_definitions/{id}]
+
+This web service returns Device definition details filtered by ID.
+
++ Parameters
+    + `id`: `88ecde40-c97f-4b36-bffd-0da9c60d697c` (string, required) - Device definition identifier    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + meta (Response__Meta)
+            + code: 200 (number)
+        + data (`Device_Definition_Response_v2`)
+
 
 # Group Public. Portal and Reports
 
@@ -14022,6 +14076,25 @@ status: `APPROVED` (string, required)
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
+
+### `Device_Definition_Response_v2`
++ include `Device_Definition_Response`
++ `classification_type` (array, required) - Classification type. Dictionary and its value
+    + (Coding)
+        + system: `device_definition_classification_type` (string, required)
+        + code: `30221` (string, required)
++ `properties` (array, optional) - Device definition properties
+    + (object)
+        + `type` (Coding, required) - Property type. Dictionary and its value
+            + system: `device_properties` (string, required)
+            + code: `default` (string, required)
+        - One of
+            + `value_integer`: 10 (number, required)
+            + `value_decimal`: 15.543 (number, required)
+            + `value_boolean`: true (boolean, required)
+            + `value_string`: `blue` (string, required)
+            + `value_codeable_concept` (Codeable_Concept, required)
+
 
 ### `device_name`
 + `name`: `Тест-смужки Accu-Chek Active для глюкометра` (string, required) - Device name
