@@ -4040,7 +4040,7 @@ This method is used to qualify (possibility to use Innm for the program) Medicat
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
-        +  data (array[`Qualify_by_ID_Request_for_Medication_request_Responce`]))
+        +  data (array[`Qualify_by_ID_Request_for_Medication_request_Responce`])
 
 + Response 422 (application/json)
     + Attributes (`Response_Error`)
@@ -12000,6 +12000,7 @@ status: `APPROVED` (string, required)
     + (Dosage_Instruction)
 + include `MR_MRR_additional_fields`
 + note: some additional info (string, optional) - Additional information
++ `inform_with`: `ce74e177-9c3b-4426-aeec-294674f2d65a` (string, optional) - Identifier of person's auth method.
 
 ### `Medication_request_Request_Sign`
 + `category`: `community` (enum, required)
@@ -12350,6 +12351,7 @@ status: `APPROVED` (string, required)
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
 + `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ `inform_with`: `ce74e177-9c3b-4426-aeec-294674f2d65a` (string, optional) - Identifier of person's auth method.
 
 
 ### `Medication_request_reject_Public_Response_with_Medical_Program_min`
@@ -12466,6 +12468,7 @@ status: `APPROVED` (string, required)
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
 + `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ `inform_with`: `ce74e177-9c3b-4426-aeec-294674f2d65a` (string, optional) - Identifier of person's auth method.
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12518,6 +12521,7 @@ status: `APPROVED` (string, required)
 + blocked_to: `2021-12-18T14:40:16Z` (string, optional, nullable) - Blocked to date - ISO 8601 date and time in UTC timezone.
 + `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ `inform_with`: `ce74e177-9c3b-4426-aeec-294674f2d65a` (string, optional) - Identifier of person's auth method.
 
 ### `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist_block_reason_required`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
@@ -12569,6 +12573,7 @@ status: `APPROVED` (string, required)
 + `blocked_by_legal_entity` (`blocked_by_legal_entity_short`, optional) - Legal entity identifier who blocked MR
     + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
 + include `MR_MRR_additional_fields`
++ `inform_with`: `ce74e177-9c3b-4426-aeec-294674f2d65a` (string, optional) - Identifier of person's auth method.
 
 ### `Medication_request_Private_Response`
 + `id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Medication Request identifier
