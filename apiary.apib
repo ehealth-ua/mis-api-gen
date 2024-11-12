@@ -6302,7 +6302,7 @@ Will be deprecated. The method to get or search active device definitions in the
     + Attributes (`Response_Collection_V2`)
         + meta (Response__Meta)
             + code: 200 (number)
-        + data (array[`Device_Definition_Response`])
+        + data (array[`Device_Definition_Response_v1`])
 
 ### Get Device definitions v2 [GET /api/v2/device_definitions{?classification_type_system,classification_type_code,model_number,name,name_type,medical_program_id,is_active,page,page_size}]
 
@@ -6352,7 +6352,7 @@ Will be deprecated. This web service returns Device definition details filtered 
     + Attributes (`Response_OK`)
         + meta (Response__Meta)
             + code: 200 (number)
-        + data (`Device_Definition_Response`)
+        + data (`Device_Definition_Response_v1`)
         
 
 ### Get Device definition details v2 [GET /api/v2/device_definitions/{id}]
@@ -14067,14 +14067,12 @@ status: `APPROVED` (string, required)
 + id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - Unique identifier of Device definition
 + external_id: `0012351` (string, optional) - Device identifier in external registry
 + `device_names` (array [`device_name`], required)
-+ `classification_type`: `30221` (string, required) - Classification type. Dictionary `device_definition_classification_type`
 + description: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Device description
 + `manufacturer` (`Manufacturer`, optional)
 + model_number: `M23N76` (string, optional) - Model number
 + part_number: `P00234` (string, optional) - Part number
 + note: `Для визначення рівня глюкози в крові за допомогою глюкоментра Accu-Chek Active` (string, optional) - Notes and comments for device
 + `packaging` (`Device_definition_package`, required)
-+ `properties` (array[`Equipment_property`], optional) - Device definition properties
 + `parent_id`: `3bc7a920-53a5-46a6-a88e-b5f298c7b898` (string, optional) - Reference to parent device definition
 + `program_devices` (array [`Program_device`], optional) - returns if `medical_program_id` search parameter was set
 + `is_active`: true (boolean, required) - device definition status
@@ -14083,9 +14081,14 @@ status: `APPROVED` (string, required)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
 
+### `Device_Definition_Response_v1`
++ include `Device_Definition_Response`
++ `classification_type`: `30221` (string, required) - Classification type. Dictionary `device_definition_classification_type`
++ `properties` (array[`Equipment_property`], optional) - Device definition properties
+
 ### `Device_Definition_Response_v2`
 + include `Device_Definition_Response`
-+ `classification_type` (array, required) - Classification type. Dictionary and its value
++ `classification_types` (array, required) - Classification type. Dictionary and its value
     + (Coding)
         + system: `device_definition_classification_type` (string, required)
         + code: `30221` (string, required)
