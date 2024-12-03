@@ -1499,6 +1499,36 @@ Employee deactivation:
                 + `legal_entity` (`Legal_Entity_Short`)
             + status: STOPPED, ENTERED IN ERROR (enum,required)
 
+### Get Party Verification Statuses List [GET /api/parties/verifications]
+This method returns a list of current party's verification statuses and additional related information.
+
+**Scopes required:** `party_verification:read`
+
++ Parameters
+    + legal_entity_id: `d1b4e6c8-4bdf-4c77-b823-53ef8769e412` (string, required) - Identifier of the legal entity.
+    + verification_status: `VERIFIED` (string, required) - Filter by verification status. Possible values:
+        + `CHANGES_NEEDED`
+        + `VERIFIED`
+        + `VERIFICATION_NEEDED`
+        + `NOT_VERIFIED`
+    + division_id: `e2f4d6a7-8b9c-4c8a-93e2-5c617d832b71` (string, optional) - Identifier of the division.
+    + status: `active` (string, optional) - Filter by employee status. default: `active`
+    + page: `1` (integer, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+            api-key: {your_api_key}
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+         + data (object)
+            + include `PartyVerification`
+
 ### Get Party verification details [GET /api/parties/{id}/verification]
 This method returns current party's verification status and another information about it.
 
@@ -2152,7 +2182,7 @@ This method is used when you need to re-send SMS to Confidant
         + data (`OTP`)
 
 
-### Get Person Verification Statuses List [GET /api/person_verifications]
+### Get Person Verification Statuses List [GET /api/person/verifications]
 This method returns a list of persons with their verification statuses and additional related information.
 
 **Scopes required:** `person_verification:read`
@@ -9205,7 +9235,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `PersonVerification`
 + person_id: `5a4f839d-3c1d-40b6-93d2-4ad917f03d7e` (string, required) - Unique identifier of the person.
-+ verification_status: `VERIFIED` (string, required) - Current status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
++ `verification_status`: `NOT_VERIFIED` (string, required) - status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
 + person_status: `active` (string) - Person's status (default: `active`).
 + persons_updated_at: `2024-12-01T12:34:56Z` (string, required) - Date and time when the person was last updated.
 + declaration_number: `0000-12H4-245D` (string, required) - Declaration number associated with the person.
@@ -10074,6 +10104,13 @@ status: `APPROVED` (string, required)
 + division_id: `4cffa825-8b5b-4cba-9a38-fb57733e14b2` (string, optional) - division identifier
 + `legal_entity_id`: `be3a154c-3e07-496d-9680-f22c443f5d0c` (string, required) - legal entity identifier
 + doctor (DoctorNew)
+
+### PartyVerification
++ employee_id: `7c5f839d-3a1b-4c9d-92d2-4ad917f03e8c` (string) - Unique identifier of the employee.
++ verification_status: `VERIFIED` (string) - Current verification status according to `PARTY_VERIFICATION_STATUSES` dictionary
++ division_id: `e2f4d6a7-8b9c-4c8a-93e2-5c617d832b71` (string, optional) - Identifier of the division.
++ party_updated_at: `2024-12-01T12:34:56Z` (string) - Date and time when the party was last updated.
+
 
 ### `Party_Verification_Details`
 + `verification_status`: `NOT_VERIFIED` (string, required) - status of party verification according to `PARTY_VERIFICATION_STATUSES` dictionary
