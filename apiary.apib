@@ -2152,6 +2152,38 @@ This method is used when you need to re-send SMS to Confidant
         + data (`OTP`)
 
 
+### Get Person Verification Statuses List [GET /api/person_verifications]
+This method returns a list of persons with their verification statuses and additional related information.
+
+**Scopes required:** `person_verification:read`
+
+
++ Parameters
+    + legal_entity_id: `d1b4e6c8-4bdf-4c77-b823-53ef8769e412` (string, required) - Identifier of the legal entity (type: PRIMARY_CARE).
+    + employee_id: `a3d5e1c7-8a2f-43f3-bef5-912b6e27a7b9` (string, required) - Identifier of the employee.
+    + verification_status: `VERIFIED` (string, required) - Filter by verification status. Possible values:
+        + `CHANGES_NEEDED`
+        + `VERIFIED`
+        + `VERIFICATION_NEEDED`
+        + `NOT_VERIFIED`
+    + status: `active` (string, optional, default: `active`) - Filter by person status.
+    + page: `1` (number, optional) - Page number.
+    + page_size: `50` (number, optional, default: 50) - Number of records per page (1 to 300).
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+         + data (object)
+            + include `PersonVerification`
+
+
 ### Get Person verification details [GET /api/persons/{id}/verification]
 This method returns current person's verification status and another information about it.
 
@@ -9170,6 +9202,14 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     + `legal_capacity` (object)
        + `verification_status`: `VERIFICATION_NOT_NEEDED` (string, required) - Person Legal capacity verification status according to `PERSON_VERIFICATION_STATUSES` dictionary.
        + `verification_reason`: `AUTO_DATA_ABSENT` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary.
+
+### `PersonVerification`
++ person_id: `5a4f839d-3c1d-40b6-93d2-4ad917f03d7e` (string, required) - Unique identifier of the person.
++ verification_status: `VERIFIED` (string, required) - Current status of person verification according to `PERSON_VERIFICATION_STATUSES` dictionary
++ person_status: `active` (string) - Person's status (default: `active`).
++ persons_updated_at: `2024-12-01T12:34:56Z` (string, required) - Date and time when the person was last updated.
++ declaration_number: `0000-12H4-245D` (string, required) - Declaration number associated with the person.
++ declaration_status: `active` (string) - Declaration status (default: `active`).
 
 ## `Merge_Candidates`
 ### `Merge_Candidate`
