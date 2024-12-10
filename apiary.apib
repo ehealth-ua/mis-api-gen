@@ -2182,14 +2182,13 @@ This method is used when you need to re-send SMS to Confidant
         + data (`OTP`)
 
 
-### Get Person Verification Statuses List [GET /api/person/verifications]
+### Get Persons Verification Statuses List [GET /api/persons/verifications]
 This method returns a list of persons with their verification statuses and additional related information.
 
 **Scopes required:** `person_verification:read`
 
 
 + Parameters
-    + legal_entity_id: `d1b4e6c8-4bdf-4c77-b823-53ef8769e412` (string, required) - Identifier of the legal entity (type: PRIMARY_CARE).
     + employee_id: `a3d5e1c7-8a2f-43f3-bef5-912b6e27a7b9` (string, required) - Identifier of the employee.
     + verification_status: `VERIFIED` (string, required) - Filter by verification status. Possible values:
         + `CHANGES_NEEDED`
