@@ -14224,9 +14224,10 @@ status: `APPROVED` (string, required)
 + note: `Додаткова примітка до команди лікування` (string, optional) - Comments made about care team
 
 ### `Care_team_participant_base`
-+ role: `active` (enum, required) - Care team participant role `Dictionary care_team_participant_roles`
-+ member_type: `employee` (enum, required) - Care team participants member type `Dictionary care_team_status`
-+ member_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant member identifier
++ role: `participant` (enum, required) - Care team participant role `Dictionary care_team_participant_role`
+- One of
+    + employee_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Employee participant identifier
+    + care_team_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant identifier
 + period_start: `2024-11-28` (string, required) - Start of period when member participates in care team
 + period_end: `2027-11-28` (string, optional) - End of period when member participates in care team 
 
