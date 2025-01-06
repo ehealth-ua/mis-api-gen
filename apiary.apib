@@ -14345,7 +14345,6 @@ status: `APPROVED` (string, required)
 + category: `palliative_care_team` (enum, required) - Care team category `Dictionary care_team_category`
 + name: `Тестова команда лікування` (string, optional) - Care team name
 + period_start: `2024-11-28` (string, required) - Start of period that care team covers
-+ period_end: `2027-11-28` (string, optional) - End of period that care team covers
 + email: `test_care_team@email.com` (string, optional) - Cate team contact email
 + phones (array[`Phone`], optional) - Array of care team contact phones
 + note: `Додаткова примітка до команди лікування` (string, optional) - Comments made about care team
@@ -14355,17 +14354,19 @@ status: `APPROVED` (string, required)
 + member_type: `employee` (enum, required) - Care team participants member type `Dictionary care_team_participant_member_type`
 + member_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant member identifier
 + period_start: `2024-11-28` (string, required) - Start of period when member participates in care team
-+ period_end: `2027-11-28` (string, optional) - End of period when member participates in care team 
++ status: `active` (enum, required) - Care team participant status `Dictionary care_team_participant_status`
 
 ### `crud_care_team_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_base`
++ period_end: `2027-11-28` (string, optional) - End of period that care team covers
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
 + participants (array[`crud_care_team_participant_get`], required)
 
 ### `crud_care_team_participant_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_participant_base`
++ period_end: `2027-11-28` (string, optional) - End of period when member participates in care team
 
 ### `crud_care_team_post`
 + include `Care_team_base`
