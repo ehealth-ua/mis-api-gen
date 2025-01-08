@@ -3848,6 +3848,28 @@ This method is used to add additionals participants to care team.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_participant_get`)
 
+### Change care team participant status [PATCH /api/care_teams/{id}/participants/{participant_id}/actions/change_status]
+
+This method is used to update care team participant status.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
+    + participant_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team participant identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (`crud_care_team_participant_patch`)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`crud_care_team_participant_get`)
+
 # Group Public. Medical Programs
 
 ## Medical Program [/api/medical_program]
@@ -14454,6 +14476,10 @@ status: `APPROVED` (string, required)
 + status: `inactive` (enum, required) - Care team status `Dictionary care_team_status`
 + `status_reason`: `typo` (string, optional) - Care team status reason `Dictionary care_team_status_reasons`
 + period_end: `2024-11-28` (string, optional) - End of period that care team covers
+
+### `crud_care_team_participant_patch`
++ status: `inactive` (enum, required) - Care team participant status `Dictionary care_team_participant_status`
++ period_end: `2024-11-28` (string, optional) - End of period when member participates in care team
 
 ## Approvals
 ### Approval (object)
