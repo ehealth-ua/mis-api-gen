@@ -3769,6 +3769,64 @@ This method is used to create care teams for legal entity in the system.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_get`)
 
+### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,page,page_size}]
+
+This method is used to search for care teams in legal entity.
+
++ Parameters
+    + category: `palliative_care_team` (string, optional) - Care team category
+    + period_start_from: `2024-12-12` (string, optional)
+    + period_start_to: `2024-12-22` (string, optional)
+    + period_end_from: `2025-12-12` (string, optional)
+    + period_end_to: `2025-12-22` (string, optional)
+    + status: `active` (string, optional) - primary or additional license flag
+    + `page`: 2 (number) - Page number.
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`crud_care_team_get`])
+
+### Get care teams by ID [GET /api/care_teams/{id}]
+
+This method is used to get details of care team.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`crud_care_team_get`)
+
+### Change care team status [PATCH /api/care_teams/{id}/actions/change_status]
+
+This method is used to update care team status.
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (`crud_care_team_patch`)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`crud_care_team_get`)
+
+### Get care team participants list [GET /api/care_teams/{id}/participants]
+
+This method is used to get all care team participants.
+
++ Parameters
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`crud_care_team_participant_get`])
+
 ### Add care team participant [POST /api/care_teams/{id}/participants]
 
 This method is used to add additionals participants to care team.
@@ -14380,6 +14438,7 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_base`
 + period_end: `2027-11-28` (string, optional) - End of period that care team covers
++ `status_reason`: `typo` (string, optional) - Care team status reason `Dictionary care_team_status_reasons`
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
 
 ### `crud_care_team_participant_get`
@@ -14390,6 +14449,11 @@ status: `APPROVED` (string, required)
 ### `crud_care_team_post`
 + include `Care_team_base`
 + participants (array[`Care_team_participant_base`], required) - Array for care team participants
+
+### `crud_care_team_patch`
++ status: `inactive` (enum, required) - Care team status `Dictionary care_team_status`
++ `status_reason`: `typo` (string, optional) - Care team status reason `Dictionary care_team_status_reasons`
++ period_end: `2024-11-28` (string, optional) - End of period that care team covers
 
 ## Approvals
 ### Approval (object)
