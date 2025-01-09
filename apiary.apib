@@ -3779,7 +3779,7 @@ This method is used to search for care teams in legal entity.
     + period_start_to: `2024-12-22` (string, optional)
     + period_end_from: `2025-12-12` (string, optional)
     + period_end_to: `2025-12-22` (string, optional)
-    + status: `active` (string, optional) - primary or additional license flag
+    + status: `active` (string, optional) - Care team status
     + `page`: 2 (number) - Page number.
     + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
@@ -3816,12 +3816,16 @@ This method is used to update care team status.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_get`)
 
-### Get care team participants list [GET /api/care_teams/{id}/participants]
+### Get care team participants list [GET /api/care_teams/{id}/participants{?role,status,page,page_size}]
 
 This method is used to get all care team participants.
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
+    + role: `care_manager` (string, optional) - care team participant role
+    + status: `active` (string, optional) - care team participant status
+    + `page`: 2 (number) - Page number.
+    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
