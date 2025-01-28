@@ -9098,7 +9098,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
     - email
     - phone
 + documents_person (array[`Document`], required)
-+ documents_relationship (array[`RelationshipDocument`], required)
++ `documents_relationship` (array[RelationshipDocument_v1], required)
 + phones (array[`Phone`], optional)
 
 ### `Confidant_Person_v2`
@@ -9813,7 +9813,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + person (`Person_Short`)
     + unzr: `19910819-00011` (string, optional) - the record number in the demographic register
     + `emergency_contact` (`Emergency_Contact`, required)
-    + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
+    + `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
 + employee (`Employee_Declaration_Short`)
 + division (`Division_Details_Cabinet`)
 + `legal_entity` (MSP_Details)
@@ -9837,7 +9837,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + person(`Person`)
     + `emergency_contact` (`Emergency_Contact`, required)
-    + `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
+    + `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
 + employee (Employee_Declaration_Short)
 + `legal_entity` (`MSP_Details`)
 + division (`Division_Details_Cabinet`)
@@ -9944,7 +9944,7 @@ status: `APPROVED` (string, required)
 + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
 + emergency_contact (object, required)
     + include `Emergency_Contact`
-+ `confidant_person` (array[`Confidant_Person_v2`], optional) - Should be set if this Person is disabled, underage, etc.
++ `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
 
 
 ### `Person_info_Public_request_v2_with_new_confidant_data`
@@ -11005,11 +11005,19 @@ status: `APPROVED` (string, required)
 + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
 + issued_at: `2017-02-28` (string, optional) - the date when document was issued
 
-### RelationshipDocument
+### `RelationshipDocument_v1`
 + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
 + number: АА120518 (string, required) - document issue number
 + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, optional) - authority which issued the document
 + issued_at: `2017-02-28` (string, optional) - the date when document was issued
++ active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+
+
+### RelationshipDocument
++ type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
++ number: АА120518 (string, required) - document issue number
++ issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
++ issued_at: `2017-02-28` (string, required) - the date when document was issued
 + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
 
 ### `Medical_Certificate`
