@@ -1594,6 +1594,31 @@ Response structure differs depending on employee type:
                 + `owner_property_type`: STATE (string, required) - `Dictionary OWNER_PROPERTY_TYPE`
                 + `mis_verified`: VERIFIED, NOT_VERIFIED (enum, required)
 
+### Get Employee short details [GET /api/employees/{employee_id}/short]
+
+Use this end-point to obtain short information about employee.
+
+**Scopes required:** `employee:details`
+
++ Parameters
+    + employee_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`Employee_details_short_Response`)
+            + division (Division_Short)
+            + `legal_entity` (`Legal_Entity_Short`)
+                + `legal_form`: 140 (string, required) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
+                + `owner_property_type`: STATE (string, required) - `Dictionary OWNER_PROPERTY_TYPE`
+                + `mis_verified`: VERIFIED, NOT_VERIFIED (enum, required)
+
 
 ### Deactivate Employee [PATCH /api/employees/{id}/actions/deactivate]
 
@@ -10168,6 +10193,11 @@ status: `APPROVED` (string, required)
 + declaration_limit: `0` (number) - TO BE DEPRECATED, always zero! maximum number of declaration with a doctor.
 + declaration_count: `0` (number) - TO BE DEPRECATED, always zero! current number of declaration with a doctor.
 
+### `Party_Response_short`
++ id:`b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ include `Party_Short`
++ gender: MALE (string, required) - `Dictionary GENDER`
+
 ### `Party_Create_v2`
 + include `Party_Short`
 + no_tax_id: false (boolean, optional)
@@ -10317,6 +10347,15 @@ status: `APPROVED` (string, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
 + doctor (DoctorNew, optional) - `Field's name depends on employee type name.
+
+### `Employee_details_short_Response`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
++ position: P8 (string, required) - `Dictionary POSITION`
++ start_date: `2017-03-02T10:45:16.000Z` (string, required)
++ end_date: `2018-03-02T10:45:16.000Z` (string, optional)
++ status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required)
++ `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
++ party (`Party_Response_short`)
 
 ### `Employee_Update`
 + division_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
