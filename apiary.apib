@@ -3841,27 +3841,24 @@ This method is used to update care team status.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_get`)
 
-### Get care team participants list [GET /api/care_teams/{id}/participants{?role,status,page,page_size}]
+### Get care team participants list [GET /api/care_teams/participants{?care_team_id,role,status,page,page_size}]
 
-This method is used to get all care team participants.
+This method is used to get all participants of care teams from current legal entity.
 
 + Parameters
-    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
+    + care_team_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - care team identifier
     + role: `care_manager` (string, optional) - care team participant role
     + status: `active` (string, optional) - care team participant status
-    + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (array[`crud_care_team_participant_get`])
 
-### Add care team participant [POST /api/care_teams/{id}/participants]
+### Add care team participant [POST /api/care_teams/participants]
 
 This method is used to add additionals participants to care team.
-
-+ Parameters
-    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
 
 + Request (application/json)
 
@@ -3877,13 +3874,12 @@ This method is used to add additionals participants to care team.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_participant_get`)
 
-### Change care team participant status [PATCH /api/care_teams/{id}/participants/{participant_id}/actions/change_status]
+### Change care team participant status [PATCH /api/care_teams/participants/{id}/actions/change_status]
 
 This method is used to update care team participant status.
 
 + Parameters
-    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team identifier
-    + participant_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team participant identifier
+    + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team participant identifier
 
 + Request (application/json)
 
@@ -14507,6 +14503,7 @@ status: `APPROVED` (string, required)
 + member_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant member identifier
 + period_start: `2024-11-28` (string, required) - Start of period when member participates in care team
 + status: `active` (enum, required) - Care team participant status `Dictionary care_team_participant_status`
++ care_team_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team identifier
 
 ### `crud_care_team_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
