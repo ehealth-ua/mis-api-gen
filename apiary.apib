@@ -326,11 +326,6 @@ Methods is used to retreive eHealth configurations from PRM
 
 ### Get Configurations metadata [GET /api/configurations/metadata{?resource,page,page_size}]
 
-+ Parameters
-    + resource: `composition_configurations` (string, optional) - type of the Configurations
-    + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
-
 + Request (application/json)
 
     + Headers
@@ -340,7 +335,7 @@ Methods is used to retreive eHealth configurations from PRM
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
 + Response 200 (application/json)
-    + Attributes (Response_Collection)
+    + Attributes (Response_OK)
         + data (array[`Configurations_Metadata_Response`])
 
 ### Get Composition Configurations by search params [GET /api/composition_configurations{?type,category,is_active,page,page_size}]
