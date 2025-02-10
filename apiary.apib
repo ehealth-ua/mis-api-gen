@@ -326,7 +326,7 @@ Methods is used to retreive eHealth configurations from PRM
 
 ### Get Configurations metadata [GET /api/configurations/metadata]
 
-This resource should be used to get the last updated_at date from the PRM tables with configurations:
+This resource should be used to get the last updated_at (the latest `updated_at` date of any configuration within a single array of configurations dates) from the tables with configurations:
 - composition_configurations
 - device_parameters_configurations
 - dictionaries_configurations
