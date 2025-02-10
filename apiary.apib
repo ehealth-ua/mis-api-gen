@@ -324,8 +324,27 @@ Each dictionary is an object that contains not only a code and description of a 
 
 Methods is used to retreive eHealth configurations from PRM
 
+### Get Configurations metadata [GET /api/configurations/metadata{?resource,page,page_size}]
+
++ Parameters
+    + resource: `composition_configurations` (string, optional) - type of the Configurations
+    + page: 2 (number, optional) - Page number
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer mF_9.B5f-4.1JqM
+            api-key: aFBLVTZ6Z2dON1V
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (Response_Collection)
+        + data (array[`Configurations_Metadata_Response`])
+
 ### Get Composition Configurations by search params [GET /api/composition_configurations{?type,category,is_active,page,page_size}]
-**Scopes required:** `composition:read`
+
 + Parameters
     + type: `DRIVERS` (string, required) - type of the Composition
     + category: `DRIVERS_GROUP1` (string, required) - category of Composition
@@ -335,7 +354,7 @@ Methods is used to retreive eHealth configurations from PRM
     + `updated_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period start date
     + `updated_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period end date
     + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 1000. Default: 50
 
 + Request (application/json)
 
@@ -351,7 +370,7 @@ Methods is used to retreive eHealth configurations from PRM
         
 
 ### Get Devices Configurations by search params [GET /api/devices_configurations{?device_code,is_active,page,page_size}]
-**Scopes required:** `devices_configurations:read`
+
 + Parameters
     + `device_code`: `04_48_15` (string, optional) - code of the Device
     + `device_code_system`: `eHealth/assistive_devices` (string, optional)
@@ -361,7 +380,7 @@ Methods is used to retreive eHealth configurations from PRM
     + `updated_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period start date
     + `updated_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period end date    
     + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 1000. Default: 50
 
 + Request (application/json)
 
@@ -376,7 +395,7 @@ Methods is used to retreive eHealth configurations from PRM
         + data (array[`Device_Configurations_Response`])
 
 ### Get Device Parameters Configurations by search params [GET /api/device_parameters_configurations{?device_code,is_active,page,page_size}]
-**Scopes required:** `device_parameters_configurations:read`
+
 + Parameters
     + `parameter_code`: `presence_of_a_hygienic_hole` (string, optional) - code of the Device parameter
     + `parameter_system`: `device_request_code_parameter`  (string, optional)
@@ -386,7 +405,7 @@ Methods is used to retreive eHealth configurations from PRM
     + `updated_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period start date
     + `updated_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period end date    
     + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 1000. Default: 50
 
 + Request (application/json)
 
@@ -401,7 +420,7 @@ Methods is used to retreive eHealth configurations from PRM
         + data (array[`Device_Parameters_Configurations_Response`])
 
 ### Get Dictionaries Configurations by search params [GET /api/dictionaries_configurations{?name,is_active,page,page_size}]
-**Scopes required:** `dictionaries_configurations:read`
+
 + Parameters
     + `name`: `assistive_devices` (string, optional) - name of the Dictionary configuration
     + `is_active`: `true` (boolean, optional) - Is configuration active or not.
@@ -410,7 +429,7 @@ Methods is used to retreive eHealth configurations from PRM
     + `updated_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period start date
     + `updated_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period end date    
     + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 1000. Default: 50
 
 + Request (application/json)
 
@@ -425,7 +444,7 @@ Methods is used to retreive eHealth configurations from PRM
         + data (array[`Dictionaries_Configurations_Response`])
 
 ### Get Observation Configurations by search params [GET /api/observation_configurations{?code,is_active,page,page_size}]
-**Scopes required:** `observation_configurations:read`
+
 + Parameters
     + `code`: `_WHODAS_2.0` (string, optional) - code of the Observation configuration
     + `system`: `eHealth/LOINC/observation_codes` (string, optional)
@@ -435,7 +454,7 @@ Methods is used to retreive eHealth configurations from PRM
     + `updated_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period start date
     + `updated_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Updated_at filter period end date    
     + page: 2 (number, optional) - Page number
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 100. Default: 50
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 1000. Default: 50
 
 + Request (application/json)
 
@@ -14616,6 +14635,14 @@ status: `APPROVED` (string, required)
 + `care_plan_activity_allowed`: TRUE (boolean, optional) - flag whether it is allowed to create care plan activity for this device definition.
 + registry_number: `REG-1111` (string, optional) - Registry number
 + `max_daily_count`: 200 (number, required) - Max daily count
+
+### `Configurations_Metadata_Response`
++ `id`: `e477a845-972b-47a1-8ca3-1c71e4fd00c2` (string, required)
++ `resource`: `composition_configuration` (string, required)
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, required) - ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
++ `updated_at`: `2018-08-02T10:45:16.000Z` (string, required)
++ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, required)
 
 ### `Composition_Configurations_Response`
 + `id`: `e477a845-972b-47a1-8ca3-1c71e4fd00c2` (string, required)
