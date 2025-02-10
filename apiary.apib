@@ -324,7 +324,14 @@ Each dictionary is an object that contains not only a code and description of a 
 
 Methods is used to retreive eHealth configurations from PRM
 
-### Get Configurations metadata [GET /api/configurations/metadata{?resource,page,page_size}]
+### Get Configurations metadata [GET /api/configurations/metadata]
+
+This resource should be used to get the last updated_at date from the PRM tables with configurations:
+- composition_configurations
+- device_parameters_configurations
+- dictionaries_configurations
+- observation_configurations
+- devices_configurations
 
 + Request (application/json)
 
