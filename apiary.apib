@@ -10696,7 +10696,7 @@ status: `APPROVED` (string, required)
 ### `Legal_Entity_Response_Public_V2`
 + `edr` (edr_data, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
-+ type: PRIMARY_CARE (string, required) - type of legal entity [PRIMARY_CARE/OUTPATIENT/PHARMACY]. MIS can't be created using this WS.
++ type: PRIMARY_CARE (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
 + residence_address (Address, optional, required) - address where the legal entity is physically located
 + phones (array[`Phone`], required)
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
@@ -10767,10 +10767,10 @@ status: `APPROVED` (string, required)
 + public_name: Ноунейм (string, optional)
 + `legal_form`: 140 (string, optional) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
 + edrpou: 54323454 (string, required) -  Unified Register of Businesses and Organizations
-+ kveds (array, required)
-    + (object)
++ kveds (array, required) 
+    + (object) 
         + name: `Діяльність лікарняних закладів` (string, required)
-        + code: `86.10` (string, required)
+        + code: `86.10` (string, required) - `Use dictionaries KVEDS_ALLOWED_MSP or KVEDS_ALLOWED_PHARMACY`
         + is_primary: true (boolean, required)
 + `registration_address` (`registration_address`, required)
 + state: 1 (number, required)
