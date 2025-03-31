@@ -2478,12 +2478,16 @@ List consists of legal entities with parameter `is_active = true`.
     + `edrpou`: `341086` (string, optional)
     + `legal_entity_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
     + settlement_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
-    + type: MSP (enum, optional)
-        - MSP
-        + Default: MSP
+    + type: PRIMARY_CARE (enum, optional)
+        - PRIMARY_CARE
+        - OUTPATIENT
+        - EMERGENCY
+        - PHARMACY
     + status: ACTIVE (enum, optional)
         - ACTIVE
+        - SUSPENDED
         - CLOSED
+        - REORGANIZED
     + `nhs_verified`: false (boolean, optional)
     + page: 2 (number, optional) - Page number.
     + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
