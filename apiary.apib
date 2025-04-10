@@ -348,8 +348,8 @@ This resource should be used to get the last updated_at (the latest `updated_at`
 ### Get Composition Configurations by search params [GET /api/composition_configurations{?type,category,is_active,page,page_size}]
 
 + Parameters
-    + type: `DRIVERS` (string, required) - type of the Composition
-    + category: `DRIVERS_GROUP1` (string, required) - category of Composition
+    + type: `DRIVERS` (string, optional) - type of the Composition
+    + category: `DRIVERS_GROUP1` (string, optionale) - category of Composition
     + `is_active`: `true` (boolean, optional) - Is configuration active or not.
     + `inserted_at_from`: `2024-10-31 12:48:43.367092` (string, optional) - Inserted_at filter period start date
     + `inserted_at_to`: `2024-10-31 12:48:43.367092` (string, optional) - Inserted_at filter period end date
