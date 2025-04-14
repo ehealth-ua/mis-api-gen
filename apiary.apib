@@ -2236,6 +2236,23 @@ This method allows add Confidant Person relationship.
             + status: `NEW` (enum, optional) - current verification status on relationship request.
             + action: `INSERT` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
+            + documents_relationship (array, required)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + confidant_person_relationship (object, optional, nullable)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
         + urgent (object, required)
             + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
@@ -2278,6 +2295,23 @@ This method allows to deactivate Confidant Person relationship.
             + status: `NEW` (enum, optional) - current verification status on relationship request.
             + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
+            + documents_relationship (array, optional, nullable)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + confidant_person_relationship (object, required)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
         + urgent (object, required)
             + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
@@ -2290,9 +2324,97 @@ This method allows to deactivate Confidant Person relationship.
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
 
+### Get Confidant Person relationship requests list [GET /api/persons/{id}/confidant_person_relationship_requests]
+
+Use this method to get list of previously created Confidant Person relationship requests
+
+**Scopes required:** `confidant_person_relationship_request:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + status: NEW (string, optional) - Confidant Person relationship request status
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array)
+            + (object)
+                + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+                + status: `NEW` (enum, optional) - current verification status on relationship request.
+                + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
+                + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+                + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
+                + documents_relationship (array, optional, nullable)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                        + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+                + confidant_person_relationship (object, optional, nullable)
+                    + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                    + documents_relationship (array, required)
+                        + (object)
+                            + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                            + number: АА120518 (string, required) - document issue number
+                            + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                            + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
+
+### Get Confidant Person relationship request by ID [GET /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}]
+
+Use this method to get details of previously created Confidant Person relationship request
+
+**Scopes required:** `confidant_person_relationship_request:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + confidant_person_relationship_request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship request identifier
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
+            + documents_relationship (array, optional, nullable)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + confidant_person_relationship (object, optional, nullable)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
+        + urgent (object, required)
+            + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
+            + documents (array[`media_content`], required)
+
 ### Approve Confidant Person relationship request [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
 
 Use this method to approve previously created Confidant Person relationship request (creation or deactivation).
+
+In case if authentication_method is OTP or THIRD_PERSON, request example:
+```
+{
+  "verification_code": 6598
+}
+```
+
+In case if authentication_method is OFFLINE or N/A, request body should be empty.
+Before approve related scanned documents should be uploaded to the ([Signed URL's](https://cloud.google.com/storage/docs/access-control/create-signed-urls-program)).
+All links are generated for one one-page document in jpeg format. Document should be no more than 10MB.
+Clients can use signed URL's to directly access [s3 storage](https://storage.ehealth.gov.ua/) and upload files via API.
 
 **Scopes required:** `confidant_person_relationship_request:write`
 
@@ -2312,16 +2434,30 @@ Use this method to approve previously created Confidant Person relationship requ
     + Attributes (object)
         + `verification_code`: 7489 (number, optional)
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-            + code: 201 (number)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + status: `COMPLETED` (enum, optional) - current verification status on relationship request.
-            + action: `INSERT` (enum, optional) - action that initiates by request creation.
+            + status: `NEW` (enum, optional) - current verification status on relationship request.
+            + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
-
+            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
+            + documents_relationship (array, optional, nullable)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + confidant_person_relationship (object, optional, nullable)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
 
 + Response 422 (application/json)
     + Attributes (`Response_Error`)
@@ -2330,6 +2466,60 @@ Use this method to approve previously created Confidant Person relationship requ
         + error
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
+
+### Sign Confidant Person relationship request [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/sign]
+
+Use this method to sign previously approved Confidant Person relationship request. Method receives signed message (pkcs7) including signed content, digital signature and signer public key in `signed_content` property.
+All signature fields will be validated (including signer certificate authority).
+
+This service will store signed copy of Confidant Person relationship Request in Media Content Storage, create new or deactivate existing confidant person relationship if all checks are passed
+
+Object that need to be signed is returned by `Get Confidant Person relationship request by ID` or `Approve Confidant Person relationship request` response, `JSON.Path: $.data`.
+
+Look at [**Dummy Sign Confidant Person relationship request**](https://uaehealthapi.docs.apiary.io/#reference/dummy-methods/dummy-for-person-methods/sign-confidant-person-relationship-request) for more details.
+
+**Scopes required:** `confidant_person_relationship_request:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + confidant_person_relationship_request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship request identifier
+    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + `signed_content`: `ewogICJzdGF0dXMiOiAiQVBQUk9WRUQiLAogICJpZCI6ICJlZWViYjg2ZC01Y2JhLTQzYzktODg1Yi02NDgyZWNhZjgyNmIiLAogICJwZXJzb24iOiB7CiAgICAiaWQiOiAiMTMwMDFjNjAtNDVhMC00YjVhLWI0MjUtOTUwNWUxZGUxOGJkIiwKICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgInNlY29uZF9uYW1lIjogItCc0LjQutC+0LvQsNC50L7QstC40YciLAogICAgImJpcnRoX2RhdGUiOiAiMjAwOS0wNy0wNSIsCiAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAiYmlydGhfc2V0dGxlbWVudCI6ICLQktGW0L3QvdC40YbRjyIsCiAgICAiZ2VuZGVyIjogIk1BTEUiLAogICAgImVtYWlsIjogImVtYWlsQGV4YW1wbGUuY29tIiwKICAgICJub190YXhfaWQiOiBmYWxzZSwKICAgICJ0YXhfaWQiOiAiMzk5OTg2OTM5NCIsCiAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAiZG9jdW1lbnRzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiQklSVEhfQ0VSVElGSUNBVEUiLAogICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgImlzc3VlZF9ieSI6ICLQoNC+0LrQuNGC0L3Rj9C90YHRjNC60LjQvCDQoNCSINCT0KMg0JzQktChINCa0LjRl9Cy0YHRjNC60L7RlyDQvtCx0LvQsNGB0YLRliIsCiAgICAgICAgImlzc3VlZF9hdCI6ICIyMDE3LTAyLTI4IiwKICAgICAgICAiZXhwaXJhdGlvbl9kYXRlIjogIjIwMjctMDItMjgiCiAgICAgIH0KICAgIF0sCiAgICAiYWRkcmVzc2VzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiUkVTSURFTkNFIiwKICAgICAgICAiY291bnRyeSI6ICJVQSIsCiAgICAgICAgImFyZWEiOiAi0JbQuNGC0L7QvNC40YDRgdGM0LrQsCIsCiAgICAgICAgInJlZ2lvbiI6ICLQkdC10YDQtNC40YfRltCy0YHRjNC60LjQuSIsCiAgICAgICAgInNldHRsZW1lbnQiOiAi0JrQuNGX0LIiLAogICAgICAgICJzZXR0bGVtZW50X3R5cGUiOiAiQ0lUWSIsCiAgICAgICAgInNldHRsZW1lbnRfaWQiOiAiYjA3NWYxNDgiLAogICAgICAgICJzdHJlZXRfdHlwZSI6ICJTVFJFRVQiLAogICAgICAgICJzdHJlZXQiOiAi0LLRg9C7LiDQndGW0LbQuNC90YHRjNC60LAiLAogICAgICAgICJidWlsZGluZyI6ICIxNSIsCiAgICAgICAgImFwYXJ0bWVudCI6ICIyMyIsCiAgICAgICAgInppcCI6ICIwMjA5MCIKICAgICAgfQogICAgXSwKICAgICJwaG9uZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICJudW1iZXIiOiAiKzM4MDUwMzQxMDg3MCIKICAgICAgfQogICAgXSwKICAgICJhdXRoZW50aWNhdGlvbl9tZXRob2RzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiVEhJUkRfUEVSU09OIiwKICAgICAgICAidmFsdWUiOiAiKzM4MDUwODg4NzcwMCIsCiAgICAgICAgImFsaWFzIjogImh1c2JhbmQiCiAgICAgIH0KICAgIF0sCiAgICAidW56ciI6ICIyMDA5MDcwNS0wMDAxMSIsCiAgICAiZW1lcmdlbmN5X2NvbnRhY3QiOiB7CiAgICAgICJmaXJzdF9uYW1lIjogItCf0LXRgtGA0L4iLAogICAgICAibGFzdF9uYW1lIjogItCG0LLQsNC90L7QsiIsCiAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgInBob25lcyI6IFsKICAgICAgICB7CiAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgIm51bWJlciI6ICIrMzgwNTAzNDEwODcwIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJjb25maWRhbnRfcGVyc29uIjogWwogICAgICB7CiAgICAgICAgInJlbGF0aW9uX3R5cGUiOiAiUFJJTUFSWSIsCiAgICAgICAgImZpcnN0X25hbWUiOiAi0J/QtdGC0YDQviIsCiAgICAgICAgImxhc3RfbmFtZSI6ICLQhtCy0LDQvdC+0LIiLAogICAgICAgICJzZWNvbmRfbmFtZSI6ICLQnNC40LrQvtC70LDQudC+0LLQuNGHIiwKICAgICAgICAiYmlydGhfZGF0ZSI6ICIxOTcyLTEwLTI2IiwKICAgICAgICAiYmlydGhfY291bnRyeSI6ICLQo9C60YDQsNGX0L3QsCIsCiAgICAgICAgImJpcnRoX3NldHRsZW1lbnQiOiAi0JLRltC90L3QuNGG0Y8iLAogICAgICAgICJnZW5kZXIiOiAiTUFMRSIsCiAgICAgICAgInRheF9pZCI6ICIyNjU5NzE5MzUwIiwKICAgICAgICAic2VjcmV0IjogInNlY3JldCIsCiAgICAgICAgImRvY3VtZW50c19wZXJzb24iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJ0eXBlIjogIlBBU1NQT1JUIiwKICAgICAgICAgICAgIm51bWJlciI6ICLQkNCQMTIwNTE4IiwKICAgICAgICAgICAgImlzc3VlZF9ieSI6ICLQoNC+0LrQuNGC0L3Rj9C90YHRjNC60LjQvCDQoNCSINCT0KMg0JzQktChINCa0LjRl9Cy0YHRjNC60L7RlyDQvtCx0LvQsNGB0YLRliIsCiAgICAgICAgICAgICJpc3N1ZWRfYXQiOiAiMjAxNy0wMi0yOCIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJkb2N1bWVudHNfcmVsYXRpb25zaGlwIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJQQVNTUE9SVCIsCiAgICAgICAgICAgICJudW1iZXIiOiAi0JDQkDEyMDUxOCIsCiAgICAgICAgICAgICJpc3N1ZWRfYnkiOiAi0KDQvtC60LjRgtC90Y/QvdGB0YzQutC40Lwg0KDQkiDQk9CjINCc0JLQoSDQmtC40ZfQstGB0YzQutC+0Zcg0L7QsdC70LDRgdGC0ZYiLAogICAgICAgICAgICAiaXNzdWVkX2F0IjogIjIwMTctMDItMjgiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAicGhvbmVzIjogWwogICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJNT0JJTEUiLAogICAgICAgICAgICAibnVtYmVyIjogIiszODA1MDM0MTA4NzAiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZW1haWwiOiAiZW1haWxsQGV4YW1wbGUuY29tIgogICAgICB9CiAgICBdLAogICAgInByZWZlcnJlZF93YXlfY29tbXVuaWNhdGlvbiI6ICJlbWFpbCIKICB9LAogICJwYXRpZW50X3NpZ25lZCI6IHRydWUsCiAgInByb2Nlc3NfZGlzY2xvc3VyZV9kYXRhX2NvbnNlbnQiOiB0cnVlLAogICJjb250ZW50IjogIjxodG1sPjxib2R5PjxwPnNpZ25lZCBwZXJzb24gZGF0YTwvcD48L2JvZHk+PC9odG1sPiIsCiAgImNoYW5uZWwiOiAiTUlTIgp9` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `COMPLETED` (enum, optional) - current verification status on relationship request.
+            + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
+            + documents_relationship (array, optional, nullable)
+                + (object)
+                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                    + number: АА120518 (string, required) - document issue number
+                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+            + confidant_person_relationship (object, optional, nullable)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
 
 ### Resend Authorization OTP on Confidant Person relationship [POST /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/resend_otp ]
 
@@ -7923,6 +8113,58 @@ Method returns list of user_id(s) by party_id(s) filtered by parameters.
         + meta (Response__Meta)
         + data (object)
             + include `Person_Verification_Details`
+
+### Sign Confidant Person relationship request [PATCH /dummy/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/sign]
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + confidant_person_relationship_request_id: `1096f147-7f93-3fc6-bddc-9d71b198fb7f` (string, required) - Confidant Person relationship request identifier
+    
+
++ Request Action INSERT (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+        + status: `APPROVED` (enum, optional) - current verification status on relationship request.
+        + action: `INSERT` (enum, optional) - action that initiates by request creation.
+        + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+        + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
+        + documents_relationship (array, required)
+            + (object)
+                + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                + number: АА120518 (string, required) - document issue number
+                + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                + issued_at: `2017-02-28` (string, required) - the date when document was issued
+                + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
+
++ Request Action DEACTIVATE (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+        + status: `APPROVED` (enum, optional) - current verification status on relationship request.
+        + action: `INSERT` (enum, optional) - action that initiates by request creation.
+        + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+        + confidant_person_relationship (object, required)
+                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+                + documents_relationship (array, required)
+                    + (object)
+                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+                        + number: АА120518 (string, required) - document issue number
+                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+        + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
 
 # Group Deprecated methods
 
