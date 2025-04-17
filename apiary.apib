@@ -4893,6 +4893,31 @@ This method is designed to get printout form (content) by medication request id.
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
 
+### Search for a Medication requests by Pharmacy User [GET /api/pharmacy/medication_requests{?request_number}]
+Scope required: `medication_request:read_pharm`
+
+Use this method by pharmacy user to search for short Medication Requests by request_number.
+
++ Parameters
+    + `request_number`: `0000-P692-3549-T722` (string, required) - `Medication Request request_number`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + meta (Response__Meta)
+        + data (array)
+            + (object)
+                + include `Medication_request_Public_Response_with_Medical_Program_min_for_Pharmacist`
+                + `medication_info` (object, required)
+                    + include `Innm_Dosage_for_Medication_request_Responce`
+                    + `medication_remaining_qty`: 10.23 (number, optional) - medication quantity allowed to dispense
+
 ### Get Medication Request by ID by Pharmacy User [GET /api/pharmacy/medication_requests/{id}]
 Scope required: `medication_request:details_pharm`
 
