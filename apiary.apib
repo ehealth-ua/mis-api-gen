@@ -374,8 +374,8 @@ This resource should be used to get the last updated_at (the latest `updated_at`
 ### Get Devices Configurations by search params [GET /api/devices_configurations{?device_code,is_active,page,page_size}]
 
 + Parameters
-    + `device_code`: `04_48_15` (string, optional) - code of the Device
-    + `device_code_system`: `eHealth/assistive_devices` (string, optional)
+    + `code`: `04_48_15` (string, optional) - code of the Device
+    + `system`: `eHealth/assistive_devices` (string, optional)
     + `is_active`: `true` (boolean, optional) - Is configuration active or not.
     + `inserted_at_from`: `2024-10-31` (date, optional) - Inserted_at filter period start date
     + `inserted_at_to`: `2024-10-31` (date, optional) - Inserted_at filter period end date
@@ -399,8 +399,8 @@ This resource should be used to get the last updated_at (the latest `updated_at`
 ### Get Device Parameters Configurations by search params [GET /api/device_parameters_configurations{?device_code,is_active,page,page_size}]
 
 + Parameters
-    + `parameter_code`: `presence_of_a_hygienic_hole` (string, optional) - code of the Device parameter
-    + `parameter_system`: `device_request_code_parameter`  (string, optional)
+    + `code`: `presence_of_a_hygienic_hole` (string, optional) - code of the Device parameter
+    + `system`: `device_request_code_parameter`  (string, optional)
     + `is_active`: `true` (boolean, optional) - Is configuration active or not.
     + `inserted_at_from`: `2024-10-31` (date, optional) - Inserted_at filter period start date
     + `inserted_at_to`: `2024-10-31` (date, optional) - Inserted_at filter period end date
