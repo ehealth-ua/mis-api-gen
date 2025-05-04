@@ -1933,6 +1933,40 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
             + message: `This API method returns only exact match results, please retry with more specific search result` (string)
             
 
+### Get personal data [GET /api/persons/{id}/personal_data]
+
+This method is used to obtain full information about person by Id. 
+This method is applicable only if there is an active approval of type 'person'.
+
+**Scopes required:** `personal_data:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (array)
+            + (object)
+                + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
+                + include (`Personal_data`)
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `forbidden`
+            + message: `Access denied` (string)
+          
+
 ### Search Person's merged persons [GET /api/persons/{id}/merged_persons{?status,page,page_size}]
 
 This method allows to find all persons, which were merged with this person. Also this endpoint shows all the persons who enter the whole chain of merges to this person.
@@ -10459,6 +10493,35 @@ status: `APPROVED` (string, required)
 + preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
     - email
     - phone
+    
+
+### `Personal_data`
++ first_name: Петро (string, required)
++ last_name: Іванов (string, required)
++ second_name: Миколайович (string, optional)
++ birth_date: `2009-07-05` (string, required)
++ birth_country: `Україна` (string, required)
++ birth_settlement: `Вінниця` (string, required)
++ gender: MALE, FEMALE (enum[string], required)
++ email: email@example.com (string, optional)
++ no_tax_id: false (boolean, required)
++ tax_id: 3999869394 (string, optional)
++ secret: secret (string, required)
++ death_date: `2019-07-05` (string, optional)
++ `verification_status`: `VERIFICATION_NEEDED` (string, required)
++ documents (array, required)
+    + (object)
+        + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
+        + number: АА120518 (string, required) - document issue number
+        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+        + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ emergency_contact (object, required)
+    + include `Emergency_Contact`
++ `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
+
 
   
 ## Party
