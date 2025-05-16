@@ -10977,6 +10977,9 @@ status: `APPROVED` (string, required)
 + kveds: 86.10 (array, required) - Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73.
 + addresses (array[`Address`], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
 + phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -10994,7 +10997,10 @@ status: `APPROVED` (string, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: PRIMARY_CARE (string, required) - type of legal entity
 + residence_address (Address, optional, required) - address where the legal entity is physically located
-+ phones (array[`Phone`], required)
++ phones (array, required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -11031,6 +11037,9 @@ status: `APPROVED` (string, required)
 + kveds: 86.10 (array, required) - Ukrainian Industry Classification System, there is a check that at least one of next kveds is input: 86.10, 86.21, 47.73.
 + addresses (array[`Address`], required) - The max items of array is 2: REGISTRATION - required, RESIDENCE - optional. DIVISION is exception: REGISTRATION - optional, RESIDENCE - required
 + phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -11061,6 +11070,9 @@ status: `APPROVED` (string, required)
 + type: PRIMARY_CARE (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
 + residence_address (Address, optional, required) - address where the legal entity is physically located
 + phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -11092,6 +11104,9 @@ status: `APPROVED` (string, required)
 + kveds: 86.1 (array, required) - Ukrainian Industry Classification System, there is a check for required kved: 86.10, 86.21, 47.73
 + addresses (array[`Address`], required)
 + phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - email to contact person in charge from legal entity
 + website: `www.msp.com.ua` (string, optional) - legal entity website
 + receiver_funds_code: `12345` (string, optional) - treasure code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
@@ -11157,6 +11172,9 @@ status: `APPROVED` (string, required)
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
 + addresses (array[`Address`], required)
 + phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
 + email: email@example.com (string, required) - division's email
 + working_hours (`workinghours`) - optional field, business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
 + type: CLINIC (enum, required) - `Dictionary DIVISION_TYPE`
