@@ -11629,7 +11629,7 @@ status: `APPROVED` (string, required)
 ### EntriesDivisionMap
 + id: `asSbcy12sYs8c` (string, required)
 + name: `Aдоніс` (string, required)
-+ type: CLINIC, AMBULANT_CLINIC, FAP (enum, required)
++ type: CLINIC, AMBULANT_CLINIC, FAP (enum, required) - `Dictionary DIVISION_TYPE`
 + addresses (Address, optional)
 + contacts (ContactInfo, optional)
 + coordinates (Location, optional)
@@ -11711,7 +11711,7 @@ status: `APPROVED` (string, required)
 + name:  Заклад Ноунейм (string, required)
 + short_name: Ноунейм (string, optional)
 + public_name: Ноунейм (string, optional)
-+ type: PRIMARY_CARE (string, required)
++ type: PRIMARY_CARE (string, required) - `Dictionary LEGAL_ENTITY_TYPE`
 + `owner_property_type`: STATE (string, required) - `Dictionary OWNER_PROPERTY_TYPE`
 + `legal_form`: 140 (string, required) - `Dictionary LEGAL_FORM`
 + edrpou: 5432345432 (string, required)
@@ -11724,8 +11724,8 @@ status: `APPROVED` (string, required)
 
 ### OwnerMap
 + id: `7d23bebb-1cf3-4221-bf21-18aada444756` (string, required) - employee id
-+ position: P1 (string, required) - employee position
-+ employee_type: OWNER (string, required)
++ position: P1 (string, required) - 'Dictionary POSITION'
++ employee_type: OWNER (string, required) - 'Dictionary EMPLOYEE_TYPE'
 + party (PartyMap)
 
 ### PartyMap
