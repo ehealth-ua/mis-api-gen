@@ -9442,7 +9442,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + tax_id: 3126509816 (string, optional)
 + secret: `secret` (string, required)
 + unzr: `19900101-00099` (string, optional)
-+ preferred_way_communication: email (enum, optional) - the way how a patient wants to be reached
++ preferred_way_communication: email (enum, optional) - `Dictionary PREFERRED_WAY_COMMUNICATION`
     - email
     - phone
 + documents_person (array[`Document`], required)
@@ -9616,7 +9616,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + last_name: Іванов (string, required)
 + second_name: Миколайович (string, optional)
 + birth_date: `1991-08-19` (string, required) - ISO Datetime.
-+ gender (enum, required)
++ gender (enum, required) - `Dictionary GENDER`
     - FEMALE
     - MALE
 + tax_id: 3126509816 (string, optional)
@@ -10811,7 +10811,7 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + position: P1 (string, required) - `Dictionary: POSITION`
 + `employee_type`: DOCTOR (string) - `Dictionary: EMPLOYEE_TYPE`
-+ status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required) - Employee status
++ status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required) - `Dictionary: EMPLOYEE_STATUS`
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + party (object)
@@ -11246,11 +11246,11 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + name: Бориспільське відділення Клініки Ноунейм (string, required)
 + `legal_entity_id`: d290f1ee-6c54-4b01-90e6-d701748f0851 (string, required)
-+ type: CLINIC (enum, required)
++ type: CLINIC (enum, required) - `Dictionary DIVISION_TYPE`
     - CLINIC
     - AMBULANT_CLINIC
     - FAP
-+ status: ACTIVE (enum, required)
++ status: ACTIVE (enum, required) - `Dictionary DIVISION_STATUS`
     - ACTIVE
     - INACTIVE
 + mountain_group: false (boolean, optional)
