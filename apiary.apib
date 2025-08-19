@@ -4044,7 +4044,7 @@ This method is used to create care teams for legal entity in the system.
     + Attributes (`Response_OK`)
         + data (`crud_care_team_get`)
 
-### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,page,page_size}]
+### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,legal_entity_id,member_employee_id,page,page_size}]
 
 This method is used to search for care teams in legal entity.
 
@@ -4055,6 +4055,8 @@ This method is used to search for care teams in legal entity.
     + period_end_from: `2025-12-12` (string, optional)
     + period_end_to: `2025-12-22` (string, optional)
     + status: `active` (string, optional) - Care team status
+    + legal_entity_id: `d17fe0c5-5c14-4982-b267-a17d62529ded` (string, optional) - Legal entity identifier
+    + member_employee_id: `d17fe0c5-5c14-4982-b267-a17d62529ded` (string, optional) - Identifier of care team participant member employee
     + `page`: 2 (number) - Page number.
     + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
