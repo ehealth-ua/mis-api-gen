@@ -14898,8 +14898,8 @@ status: `APPROVED` (string, required)
 
 ## `Care teams`
 ### `Care_team_base`
-+ status: `draft` (enum, required) - Care team status `Dictionary care_team_status`
-+ category: `palliative_care_team` (enum, required) - Care team category `Dictionary care_team_category`
++ status: `draft` (string, required) - Care team status according to Dictionary `care_team_status`
++ category: `palliative_care_team` (string, required) - Care team category according to Dictionary `care_team_category`
 + name: `Тестова команда лікування` (string, optional) - Care team name
 + period_start: `2024-11-28` (string, required) - Start of period that care team covers
 + email: `test_care_team@email.com` (string, optional) - Cate team contact email
@@ -14908,11 +14908,11 @@ status: `APPROVED` (string, required)
 + author_employee_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to employee as care team author
 
 ### `Care_team_participant_base`
-+ role: `participant` (enum, required) - Care team participant role `Dictionary care_team_participant_role`
-+ `member_type`: `employee` (enum, required) - Care team participants member type `Dictionary care_team_participant_member_type`
++ role: `participant` (string, required) - Care team participant role according to Dictionary `care_team_participant_role`
++ `member_type`: `employee` (string, required) - Care team participants member type according to Dictionary `care_team_participant_member_type`
 + member_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant member identifier
 + period_start: `2024-11-28` (string, required) - Start of period when member participates in care team
-+ status: `active` (enum, required) - Care team participant status `Dictionary care_team_participant_status`
++ status: `active` (string, required) - Care team participant status according to Dictionary `care_team_participant_status`
 + care_team_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team identifier
 
 ### `crud_care_team_get`
@@ -14931,12 +14931,12 @@ status: `APPROVED` (string, required)
 + include `Care_team_base`
 
 ### `crud_care_team_patch`
-+ status: `inactive` (enum, required) - Care team status `Dictionary care_team_status`
-+ `status_reason`: `typo` (string, optional) - Care team status reason `Dictionary care_team_status_reasons`
++ status: `inactive` (string, required) - Care team status according to Dictionary `care_team_status`
++ `status_reason`: `typo` (string, optional) - Care team status reason according to Dictionary `care_team_status_reasons`
 + period_end: `2024-11-28` (string, optional) - End of period that care team covers
 
 ### `crud_care_team_participant_patch`
-+ status: `inactive` (enum, required) - Care team participant status `Dictionary care_team_participant_status`
++ status: `inactive` (string, required) - Care team participant status according to Dictionary `care_team_participant_status`
 + period_end: `2024-11-28` (string, required) - End of period when member participates in care team
 
 ## Approvals
