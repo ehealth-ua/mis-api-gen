@@ -4040,7 +4040,7 @@ This method is used to create care teams for legal entity in the system.
 
 ### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,legal_entity_id,member_employee_id,page,page_size}]
 
-This method is used to search for care teams in legal entity.
+This method is used to search for care teams in the system.
 
 + Parameters
     + category: `palliative_care_team` (string, optional) - Care team category
@@ -4051,8 +4051,8 @@ This method is used to search for care teams in legal entity.
     + status: `active` (string, optional) - Care team status
     + legal_entity_id: `d17fe0c5-5c14-4982-b267-a17d62529ded` (string, optional) - Legal entity identifier
     + member_employee_id: `d17fe0c5-5c14-4982-b267-a17d62529ded` (string, optional) - Identifier of care team participant member employee
-    + `page`: 2 (number) - Page number.
-    + `page_size`: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
@@ -4107,7 +4107,7 @@ This method is used to update care team. Only care team contact info and notes c
 
 ### Get care team participants list [GET /api/care_teams/participants{?care_team_id,role,status,page,page_size}]
 
-This method is used to get all participants of care teams from current legal entity.
+This method is used to get all care teams participants.
 
 + Parameters
     + care_team_id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, optional) - care team identifier
