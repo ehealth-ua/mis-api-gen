@@ -4140,7 +4140,7 @@ This method is used to add additionals participants to care team.
 
 ### Change care team participant status [PATCH /api/care_teams/participants/{id}/actions/change_status]
 
-This method is used to update care team participant status.
+This method is used to change care team participant status.
 
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - care team participant identifier
@@ -14933,6 +14933,7 @@ status: `APPROVED` (string, required)
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_participant_base`
 + period_end: `2027-11-28` (string, optional) - End of period when member participates in care team
++ `status_reason`: `typo` (string, optional) - Dictionary `care_team_participant_status_reasons`
 
 ### `crud_care_team_post`
 + include `Care_team_base`
@@ -14949,7 +14950,8 @@ status: `APPROVED` (string, required)
 
 ### `crud_care_team_participant_patch`
 + status: `inactive` (string, required) - Dictionary `care_team_participant_status`
-+ period_end: `2024-11-28` (string, required) - End of period when member participates in care team
++ period_end: `2024-11-28` (string, optional) - End of period when member participates in care team
++ `status_reason`: `typo` (string, optional) - Dictionary `care_team_participant_status_reasons`
 
 ## Approvals
 ### Approval (object)
