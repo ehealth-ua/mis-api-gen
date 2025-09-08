@@ -1723,7 +1723,8 @@ This method returns current party's Minfin validation status and another informa
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Party identifier
-    
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
     
 + Request (application/json)
 
@@ -2633,6 +2634,8 @@ This method returns current person's Minfin validation details.
 
 + Parameters
     + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
 
 + Request (application/json)
