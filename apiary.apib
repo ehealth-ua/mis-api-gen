@@ -9889,22 +9889,22 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
        + `verification_reason`: `AUTO_DATA_ABSENT` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary.
 
 ### `Person_Minfin_Validation_Details`
-+ `minfin_requests` (array, required)
++ `minfin_requests` (array, optional)
     + (object)
         + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
         + `status`: `IN_REVIEW` (enum[string], required) - validation type
         + `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
-        + `updated`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was updated
-        + recommendation_details (array, required)
+        + `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
+        + recommendation_details (array, optional)
             + (object)
                 + recommendation_id: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
                 + code: 487 (enum[string], required) - non-conformance code
-                + data_sourse: D2 (enum[string], required) - information source
-                + discrepancy_description: 487 (enum[string], required) - discrepancy detailed information
+                + data_sourse: D2 (enum[string], optional) - information source
+                + discrepancy_description: 487 (enum[string], optional) - discrepancy detailed information
                 + recommendation_date: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
                 + result_date: `2025-11-11T11:11:11Z` (string, optional) - decision result date
-                + recommendation_result: 101 (enum[string], required) - decision based on results of recommendation
-                + discrepancy_result: 101 (enum[string], required) - decision based on results of discrepancy
+                + recommendation_result: 101 (enum[string], optional) - decision based on results of recommendation
+                + discrepancy_result: 101 (enum[string], optional) - decision based on results of discrepancy
 
 
 ### `PersonVerification`
@@ -10956,22 +10956,22 @@ status: `APPROVED` (string, required)
        + `verification_comment`: `Співробітник не замінював ПІБ` (string, optional) - Verification comment
 
 ### `Party_Minfin_Validation_Details`
-+ `minfin_requests` (array, required)
++ `minfin_requests` (array, optional)
     + (object)
         + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
         + `status`: `IN_REVIEW` (enum[string], required) - validation type
         + `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
-        + `updated`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was updated
-        + recommendation_details (array, required)
+        + `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
+        + recommendation_details (array, optional)
             + (object)
                 + recommendation_id: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
                 + code: 487 (enum[string], required) - non-conformance code
-                + data_sourse: D2 (enum[string], required) - information source
-                + discrepancy_description: 487 (enum[string], required) - discrepancy detailed information
+                + data_sourse: D2 (enum[string], optional) - information source
+                + discrepancy_description: 487 (enum[string], optional) - discrepancy detailed information
                 + recommendation_date: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
                 + result_date: `2025-11-11T11:11:11Z` (string, optional) - decision result date
-                + recommendation_result: 101 (enum[string], required) - decision based on results of recommendation
-                + discrepancy_result: 101 (enum[string], required) - decision based on results of discrepancy
+                + recommendation_result: 101 (enum[string], optional) - decision based on results of recommendation
+                + discrepancy_result: 101 (enum[string], optional) - decision based on results of discrepancy
 
 ## `Legal_Entities`
 
