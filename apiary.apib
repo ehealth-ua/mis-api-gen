@@ -1717,8 +1717,9 @@ This method returns current party's verification status and another information 
         + meta (Response__Meta)
         + data (object)
             + include `Party_Verification_Details`
-            
-### Get Party Minfin validation details [GET /api/parties/{id}/minfin_validation]
+
+
+### Get Party Minfin validation details [GET /api/parties/{id}/minfin_validations_requests]
 This method returns current party's Minfin validation status and another information about it.
 
 + Parameters
@@ -1738,7 +1739,7 @@ This method returns current party's Minfin validation status and another informa
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
         + data (object)
-            + include `Party_Minfin_Validation_Details`
+            + include `Party_Minfin_Validation_Requests`
 
 
 ### Update Party verification status [PATCH /api/parties/{id}/verification]
@@ -2628,8 +2629,9 @@ This method returns current person's verification status and another information
     + Attributes (`Response__Process_OK`)
          + data (object)
             + include `Person_Verification_Details`
-            
-### Get Person Minfin validation details [GET /api/persons/{id}/minfin_validation]
+
+ 
+### Get Person Minfin validation requests [GET /api/persons/{id}/minfin_validations_requests]
 This method returns current person's Minfin validation details.
 
 + Parameters
@@ -2650,7 +2652,31 @@ This method returns current person's Minfin validation details.
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
          + data (object)
-            + include `Person_Minfin_Validation_Details`
+            + include `Person_Minfin_Validation_Requests`
+            
+
+### Get Minfin validation details [GET /api/request/{id}/minfin_validations_details]
+This method returns current person's Minfin validation details.
+
++ Parameters
+    + request_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - minfin request identifier
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+         + data (object)
+            + include `Minfin_Validation_Details`
 
 
 ### Update Person verification status [PATCH /api/persons/{id}/verification]
@@ -9888,23 +9914,25 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
        + `verification_status`: `VERIFICATION_NOT_NEEDED` (string, required) - Person Legal capacity verification status according to `PERSON_VERIFICATION_STATUSES` dictionary.
        + `verification_reason`: `AUTO_DATA_ABSENT` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary.
 
-### `Person_Minfin_Validation_Details`
+### `Person_Minfin_Validation_Requests`
 + `minfin_requests` (array, optional)
     + (object)
         + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
         + `status`: `IN_REVIEW` (enum[string], required) - validation type
         + `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
         + `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
-        + recommendation_details (array, optional)
-            + (object)
-                + recommendation_id: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
-                + code: 487 (enum[string], required) - non-conformance code
-                + data_sourse: D2 (enum[string], optional) - information source
-                + discrepancy_description: 487 (enum[string], optional) - discrepancy detailed information
-                + recommendation_date: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
-                + result_date: `2025-11-11T11:11:11Z` (string, optional) - decision result date
-                + recommendation_result: 101 (enum[string], optional) - decision based on results of recommendation
-                + discrepancy_result: 101 (enum[string], optional) - decision based on results of discrepancy
+
+### `Minfin_Validation_Details`
++ `recommendation_details` (array, optional)
+    + (object)
+        + `recommendation_id`: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
+        + `code`: 487 (enum[string], required) - non-conformance code
+        + `data_sourse`: D2 (enum[string], optional) - information source
+        + `discrepancy_description`: `json structure` (string, optional) - discrepancy detailed information
+        + `recommendation_date`: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
+        + `result_date`: `2025-11-11T11:11:11Z` (string, optional) - decision result date
+        + `recommendation_result`: 101 (enum[string], optional) - decision based on results of recommendation
+        + `discrepancy_result`: 101 (enum[string], optional) - decision based on results of discrepancy
 
 
 ### `PersonVerification`
@@ -10955,23 +10983,14 @@ status: `APPROVED` (string, required)
        + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
        + `verification_comment`: `Співробітник не замінював ПІБ` (string, optional) - Verification comment
 
-### `Party_Minfin_Validation_Details`
+### `Party_Minfin_Validation_Requests`
 + `minfin_requests` (array, optional)
     + (object)
         + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
         + `status`: `IN_REVIEW` (enum[string], required) - validation type
         + `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
         + `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
-        + recommendation_details (array, optional)
-            + (object)
-                + recommendation_id: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
-                + code: 487 (enum[string], required) - non-conformance code
-                + data_sourse: D2 (enum[string], optional) - information source
-                + discrepancy_description: 487 (enum[string], optional) - discrepancy detailed information
-                + recommendation_date: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
-                + result_date: `2025-11-11T11:11:11Z` (string, optional) - decision result date
-                + recommendation_result: 101 (enum[string], optional) - decision based on results of recommendation
-                + discrepancy_result: 101 (enum[string], optional) - decision based on results of discrepancy
+
 
 ## `Legal_Entities`
 
