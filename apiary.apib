@@ -1723,7 +1723,7 @@ This method returns current party's verification status and another information 
 This method returns current party's Minfin validation requests status.
 
 + Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Party identifier
+    + party_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Party identifier
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
     
@@ -2631,11 +2631,11 @@ This method returns current person's verification status and another information
             + include `Person_Verification_Details`
 
  
-### Get Person Minfin validation requests [GET /api/persons/{id}/change method name]
+### Get Person Minfin validation requests [GET /api/persons/{id}/minfin_validations_requests]
 This method returns current person's Minfin validation requests status.
 
 + Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
