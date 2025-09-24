@@ -4106,7 +4106,9 @@ This method is used to create care teams for legal entity in the system.
     + Attributes (`crud_care_team_post`)
 
 + Response 201 (application/json)
-    + Attributes (`Response_OK`)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
         + data (`crud_care_team_get`)
 
 ### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,legal_entity_id,member_employee_id,page,page_size}]
@@ -4206,7 +4208,9 @@ This method is used to add additionals participants to care team.
     + Attributes (`Care_team_participant_base`)
 
 + Response 201 (application/json)
-    + Attributes (`Response_OK`)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
         + data (`crud_care_team_participant_get`)
 
 ### Change care team participant status [PATCH /api/care_teams/participants/{id}/actions/change_status]
