@@ -2659,7 +2659,12 @@ This method returns current person's Minfin validation requests status.
 This method returns current person's Minfin validation details.
 
 + Parameters
-    + request_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - minfin request identifier
+    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
+    + `status`: `NEW` (string, optional) - minfin request sttatus
+    + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
+    + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
+    + `non_compliance_date_to`: `2025-09-27` (string, optional) - minfin recommendation created date to
+    + `responsible_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - user identifier who process non compliance
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
@@ -9944,6 +9949,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
                 + `code`: 487 (enum[string], required) - non-conformance code
                 + `status`: NEW (enum[string], required) - non-conformance status
                 + `data_sourse`: D2 (enum[string], optional) - information source
+                + `action`: `1` (string, optional) - type of process button view
                 + `extention_json`: `json structure` (string, optional) - discrepancy detailed information
                 + `inserted_at`: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
                 + `discrepancy_result`: 101 (enum[string], optional) - decision based on results of discrepancy
