@@ -2661,6 +2661,7 @@ This method returns current person's Minfin validation details.
 + Parameters
     + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
     + `status`: `NEW` (string, optional) - minfin request sttatus
+    + `process_type`: `auto` (string, optional) - non compliance processing type
     + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
     + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
     + `non_compliance_date_to`: `2025-09-27` (string, optional) - minfin recommendation created date to
@@ -9947,6 +9948,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
         + `non_compliance_info` (array, optional)
             + (object)
                 + `code`: 487 (enum[string], required) - non-conformance code
+                + `process_type`: `auto` (string, optional) - non compliance processing type
                 + `status`: NEW (enum[string], required) - non-conformance status
                 + `data_sourse`: D2 (enum[string], optional) - information source
                 + `updated_by`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, optional) - user who updated non compliance
