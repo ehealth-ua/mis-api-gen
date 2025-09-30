@@ -4203,7 +4203,11 @@ This method returns current person's Minfin validation details.
 
 + Parameters
     + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
-    + `status`: `NEW` (string, optional) - minfin request sttatus
+    + `status`: `NEW` (enum, optional) - minfin request sttatus
+        - NEW
+        - DONE
+        - AUTO_REVIEW
+        - MANUAL_REVIEW
     + `process_type`: `auto` (string, optional) - non compliance processing type
     + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
     + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
