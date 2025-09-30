@@ -1719,29 +1719,6 @@ This method returns current party's verification status and another information 
             + include `Party_Verification_Details`
 
 
-### Get Party Minfin validation requests [GET /api/parties/{id}/minfin_validations_requests]
-This method returns current party's Minfin validation requests status.
-
-+ Parameters
-    + party_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Party identifier
-    + `page`: 2 (number, optional) - Page number.
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
-    
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + meta (Response__Meta)
-        + data (object)
-            + include `Party_Minfin_Validation_Requests`
-
-
 ### Update Party verification status [PATCH /api/parties/{id}/verification]
 Use this method to update party's verification status. Now updating of DRACS death and DRACS name change verification status is allowed.
 
@@ -2630,59 +2607,6 @@ This method returns current person's verification status and another information
          + data (object)
             + include `Person_Verification_Details`
 
- 
-### Get Person Minfin validation requests [GET /api/persons/{id}/minfin_validations_requests]
-This method returns current person's Minfin validation requests status.
-
-+ Parameters
-    + person_id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
-    + `page`: 2 (number, optional) - Page number.
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
-
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-         + data (object)
-            + include `Person_Minfin_Validation_Requests`
-            
-
-### Get Minfin validation details [GET /api/request/{id}/minfin_validations_details]
-This method returns current person's Minfin validation details.
-
-+ Parameters
-    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
-    + `status`: `NEW` (string, optional) - minfin request sttatus
-    + `process_type`: `auto` (string, optional) - non compliance processing type
-    + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
-    + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
-    + `non_compliance_date_to`: `2025-09-27` (string, optional) - minfin recommendation created date to
-    + `responsible_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - user identifier who process non compliance
-    + `page`: 2 (number, optional) - Page number.
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
-
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-         + data (object)
-            + include `Minfin_Validation_Details`
 
 
 ### Update Person verification status [PATCH /api/persons/{id}/verification]
@@ -4245,6 +4169,65 @@ This method is used to change care team participant status.
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
         + data (`crud_care_team_participant_get`)
+
+
+## Minfin [/api/Minfin]
+
+### Get Minfin validation requests [GET /api/Minfin/resource/{resource_type}/resource_id/{id}/minfin_validations_requests]
+This method returns current person's or party's Minfin validation requests status.
+
++ Parameters
+    + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
+    + `resource`: `PARTY` (enum, required) - type of resource
+        - PARTY
+        - PERSON
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+    
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+        + data (object)
+            + include `Minfin_Validation_Requests`
+
+### Get Minfin validation details [GET /api/Minfin/request/{id}/minfin_validations_details]
+This method returns current person's Minfin validation details.
+
++ Parameters
+    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
+    + `status`: `NEW` (string, optional) - minfin request sttatus
+    + `process_type`: `auto` (string, optional) - non compliance processing type
+    + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
+    + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
+    + `non_compliance_date_to`: `2025-09-27` (string, optional) - minfin recommendation created date to
+    + `responsible_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - user identifier who process non compliance
+    + `page`: 2 (number, optional) - Page number.
+    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+         + data (object)
+            + include `Minfin_Validation_Details`
+
+
 
 # Group Public. Medical Programs
 
@@ -9930,14 +9913,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
        + `verification_status`: `VERIFICATION_NOT_NEEDED` (string, required) - Person Legal capacity verification status according to `PERSON_VERIFICATION_STATUSES` dictionary.
        + `verification_reason`: `AUTO_DATA_ABSENT` (string, required) - Verification reason according to `PERSON_VERIFICATION_STATUS_REASONS` dictionary.
 
-### `Person_Minfin_Validation_Requests`
-+ `minfin_requests` (array, optional)
-    + (object)
-        + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
-        + `status`: `IN_REVIEW` (enum[string], required) - validation type
-        + `type`: 'INITIAL' (enum[string], required) - request type
-        + `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
-        + `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
+
 
 ### `Minfin_Validation_Details`
 + `recommendation_details` (array, optional)
@@ -11005,7 +10981,7 @@ status: `APPROVED` (string, required)
        + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
        + `verification_comment`: `Співробітник не замінював ПІБ` (string, optional) - Verification comment
 
-### `Party_Minfin_Validation_Requests`
+### `Minfin_Validation_Requests`
 + `minfin_requests` (array, optional)
     + (object)
         + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
