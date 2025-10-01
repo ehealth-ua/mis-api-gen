@@ -4173,11 +4173,11 @@ This method is used to change care team participant status.
 
 ## Minfin [/api/Minfin]
 
-### Get Minfin validation requests [GET /api/Minfin/resource/{resource_type}/resource_id/{id}/minfin_validations_requests]
+### Get Minfin validation requests [GET /api/minfin_requests?entity_type={resource}&entity_id={entity_id}]
 This method returns current person's or party's Minfin validation requests status.
 
 + Parameters
-    + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
+    + `entity_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
     + `resource`: `PARTY` (enum, required) - type of resource
         - PARTY
         - PERSON
@@ -4195,10 +4195,10 @@ This method returns current person's or party's Minfin validation requests statu
 + Response 200 (application/json)
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
-        + data (object)
-            + include `Minfin_Validation_Requests`
+        + data (array[`Minfin_Validation_Requests`])
 
-### Get Minfin validation details [GET /api/Minfin/request/{id}/minfin_validations_details]
+
+### Get Minfin validation details [GET /api/minfin_validations_details/request/{request_id}]
 This method returns current person's Minfin validation details.
 
 + Parameters
