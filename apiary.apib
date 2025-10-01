@@ -4202,7 +4202,11 @@ This method returns current person's or party's Minfin validation requests statu
 This method returns current person's Minfin validation details.
 
 + Parameters
-    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
+    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - minfin request identifier
+    + `entity_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
+    + `resource`: `PARTY` (enum, required) - type of resource
+        - PARTY
+        - PERSON
     + `status`: `NEW` (enum, optional) - minfin request sttatus
         - NEW
         - DONE
