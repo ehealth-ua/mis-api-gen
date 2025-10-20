@@ -2407,9 +2407,6 @@ Use this method to get details of previously created Confidant Person relationsh
                         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
                         + issued_at: `2017-02-28` (string, required) - the date when document was issued
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
-        + urgent (object, required)
-            + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
-            + documents (array[`media_content`], required)
 
 ### Approve Confidant Person relationship request [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
 
@@ -9935,7 +9932,6 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
         + `status`: NEW (enum[string], required) - non-conformance status
         + `data_sourse`: D2 (enum[string], optional) - information source
         + `updated_by`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, optional) - user who updated non compliance
-        + `extention_json`: `json structure` (string, optional) - discrepancy detailed information
         + `inserted_at`: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
         + `discrepancy_result`: 101 (enum[string], optional) - decision based on results of discrepancy
 
