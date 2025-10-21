@@ -4170,7 +4170,7 @@ This method is used to change care team participant status.
 
 ## Minfin [/api/Minfin]
 
-### Get Minfin validation requests [GET /api/minfin_requests{?resource,entity_id}]
+### Get Minfin validation requests [GET /api/minfin_requests{?resource,resource_id}]
 This method returns current person's or party's Minfin validation requests status.
 
 + Parameters
@@ -4195,7 +4195,7 @@ This method returns current person's or party's Minfin validation requests statu
         + data (array[`Minfin_Validation_Requests`])
 
 
-### Get Minfin validation details [GET /api/minfin_validations_details/request/{request_id}]
+### Get Minfin validation details [GET /api/minfin_validations_details{?request_id, resource_id, resource}]
 This method returns current person's Minfin validation details.
 
 + Parameters
