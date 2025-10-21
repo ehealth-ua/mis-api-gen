@@ -10616,6 +10616,7 @@ status: `APPROVED` (string, required)
 + secret: secret (string, required)
 + death_date: `2019-07-05` (string, optional)
 + `verification_status`: `VERIFICATION_NEEDED` (string, required)
++ `minfin_validation_status`: `VERIFICATION_NEEDED` (string, required)
 + documents (array, required)
     + (object)
         + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
@@ -10827,6 +10828,7 @@ status: `APPROVED` (string, required)
 + start_date: `2017-03-02T10:45:16.000Z` (string, required)
 + end_date: `2018-03-02T10:45:16.000Z` (string, optional)
 + status: APPROVED, STOPPED, ENTERED IN ERROR, REORGANIZED, AUTODEACTIVATED (enum, required)
++ `minfin_validation_status`: `VERIFICATION_NEEDED` (string, required)
 + `is_active`: `true` (boolean, required)
 + `employee_type`: DOCTOR (string, required) - `Dictionary EMPLOYEE_TYPE`
 + party (`Party_Response_old`)
@@ -10927,6 +10929,7 @@ status: `APPROVED` (string, required)
 + employee_id: `7c5f839d-3a1b-4c9d-92d2-4ad917f03e8c` (string, required) - Unique identifier of the employee.
 + party_id: `cf8fc7ba-5f82-4377-8ab0-dcb11edd508d` (string, required) - Unique identifier of the party.
 + `verification_status`: `VERIFIED` (string, required) - Current verification status according to `PARTY_VERIFICATION_STATUSES` dictionary
++ `minfin_validation_status`: `VERIFICATION_NEEDED` (string, required)
 + details (object)
     + drfo (object)
         + `verification_status`: `NOT_VERIFIED` (string, required) - status of party DRFO verification according to `PARTY_VERIFICATION_STATUSES` dictionary
