@@ -846,6 +846,8 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
   
 ### Approve Person Request v2 [PATCH /api/v2/person_requests/{id}/actions/approve]
 
+This method will be deprecated. Use **Approve Person Request v3**.
+
 Use this method to approve previously created Person Request.
 
 In case if authentication_method is OTP or THIRD_PERSON, request example:
@@ -889,6 +891,66 @@ Clients can use signed URL's to directly access [s3 storage](https://storage.ehe
             + person (required)
                 + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
                 + include (`Person_info_Public_response_v2_with_new_confidant_data_object`, required)
+            + patient_signed: false (boolean, required) - Person's evidence of sign the person request
+            + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
+            + content: `Person content` (string, required) - HTML document that MUST be shown to a end-user and signed by his key.
+            + channel: `MIS` (enum, required) - channel that invoke patient create service
+            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional)- identifier of person's auth method
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: forbidden (string, required)
+            + message: `Invalid verification code` (string, required)
+
+### Approve Person Request v3 [PATCH /api/v3/person_requests/{id}/actions/approve]
+
+Use this method to approve previously created Person Request.
+
+In case if authentication_method is OTP or THIRD_PERSON, request example:
+
+```
+{
+  "verification_code": 6598
+}
+```
+
+In case if authentication_method is OFFLINE or N/A, request body should be empty.
+Before approve patient's scanned documents should be uploaded to the ([Signed URL's](https://cloud.google.com/storage/docs/access-control/create-signed-urls-program)).
+All links are generated for one one-page document in jpeg format. Document should be no more than 10MB.
+Clients can use signed URL's to directly access [s3 storage](https://storage.ehealth.gov.ua/) and upload files via API.
+
++ Parameters
+    + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + `verification_code`: 6598 (number, optional) - required if authentication_method is OTP
+
++ Response 201 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + status: SIGNED (enum, optional)
+                - NEW
+                - APPROVED
+                - SIGNED
+                - CANCELLED
+                - REJECTED
+            + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
+            + person (required)
+                + id: `13001c60-45a0-4b5a-b425-9505e1de18bd`(string, optional) - MPI id of the person
+                + include (`Person_info_Public_response_v3_with_names_array`, required)
             + patient_signed: false (boolean, required) - Person's evidence of sign the person request
             + `process_disclosure_data_consent`: true (boolean, required) - Person's evidence of information about consent to data disclosure
             + content: `Person content` (string, required) - HTML document that MUST be shown to a end-user and signed by his key.
