@@ -4308,41 +4308,18 @@ This method is used to change care team participant status.
 
 ## Minfin [/api/Minfin]
 
-### Get Minfin validation requests [GET /api/minfin_requests{?resource,resource_id}]
-This method returns current person's or party's Minfin validation requests status.
-
-+ Parameters
-    + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
-    + `resource`: `PARTY` (enum, required) - type of resource
-        - PARTY
-        - PERSON
-    + `page`: 2 (number, optional) - Page number.
-    + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
-    
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-+ Response 200 (application/json)
-    + Attributes (`Response_Collection_V2`)
-        + meta (Response__Meta)
-        + data (array[`Minfin_Validation_Requests`])
-
 
 ### Get Minfin validation details [GET /api/minfin_validations_details{?request_id, resource_id, resource}]
 This method returns current person's Minfin validation details.
 
 + Parameters
-    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - minfin request identifier
-    + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person or Party identifier
-    + `resource`: `PARTY` (enum, required) - type of resource
+    + `request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
+    + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - Person, Employee or Party identifier
+    + `resource`: `PARTY` (enum, optional) - type of resource
         - PARTY
         - PERSON
-    + `status`: `NEW` (enum, optional) - minfin request sttatus
+        - EMPLOYEE
+    + `status`: `NEW` (enum, optional) - status of non-compliance
         - NEW
         - DONE
         - AUTO_REVIEW
@@ -10062,6 +10039,9 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `Minfin_Validation_Details`
 + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf82` (string, required) - recommendation internal identifier
++ `minfin_request_id`: `9547da91-bfcf-4fef-9b41-05af690d7de0` (string, required) - minfin request identifier
++ `resource_id`: `9547da91-bfcf-4fef-9b41-05af690d7de0` (string, required) - Person, employee or party unique identifier 
++ `resource`: `PARTY` (enum[string], required) - Type of resource
 + `recommendation_id`: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
 + `recommendation_result`: 101 (enum[string], optional) - decision based on results of recommendation
 + `result_date`: `2025-11-11T11:11:11Z` (string, optional) - decision result date
@@ -11206,12 +11186,6 @@ status: `APPROVED` (string, required)
        + `verification_reason`: `MANUAL` (string, required) - Verification reason according to `PARTY_VERIFICATION_STATUS_REASONS` dictionary. `MANUAL` is allowed only.
        + `verification_comment`: `Співробітник не замінював ПІБ` (string, optional) - Verification comment
 
-### `Minfin_Validation_Requests`
-+ `id`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - request identifier
-+ `status`: `IN_REVIEW` (enum[string], required) - validation type
-+ `type`: 'INITIAL' (enum[string], required) - request type
-+ `created`: `2025-11-11T11:11:11Z` (string, required) - date and time the record was created
-+ `updated`: `2025-11-11T11:11:11Z` (string, optional) - date and time the record was updated
 
 
 ## `Legal_Entities`
