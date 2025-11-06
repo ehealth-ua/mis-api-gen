@@ -1319,6 +1319,8 @@ Use this method to obtain Person Request details.
 
 ### Get Person Requests List [GET /api/person_requests{?legal_entity_id,status,page,page_size}]
 
+This method will be depricated. Use **Get Person Request List v2** instead.
+
 Use this method to obtain list of Person Requests. 
 If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI.
 
@@ -1351,6 +1353,42 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
 + Response 200 (application/json)
     + Attributes (`Response_Collection_V2`)
         + data (array[`Patient_Request_Short`])
+
+### Get Person Requests List v2 [GET /api/v2/person_requests{?legal_entity_id,status,page,page_size}]
+
+Use this method to obtain list of Person Requests. 
+If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI.
+
+Service returns only person request related to the same legal entity as the user.
+
+Method returns shortened details, to obtain full information - get Person Request by it's ID using appropriate version of endpoint based on `version` value in response.
+That is, for `version: 1` use [**Get Person Request by ID**](#reference/public.-medical-service-provider-integration-layer/person-requests/get-person-request-by-id) endpoint, for `version: 2` use [**Get Person Request by ID V2**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/person-requests/get-person-request-by-id-v2) endpoint,  for `version: 3` use [**Get Person Request by ID V3**](https://uaehealthapi.docs.apiary.io/#reference/public.-medical-service-provider-integration-layer/person-requests/get-person-request-by-id-v3) endpoint
+
+More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
+
++ Parameters
+    + status: APPROVED (enum, optional)
+        - NEW
+        - APPROVED
+        - SIGNED
+        - REJECTED
+        - CANCELLED
+    + page: 2 (number, optional) - Page number.
+    + page_size: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
+
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array[`Patient_Request_Short_v2`])
+
 
 ### Resend Authorization OTP on Person Request [POST /api/person_requests/{id}/actions/resend_otp]
 
@@ -10798,7 +10836,7 @@ status: `APPROVED` (string, required)
         + second_name: Миколайович (string, optional)
         + language: `uk` (string, required) - value from the LANGUAGE dictionary
     + (object)
-        + first_name: Petr (string, required)
+        + first_name: Petro (string, required)
         + last_name: Ivanov (string, required)
         + second_name: Mykolaiovych (string, optional)
         + language: `en` (string, required) - value from the LANGUAGE dictionary
@@ -10878,6 +10916,28 @@ status: `APPROVED` (string, required)
     + last_name: Іванов (string, required)
     + second_name: Миколайович (string, optional)
 + version: 2 (number, required) - version of endpoint used to create person request
+
+### `Patient_Request_Short_v2`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - unique id of declaration
++ status: APPROVED (enum, required)
+    - NEW
+    - APPROVED
+    - SIGNED
+    - REJECTED
+    - CANCELLED
++ person (object, optional) - Object that described a Patient
++ names (array, required)
+    + (object)
+        + first_name: Петро (string, required)
+        + last_name: Іванов (string, required)
+        + second_name: Миколайович (string, optional)
+        + language: `uk` (string, required) - value from the LANGUAGE dictionary
+    + (object)
+        + first_name: Petro (string, required)
+        + last_name: Ivanov (string, required)
+        + second_name: Mykolaiovych (string, optional)
+        + language: `en` (string, required) - value from the LANGUAGE dictionary
++ version: 3 (number, required) - version of endpoint used to create person request
 
 ### `Person_info_Public_DRv3`
 + first_name: Петро (string, required)
