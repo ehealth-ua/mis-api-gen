@@ -633,6 +633,8 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
 
 ### Create/Update Person Request v2 [POST /api/v2/person_requests]
 
+This method will be deprecated. Use **Create/Update Person Request v3**.
+
 This method is used to create Person Request (as part of Person creation w/o declaration process).
 Upon successful completion of the whole process, a person is created in MPI.
 
@@ -706,7 +708,6 @@ Link to THIRD PERSON (`authentication_methods.value`) must be equal to confidant
 
 ### Create/Update Person Request v3 [POST /api/v3/person_requests]
 
-This method will be deprecated. Use **Create/Update Person Request v3**.
 
 This method is used to create Person Request (as part of Person creation w/o declaration process).
 Upon successful completion of the whole process, a person is created in MPI.
@@ -2177,6 +2178,8 @@ This service should be used with mis `access_token` authetification method and u
 
 ### Search for a Person [GET /api/persons{?first_name,last_name,second_name,birth_date,tax_id,phone_number,birth_place,birth_certificate,page,page_size}]
 
+This method will be deprecated. Use **Search for a Person v2**.
+
 This method allows to search for a Person (MPI) without disclosing personal data.
 
 Method returns only **requested** parameters, birth place and second name in addition for manual identification on MSP side.
@@ -2219,9 +2222,47 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
         + error (Response__Error, fixed-type)
             + type: `too_many_results`
             + message: `This API method returns only exact match results, please retry with more specific search result` (string)
-            
+
+### Search for a Person v2 [GET /api/v2/persons{?first_name,last_name,second_name,birth_date,tax_id,phone_number,document_type,document_number,page,page_size}]
+
+This method allows to search for a Person (MPI) without disclosing personal data.
+
+Method returns only **requested** parameters, birth place and second name in addition for manual identification on MSP side.
+
++ Parameters
+    + first_name: Петро (string, required)
+    + last_name: Іванов (string, optional)
+    + second_name: Миколайович (string, optional)
+    + birth_date: `1991-08-19` (string, required) - Complete date format
+    + tax_id: 3126509816 (string, optional)
+    + phone_number: `+380508887700` (string, optional)
+    + `document_type`: PASSPORT (string, optional) - value is from DOCUMENT_TYPE dictionary
+    + document_number: AK876345 (string, optional)
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (array)
+            + (object)
+                + include (`Person_Short_names_array`)
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `too_many_results`
+            + message: `This API method returns only exact match results, please retry with more specific search result` (string)
+
 
 ### Get personal data [GET /api/persons/{id}/personal_data]
+
+This method will be deprecated. Use **Get personal data v2**.
 
 This method is used to obtain full information about person by Id. 
 This method is applicable only if there is an active approval of type 'person'.
@@ -2253,7 +2294,40 @@ This method is applicable only if there is an active approval of type 'person'.
         + error (Response__Error, fixed-type)
             + type: `forbidden`
             + message: `Access denied` (string)
-          
+
+### Get personal data v2 [GET /api/v2/persons/{id}/personal_data]
+
+This method is used to obtain full information about person by Id. 
+This method is applicable only if there is an active approval of type 'person'.
+
+**Scopes required:** `personal_data:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (array)
+            + (object)
+                + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
+                + include (`Personal_data_names_array`)
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `forbidden`
+            + message: `Access denied` (string)
+         
 
 ### Search Person's merged persons [GET /api/persons/{id}/merged_persons{?status,page,page_size}]
 
@@ -10001,6 +10075,32 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + birth_settlement: Вінниця (string, required)
 + birth_country: Україна (string, required) - країна народження
 
+### `Person_Short_names_array`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ names (array, required)
+    + (object)
+        + first_name: Петро (string, required)
+        + last_name: Іванов (string, required)
+        + second_name: Миколайович (string, optional)
+        + language: `uk` (string, required) - value from the LANGUAGE dictionary
+    + (object)
+        + first_name: Petr (string, required)
+        + last_name: Ivanov (string, required)
+        + second_name: Mykolaiovych (string, optional)
+        + language: `en` (string, required) - value from the LANGUAGE dictionary
++ birth_date: `1991-08-19` (string, required) - ISO Datetime.
++ gender (enum, required)
+    - FEMALE
+    - MALE
++ tax_id: 3126509816 (string, optional)
++ phones (array[`Phone`], optional)
++ birth_settlement: Вінниця (string, required)
++ birth_country: Україна (string, required) - країна народження
++ documents (array, optional)
+    + (object)
+        + type: BIRTH_CERTIFICATE (string, optional) - `Dictionary DOCUMENT_TYPE`
+        + number: АА120518 (string, optional) - document issue number
+
 ### `Person_Short_Declaration`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
 + first_name: Петро (string, required)
@@ -11027,6 +11127,44 @@ status: `APPROVED` (string, required)
         + number: АА120518 (string, required) - document issue number
         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
+        + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
++ addresses (array[`Address`], required)
++ phones (array[`Phone`], optional)
++ emergency_contact (object, required)
+    + include `Emergency_Contact`
++ `confidant_person` (array[`Confidant_Person`], optional) - Should be set if this Person is disabled, underage, etc.
+
+### `Personal_data_names_array`
++ names (array, required)
+    + (object)
+        + first_name: Петро (string, required)
+        + last_name: Іванов (string, required)
+        + second_name: Миколайович (string, optional)
+        + language: `uk` (string, required) - value from the LANGUAGE dictionary
+    + (object)
+        + first_name: Petro (string, required)
+        + last_name: Ivanov (string, required)
+        + second_name: Mykolaiovych (string, optional)
+        + language: `en` (string, required) - value from the LANGUAGE dictionary
++ no_last_name: false (boolean, required) - an indicator of whether the person has a last name
++ birth_date: `2009-07-05` (string, required)
++ birth_country: `Україна` (string, required)
++ birth_settlement: `Вінниця` (string, required)
++ gender: MALE, FEMALE (enum[string], required)
++ email: email@example.com (string, optional)
++ no_tax_id: false (boolean, required)
++ tax_id: 3999869394 (string, optional)
++ secret: secret (string, required)
++ death_date: `2019-07-05` (string, optional)
++ `verification_status`: `VERIFICATION_NEEDED` (string, required)
++ `minfin_validation_status`: `VERIFICATION_NEEDED` (string, required)
++ documents (array, required)
+    + (object)
+        + type: BIRTH_CERTIFICATE (string, required) - `Dictionary DOCUMENT_TYPE`
+        + number: АА120518 (string, required) - document issue number
+        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+        + issued_at: `2017-02-28` (string, required) - the date when document was issued
+        + issuing_country: UA (string, required) - document issuing country
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
 + addresses (array[`Address`], required)
 + phones (array[`Phone`], optional)
