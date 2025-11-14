@@ -6036,7 +6036,7 @@ Entity data:
       }
     ],
     "preferred_way_communication": "email",
-    "emergen^y_contact": {
+    "emergenсy_contact": {
       "first_name": "Петро",
       "last_name": "Іванов",
       "second_name": "Миколайович",
@@ -10013,7 +10013,7 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
-+ last_name: Іванов (string, required)
++ last_name: Іванов (string, optional)
 + second_name: Миколайович (string, optional)
 + phones (array[`Phone`], required)
 
@@ -12094,7 +12094,7 @@ status: `APPROVED` (string, required)
 
 ### Phone
 + type: MOBILE (string, required) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
-+ number: `+380503410870` (string, required) - phone number in format '+38/'
++ number: `+380503410870` (string, required) - phone number
 
 ### Email
 + type: PERSONAL, PUBLIC (enum[string], required)
