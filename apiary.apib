@@ -2238,6 +2238,7 @@ Method returns only **requested** parameters, birth place and second name in add
     + phone_number: `+380508887700` (string, optional)
     + `document_type`: PASSPORT (string, optional) - value is from DOCUMENT_TYPE dictionary
     + document_number: AK876345 (string, optional)
+    + language: uk (string, required)
 + Request (application/json)
 
     + Headers
@@ -2775,6 +2776,9 @@ Use this method to get details of previously created Confidant Person relationsh
                         + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
                         + issued_at: `2017-02-28` (string, required) - the date when document was issued
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
+        + urgent (object, optional)
+            + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
+            + documents (array[`media_content`], required)
 
 ### Approve Confidant Person relationship request [PATCH /api/persons/{id}/confidant_person_relationship_requests/{confidant_person_relationship_request_id}/actions/approve]
 
@@ -10083,11 +10087,6 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
         + last_name: Іванов (string, required)
         + second_name: Миколайович (string, optional)
         + language: `uk` (string, required) - value from the LANGUAGE dictionary
-    + (object)
-        + first_name: Petr (string, required)
-        + last_name: Ivanov (string, required)
-        + second_name: Mykolaiovych (string, optional)
-        + language: `en` (string, required) - value from the LANGUAGE dictionary
 + birth_date: `1991-08-19` (string, required) - ISO Datetime.
 + gender (enum, required)
     - FEMALE
