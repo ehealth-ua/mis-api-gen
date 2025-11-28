@@ -1320,7 +1320,7 @@ Use this method to obtain Person Request details.
 
 ### Get Person Requests List [GET /api/person_requests{?legal_entity_id,status,page,page_size}]
 
-This method will be depricated. Use **Get Person Request List v2** instead.
+This method will be depricated. Use **Get Person Request List v3** instead.
 
 Use this method to obtain list of Person Requests. 
 If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI.
@@ -1355,7 +1355,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
     + Attributes (`Response_Collection_V2`)
         + data (array[`Patient_Request_Short`])
 
-### Get Person Requests List v2 [GET /api/v2/person_requests{?legal_entity_id,status,page,page_size}]
+### Get Person Requests List v3 [GET /api/v3/person_requests{?legal_entity_id,status,page,page_size}]
 
 Use this method to obtain list of Person Requests. 
 If you want to reduce amount of data that is going trough your application, use `status` filter and show only requests that Doctor or Admin is interested in current UI.
@@ -10891,7 +10891,7 @@ status: `APPROVED` (string, required)
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
         + issuing_country: UA (string, required) - document issuing country
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-+ addresses (array[`Address_person`], required)
++ addresses (array[`Address_person_v2`], required)
 + phones (array[`Phone`], optional)
 + `authentication_methods` (array[`Authentication_Method_Patient_Request`], optional)
 + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
@@ -10958,7 +10958,7 @@ status: `APPROVED` (string, required)
         + issuing_country: UA (string, required) - document issuing country
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-+ addresses (array[`Address_person`], required)
++ addresses (array[`Address_person_v2`], required)
 + phones (array[`Phone`], optional)
 + `authentication_methods` (array[`Authentication_Method_Patient_Request`], optional)
 + unzr: `20090705-00011` (string, optional) - the record number in the demographic register
@@ -11168,7 +11168,7 @@ status: `APPROVED` (string, required)
         + issued_at: `2017-02-28` (string, required) - the date when document was issued
         + issuing_country: UA (string, required) - document issuing country
         + expiration_date: `2027-02-28` (string, optional) - the date when document expired, is necessery for those documents which has this date, ex, Temporary certificate, etc.
-+ addresses (array[`Address`], required)
++ addresses (array[`Address_v2`], required)
 + phones (array[`Phone`], optional)
 + emergency_contact (object, required)
     + include `Emergency_Contact`
@@ -12076,6 +12076,19 @@ status: `APPROVED` (string, required)
 + apartment: 23 (string, optional) - number of appartment
 + zip: 02090 (string, optional) - system of postal codes
 
+### Address_v2
++ type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
++ country: UA (enum[string], required) - `Dictionary COUNTRY`
++ area: Житомирська (string, required) - one of Ukraianian area
++ region: Бердичівський (string, optional) - district of area
++ settlement: Київ (string, required) - city name
++ `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - settlement identificator from uaadresses
++ `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
++ street: `вул. Ніжинська` (string, optional) - street name
++ building: 15 (string, optional) - number of building
++ apartment: 23 (string, optional) - number of appartment
++ zip: 02090 (string, optional) - system of postal codes
+
 ### Address_person
 + type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
 + country: UA (enum[string], required) - `Dictionary COUNTRY`
@@ -12083,6 +12096,19 @@ status: `APPROVED` (string, required)
 + region: Бердичівський (string, optional) - district of area
 + settlement: Київ (string, required) - city name
 + `settlement_type`: CITY (string, optional) - `Dictionary SETTLEMENT_TYPE` - type of settlement as city/town/village etc
++ `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - settlement identificator from uaadresses
++ `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
++ street: `вул. Ніжинська` (string, optional) - street name
++ building: 15 (string, optional) - number of building
++ apartment: 23 (string, optional) - number of appartment
++ zip: 02090 (string, optional) - system of postal codes
+
+### Address_person_v2
++ type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
++ country: UA (enum[string], required) - `Dictionary COUNTRY`
++ area: Житомирська (string, optional) - one of Ukraianian area
++ region: Бердичівський (string, optional) - district of area
++ settlement: Київ (string, required) - city name
 + `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - settlement identificator from uaadresses
 + `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
 + street: `вул. Ніжинська` (string, optional) - street name
