@@ -4549,11 +4549,11 @@ This method returns current person's Minfin validation details.
 + Parameters
     + `minfin_request_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - minfin request identifier
     + `resource_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person, Employee or Party identifier
-    + `resource`: `PARTY` (enum, required) - type of resource
+    + `resource`: `PARTY` (string, required) - type of resource
         - PARTY
         - PERSON
         - EMPLOYEE
-    + `status`: `NEW` (enum, optional) - status of non-compliance
+    + `status`: `NEW` (string, optional) - status of non-compliance
         - NEW
         - DONE
         - AUTO_REVIEW
@@ -10326,19 +10326,19 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + `id`: `eeebb86d-5cba-43c9-885b-6482ecaf82` (string, required) - recommendation internal identifier
 + `minfin_request_id`: `9547da91-bfcf-4fef-9b41-05af690d7de0` (string, required) - minfin request identifier
 + `resource_id`: `9547da91-bfcf-4fef-9b41-05af690d7de0` (string, required) - Person, employee or party unique identifier 
-+ `resource`: `PARTY` (enum[string], required) - Type of resource
++ `resource`: `PARTY` (string, required) - Type of resource
 + `recommendation_id`: `XXXXXXXXXXXXX02` (string, required) - recommendation identifier
-+ `recommendation_result`: 101 (enum[string], optional) - decision based on results of recommendation
++ `recommendation_result`: 101 (string, optional) - decision based on results of recommendation
 + `result_date`: `2025-11-11T11:11:11Z` (string, optional) - decision result date
 + `non_compliance_info` (array, optional)
     + (object)
-        + `code`: 487 (enum[string], required) - non-conformance code
+        + `code`: 487 (string, required) - non-conformance code
         + `process_type`: `auto` (string, optional) - non compliance processing type
-        + `status`: NEW (enum[string], required) - non-conformance status
+        + `status`: NEW (string, required) - non-conformance status
         + `data_sourse`: D2 (enum[string], optional) - information source
         + `updated_by`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, optional) - user who updated non compliance
         + `inserted_at`: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
-        + `discrepancy_result`: 101 (enum[string], optional) - decision based on results of discrepancy
+        + `discrepancy_result`: 101 (string, optional) - decision based on results of discrepancy
 
 
 ### `PersonVerification`
