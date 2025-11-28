@@ -11027,17 +11027,17 @@ status: `APPROVED` (string, required)
     - REJECTED
     - CANCELLED
 + person (object, optional) - Object that described a Patient
-+ names (array, required)
-    + (object)
-        + first_name: Петро (string, required)
-        + last_name: Іванов (string, required)
-        + second_name: Миколайович (string, optional)
-        + language: `uk` (string, required) - value from the LANGUAGE dictionary
-    + (object)
-        + first_name: Petro (string, required)
-        + last_name: Ivanov (string, required)
-        + second_name: Mykolaiovych (string, optional)
-        + language: `en` (string, required) - value from the LANGUAGE dictionary
+    + names (array, required)
+        + (object)
+            + first_name: Петро (string, required)
+            + last_name: Іванов (string, required)
+            + second_name: Миколайович (string, optional)
+            + language: `uk` (string, required) - value from the LANGUAGE dictionary
+        + (object)
+            + first_name: Petro (string, required)
+            + last_name: Ivanov (string, required)
+            + second_name: Mykolaiovych (string, optional)
+            + language: `en` (string, required) - value from the LANGUAGE dictionary
 + version: 3 (number, required) - version of endpoint used to create person request
 
 ### `Person_info_Public_DRv3`
