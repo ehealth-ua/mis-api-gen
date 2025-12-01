@@ -3340,6 +3340,24 @@ More details can be found [here](https://e-health-ua.atlassian.net/wiki/x/GQB7Iw
     + Attributes (`Response_OK`)
         + data (`crud_division_get`)
 
+### Create Institutuional division [POST /api/institutuional_divisions]
+
+This method must be used to create new division for Institutuional LE in the system
+
+Note that institutional legal entity has only OUTPATIENT type, so owners can register LICENSED_UNIT division type with non required address data
+
++ Request (application/json)
+    + Attributes (`crud_institutional_division_post`)
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`crud_institutional_division_get`)
+
 ### Deactivate division [PATCH /api/divisions/{id}/actions/deactivate]
 + Parameters
     + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -11837,6 +11855,21 @@ status: `APPROVED` (string, required)
 + external_id: `3213213` (string, optional)
 + location (Location, optional) - optional field. geographical location, if it's empty, division won't be shown on a map.
 
+### `Institutional_Division`
++ name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
++ addresses (array[`Institutional_Address`], optional)
++ phones (array, optional)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
++ email: email@example.com (string, optional) - division's email
++ working_hours (`workinghours`) - optional field, business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
++ type: CLINIC (enum, required) - `Dictionary DIVISION_TYPE`
++ legal_entity_id: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, optional)
++ external_id: `3213213` (string, optional)
++ location (Location, optional) - geographical location, if it's empty, division won't be shown on a map.
+
+
 ### workinghours
 + mon (array, optional)
     - 08.00,12.00 (array[string])
@@ -11915,6 +11948,9 @@ status: `APPROVED` (string, required)
 ### `crud_division_post`
 + include `Division`
 
+### `crud_institutional_division_post`
++ include `Institutional_Division`
+
 ### `crud_division_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
 + include `Division`
@@ -11928,6 +11964,21 @@ status: `APPROVED` (string, required)
 + `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
 + `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
 + `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, optional)
+
+### `crud_institutional_division_get`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
++ include `Institutional_Division`
++ status: ACTIVE (enum, required) - `Dictionary DIVISION_STATUS`
+    - ACTIVE
+    - INACTIVE
++ mountain_group: false (boolean, optional)
++ dls_id: `2872985` (string, optional)
++ dls_verified: true (boolean, optional)
++ `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, optional)
++ `updated_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
++ `updated_by`: `2922a240-63db-404e-b730-09222bfeb2dd` (string, optional)
+
 
 ## `Owners`
 ### `Owner`
@@ -12111,6 +12162,20 @@ status: `APPROVED` (string, required)
 + area: Житомирська (string, optional) - one of Ukraianian area
 + region: Бердичівський (string, optional) - district of area
 + settlement: Київ (string, required) - city name
++ `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - settlement identificator from uaadresses
++ `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
++ street: `вул. Ніжинська` (string, optional) - street name
++ building: 15 (string, optional) - number of building
++ apartment: 23 (string, optional) - number of appartment
++ zip: 02090 (string, optional) - system of postal codes
+
+### Institutional_Address
++ type: RESIDENCE (string, optional) - `Dictionary ADDRESS_TYPE`. 
++ country: UA (enum[string], required) - `Dictionary COUNTRY`
++ area: Житомирська (string, optional) - one of Ukraianian area
++ region: Бердичівський (string, optional) - district of area
++ settlement: Київ (string, optional) - city name
++ `settlement_type`: CITY (string, optional) - `Dictionary SETTLEMENT_TYPE` - type of settlement as city/town/village etc
 + `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - settlement identificator from uaadresses
 + `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
 + street: `вул. Ніжинська` (string, optional) - street name
