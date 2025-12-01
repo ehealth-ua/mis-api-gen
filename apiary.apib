@@ -11860,15 +11860,24 @@ status: `APPROVED` (string, required)
 + addresses (array[`Institutional_Address`], optional)
 + phones (array, optional)
     + (object)
-        + include `Phone`
-        + note: Реєстратура (string, optional) - Notes to phone number
+        + type:  (string, optional) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
+        + number: (string, optional) - phone number
+        + note: (string, optional) - Notes to phone number
 + email: (string, optional) - division's email
-+ working_hours (institutional_workinghours, optional) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
++ working_hours (object, optional) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
+    + mon (array, optional)
+    + tue (array, optional)
+    + wed (array, optional)
+    + thu (array, optional)
+    + fri (array, optional)
+    + sat (array, optional)
+    + sun (array, optional)
 + type: LICENSED_UNIT (enum, required) - `Dictionary DIVISION_TYPE`
 + legal_entity_id: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, optional)
 + external_id: `3213213` (string, optional)
-+ location (Institutional_Location, optional) - geographical location, if it's empty, division won't be shown on a map.
-
++ location (object, optional) - geographical location, if it's empty, division won't be shown on a map.
+    + latitude: (number, optional)
+    + longitude: (number, optional)
 
 ### workinghours
 + mon (array, optional)
@@ -11884,16 +11893,6 @@ status: `APPROVED` (string, required)
     - 08.00,12.00 (array[string])
 + sat (array, optional)
 + sun (array, optional)
-
-### institutional_workinghours
-+ mon (array, optional)
-+ tue (array, optional)
-+ wed (array, optional)
-+ thu (array, optional)
-+ fri (array, optional)
-+ sat (array, optional)
-+ sun (array, optional)
-
 
 ### `Division_Details`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -12535,10 +12534,6 @@ status: `APPROVED` (string, required)
 ### Location
 + latitude: 30.1233 (number, required)
 + longitude: 50.32423 (number, required)
-
-### Institutional_Location
-+ latitude: (number, optional)
-+ longitude: (number, optional)
 
 ### EntriesMedicalProgramProvisionMap
 + id: `3e34da3d-9b8c-4aaf-be8e-24a161279b6a` (string, required) - identifier of the Medical program provision
