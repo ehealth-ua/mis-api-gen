@@ -3216,7 +3216,7 @@ For changes to take effect employee must confirm the changes.
     + Attributes (`Response__Process_OK`)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include (`Legal_Entity_Response_Public_V2`)
+            + include (`Institutional_Legal_Entity_Response_Public`)
             + status: ACTIVE (enum, required)
                 - ACTIVE
                 - CLOSED
@@ -10958,13 +10958,13 @@ status: `APPROVED` (string, required)
 + names (array, required)
     + (object)
         + first_name: Петро (string, required)
-        + last_name: Іванов (string, required)
+        + last_name: Іванов (string, optional)
         + second_name: Миколайович (string, optional)
         + language: `uk` (string, required) - value from the LANGUAGE dictionary
         + no_last_name: false (boolean, required) - an indicator of whether the person has a last name
     + (object)
         + first_name: Petr (string, required)
-        + last_name: Ivanov (string, required)
+        + last_name: Ivanov (string, optional)
         + second_name: Mykolaiovych (string, optional)
         + language: `en` (string, required) - value from the LANGUAGE dictionary
         + no_last_name: false (boolean, required) - an indicator of whether the person has a last name
@@ -11025,13 +11025,13 @@ status: `APPROVED` (string, required)
 + names (array, required)
     + (object)
         + first_name: Петро (string, required)
-        + last_name: Іванов (string, required)
+        + last_name: Іванов (string, optional)
         + second_name: Миколайович (string, optional)
         + language: `uk` (string, required) - value from the LANGUAGE dictionary
         + no_last_name: false (boolean, required) - an indicator of whether the person has a last name
     + (object)
         + first_name: Petro (string, required)
-        + last_name: Ivanov (string, required)
+        + last_name: Ivanov (string, optional)
         + second_name: Mykolaiovych (string, optional)
         + language: `en` (string, required) - value from the LANGUAGE dictionary
         + no_last_name: false (boolean, required) - an indicator of whether the person has a last name
