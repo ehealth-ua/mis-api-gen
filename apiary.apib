@@ -4649,10 +4649,11 @@ This method returns current person's Minfin validation details.
         - AUTO_REVIEW
         - MANUAL_REVIEW
     + `process_type`: `auto` (string, optional) - non compliance processing type
+        - manual
+        - auto
     + `recommendation_id`: `xxxxxxxxx01`  (string, optional) - minfin recommendation identifier
     + `non_compliance_date_from`: `2025-09-25` (string, optional) - minfin recommendation created date from
     + `non_compliance_date_to`: `2025-09-27` (string, optional) - minfin recommendation created date to
-    + `responsible_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - user identifier who process non compliance
     + `page`: 2 (number, optional) - Page number.
     + `page_size`: 50 (number, optional) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 
@@ -10427,7 +10428,9 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
         + `status`: NEW (string, required) - non-conformance status
         + `data_sourse`: D2 (enum[string], optional) - information source
         + `updated_by`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, optional) - user who updated non compliance
+        + `updated_at`: `2025-11-11T11:11:11Z` (string, optional) - non compliance create date
         + `inserted_at`: `2025-11-11T11:11:11Z` (string, required) - recommendation create date
+        + `inserted_by`: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required) - user who create recommendation
         + `discrepancy_result`: 101 (string, optional) - decision based on results of discrepancy
 
 
@@ -11837,6 +11840,36 @@ status: `APPROVED` (string, required)
 + public_offer(object, fixed-type, required)
     + `consent_text`: `Consent text` (string, required)
     + `consent`: `true` (boolean, required)
+
+### `Institutional_Legal_Entity_Response_Public`
++ `edr` (edr_data, optional)
++ edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
++ type: OUTPATIENT (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
++ residence_address (Address, optional) - address where the legal entity is physically located
++ phones (array[`Phone`], required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
++ email: email@example.com (string, required) - email to contact person in charge from legal entity
++ website: `www.msp.com.ua` (string, optional) - legal entity website
++ receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
++ beneficiary: `Борисов Борис Борисович` (string, optional) - legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]
++ accreditation (MSP_Accreditation, optional)
++ license (object)
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string)
+    + type: MSP (string, optional) - License type `Dictionary LICENSE_TYPE`
+    + license_number: fd123443 (string, optional)
+    + issued_by: Кваліфікаційна комісія (string)
+    + issued_date: `2017-02-28` (string)
+    + expiry_date: `2017-02-28` (string)
+    + `active_from_date`: `2017-02-28` (string)
+    + what_licensed: реалізація наркотичних засобів (string, optional)
+    + order_no: ВА43234 (string) - номер наказу
++ `archive`(array[`Archive`], optional)
++ public_offer(object, fixed-type, required)
+    + `consent_text`: `Consent text` (string, required)
+    + `consent`: `true` (boolean, required)
+
 
 ### `Legal_Entity_Request_Public_Short`
 + name: Клініка Ноунейм (string, required) - full official name of legal entity
