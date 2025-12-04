@@ -5439,6 +5439,29 @@ This method is designed to get printout form (content) by medication request id.
             + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
             + `printout_form`: `Medication request content` (string, required) - HTML document for medication request
 
+### Get Medication Request Price Catalog link [GET /api/persons/{person_id}/medication_requests/{medication_requests_id}/price_catalog_link]
+
+***Scope  medication_request:details***
+
+This method is designed to return link to State Price Catalog for prescribed medication. This link is needed to inform the patient about the available brands and their prices in the context of the prescribed medication
+
++ Parameters
+    + `person_id`: `5e661b15-a39a-4713-b18e-ba03a4a48ecc` (string, required) - Person identifier
+    + `medication_requests_id`: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Medication request identifier
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - medication request identifier
+            + `price_catalog_link`: `https://npctest.e-life.com.ua/search-prescription` (string, required) - Link to State Price Catalog
+
 ### Search for a Medication requests by Pharmacy User [GET /api/pharmacy/medication_requests{?request_number}]
 Scope required: `medication_request:read_pharm`
 
