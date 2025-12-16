@@ -1808,9 +1808,8 @@ It returns:
     + Attributes (`Response_Error`)
         + meta (Response__Meta, fixed-type)
             + code: 403 (number)
-        + error (Response__Error, fixed-type)
+        + error (Response___Error, fixed-type)
             + type: `forbidden`
-            + message: `Active declaration belongs to another msp` (string)
 
 ### Get Person Declaration V2 [GET /api/v2/persons/{id}/declaration]
 
@@ -9238,6 +9237,9 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + page_size: 50 (number) - A limit on the number of objects to be returned, between 1 and 300. Default: 50
 + total_entries: 1000 (number) - Total number of objects in collection.
 + total_pages: 23 (number) - Total number of pages.
+
+### `Response___Error`
++ type: type_atom (string) - Atom that represents error type.
 
 ## Persons
 ### `Person`
