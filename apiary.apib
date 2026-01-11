@@ -11062,7 +11062,7 @@ status: `APPROVED` (string, required)
 + `edr` (edr_data, optional)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: OUTPATIENT (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
-+ residence_address ([`Institutional_Address`], optional) - address where the legal entity is physically located
++ residence_address (InstitutionalAddress, optional) - address where the legal entity is physically located
 + phones (array[`Phone`], required)
     + (object)
         + include `Phone`
@@ -11179,7 +11179,7 @@ status: `APPROVED` (string, required)
 
 ### `Institutional_Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[`Institutional_Address`], optional)
++ addresses (array[`InstitutionalAddress`], optional)
 + phones (array, optional)
     + (object)
         + type:  (string, optional) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
@@ -11500,7 +11500,7 @@ status: `APPROVED` (string, required)
 + apartment: 23 (string, optional) - number of appartment
 + zip: 02090 (string, optional) - system of postal codes
 
-### Institutional_Address
+### InstitutionalAddress
 + type: RESIDENCE (string, optional) - `Dictionary ADDRESS_TYPE`. 
 + country: UA (enum[string], required) - `Dictionary COUNTRY`
 + area: (string, optional) - one of Ukraianian area
