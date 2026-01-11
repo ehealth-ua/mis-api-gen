@@ -11133,7 +11133,7 @@ status: `APPROVED` (string, required)
     + `consent`: `true` (boolean, required)
 
 ### `Institutional_Legal_Entity_Response_Public_V2`
-+ `edr` (edr_data, optional)
++ `edr` (Institutional_edr_data, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: OUTPATIENT (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
 + residence_address (InstitutionalAddress, required) - address where the legal entity is physically located
@@ -11220,6 +11220,22 @@ status: `APPROVED` (string, required)
         + is_primary: true (boolean, required)
 + `registration_address` (`registration_address`, required)
 + state: 1 (number, required) - `Use dictionary EDR_STATE`
+
+### `Institutional_edr_data`
++ id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional)
++ name: Клініка Ноунейм (string, required) - full official name of legal entity also the name to show on public sources [as map, portal etc]
++ short_name: Ноунейм (string, optional) - short name of legal entity
++ public_name: Ноунейм (string, optional)
++ `legal_form`: 140 (string, optional) - `Business form of legal entity received from edr - Use dictionary LEGAL_FORM to show the name`
++ edrpou: 54323454 (string, required) -  Unified Register of Businesses and Organizations
++ kveds (array, optional) 
+    + (object) 
+        + name: `Діяльність лікарняних закладів` (string, required)
+        + code: `86.10` (string, required) - `Use dictionaries KVEDS_ALLOWED_MSP or KVEDS_ALLOWED_PHARMACY`
+        + is_primary: true (boolean, required)
++ `registration_address` (`registration_address`, optional)
++ state: 1 (number, optional) - `Use dictionary EDR_STATE`
+
 
 ### `registration_address`
 + zip: `02090`
