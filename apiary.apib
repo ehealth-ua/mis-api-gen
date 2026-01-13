@@ -12132,19 +12132,10 @@ status: `APPROVED` (string, required)
         + number: (string, optional) - phone number
         + note: (string, optional) - Notes to phone number
 + email: (string, optional) - division's email
-+ working_hours (object, optional) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
-    + mon (array, optional)
-    + tue (array, optional)
-    + wed (array, optional)
-    + thu (array, optional)
-    + fri (array, optional)
-    + sat (array, optional)
-    + sun (array, optional)
++ working_hours (`workinghours`) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
 + type: LICENSED_UNIT (enum, required) - `Dictionary DIVISION_TYPE`
 + external_id: `3213213` (string, optional)
-+ location (object, optional) - geographical location, if it's empty, division won't be shown on a map.
-    + latitude: (number, optional)
-    + longitude: (number, optional)
++ location (Location, optional) - geographical location, if it's empty, division won't be shown on a map.
 
 ### workinghours
 + mon (array, optional)
