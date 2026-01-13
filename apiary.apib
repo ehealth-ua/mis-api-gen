@@ -10941,6 +10941,41 @@ status: `APPROVED` (string, required)
     + `consent_text`: `Consent text` (string, required)
     + `consent`: `true` (boolean, required)
 
+
+### `Institutional_Legal_Entity_Request_Public`
++ edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
++ type: PRIMARY_CARE (string, required) - type of legal entity
++ residence_address (InstitutionalAddress, required) - address where the legal entity is physically located
++ phones (array, required)
+    + (object)
+        + include `Phone`
+        + note: Реєстратура (string, optional) - Notes to phone number
++ email: email@example.com (string, required) - email to contact person in charge from legal entity
++ website: `www.msp.com.ua` (string, optional) - legal entity website
++ receiver_funds_code: `12345` (string, optional) - treasury registration code [Код одержувача/розпорядника бюджетних коштів для Казначейства. Вказується за наявності.]
++ beneficiary: `Борисов Борис Борисович` (string, optional) - legal owner of legal entity [нформація про власника ЗОЗ, для ФОП не заповнюється]
++ owner(`Owner_V2`,required)
++ accreditation (MSP_Accreditation, optional)
+- One of
+    + license (object, required)
+        + type: MSP (string, required) - License type `Dictionary LICENSE_TYPE`
+        + license_number: fd123443 (string, optional)
+        + issued_by: Кваліфікаційна комісія (string, required)
+        + issued_date: `2017-02-28` (string, required)
+        + expiry_date: `2017-02-28` (string, optional)
+        + `active_from_date`: `2017-02-28` (string, required)
+        + what_licensed: реалізація наркотичних засобів (string, optional)
+        + order_no: ВА43234 (string, required) - номер наказу
+    + license (object, required)
+        + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
++ `archive`(array[`Archive`], optional)
++ security (object, required, fixed-type)
+    + `redirect_uri`: `https://example.com` (string, required, fixed) - Redirect uri is used in oauth2.0 flow
++ public_offer(object, fixed-type, required)
+    + `consent_text`: `Consent text` (string, required)
+    + `consent`: `true` (boolean, required)
+
+
 ### `Legal_Entity_Response_Public`
 + name: Клініка Ноунейм (string, required) - full official name of legal entity also the name to show on public sources [as map, portal etc]
 + short_name: Ноунейм (string, optional) - short name of legal entity
@@ -14954,7 +14989,7 @@ status: `APPROVED` (string, required)
 + author_employee_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to employee as care team author
 
 ### `Care_team_participant_base`
-+ role: `participant` (string, required) - Dictionary `care_team_participant_role`
++ role: `participant` (string, required) - Dictionary `care_team_participant_roles`
 + `member_type`: `employee` (string, required) - Dictionary `care_team_participant_member_type`
 + member_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Care team participant member identifier
 + period_start: `2024-11-28` (string, required) - Start of period when member participates in care team
