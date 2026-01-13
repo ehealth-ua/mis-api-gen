@@ -12126,10 +12126,9 @@ status: `APPROVED` (string, required)
 ### `Institutional_Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
 + addresses (array[`InstitutionalAddress`], optional)
-+ phones (array, optional)
++ phones (array, required)
     + (object)
-        + type:  (string, optional) - `Dictionary PHONE_TYPE` type of phone Land Line or Mobile. At least one of type must be present. Each type can be represented only once.
-        + number: (string, optional) - phone number
+        + include `Phone`
         + note: (string, optional) - Notes to phone number
 + email: (string, optional) - division's email
 + working_hours (`workinghours`) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
