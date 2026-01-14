@@ -3088,6 +3088,26 @@ List consists of legal entities with parameter `is_active = true`.
                 + `client_id`: `client_id` (string, required)
                 + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
 
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + include (`Institutional_Legal_Entity_Response_Public_V2`)
+            + status: ACTIVE (enum, required)
+                - ACTIVE
+                - CLOSED
+                - SUSPENDED
+            + `nhs_verified`: false (boolean, required)
+            + `nhs_reviewed`: false (boolean, required) - flag that shows whether legal entity was reviewed by nhs
+            + nhs_comment: `comment` (string, optional) - nhs's comment
+        + urgent (object, optional)
+            + security (object)
+                + `secret_key`: `secret_key` (string, required)
+                + `client_id`: `client_id` (string, required)
+                + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
+
+
+
 ### Create/Update Legal Entity V2 [PUT /api/v2/legal_entities]
 
 Key features and main differences from V1:
@@ -3200,31 +3220,6 @@ For changes to take effect employee must confirm the changes.
             + `nhs_verified`: false (boolean, required)
             + `nhs_reviewed`: false (boolean, required) - flag that shows whether legal entity was reviewed by nhs
             + nhs_comment: `comment` (string, optional) - nhs's comment
-        + urgent (object, optional)
-            + security (object)
-                + `secret_key`: `secret_key` (string, required)
-                + `client_id`: `client_id` (string, required)
-                + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
-            + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
-
-+ Response 201 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + data (object)
-            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include `Institutional_Legal_Entity_Response_Public`
-            + status: ACTIVE (enum, required)
-                - ACTIVE
-                - CLOSED
-                - SUSPENDED
-            + `nhs_verified`: false (boolean, required)
-            + `nhs_reviewed`: false (boolean, required) - flag that shows whether legal entity was reviewed by nhs
-            + nhs_comment: `comment` (string, optional) - nhs's comment
-            + is_active: true (boolean, required)
-            + inserted_by: `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, required)
-            + inserted_at: `2005-10-30 10:45` (string, required) - timestamp
-            + created_by_mis_client_id:  `A65C8369-CE3A-44D6-839B-8856E3DC4CA3` (string, required)
-            + updated_at: `1991-08-19T00:00:00.000Z` (string, required)
-            + updated_by: `userid` (string, required)
         + urgent (object, optional)
             + security (object)
                 + `secret_key`: `secret_key` (string, required)
@@ -7639,22 +7634,6 @@ This service returns parties.declaration_count from report DB for get employees 
                 + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
             + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
 
-+ Response 201 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + data (object)
-            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + include (`Institutional_Legal_Entity_Response_Public`)
-            + status: ACTIVE (enum, required)
-                - ACTIVE
-                - CLOSED
-                - SUSPENDED
-        + urgent (object, optional)
-            + security (object)
-                + `secret_key`: `secret_key` (string, required)
-                + `client_id`: `client_id` (string, required)
-                + `redirect_uri`: `redirect_uri` (string, required, fixed) - Redirect uri
-            + employee_request_id: `d098aee7-5ab3-4a24-a6ba-811f9cf94c6d` - Employee request identifier
-
 
 ## Dummy for person request [/dummy/person_requests]
 
@@ -11017,7 +10996,6 @@ status: `APPROVED` (string, required)
 ### `Institutional_Legal_Entity_Request_Public`
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
 + type: PRIMARY_CARE (string, required) - type of legal entity
-+ residence_address (InstitutionalAddress, optional) - address where the legal entity is physically located
 + phones (array, required)
     + (object)
         + include `Phone`
@@ -11157,8 +11135,8 @@ status: `APPROVED` (string, required)
 ### `Institutional_Legal_Entity_Response_Public_V2`
 + `edr` (Institutional_edr_data, required)
 + edrpou: 32323454 (string, required) - Unified Register of Businesses and Organizations
-+ type: OUTPATIENT (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
 + residence_address (InstitutionalAddress, required) - address where the legal entity is physically located
++ type: OUTPATIENT (string, required) - type of legal entity `Dictionary LEGAL_ENTITY_TYPE_V2`
 + phones (array[`Phone`], required)
     + (object)
         + include `Phone`
@@ -11602,18 +11580,7 @@ status: `APPROVED` (string, required)
 + zip: 02090 (string, optional) - system of postal codes
 
 ### InstitutionalAddress
-+ type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
 + country: UA (enum[string], required) - `Dictionary COUNTRY`
-+ area: (string, optional) - one of Ukraianian area
-+ region: (string, optional) - district of area
-+ settlement: (string, optional) - city name
-+ `settlement_type`: (string, optional) - `Dictionary SETTLEMENT_TYPE` - type of settlement as city/town/village etc
-+ `settlement_id`: (string, optional) - settlement identificator from uaadresses
-+ `street_type`: (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
-+ street: (string, optional) - street name
-+ building: (string, optional) - number of building
-+ apartment: (string, optional) - number of appartment
-+ zip: (string, optional) - system of postal codes
 
 
 ### Phone
