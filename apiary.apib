@@ -3056,7 +3056,17 @@ List consists of legal entities with parameter `is_active = true`.
                     - ACTIVE
                     - CLOSED
                     - SUSPENDED
-        
+
++ Response 200 (application/json)
+    + Attributes (`Response_Collection_V2`)
+        + data (array)
+            + (object)
+                + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+                + include (`Institutional_Legal_Entity_Response_Public_V2`)
+                + status: ACTIVE (enum, required)
+                    - ACTIVE
+                    - CLOSED
+                    - SUSPENDED
 
 ### Get Legal Entity by ID V2 [GET /api/v2/legal_entities/{id}]
 
