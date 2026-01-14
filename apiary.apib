@@ -11258,7 +11258,6 @@ status: `APPROVED` (string, required)
 
 ### `Institutional_Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[`InstitutionalAddress`], optional)
 + phones (array, required)
     + (object)
         + include `Phone`
@@ -11267,7 +11266,6 @@ status: `APPROVED` (string, required)
 + working_hours (`workinghours`) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
 + type: LICENSED_UNIT (enum, required) - `Dictionary DIVISION_TYPE`
 + external_id: `3213213` (string, optional)
-+ location (Location, optional) - geographical location, if it's empty, division won't be shown on a map.
 
 ### workinghours
 + mon (array, optional)
@@ -11370,7 +11368,6 @@ status: `APPROVED` (string, required)
 + status: ACTIVE (enum, required) - `Dictionary DIVISION_STATUS`
     - ACTIVE
     - INACTIVE
-+ mountain_group: false (boolean, optional)
 + dls_id: `2872985` (string, optional)
 + dls_verified: true (boolean, optional)
 + `inserted_at`: `2017-04-20T19:14:13Z` (string, optional) - ISO 8601 date and time in UTC timezone.
