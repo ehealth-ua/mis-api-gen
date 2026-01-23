@@ -4474,7 +4474,7 @@ This method is used to create care teams for legal entity in the system.
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (`crud_care_team_get`)
+        + data (`crud_care_team_post_patch_response`)
 
 ### Search care teams by params [GET /api/care_teams{?category,period_start_from,period_start_to,period_end_from,period_end_to,status,legal_entity_id,member_id,page,page_size}]
 
@@ -4526,7 +4526,7 @@ This method is used to change care team status.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (`crud_care_team_get`)
+        + data (`crud_care_team_status_change_patch_response`)
 
 ### Update care team [PATCH /api/care_teams/{id}]
 
@@ -4543,7 +4543,7 @@ This method is used to update care team. Only care team contact info and notes c
             API-key: uXhEczJ56adsfh3Ri9SUkc4en
             X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
 
-    + Attributes (`crud_care_team_patch`)
+    + Attributes (`crud_care_team_post_patch_response`)
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
@@ -4582,7 +4582,7 @@ This method is used to add additionals participants to care team.
     + Attributes (`Response__Process_OK`)
         + meta (Response__Meta)
             + code: 201 (number)
-        + data (`crud_care_team_participant_get`)
+        + data (`crud_care_team_participant_post_response`)
 
 ### Change care team participant status [PATCH /api/care_teams/participants/{id}/actions/change_status]
 
@@ -14963,6 +14963,19 @@ status: `APPROVED` (string, required)
 + `status_description`: `Деактивовано по причині виявлення шахрайства` (string, optional) - Optional description of care team status
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
 
+### `crud_care_team_patch`
++ email: `test_care_team@email.com` (string, optional) - Care team contact email
++ phones (array[`Phone`], optional) - Array of care team contact phones
++ note: `Додаткова примітка до команди лікування` (string, optional) - Comments made about care team
+
+### `crud_care_team_post_patch_response`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
++ include `Care_team_base`
++ period_end: null (string, optional, nullable) - End of period that care team covers
++ `status_reason`: null (string, optional, nullable) - Dictionary `care_team_status_reasons`
++ `status_description`: null (string, optional, nullable) - Optional description of care team status
++ legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
+
 ### `crud_care_team_participant_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_participant_base`
@@ -14977,15 +14990,24 @@ status: `APPROVED` (string, required)
 + `status_reason`: `typo` (string, optional) - Dictionary `care_team_status_reasons`
 + period_end: `2024-11-28` (string, optional) - End of period that care team covers
 
-### `crud_care_team_patch`
-+ email: `test_care_team@email.com` (string, optional) - Care team contact email
-+ phones (array[`Phone`], optional) - Array of care team contact phones
-+ note: `Додаткова примітка до команди лікування` (string, optional) - Comments made about care team
+### `crud_care_team_status_change_patch_response`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
++ include `Care_team_base`
++ period_end: `2024-11-28` (string, optional) - End of period that care team covers
++ `status_reason`: `typo` (string, optional) - Dictionary `care_team_status_reasons`
++ `status_description`: null (string, optional) - Optional description of care team status
++ legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
 
 ### `crud_care_team_participant_patch`
 + status: `inactive` (string, required) - Dictionary `care_team_participant_status`
 + period_end: `2024-11-28` (string, optional) - End of period when member participates in care team
 + `status_reason`: `typo` (string, optional) - Dictionary `care_team_participant_status_reasons`
+
+### `crud_care_team_participant_post_response`
++ id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
++ include `Care_team_participant_base`
++ period_end: null (string, optional, nullable) - End of period when member participates in care team
++ `status_reason`: null (string, optional, nullable) - Dictionary `care_team_participant_status_reasons`
 
 ## Approvals
 ### Approval (object)
