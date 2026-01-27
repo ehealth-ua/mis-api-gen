@@ -15003,6 +15003,8 @@ status: `APPROVED` (string, required)
 + `status_reason`: `typo` (string, optional) - Dictionary `care_team_status_reasons`
 + `status_description`: `Деактивовано по причині виявлення шахрайства` (string, optional) - Optional description of care team status
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
 
 ### `crud_care_team_patch`
 + email: `test_care_team@email.com` (string, optional) - Care team contact email
@@ -15016,12 +15018,16 @@ status: `APPROVED` (string, required)
 + `status_reason`: null (string, optional, nullable) - Dictionary `care_team_status_reasons`
 + `status_description`: null (string, optional, nullable) - Optional description of care team status
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
 
 ### `crud_care_team_participant_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required) - Unique record identifier
 + include `Care_team_participant_base`
 + period_end: `2027-11-28` (string, optional) - End of period when member participates in care team
 + `status_reason`: `typo` (string, optional) - Dictionary `care_team_participant_status_reasons`
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
 
 ### `crud_care_team_post`
 + include `Care_team_base`
@@ -15038,6 +15044,8 @@ status: `APPROVED` (string, required)
 + `status_reason`: `typo` (string, optional) - Dictionary `care_team_status_reasons`
 + `status_description`: null (string, optional) - Optional description of care team status
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
 
 ### `crud_care_team_participant_patch`
 + status: `inactive` (string, required) - Dictionary `care_team_participant_status`
@@ -15049,6 +15057,8 @@ status: `APPROVED` (string, required)
 + include `Care_team_participant_base`
 + period_end: null (string, optional, nullable) - End of period when member participates in care team
 + `status_reason`: null (string, optional, nullable) - Dictionary `care_team_participant_status_reasons`
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
 
 ## Approvals
 ### Approval (object)
