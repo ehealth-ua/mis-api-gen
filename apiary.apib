@@ -4247,7 +4247,7 @@ This method is used to get details of care team.
 
 + Response 200 (application/json)
     + Attributes (`Response_OK`)
-        + data (`crud_care_team_get`)
+        + data (`crud_care_team_details_get`)
 
 ### Change care team status [PATCH /api/care_teams/{id}/actions/change_status]
 
@@ -15005,6 +15005,17 @@ status: `APPROVED` (string, required)
 + legal_entity_id: `28d9c1be-08f0-403b-aa76-bff228c9904f` (string, required) - Reference to legal entity as care team owner
 + `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
 + `updated_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was updated, ISO 8601 date and time in UTC timezone.
+
+### `crud_care_team_details_get`
++ include `crud_care_team_get`
++ `status_history` (array[`care_team_status_history_record`], optional) - Care team status changes history records in ascending order
+
+### `care_team_status_history_record`
++ status: `draft` (string, required) - Dictionary `care_team_status`
++ `status_reason`: `typo` (string, optional) - Dictionary `care_team_status_reasons`
++ `status_description`: `Деактивовано по причині виявлення шахрайства` (string, optional) - Optional description of care team status
++ `inserted_at`: `2026-01-20T19:14:13Z` (string, required) - Date and time when record was created, ISO 8601 date and time in UTC timezone.
++ `inserted_by`: `e1453f4c-1077-4e85-8c98-c13ffca0063e` (string, required)
 
 ### `crud_care_team_patch`
 + email: `test_care_team@email.com` (string, optional) - Care team contact email
