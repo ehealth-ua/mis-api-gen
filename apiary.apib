@@ -3740,6 +3740,30 @@ Service will return authorization error (403) if the requested client doesn't co
     + Attributes (`Response_OK`)
         + data (`Connection`)
 
+
+### Create additional client connection [POST /api/additional/connections]
+
+Using this method, owner of LE can create additional connection for another MIS
+
+**Scopes required:** `additional_connection:write`
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            API-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + client_id: `e36ed8c8-4416-49bd-b4df-d2d2f22d76a8` (string, required)
+        + consumer_id: `25c03af6-69bd-439e-b0dd-f1669b3dbbfd` (string, required)
+        + redirect_uri: `https://outp_atarasenko_test.com` (string, required)
+
++ Response 200 (application/json)
+    + Attributes (`Response_OK`)
+        + data (`Connection`)
+
 ### Update client connection [PATCH /api/clients/{id}/connections/{connection_id}]
 
 Only redirect uri can be updated using this method
