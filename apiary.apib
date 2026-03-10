@@ -3741,7 +3741,7 @@ Service will return authorization error (403) if the requested client doesn't co
         + data (`Connection`)
 
 
-### Create additional client connection [POST /api/additional/connections]
+### Create client connection [POST /api/additional/connections]
 
 Using this method, owner of LE can create additional connection for another MIS
 
@@ -3757,7 +3757,6 @@ Using this method, owner of LE can create additional connection for another MIS
 
     + Attributes (object)
         + client_id: `e36ed8c8-4416-49bd-b4df-d2d2f22d76a8` (string, required)
-        + consumer_id: `25c03af6-69bd-439e-b0dd-f1669b3dbbfd` (string, required)
         + redirect_uri: `https://outp_atarasenko_test.com` (string, required)
 
 + Response 200 (application/json)
