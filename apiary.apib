@@ -2462,6 +2462,48 @@ This method allows to deactivate Confidant Person relationship.
             + type: request_malformed (string, required)
             + message: `This patient has X confidants and can not have more` (string, required)
 
+### Update Confidant Person relationship request [POST /api/persons/{id}/confidant_person_relationship_requests/update]
+
+This method allows to update Confidant Person relationship.
+
+**Scopes required:** `confidant_person_relationship_request:write`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required) - Person identifier
+    
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
+    + Attributes (object)
+        + include (`Update_Confidant_Person_request`)
+
++ Response 201 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + meta (Response__Meta)
+            + code: 201 (number)
+        + data (object)
+            + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+            + status: `NEW` (enum, optional) - current status on relationship request.
+            + action: `UPDATE` (enum, optional) - action that initiates by request creation.
+            + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
+        + urgent (object, required)
+            + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
+            + documents (array[`media_content`], required)
+
++ Response 422 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta)
+            + code: 422
+        + error
+            + type: request_malformed (string, required)
+            + message: `This patient has X confidants and can not have more` (string, required)
+
 ### Get Confidant Person relationship requests list [GET /api/persons/{id}/confidant_person_relationship_requests]
 
 Use this method to get list of previously created Confidant Person relationship requests
@@ -10187,6 +10229,18 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
             + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
             + issued_at: `2017-02-28` (string, required) - the date when document was issued
 + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
+
+### `Update_Confidant_Person_request`
++ confidant_person_relationship (object, required)
+    + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
+    + documents_relationship (array, required)
+        + (object)
+            + type: COURT_DECISION (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
+            + number: АА120518 (string, required) - document issue number
+            + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
+            + issued_at: `2017-02-28` (string, required) - the date when document was issued
+            + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends
++ authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, required) - identifier of person's auth method
 
 ### `Emergency_Contact`
 + first_name: Петро (string, required)
