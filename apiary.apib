@@ -12152,7 +12152,7 @@ status: `APPROVED` (string, required)
 
 ### `Institutional_Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
-+ addresses (array[`Address_v3`], optional)
++ addresses (array[`Address_v4`], optional)
 + phones (array, required)
     + (object)
         + include `Phone`
@@ -12447,6 +12447,9 @@ status: `APPROVED` (string, required)
 + building: 15 (string, optional) - number of building
 + apartment: 23 (string, optional) - number of appartment
 + zip: 02090 (string, optional) - system of postal codes
+
+### Address_v4
++ country: UA (enum[string], optional) - `Dictionary COUNTRY`
 
 ### Address_person
 + type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
