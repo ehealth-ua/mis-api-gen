@@ -2371,26 +2371,9 @@ This method allows add Confidant Person relationship.
             + code: 201 (number)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + status: `NEW` (enum, optional) - current verification status on relationship request.
-            + action: `INSERT` (enum, optional) - action that initiates by request creation.
+            + status: `NEW` (enum, optional) - current status on relationship request.
+            + action: `UPDATE` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
-            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person who will become confidant
-            + documents_relationship (array, required)
-                + (object)
-                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
-                    + number: АА120518 (string, required) - document issue number
-                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
-                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
-                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
-            + confidant_person_relationship (object, optional, nullable)
-                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
-                + documents_relationship (array, required)
-                    + (object)
-                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
-                        + number: АА120518 (string, required) - document issue number
-                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
-                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
-            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional, nullable) - identifier of person's auth method
         + urgent (object, required)
             + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
@@ -2430,26 +2413,9 @@ This method allows to deactivate Confidant Person relationship.
             + code: 201 (number)
         + data (object)
             + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-            + status: `NEW` (enum, optional) - current verification status on relationship request.
-            + action: `DEACTIVATE` (enum, optional) - action that initiates by request creation.
+            + status: `NEW` (enum, optional) - current status on relationship request.
+            + action: `UPDATE` (enum, optional) - action that initiates by request creation.
             + channel: `MIS` (enum, required) - channel that invokes the adding or updating of relationship request.
-            + confidant_person_id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, optional, nullable) - identifier of person who will become confidant
-            + documents_relationship (array, optional, nullable)
-                + (object)
-                    + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
-                    + number: АА120518 (string, required) - document issue number
-                    + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
-                    + issued_at: `2017-02-28` (string, required) - the date when document was issued
-                    + active_to: `2025-08-19` (string, optional) - the date then period of document validity ends.
-            + confidant_person_relationship (object, required)
-                + id: `7b100a9c-daaa-490e-b88d-2a911059b055` (string, required) - identifier of person relationship that will be deactivated
-                + documents_relationship (array, required)
-                    + (object)
-                        + type: DEPRIVATION_OF_PARENTAL_RIGHTS (string, required) - `Dictionary DOCUMENT_RELATIONSHIP_TYPE`
-                        + number: АА120518 (string, required) - document issue number
-                        + issued_by: `Рокитнянським РВ ГУ МВС Київської області` (string, required) - authority which issued the document
-                        + issued_at: `2017-02-28` (string, required) - the date when document was issued
-            + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
         + urgent (object, required)
             + `authentication_method_current` (`Authentication_Method_for_request`, required) - if the person doesn't have active auth methods, then this block will be nill
             + documents (array[`media_content`], required)
