@@ -11270,6 +11270,19 @@ status: `APPROVED` (string, required)
 
 ### `Institutional_Division`
 + name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
++ addresses (array[`Address_v3`], required)
++ phones (array, required)
+    + (object)
+        + include `Phone`
+        + note: (string, optional) - Notes to phone number
++ email: qq2234562qq@gmail.com (string, optional) - division's email
++ legal_entity_id: `c8aadb87-ecb9-41ca-9ad4-ffdfe1dd89c9` (string, optional) - appropriate LE identifier
++ working_hours (`workinghours`) - business hours by each day weekly, doesn't make any influence on business process and will be shown on portal and map.
++ type: LICENSED_UNIT (enum, required) - `Dictionary DIVISION_TYPE`
++ external_id: `3213213` (string, optional)
+
+### `Institutional_Division_post`
++ name: Бориспільське відділення Клініки Ноунейм (string, required) - the full name of division
 + phones (array, required)
     + (object)
         + include `Phone`
@@ -11359,7 +11372,7 @@ status: `APPROVED` (string, required)
 + include `Division`
 
 ### `crud_institutional_division_post`
-+ include `Institutional_Division`
++ include `Institutional_Division_post`
 
 ### `crud_division_get`
 + id: `d290f1ee-6c54-4b01-90e6-d701748f0851` (string, required)
@@ -11552,18 +11565,18 @@ status: `APPROVED` (string, required)
 + zip: 02090 (string, optional) - system of postal codes
 
 ### Address_v3
-+ type: RESIDENCE (string, optional) - `Dictionary ADDRESS_TYPE`. 
++ type: null (string, optional) - `Dictionary ADDRESS_TYPE`. 
 + country: UA (enum[string], optional) - `Dictionary COUNTRY`
-+ area: Житомирська (string, optional) - one of Ukraianian area
-+ region: Бердичівський (string, optional) - district of area
-+ settlement: Київ (string, optional) - city name
-+ `settlement_type`: CITY (string, optional) - `Dictionary SETTLEMENT_TYPE` - type of settlement as city/town/village etc
-+ `settlement_id`: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, optional) - settlement identificator from uaadresses
-+ `street_type`: STREET (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
-+ street: `вул. Ніжинська` (string, optional) - street name
-+ building: 15 (string, optional) - number of building
-+ apartment: 23 (string, optional) - number of appartment
-+ zip: 02090 (string, optional) - system of postal codes
++ area: null (string, optional) - one of Ukraianian area
++ region: null (string, optional) - district of area
++ settlement: null (string, optional) - city name
++ `settlement_type`: null (string, optional) - `Dictionary SETTLEMENT_TYPE` - type of settlement as city/town/village etc
++ `settlement_id`: null (string, optional) - settlement identificator from uaadresses
++ `street_type`: null (string, optional) - `Dictionary STREET_TYPE` - type of street as street/road/line etc
++ street: null (string, optional) - street name
++ building: null (string, optional) - number of building
++ apartment: null (string, optional) - number of appartment
++ zip: null (string, optional) - system of postal codes
 
 ### Address_person
 + type: RESIDENCE (string, required) - `Dictionary ADDRESS_TYPE`. 
