@@ -7436,7 +7436,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/KoAfIw
             + message: `Unverified phone number` (string, required)
 
 
-### Create/Update Person Request v2 [POST /api/v2/person_requests]
+### Create/Update Person Request v2 - Deprecated [POST /api/v2/person_requests]
 
 This method will be deprecated. Use **Create/Update Person Request v3**.
 
@@ -7574,7 +7574,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/QgAjIw
             + message: `Invalid verification code` (string, required)
 
   
-### Approve Person Request v2 [PATCH /api/v2/person_requests/{id}/actions/approve]
+### Approve Person Request v2 - Deprecated [PATCH /api/v2/person_requests/{id}/actions/approve]
 
 This method will be deprecated. Use **Approve Person Request v3**.
 
@@ -7675,7 +7675,7 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/MYDAIw
             + channel: `MIS` (enum, required) - channel that invoke patient create service
             + authorize_with: `cc949559-5dfe-420f-ac05-065e443b2cc6` (string, optional) - identifier of person's auth method
 
-### Reject Person Request v2 [PATCH /api/v2/person_requests/{id}/actions/reject]
+### Reject Person Request v2 - Deprecated [PATCH /api/v2/person_requests/{id}/actions/reject]
 
 This method will be deprecated. Use **Reject Person Request v3**.
 
@@ -7750,7 +7750,7 @@ Look at [**Dummy Sign Person Request**](https://uaehealthapi.docs.apiary.io/#ref
     + Attributes (`Response__Process_OK`)
         + data (`Patient_short`)
 
-### Sign Person Request v2 [PATCH /api/v2/person_requests/{id}/actions/sign]
+### Sign Person Request v2 - Deprecated [PATCH /api/v2/person_requests/{id}/actions/sign]
 
 This method will be deprecated. Use **Sign Person Request v3**.
 
@@ -7827,7 +7827,7 @@ This method will be depricated. Use **Get Person Request by ID v2** instead.
             <!--+ `authentication_methods` (array [`Authentication_Methods_Patient_Response`], required)-->
             + documents (array[`media_content`], optional)
 
-### Get Person Request by ID v2 [GET /api/v2/person_requests/{id}]
+### Get Person Request by ID v2 - Deprecated [GET /api/v2/person_requests/{id}]
 
 This method will be depricated. Use **Get Person Request by ID v3** instead.
 
@@ -7871,7 +7871,7 @@ Use this method to obtain Person Request details.
             + documents (array[`media_content`], optional)
 
 
-### Get Person Requests List [GET /api/person_requests{?legal_entity_id,status,page,page_size}]
+### Get Person Requests List - Deprecated [GET /api/person_requests{?legal_entity_id,status,page,page_size}]
 
 This method will be depricated. Use **Get Person Request List v3** instead.
 
@@ -7909,45 +7909,9 @@ More detailed information - https://e-health-ua.atlassian.net/wiki/x/BADDIw
         + data (array[`Patient_Request_Short`])
 
 
-### Get personal data [GET /api/persons/{id}/personal_data]
-
-This method will be deprecated. Use **Get personal data v2**.
-
-This method is used to obtain full information about person by Id. 
-This method is applicable only if there is an active approval of type 'person'.
-
-**Scopes required:** `personal_data:read`
-
-+ Parameters
-    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
-            api-key: uXhEczJ56adsfh3Ri9SUkc4en
-            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
-
-+ Response 200 (application/json)
-    + Attributes (`Response__Process_OK`)
-        + data (array)
-            + (object)
-                + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
-                + include (`Personal_data`)
-
-+ Response 403 (application/json)
-    + Attributes (`Response_Error`)
-        + meta (Response__Meta, fixed-type)
-            + code: 403 (number)
-        + error (Response__Error, fixed-type)
-            + type: `forbidden`
-            + message: `Access denied` (string)
-
-
 ## Persons [/api/persons]
 
-### Search for a Person [GET /api/persons{?first_name,last_name,second_name,birth_date,tax_id,phone_number,birth_place,birth_certificate,page,page_size}]
+### Search for a Person - Deprecated [GET /api/persons{?first_name,last_name,second_name,birth_date,tax_id,phone_number,birth_place,birth_certificate,page,page_size}]
 
 This method will be deprecated. Use **Search for a Person v2**.
 
@@ -7993,6 +7957,42 @@ Block `merged_persons` will be deprecated from response and endpoint `Search Per
         + error (Response__Error, fixed-type)
             + type: `too_many_results`
             + message: `This API method returns only exact match results, please retry with more specific search result` (string)
+
+
+### Get personal data - Deprecated [GET /api/persons/{id}/personal_data]
+
+This method will be deprecated. Use **Get personal data v2**.
+
+This method is used to obtain full information about person by Id. 
+This method is applicable only if there is an active approval of type 'person'.
+
+**Scopes required:** `personal_data:read`
+
++ Parameters
+    + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer c2778f3064753ea70de870a53795f5c9
+            api-key: uXhEczJ56adsfh3Ri9SUkc4en
+            X-Custom-PSK: a2aa05c76f3f2d91870f923a53cc8aa8f23bbc01a8238d1c2c26d4299715a7e4
+
++ Response 200 (application/json)
+    + Attributes (`Response__Process_OK`)
+        + data (array)
+            + (object)
+                + id: `eeebb86d-5cba-43c9-885b-6482ecaf826b` (string, required)
+                + include (`Personal_data`)
+
++ Response 403 (application/json)
+    + Attributes (`Response_Error`)
+        + meta (Response__Meta, fixed-type)
+            + code: 403 (number)
+        + error (Response__Error, fixed-type)
+            + type: `forbidden`
+            + message: `Access denied` (string)
 
 ### Reset authentication method - Deprecated  [PATCH /api/persons/{id}/actions/reset_authentication_method]
 
