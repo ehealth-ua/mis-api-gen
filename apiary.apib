@@ -1264,6 +1264,7 @@ This method allows to receive detailed information about person Declaration by d
             + code: 200 (number)
         + data (object)
             + include `Declaration_Details_V2`
+            + content: `Declaration content` (string, required) - HTML document that MUST be shown to a end-user and signed by hes key. - Should be defined on the client side.
         + urgent (object, required)
             + `authentication_method_current` (object, required)
                 + type: `OTP` (enum, required)
@@ -10089,7 +10090,6 @@ If medical program has funding sourse NHS, fields `sell_amount`, `sell_price`, `
 + updated_at: `2017-03-02T10:45:16.000Z` (string, optional)
 + reason: `manual_employee` (string, optional)
 + reason_description: `Згідно постанови 1 від 10.01.2017` (string, optional)
-+ content: `Declaration content` (string, required) - HTML document that MUST be shown to a end-user and signed by hes key. - Should be defined on the client side.
 
 ### `Declaration_Details_Cabinet`
 + id: `b075f148-7f93-4fc2-b2ec-2d81b19a9b7b` (string, required)
